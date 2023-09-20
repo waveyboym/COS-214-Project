@@ -18,6 +18,10 @@ Please have a look at <a href="https://github.com/waveyboym/COS-214-Project/blob
 8. Wait for VS code to initialize and set itself up(it may add some files under the build folder)
 9. At the bottom of Visual Studio code, you should see a play button, click it and the project should build and run. ![build](images/build.png "build")
 10. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
+11. Alternative tutorials: 
+    * https://code.visualstudio.com/docs/cpp/cmake-linux
+    * https://www.youtube.com/watch?v=sc6_86jgQls&ab_channel=TechHara
+    
 
 ### Building from the command line
 1. Download and install <a href="https://cmake.org/download/#latest">cmake</a>
