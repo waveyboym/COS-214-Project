@@ -20,7 +20,7 @@ Please have a look at <a href="https://github.com/waveyboym/COS-214-Project/blob
 10. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
 ### Building from the command line
-1. Download and install<a href="https://cmake.org/download/#latest">cmake</a>
+1. Download and install <a href="https://cmake.org/download/#latest">cmake</a>
 2. Clone this repo
 3. //todo: add more details
 4. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
