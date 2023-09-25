@@ -38,7 +38,7 @@ Please have a look at <a href="https://github.com/waveyboym/COS-214-Project/blob
 6. Run ```cmake CMakeLists.txt```
 7. Run ```make```
 8. Run ```./<name of created target>```
-9. If any build files are generated on your local machine, please do not commit them; add those files to the gitignore file in the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory.
+9. If any build files are generated on your local machine, please do not commit them; add those files to the <a href="https://github.com/waveyboym/COS-214-Project/blob/main/Source%20Files/.gitignore">gitignore</a> file in the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory.
 10. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
 ## Developing with makefiles(Exclusive to Unix-like OS)
