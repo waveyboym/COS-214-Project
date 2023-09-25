@@ -23,13 +23,13 @@ Please have a look at <a href="https://github.com/waveyboym/COS-214-Project/blob
     * https://www.youtube.com/watch?v=sc6_86jgQls&ab_channel=TechHara
     
 
-### Building from the command line with a Unix-like OS
+### Building from the command line with windows OS
 1. Download and install <a href="https://cmake.org/download/#latest">cmake</a>
 2. Clone this repo
 3. //todo: add more details
 4. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
-### Building from the command line with windows OS
+### Building from the command line with a Unix-like OS 
 1. Open a new terminal
 2. Run ```sudo apt-get install libgtest-dev```
 3. Run ```sudo apt-get install cmake```
