@@ -25,6 +25,25 @@ Please have a look at <a href="https://github.com/waveyboym/COS-214-Project/blob
 3. //todo: add more details
 4. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
+## Developing
+sub-directories to cpp files work like so:
+1. if same directory as makefile, then ```<name of cpp file>.o```
+2. if 1 directory below makefile, then ```<name of folder>/<name of cpp file>.o```
+3. if 2 directories below makefile, then ```<name of folder>/<name of folder>/<name of cpp file>.o```
+4. if 3 directories or more below makefile, the same principle as before follows
+
+NB: If you make a directory that goes really deep, please make sure that it will be compiled by:
+			```%.o: %.cpp
+				$(CXX) -c -g $< -o $@```
+ So if it goes 4 directories deep, you would add:
+			```%/%/%/%.o: %.cpp
+				$(CXX) -c -g $< -o $@```
+
+***Extra note, if the OBJECTS is getting too long and you want to breakline, add " \" then continue typing the list of objects on the next line*** 
+
+please note no file that should be compiled by this makefile should be at a directory above this makefile, that is, this makefile should be at the very top of the tree.
+This is for maintaining simplicity and making it easy to navigate the project
+
 ## Contributors
 
 Thanks to these wonderful people for their contributions.
