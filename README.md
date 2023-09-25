@@ -23,13 +23,25 @@ Please have a look at <a href="https://github.com/waveyboym/COS-214-Project/blob
     * https://www.youtube.com/watch?v=sc6_86jgQls&ab_channel=TechHara
     
 
-### Building from the command line
+### Building from the command line with a Unix-like OS
 1. Download and install <a href="https://cmake.org/download/#latest">cmake</a>
 2. Clone this repo
 3. //todo: add more details
 4. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
-## Developing
+### Building from the command line with windows OS
+1. Open a new terminal
+2. Run ```sudo apt-get install libgtest-dev```
+3. Run ```sudo apt-get install cmake```
+4. Clone this repo
+5. Go to the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory of this repo on your local machine and open a new terminal there
+6. Run ```cmake CMakeLists.txt```
+7. Run ```make```
+8. Run ```./<name of created target>```
+9. If any build files are generated on your local machine, please do not commit them; add those files to the gitignore file in the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory.
+10. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
+
+## Developing with makefiles(Exclusive to Unix-like OS)
 sub-directories to cpp files work like so:
 1. if same directory as makefile, then ```<name of cpp file>.o```
 2. if 1 directory below makefile, then ```<name of folder>/<name of cpp file>.o```
@@ -37,16 +49,20 @@ sub-directories to cpp files work like so:
 4. if 3 directories or more below makefile, the same principle as before follows
 
 NB: If you make a directory that goes really deep, please make sure that it will be compiled by:
-			```%.o: %.cpp
-				$(CXX) -c -g $< -o $@```
+```
+%.o: %.cpp
+	$(CXX) -c -g $< -o $@
+``` 
  So if it goes 4 directories deep, you would add:
-			```%/%/%/%.o: %.cpp
-				$(CXX) -c -g $< -o $@```
+```
+%/%/%/%.o: %.cpp
+	$(CXX) -c -g $< -o $@
+```
 
-***Extra note, if the OBJECTS is getting too long and you want to breakline, add " \" then continue typing the list of objects on the next line*** 
+***Extra note, if the OBJECTS is getting too long and you want to breakline, add ``` \``` then continue typing the list of objects on the next line*** 
 
-please note no file that should be compiled by this makefile should be at a directory above this makefile, that is, this makefile should be at the very top of the tree.
-This is for maintaining simplicity and making it easy to navigate the project
+***Extra note no file that should be compiled by this makefile should be at a directory above this makefile, that is, this makefile should be at the very top of the tree.
+This is for maintaining simplicity and making it easy to navigate the project***
 
 ## Contributors
 
