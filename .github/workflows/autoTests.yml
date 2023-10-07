@@ -17,8 +17,11 @@ jobs:
       
       - name: install cmake
         run: sudo apt-get install cmake
+
+      - name: cd to Source files
+        run: cd "Source Files"
         
-      - name: call cmake to repare build
+      - name: call cmake to prepare build
         run: cmake -S . -B build
         
       - name: build target
