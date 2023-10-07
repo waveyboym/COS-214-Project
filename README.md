@@ -26,8 +26,12 @@ Please have a look at <a href="https://github.com/waveyboym/COS-214-Project/blob
 ### Building from the command line with windows OS
 1. Download and install <a href="https://cmake.org/download/#latest">cmake</a>
 2. Clone this repo
-3. //todo: add more details
-4. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
+3. Go to the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory of this repo on your local machine and open a new terminal there
+4. Run ```cmake -S . -B build```
+5. Run ```cmake --build build```
+6. Run ```cd build && ctest```
+7. If any build files are generated on your local machine, please do not commit them; add those files to the <a href="https://github.com/waveyboym/COS-214-Project/blob/main/Source%20Files/.gitignore">gitignore</a> file in the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory.
+8. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
 ### Building from the command line with a Unix-like OS 
 1. Open a new terminal
@@ -35,9 +39,9 @@ Please have a look at <a href="https://github.com/waveyboym/COS-214-Project/blob
 3. Run ```sudo apt-get install cmake```
 4. Clone this repo
 5. Go to the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory of this repo on your local machine and open a new terminal there
-6. Run ```cmake CMakeLists.txt```
-7. Run ```make```
-8. Run ```./<name of created target>```
+6. Run ```cmake -S . -B build```
+7. Run ```cmake --build build```
+8. Run ```cd build && ctest```
 9. If any build files are generated on your local machine, please do not commit them; add those files to the <a href="https://github.com/waveyboym/COS-214-Project/blob/main/Source%20Files/.gitignore">gitignore</a> file in the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory.
 10. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
