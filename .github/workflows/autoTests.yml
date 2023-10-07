@@ -1,0 +1,32 @@
+name: COS214PROJECTAutomaticTests
+
+on:
+  push:
+      branches: [ develop ]
+  pull_request:
+      branches: [ develop ]
+
+defaults:
+ run:
+  working-directory: ./Source Files
+
+jobs:
+  build-and-test:
+      runs-on: ubuntu-latest
+      
+      steps:
+      - uses: actions/checkout@v4
+      - name: install libgtest-dev
+        run: sudo apt-get install libgtest-dev
+      
+      - name: install cmake
+        run: sudo apt-get install cmake
+        
+      - name: call cmake to prepare build
+        run: cmake -S . -B build
+        
+      - name: build target
+        run: cmake --build build
+        
+      - name: run executable
+        run: cd build && ctest
