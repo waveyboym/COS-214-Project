@@ -5,7 +5,7 @@ container<T>::container(){
     this->capacity = 4;
     this->array = new T[this->capacity];
     for(int i = 0; i < 4; ++i)this->array[i] = NULL;
-    this->size = 1;
+    this->size = 0;
 }
 
 template <class T>
