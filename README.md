@@ -22,8 +22,9 @@ cd "COS-214-Project"
 8. Add the folder "Source Files" to a new work space in visual studio or open with code from your file manager. ![openwithcode](images/openwithcode.png "openwithcode")
 9. Wait for VS code to initialize and set itself up(it may add some files under the build folder)
 10. At the bottom of Visual Studio code, you should see a play button, click it and the project should build and run. ![build](images/build.png "build")
-11. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
-12. Alternative tutorials: 
+11. Specify the build type(Release or Debug) by clicking and changing it
+12. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
+13. Alternative tutorials: 
     * https://code.visualstudio.com/docs/cpp/cmake-linux
     * https://www.youtube.com/watch?v=sc6_86jgQls&ab_channel=TechHara
     
@@ -34,15 +35,21 @@ cd "COS-214-Project"
 3. Clone this repo
 4. Go to the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory of this repo on your local machine and open a new terminal there
 5. Run 
+Release(no unit tests, with gui)```
+cmake -DCMAKE_BUILD_TYPE=Release -S . -B build
 ```
-cmake -S . -B build
+Debug(google unit tests, with no gui)```
+cmake -DCMAKE_BUILD_TYPE=Debug -S . -B build
 ```
 6. Run 
 ```
 cmake --build build
 ```
 7. Run 
+Release(no unit tests, with gui)```
+cd build && ./main
 ```
+Debug(google unit tests, with no gui)```
 cd build && ctest
 ```
 8. If any build files are generated on your local machine, please do not commit them; add those files to the <a href="https://github.com/waveyboym/COS-214-Project/blob/main/Source%20Files/.gitignore">gitignore</a> file in the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory.
@@ -62,17 +69,23 @@ sudo apt-get install cmake
 5. Clone this repo
 6. Go to the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory of this repo on your local machine and open a new terminal there
 7. Run 
+Release(no unit tests, with gui)```
+cmake -DCMAKE_BUILD_TYPE=Release -S . -B build
 ```
-cmake -S . -B build
+Debug(google unit tests, with no gui)```
+cmake -DCMAKE_BUILD_TYPE=Debug -S . -B build
 ```
 8. Run 
 ```
 cmake --build build
 ```
 9. Run 
+Release(no unit tests, with gui)```
+cd build && ./main
 ```
+Debug(google unit tests, with no gui)```
 cd build && ctest
-``` 
+```
 10. If any build files are generated on your local machine, please do not commit them; add those files to the <a href="https://github.com/waveyboym/COS-214-Project/blob/main/Source%20Files/.gitignore">gitignore</a> file in the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory.
 11. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
