@@ -34,26 +34,28 @@ cd "COS-214-Project"
 2. Follow <a href="https://www.geeksforgeeks.org/how-to-install-c-boost-libraries-on-windows/">this guide</a> to download and install boost
 3. Clone this repo
 4. Go to the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory of this repo on your local machine and open a new terminal there
-5. Run 
-Release(no unit tests, with gui)```
+5. For Release(no unit tests, with gui), run
+```
 cmake -DCMAKE_BUILD_TYPE=Release -S . -B build
 ```
-Debug(google unit tests, with no gui)```
+6. For Debug(google unit tests, with no gui), run
+```
 cmake -DCMAKE_BUILD_TYPE=Debug -S . -B build
 ```
-6. Run 
+7. Run 
 ```
 cmake --build build
 ```
-7. Run 
-Release(no unit tests, with gui)```
+8. For Release(no unit tests, with gui), run
+```
 cd build && ./main
 ```
-Debug(google unit tests, with no gui)```
+9. For Debug(google unit tests, with no gui), run
+```
 cd build && ctest
 ```
-8. If any build files are generated on your local machine, please do not commit them; add those files to the <a href="https://github.com/waveyboym/COS-214-Project/blob/main/Source%20Files/.gitignore">gitignore</a> file in the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory.
-9. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
+10. If any build files are generated on your local machine, please do not commit them. Rather create a ```.gitignore``` file in the build directory and add an asterik(*) to it.
+11. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
 ### Building from the command line with a Linux based OS(Debian, Ubuntu and Fedora)
 1. Open a new terminal
@@ -68,28 +70,30 @@ sudo apt-get install cmake
 4. Follow <a href="https://www.geeksforgeeks.org/how-to-install-boost-library-in-cpp-on-linux/">this guide</a> to download and install boost
 5. Clone this repo
 6. Go to the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory of this repo on your local machine and open a new terminal there
-7. Run 
-Release(no unit tests, with gui)```
+7. For Release(no unit tests, with gui), run
+```
 cmake -DCMAKE_BUILD_TYPE=Release -S . -B build
 ```
-Debug(google unit tests, with no gui)```
+8. For Debug(google unit tests, with no gui), run
+```
 cmake -DCMAKE_BUILD_TYPE=Debug -S . -B build
 ```
 8. Run 
 ```
 cmake --build build
 ```
-9. Run 
-Release(no unit tests, with gui)```
+9. For Release(no unit tests, with gui), run
+```
 cd build && ./main
 ```
-Debug(google unit tests, with no gui)```
+10. For Debug(google unit tests, with no gui), run
+```
 cd build && ctest
 ```
-10. If any build files are generated on your local machine, please do not commit them; add those files to the <a href="https://github.com/waveyboym/COS-214-Project/blob/main/Source%20Files/.gitignore">gitignore</a> file in the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory.
-11. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
+11. If any build files are generated on your local machine, please do not commit them. Rather create a ```.gitignore``` file in the build directory and add an asterik(*) to it.
+12. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
-### Building from the command line with a MacOS
+### Building from the command line with MacOS
 //if you have a mac, please fill this out
 
 ## Developing with makefiles(Exclusive to a Linux based OS(Debian, Ubuntu and Fedora))
