@@ -23,7 +23,7 @@ jobs:
         run: sudo apt-get install cmake
         
       - name: call cmake to prepare build
-        run: cmake -S . -B build
+        run: cmake -DCMAKE_BUILD_TYPE=Release -S . -B build
         
       - name: build target
         run: cmake --build build
