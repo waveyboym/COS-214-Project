@@ -108,10 +108,10 @@ Thanks to these wonderful people for their contributions.
 
 | Profile      | Username | Personal Website | Role | Bio |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| <img src="https://avatars.githubusercontent.com/u/93211335?v=4" alt="profile" width="140" height="100"/> | Michael | <a href="https://waveyboym.github.io/">waveyboym</a> | Software developer, Software architect, UI/UX designer | interested in computer science and creating fun CS related projects |
-| <img src="https://avatars.githubusercontent.com/u/96811395?v=4" alt="profile" width="140" height="100"/> | Carey | <a href="https://github.com/u21631532">cmokou</a> | Software developer, UI/UX designer | - |
-| <img src="https://avatars.githubusercontent.com/u/86027693?v=4" alt="profile" width="140" height="100"/> | Lunga | <a href="https://github.com/Remiku-bit">Remiku-bit</a> | Tech lead, Business analyst | - |
-| <img src="https://avatars.githubusercontent.com/u/130374095?v=4" alt="profile" width="140" height="100"/> | Jaden | <a href="https://github.com/u22528492">Jaden Moodley</a> | Software developer | - |
-| <img src="https://avatars.githubusercontent.com/u/130366358?v=4" alt="profile" width="140" height="100"/> | Jaide | <a href="https://github.com/JMPastoll">JMPastoll</a> | Project manager, Business analyst  | - |
-| <img src="https://avatars.githubusercontent.com/u/133004091?v=4" alt="profile" width="140" height="100"/> | Linda | <a href="https://github.com/LOK3LANI">LOK3LANI</a> | Software developer | - |
-| <img src="https://avatars.githubusercontent.com/u/43268664?v=4" alt="profile" width="140" height="100"/> | Nicholas | <a href="https://github.com/NicholasJHarvey">NicholasJHarvey</a> | Software developer | - |
+| <img src="https://avatars.githubusercontent.com/u/93211335?v=4" alt="profile" width="100"/> | Michael | <a href="https://waveyboym.github.io/">waveyboym</a> | Software developer, Software architect, UI/UX designer | interested in computer science and creating fun CS related projects |
+| <img src="https://avatars.githubusercontent.com/u/96811395?v=4" alt="profile" width="100"/> | Carey | <a href="https://github.com/u21631532">cmokou</a> | Software developer, UI/UX designer | - |
+| <img src="https://avatars.githubusercontent.com/u/86027693?v=4" alt="profile" width="100"/> | Lunga | <a href="https://github.com/Remiku-bit">Remiku-bit</a> | Tech lead, Business analyst | - |
+| <img src="https://avatars.githubusercontent.com/u/130374095?v=4" alt="profile" width="100"/> | Jaden | <a href="https://github.com/u22528492">Jaden Moodley</a> | Software developer | - |
+| <img src="https://avatars.githubusercontent.com/u/130366358?v=4" alt="profile" width="100"/> | Jaide | <a href="https://github.com/JMPastoll">JMPastoll</a> | Project manager, Business analyst  | - |
+| <img src="https://avatars.githubusercontent.com/u/133004091?v=4" alt="profile" width="100"/> | Linda | <a href="https://github.com/LOK3LANI">LOK3LANI</a> | Software developer | - |
+| <img src="https://avatars.githubusercontent.com/u/43268664?v=4" alt="profile" width="100"/> | Nicholas | <a href="https://github.com/NicholasJHarvey">NicholasJHarvey</a> | Software developer | - |
