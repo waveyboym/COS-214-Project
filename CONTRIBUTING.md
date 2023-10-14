@@ -1,3 +1,6 @@
+# Important note
+Do not ever touch the documentation branch. Do not make any pull requests or any merges from that branch as it is automatically maintained.
+
 # How to contribute to this project
 
 1. If you have not already, create a new branch in this repository(You can name it whatever you like).
