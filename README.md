@@ -30,7 +30,7 @@ cd "COS-214-Project"
 
 ### Building from the command line with windows OS
 1. Download and install <a href="https://cmake.org/download/#latest">cmake</a>
-2. Follow <a href="">this guide</a> to download and install boost
+2. Follow <a href="https://www.geeksforgeeks.org/how-to-install-c-boost-libraries-on-windows/">this guide</a> to download and install boost
 3. Clone this repo
 4. Go to the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory of this repo on your local machine and open a new terminal there
 5. Run 
@@ -58,7 +58,7 @@ sudo apt-get install libgtest-dev
 ```
 sudo apt-get install cmake
 ```
-4. Follow <a href="">this guide</a> to download and install boost
+4. Follow <a href="https://www.geeksforgeeks.org/how-to-install-boost-library-in-cpp-on-linux/">this guide</a> to download and install boost
 5. Clone this repo
 6. Go to the <a href="https://github.com/waveyboym/COS-214-Project/tree/main/Source%20Files">Source Files</a> directory of this repo on your local machine and open a new terminal there
 7. Run 
