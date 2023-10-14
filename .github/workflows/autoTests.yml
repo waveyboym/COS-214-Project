@@ -3,8 +3,12 @@ name: COS214PROJECTAutomaticTests
 on:
   push:
       branches: [ develop ]
+      paths:
+      - "Source Files"
   pull_request:
       branches: [ develop ]
+      paths:
+      - "Source Files"
 
 defaults:
  run:
