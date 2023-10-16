@@ -10,7 +10,6 @@
 /**
 *@brief entry point of application
 */
-
 int main(){
     Application app;
     app.initApp();
