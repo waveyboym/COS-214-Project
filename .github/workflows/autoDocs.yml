@@ -12,10 +12,6 @@ on:
       types:
       - closed
 
-defaults:
- run:
-  working-directory: ./src
-
 jobs:
   generate-docs:
       if: github.event.pull_request.merged == true
