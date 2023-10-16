@@ -5,13 +5,18 @@ on:
       branches: [ main ]
       paths:
       - "src/**"
+  pull_request:
+      branches: [ main ]
+      paths:
+      - "src/**"
 
 defaults:
  run:
   working-directory: ./src
 
 jobs:
-  build-and-test:
+  generate-docs:
+      if: github.event.pull_request.merged == true
       runs-on: ubuntu-latest
       
       steps:
