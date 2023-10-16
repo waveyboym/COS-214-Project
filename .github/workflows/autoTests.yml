@@ -4,15 +4,15 @@ on:
   push:
       branches: [ develop ]
       paths:
-      - "Source Files"
+      - src
   pull_request:
       branches: [ develop ]
       paths:
-      - "Source Files"
+      - src
 
 defaults:
  run:
-  working-directory: ./Source Files
+  working-directory: ./src
 
 jobs:
   build-and-test:
