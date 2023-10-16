@@ -6,10 +6,6 @@ on:
   pull_request:
       branches: [ main ]
 
-defaults:
- run:
-  working-directory: ./src
-
 jobs:
   build-and-test:
       runs-on: ubuntu-latest
@@ -25,7 +21,7 @@ jobs:
            # Path to Doxyfile
            doxyfile-path: "./Doxyfile" # default is ./Doxyfile
            # Working directory
-           working-directory: "./src" # default is .
+           working-directory: "." # default is .
     
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
