@@ -3,18 +3,15 @@ name: COS214PROJECTAutomaticDocumentationGeneration
 on:
   push:
       branches: [ main ]
-      paths:
-      - "src/**"
   pull_request:
       branches: [ main ]
-      paths:
-      - "src/**"
-      types:
-      - closed
+
+defaults:
+ run:
+  working-directory: ./src
 
 jobs:
-  generate-docs:
-      if: github.event.pull_request.merged == true
+  build-and-test:
       runs-on: ubuntu-latest
       
       steps:
