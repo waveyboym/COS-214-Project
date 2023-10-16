@@ -4,11 +4,11 @@ on:
   push:
       branches: [ develop ]
       paths:
-      - "src"
+      - "src/**"
   pull_request:
       branches: [ develop ]
       paths:
-      - "src"
+      - "src/**"
 
 defaults:
  run:
