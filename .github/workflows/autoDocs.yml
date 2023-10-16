@@ -4,15 +4,15 @@ on:
   push:
       branches: [ main ]
       paths:
-      - "Source Files"
+      - src
   pull_request:
       branches: [ main ]
       paths:
-      - "Source Files"
+      - src
 
 defaults:
  run:
-  working-directory: ./Source Files
+  working-directory: ./src
 
 jobs:
   build-and-test:
@@ -29,7 +29,7 @@ jobs:
            # Path to Doxyfile
            doxyfile-path: "./Doxyfile" # default is ./Doxyfile
            # Working directory
-           working-directory: "./Source Files" # default is .
+           working-directory: "./src" # default is .
     
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
