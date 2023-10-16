@@ -5,6 +5,12 @@ on:
       branches: [ main ]
       paths:
       - "src/**"
+  pull_request:
+      branches: [ main ]
+      paths:
+      - "src/**"
+      types:
+      - closed
 
 defaults:
  run:
