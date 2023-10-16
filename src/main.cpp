@@ -5,7 +5,7 @@
 *@brief entry point of application
 */
 
-#include "backend/App/Application.cpp"
+#include "App/Application.cpp"
 
 /**
 *@brief entry point of application

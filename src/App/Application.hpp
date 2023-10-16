@@ -5,7 +5,7 @@
 *@brief Application class that runs the main application
 */
 
-#include "crow_all.h"
+#include "../backend/includes/crow_all.h"
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
