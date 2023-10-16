@@ -126,7 +126,7 @@ Thanks to these wonderful people for their contributions.
 
 | Profile      | Username | Personal Website | Role | Bio |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| <img src="https://avatars.githubusercontent.com/u/93211335?v=4" alt="profile" width="100"/> | Michael | <a href="https://waveyboym.github.io/">waveyboym</a> | Software developer, Software architect, UI/UX designer | interested in computer science and creating fun CS related projects |
+| <img src="https://avatars.githubusercontent.com/u/93211335?v=4" alt="profile" width="100"/> | Michael | <a href="https://waveyboym.github.io/">waveyboym</a> | Software developer, Software architect, UI/UX designer,  | interested in computer science and creating fun CS related projects |
 | <img src="https://avatars.githubusercontent.com/u/96811395?v=4" alt="profile" width="100"/> | Carey | <a href="https://github.com/u21631532">cmokou</a> | Software developer, UI/UX designer | - |
 | <img src="https://avatars.githubusercontent.com/u/86027693?v=4" alt="profile" width="100"/> | Lunga | <a href="https://github.com/Remiku-bit">Remiku-bit</a> | Tech lead, Business analyst | - |
 | <img src="https://avatars.githubusercontent.com/u/130374095?v=4" alt="profile" width="100"/> | Jaden | <a href="https://github.com/u22528492">Jaden Moodley</a> | Software developer | - |
