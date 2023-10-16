@@ -3,15 +3,18 @@ name: COS214PROJECTAutomaticDocumentationGeneration
 on:
   push:
       branches: [ main ]
+      paths:
+      - "src/**"
   pull_request:
       branches: [ main ]
-
-defaults:
- run:
-  working-directory: ./src
+      paths:
+      - "src/**"
+      types:
+      - closed
 
 jobs:
-  build-and-test:
+  generate-docs:
+      if: github.event.pull_request.merged == true
       runs-on: ubuntu-latest
       
       steps:
@@ -25,11 +28,11 @@ jobs:
            # Path to Doxyfile
            doxyfile-path: "./Doxyfile" # default is ./Doxyfile
            # Working directory
-           working-directory: "./src" # default is .
+           working-directory: "." # default is .
     
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
            github_token: ${{ secrets.GITHUB_TOKEN }}
-           publish_branch: documentation
+           publish_branch: documentation(don't-pr-and-merge-this-branch)
            publish_dir: ./html

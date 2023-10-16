@@ -11,7 +11,7 @@
 *@brief entry point of application
 */
 int main(){
-    Application app;//set up application
+    Application app; //set up application
     app.initApp();//initialise app
     app.runApp();//run app
     return 0;//return
