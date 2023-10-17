@@ -1,0 +1,159 @@
+Start testing: Oct 16 08:32 SAST
+----------------------------------------------------------
+1/6 Testing: SIZE.container
+1/6 Test: SIZE.container
+Command: "/mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build/tests" "--gtest_filter=SIZE.container" "--gtest_also_run_disabled_tests"
+Directory: /mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build
+"SIZE.container" start time: Oct 16 08:32 SAST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = SIZE.container
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SIZE
+[ RUN      ] SIZE.container
+[       OK ] SIZE.container (0 ms)
+[----------] 1 test from SIZE (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"SIZE.container" end time: Oct 16 08:32 SAST
+"SIZE.container" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/6 Testing: CAPACITY.container
+2/6 Test: CAPACITY.container
+Command: "/mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build/tests" "--gtest_filter=CAPACITY.container" "--gtest_also_run_disabled_tests"
+Directory: /mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build
+"CAPACITY.container" start time: Oct 16 08:32 SAST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = CAPACITY.container
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from CAPACITY
+[ RUN      ] CAPACITY.container
+[       OK ] CAPACITY.container (0 ms)
+[----------] 1 test from CAPACITY (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"CAPACITY.container" end time: Oct 16 08:32 SAST
+"CAPACITY.container" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: EMPTY.container
+3/6 Test: EMPTY.container
+Command: "/mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build/tests" "--gtest_filter=EMPTY.container" "--gtest_also_run_disabled_tests"
+Directory: /mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build
+"EMPTY.container" start time: Oct 16 08:32 SAST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = EMPTY.container
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from EMPTY
+[ RUN      ] EMPTY.container
+[       OK ] EMPTY.container (0 ms)
+[----------] 1 test from EMPTY (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"EMPTY.container" end time: Oct 16 08:32 SAST
+"EMPTY.container" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: PUSHBACK.container
+4/6 Test: PUSHBACK.container
+Command: "/mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build/tests" "--gtest_filter=PUSHBACK.container" "--gtest_also_run_disabled_tests"
+Directory: /mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build
+"PUSHBACK.container" start time: Oct 16 08:32 SAST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = PUSHBACK.container
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PUSHBACK
+[ RUN      ] PUSHBACK.container
+[       OK ] PUSHBACK.container (0 ms)
+[----------] 1 test from PUSHBACK (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"PUSHBACK.container" end time: Oct 16 08:32 SAST
+"PUSHBACK.container" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: PUSHFRONT.container
+5/6 Test: PUSHFRONT.container
+Command: "/mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build/tests" "--gtest_filter=PUSHFRONT.container" "--gtest_also_run_disabled_tests"
+Directory: /mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build
+"PUSHFRONT.container" start time: Oct 16 08:32 SAST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = PUSHFRONT.container
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PUSHFRONT
+[ RUN      ] PUSHFRONT.container
+[       OK ] PUSHFRONT.container (0 ms)
+[----------] 1 test from PUSHFRONT (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"PUSHFRONT.container" end time: Oct 16 08:32 SAST
+"PUSHFRONT.container" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/6 Testing: PUSHBACK_PUSHFRONT_RESIZE.container
+6/6 Test: PUSHBACK_PUSHFRONT_RESIZE.container
+Command: "/mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build/tests" "--gtest_filter=PUSHBACK_PUSHFRONT_RESIZE.container" "--gtest_also_run_disabled_tests"
+Directory: /mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build
+"PUSHBACK_PUSHFRONT_RESIZE.container" start time: Oct 16 08:32 SAST
+Output:
+----------------------------------------------------------
+Note: Google Test filter = PUSHBACK_PUSHFRONT_RESIZE.container
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from PUSHBACK_PUSHFRONT_RESIZE
+[ RUN      ] PUSHBACK_PUSHFRONT_RESIZE.container
+[       OK ] PUSHBACK_PUSHFRONT_RESIZE.container (0 ms)
+[----------] 1 test from PUSHBACK_PUSHFRONT_RESIZE (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"PUSHBACK_PUSHFRONT_RESIZE.container" end time: Oct 16 08:32 SAST
+"PUSHBACK_PUSHFRONT_RESIZE.container" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 16 08:32 SAST
