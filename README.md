@@ -1,5 +1,18 @@
 # COS-214-Project
 
+# Table of Contents
+
+- [COS-214-Project](#cos-214-project)
+- [Table of Contents](#table-of-contents)
+  - [Summary](#summary)
+  - [Contributing](#contributing)
+  - [Building](#building)
+    - [Building with visual studio code](#building-with-visual-studio-code)
+    - [Building from the command line with windows OS](#building-from-the-command-line-with-windows-os)
+    - [Building from the command line with a Linux based OS(Debian, Ubuntu and Fedora)](#building-from-the-command-line-with-a-linux-based-osdebian-ubuntu-and-fedora)
+  - [Developing with makefiles(Exclusive to a Linux based OS(Debian, Ubuntu and Fedora))](#developing-with-makefilesexclusive-to-a-linux-based-osdebian-ubuntu-and-fedora)
+  - [Contributors](#contributors)
+
 ## Summary
 A restaurant simulation application that makes use of various design patterns.
 implemented in C++
@@ -10,7 +23,7 @@ Please have a look at <a href="https://github.com/waveyboym/COS-214-Project/blob
 ## Building
 ### Building with visual studio code
 1. Download and install C++ build tools by following this <a href="https://github.com/bycloudai/InstallVSBuildToolsWindows">tutorial</a>
-2. Download and install <a href="">boost</a> fr your operating system.
+2. Download and install <a href="">boost</a> for your operating system.
 3. Download and install <a href="https://cmake.org/download/#latest">cmake</a>
 4. Clone this repo
 5. Download and install <a href="https://code.visualstudio.com/">visual studio code</a>
@@ -94,9 +107,6 @@ cd build && ctest
 11. If any build files are generated on your local machine, please do not commit them. Rather create a ```.gitignore``` file in the build directory and add an asterik(*) to it.
 12. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
-### Building from the command line with MacOS
-//if you have a mac, please fill this out
-
 ## Developing with makefiles(Exclusive to a Linux based OS(Debian, Ubuntu and Fedora))
 sub-directories to cpp files work like so:
 1. if same directory as makefile, then ```<name of cpp file>.o```
@@ -117,7 +127,7 @@ NB: If you make a directory that goes really deep, please make sure that it will
 
 ***Extra note, if the OBJECTS is getting too long and you want to breakline, add ``` \``` then continue typing the list of objects on the next line*** 
 
-***Extra note no file that should be compiled by this makefile should be at a directory above this makefile, that is, this makefile should be at the very top of the tree.
+***Extra note no file that should be compiled by the <a href="https://github.com/waveyboym/COS-214-Project/blob/main/makefiles/makefile">makefile</a> should be at a directory above this makefile, that is, this makefile should be at the very top of the tree.
 This is for maintaining simplicity and making it easy to navigate the project***
 
 ## Contributors
