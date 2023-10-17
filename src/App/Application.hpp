@@ -13,12 +13,6 @@
  * @brief Application class that runs the main application
 */
 class Application{
-    private:
-        /**
-         * @brief example
-        */
-        const int example = 0;
-
     public:
         /**
          * @brief initialises the application class
@@ -32,6 +26,19 @@ class Application{
          * @return void
         */
         void runApp();
+
+    private:
+        /**
+         * @brief this holds the app variable that creates a websocket and intercepts incoming requests
+        */
+        crow::SimpleApp app;
+
+        /**
+         * @brief processes the incoming request from the frontend and sends back a response
+         * @param req incoming json request from the frontend
+         * @return std::string
+        */
+        std::string processFrontendRequest(std::string req);
 };
 
 #endif

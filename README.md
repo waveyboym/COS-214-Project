@@ -2,7 +2,6 @@
 
 # Table of Contents
 
-
 - [COS-214-Project](#cos-214-project)
 - [Table of Contents](#table-of-contents)
   - [Summary](#summary)

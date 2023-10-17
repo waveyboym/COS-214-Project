@@ -11,7 +11,7 @@ on:
       - "src/**"
 
 defaults:
- run:
+run:
   working-directory: ./src
 
 jobs:
