@@ -1,0 +1,5 @@
+if(EXISTS "/mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build/tests[1]_tests.cmake")
+  include("/mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build/tests[1]_tests.cmake")
+else()
+  add_test(tests_NOT_BUILT tests_NOT_BUILT)
+endif()
