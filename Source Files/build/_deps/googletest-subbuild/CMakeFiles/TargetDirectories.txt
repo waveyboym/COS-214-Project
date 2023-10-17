@@ -1,3 +1,0 @@
-/mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
-/mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
-/mnt/c/Users/jmood/Desktop/University/Second Year/COS 214/COS-214-Project/Source Files/build/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir
