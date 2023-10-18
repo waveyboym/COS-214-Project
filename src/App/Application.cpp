@@ -34,5 +34,6 @@ void Application::runApp()
 
 std::string Application::processFrontendRequest(std::string req){
     //TODO: add more code
+    //ISSUE ID: 1 If you decide to take this issue, please indicate this on the issues tab on github for ISSUE ID: 1
     return "{ \"message\": \"hello javascript from cplusplus\"}";
 }
