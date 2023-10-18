@@ -29,7 +29,7 @@ void Application::initApp()
 
 void Application::runApp()
 {
-    
+    std::cout << "run output" << std::endl;
 }
 
 std::string Application::processFrontendRequest(std::string req){
