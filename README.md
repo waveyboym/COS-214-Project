@@ -10,6 +10,9 @@
     - [Building with visual studio code](#building-with-visual-studio-code)
     - [Building from the command line with windows OS](#building-from-the-command-line-with-windows-os)
     - [Building from the command line with a Linux based OS(Debian, Ubuntu and Fedora)](#building-from-the-command-line-with-a-linux-based-osdebian-ubuntu-and-fedora)
+  - [Developing](#developing)
+    - [Automatic](#automatic)
+    - [Manually](#manually)
   - [Developing with makefiles(Exclusive to a Linux based OS(Debian, Ubuntu and Fedora))](#developing-with-makefilesexclusive-to-a-linux-based-osdebian-ubuntu-and-fedora)
   - [Contributors](#contributors)
 
@@ -104,8 +107,92 @@ cd build && ./main
 ```
 cd build && ctest
 ```
-11. If any build files are generated on your local machine, please do not commit them. Rather create a ```.gitignore``` file in the build directory and add an asterik(*) to it.
-12. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
+11. If you are in debug, skip steps 12 to 14
+12. Then open another terminal and from the root of this project run
+```
+cd COS-214-PROJECT/src/frontend
+```
+13. Run
+```
+npm install
+```
+14. Run
+```
+npm run dev
+```
+15.  If any build files are generated on your local machine, please do not commit them. Rather create a ```.gitignore``` file in the build directory and add an asterik(*) to it.
+16.  For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
+
+## Developing
+
+### Automatic
+1. Open a new terminal
+2. Run
+```
+cd COS-214-PROJECT/scripts
+```
+3. Run either the debug or release bash scripts depending on your requirements and watch the magic happen ✨
+4. 
+```
+./build-and-run-debug.sh
+```
+5. 
+```
+./build-and-run-release.sh
+```
+6. If you are in debug, skip the next steps from here
+7. Then open another terminal and from the root of this project run
+```
+cd COS-214-PROJECT/src/frontend
+```
+8.  Run
+```
+npm install
+```
+9.  Run
+```
+npm run dev
+```
+
+### Manually
+1. Open a new terminal
+2. Run
+```
+cd COS-214-PROJECT/src
+```
+3. For Release(no unit tests, with gui), run
+```
+cmake -DCMAKE_BUILD_TYPE=Release -S . -B build
+```
+4. For Debug(google unit tests, with no gui), run
+```
+cmake -DCMAKE_BUILD_TYPE=Debug -S . -B build
+```
+5. Run 
+```
+cmake --build build
+```
+6. For Release(no unit tests, with gui), run
+```
+cd build && ./main
+```
+7. For Debug(google unit tests, with no gui), run
+```
+cd build && ctest
+```
+8. If you are in debug, skip the next steps from here
+9. Then open another terminal and from the root of this project run
+```
+cd COS-214-PROJECT/src/frontend
+```
+10.  Run
+```
+npm install
+```
+11.  Run
+```
+npm run dev
+```
 
 ## Developing with makefiles(Exclusive to a Linux based OS(Debian, Ubuntu and Fedora))
 sub-directories to cpp files work like so:
