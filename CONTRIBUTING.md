@@ -17,4 +17,8 @@ Do not ever touch the documentation branch. Do not make any pull requests or any
 
 # Visual representation of how it works
 
+## How it works
 ![contributing](images/contributing.png "contributing")
+
+## Flow chart
+![contributing-flow-diagram](Diagrams/Coding%20guidelines/contributing%20flow%20diagram.png "contributing-flow-diagram")

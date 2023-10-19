@@ -11,8 +11,8 @@ on:
       - "src/**"
 
 defaults:
- run:
-  working-directory: ./src
+  run:
+    working-directory: ./src
 
 jobs:
   build-and-test:
