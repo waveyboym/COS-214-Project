@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['template_5ft_0',['template_t',['../classcrow_1_1mustache_1_1template__t.html',1,'crow::mustache']]]
+  ['static_5ffile_5finfo_0',['static_file_info',['../structcrow_1_1response_1_1static__file__info.html',1,'crow::response']]]
 ];

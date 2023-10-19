@@ -3707,13 +3707,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l03637" name="l03637"></a><span class="lineno"> 3637</span>            <span class="keywordtype">void</span> operator()(<a class="code hl_struct" href="structcrow_1_1request.html">crow::request</a>&amp; req, crow::response&amp; res, Args&amp;&amp;... args)<span class="keyword"> const</span></div>
 <div class="line"><a id="l03638" name="l03638"></a><span class="lineno"> 3638</span><span class="keyword">            </span>{</div>
 <div class="line"><a id="l03639" name="l03639"></a><span class="lineno"> 3639</span>                <span class="keyword">auto</span>&amp; ctx = *<span class="keyword">reinterpret_cast&lt;</span>typename <a class="code hl_class" href="structcrow_1_1detail_1_1context.html">App::context_t</a>*<span class="keyword">&gt;</span>(req.middleware_context);</div>
-<div class="line"><a id="l03640" name="l03640"></a><span class="lineno"> 3640</span>                <span class="keyword">auto</span>&amp; <a class="code hl_class" href="classcontainer.html">container</a> = *<span class="keyword">reinterpret_cast&lt;</span>typename App::mw_container_t*<span class="keyword">&gt;</span>(req.middleware_container);</div>
+<div class="line"><a id="l03640" name="l03640"></a><span class="lineno"> 3640</span>                <span class="keyword">auto</span>&amp; container = *<span class="keyword">reinterpret_cast&lt;</span>typename App::mw_container_t*<span class="keyword">&gt;</span>(req.middleware_container);</div>
 <div class="line"><a id="l03641" name="l03641"></a><span class="lineno"> 3641</span> </div>
 <div class="line"><a id="l03642" name="l03642"></a><span class="lineno"> 3642</span>                <span class="keyword">auto</span> glob_completion_handler = std::move(res.complete_request_handler_);</div>
 <div class="line"><a id="l03643" name="l03643"></a><span class="lineno"> 3643</span>                res.complete_request_handler_ = [] {};</div>
 <div class="line"><a id="l03644" name="l03644"></a><span class="lineno"> 3644</span> </div>
 <div class="line"><a id="l03645" name="l03645"></a><span class="lineno"> 3645</span>                middleware_call_helper&lt;middleware_call_criteria,</div>
-<div class="line"><a id="l03646" name="l03646"></a><span class="lineno"> 3646</span>                                       0, <span class="keyword">typename</span> <a class="code hl_class" href="structcrow_1_1detail_1_1context.html">App::context_t</a>, <span class="keyword">typename</span> App::mw_container_t&gt;(<a class="code hl_class" href="classcontainer.html">container</a>, req, res, ctx);</div>
+<div class="line"><a id="l03646" name="l03646"></a><span class="lineno"> 3646</span>                                       0, <span class="keyword">typename</span> <a class="code hl_class" href="structcrow_1_1detail_1_1context.html">App::context_t</a>, <span class="keyword">typename</span> App::mw_container_t&gt;(container, req, res, ctx);</div>
 <div class="line"><a id="l03647" name="l03647"></a><span class="lineno"> 3647</span> </div>
 <div class="line"><a id="l03648" name="l03648"></a><span class="lineno"> 3648</span>                <span class="keywordflow">if</span> (res.completed_)</div>
 <div class="line"><a id="l03649" name="l03649"></a><span class="lineno"> 3649</span>                {</div>
@@ -3721,12 +3721,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l03651" name="l03651"></a><span class="lineno"> 3651</span>                    <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l03652" name="l03652"></a><span class="lineno"> 3652</span>                }</div>
 <div class="line"><a id="l03653" name="l03653"></a><span class="lineno"> 3653</span> </div>
-<div class="line"><a id="l03654" name="l03654"></a><span class="lineno"> 3654</span>                res.complete_request_handler_ = [&amp;ctx, &amp;<a class="code hl_class" href="classcontainer.html">container</a>, &amp;req, &amp;res, &amp;glob_completion_handler] {</div>
+<div class="line"><a id="l03654" name="l03654"></a><span class="lineno"> 3654</span>                res.complete_request_handler_ = [&amp;ctx, &amp;container, &amp;req, &amp;res, &amp;glob_completion_handler] {</div>
 <div class="line"><a id="l03655" name="l03655"></a><span class="lineno"> 3655</span>                    after_handlers_call_helper&lt;</div>
 <div class="line"><a id="l03656" name="l03656"></a><span class="lineno"> 3656</span>                      middleware_call_criteria,</div>
 <div class="line"><a id="l03657" name="l03657"></a><span class="lineno"> 3657</span>                      std::tuple_size&lt;typename App::mw_container_t&gt;::value - 1,</div>
 <div class="line"><a id="l03658" name="l03658"></a><span class="lineno"> 3658</span>                      <span class="keyword">typename</span> <a class="code hl_class" href="structcrow_1_1detail_1_1context.html">App::context_t</a>,</div>
-<div class="line"><a id="l03659" name="l03659"></a><span class="lineno"> 3659</span>                      <span class="keyword">typename</span> App::mw_container_t&gt;(<a class="code hl_class" href="classcontainer.html">container</a>, ctx, req, res);</div>
+<div class="line"><a id="l03659" name="l03659"></a><span class="lineno"> 3659</span>                      <span class="keyword">typename</span> App::mw_container_t&gt;(container, ctx, req, res);</div>
 <div class="line"><a id="l03660" name="l03660"></a><span class="lineno"> 3660</span>                    glob_completion_handler();</div>
 <div class="line"><a id="l03661" name="l03661"></a><span class="lineno"> 3661</span>                };</div>
 <div class="line"><a id="l03662" name="l03662"></a><span class="lineno"> 3662</span> </div>
@@ -12699,7 +12699,6 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 </div>
 </div>
-<div class="ttc" id="aclasscontainer_html"><div class="ttname"><a href="classcontainer.html">container</a></div><div class="ttdef"><b>Definition</b> container.hpp:7</div></div>
 <div class="ttc" id="aclasscrow_1_1CerrLogHandler_html"><div class="ttname"><a href="classcrow_1_1CerrLogHandler.html">crow::CerrLogHandler</a></div><div class="ttdef"><b>Definition</b> crow_all.h:326</div></div>
 <div class="ttc" id="aclasscrow_1_1ILogHandler_html"><div class="ttname"><a href="classcrow_1_1ILogHandler.html">crow::ILogHandler</a></div><div class="ttdef"><b>Definition</b> crow_all.h:320</div></div>
 <div class="ttc" id="aclasscrow_1_1json_1_1rvalue_html"><div class="ttname"><a href="classcrow_1_1json_1_1rvalue.html">crow::json::rvalue</a></div><div class="ttdoc">JSON read value.</div><div class="ttdef"><b>Definition</b> crow_all.h:6852</div></div>

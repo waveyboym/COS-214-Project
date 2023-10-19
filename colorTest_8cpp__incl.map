@@ -1,0 +1,9 @@
+<map id="src/tests/colorTest.cpp" name="src/tests/colorTest.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="43,5,197,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,87,99,112"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,33,74,76,70,73,108,30"/>
+<area shape="rect" id="Node000003" href="$color_8hpp.html" title=" " alt="" coords="123,79,256,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,30,164,65,160,69,129,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="163,168,216,193"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="192,120,192,152,187,152,187,120"/>
+</map>

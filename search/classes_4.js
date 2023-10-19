@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['ilocalmiddleware_0',['ILocalMiddleware',['../structcrow_1_1ILocalMiddleware.html',1,'crow']]],
-  ['iloghandler_1',['ILogHandler',['../classcrow_1_1ILogHandler.html',1,'crow']]],
-  ['invalid_5ftemplate_5fexception_2',['invalid_template_exception',['../classcrow_1_1mustache_1_1invalid__template__exception.html',1,'crow::mustache']]],
-  ['is_5fafter_5fhandle_5farity_5f3_5fimpl_3',['is_after_handle_arity_3_impl',['../structcrow_1_1detail_1_1is__after__handle__arity__3__impl.html',1,'crow::detail']]],
-  ['is_5fbefore_5fhandle_5farity_5f3_5fimpl_4',['is_before_handle_arity_3_impl',['../structcrow_1_1detail_1_1is__before__handle__arity__3__impl.html',1,'crow::detail']]]
+  ['handler_5fcall_5fbridge_0',['handler_call_bridge',['../structcrow_1_1detail_1_1handler__call__bridge.html',1,'crow::detail']]],
+  ['handler_5ftype_5fhelper_1',['handler_type_helper',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1Wrapped_1_1handler__type__helper.html',1,'crow::detail::routing_handler_call_helper::Wrapped']]],
+  ['handler_5ftype_5fhelper_3c_20argswrapped_2e_2e_2e_20_3e_2',['handler_type_helper&lt; ArgsWrapped... &gt;',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1Wrapped_1_1handler__type__helper.html',1,'crow::detail::routing_handler_call_helper::Wrapped']]],
+  ['handler_5ftype_5fhelper_3c_20const_20request_20_26_2c_20args_2e_2e_2e_20_3e_3',['handler_type_helper&lt; const request &amp;, Args... &gt;',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1Wrapped_1_1handler__type__helper_3_01c0d35a24c30ea9478e9d7c8909d5ab7a6.html',1,'crow::detail::routing_handler_call_helper::Wrapped']]],
+  ['handler_5ftype_5fhelper_3c_20const_20request_20_26_2c_20response_20_26_2c_20args_2e_2e_2e_20_3e_4',['handler_type_helper&lt; const request &amp;, response &amp;, Args... &gt;',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1Wrapped_1_1handler__type__helper_3_01c7a99fd73e75413e8da6111065738c862.html',1,'crow::detail::routing_handler_call_helper::Wrapped']]],
+  ['header_5',['header',['../structcrow_1_1multipart_1_1header.html',1,'crow::multipart']]]
 ];

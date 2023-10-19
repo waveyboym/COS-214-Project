@@ -1,12 +1,8 @@
 var searchData=
 [
-  ['params_0',['params',['../structcrow_1_1multipart_1_1header.html#a18422d09aac9c5d5751799862d41a73c',1,'crow::multipart::header']]],
-  ['part_1',['part',['../structcrow_1_1multipart_1_1part.html',1,'crow::multipart']]],
-  ['part_5fmap_2',['part_map',['../structcrow_1_1multipart_1_1message.html#a76d89e2bff4c90307053bcb895d334ec',1,'crow::multipart::message']]],
-  ['partial_5fcontext_3',['partial_context',['../structcrow_1_1detail_1_1partial__context.html',1,'crow::detail']]],
-  ['partial_5fcontext_3c_20middlewares_2e_2e_2e_20_3e_4',['partial_context&lt; Middlewares... &gt;',['../structcrow_1_1detail_1_1partial__context.html',1,'crow::detail']]],
-  ['partial_5fcontext_3c_3e_5',['partial_context&lt;&gt;',['../structcrow_1_1detail_1_1partial__context_3_4.html',1,'crow::detail']]],
-  ['parts_6',['parts',['../structcrow_1_1multipart_1_1message.html#a05e9cf3feb60f4534af334b2dd5eadf2',1,'crow::multipart::message']]],
-  ['post_7',['post',['../structcrow_1_1request.html#a33aa146a3914864ce82ef22136451601',1,'crow::request::post()'],['../classcrow_1_1websocket_1_1Connection.html#ac3d4cebfc05076982ff002b7c3186ade',1,'crow::websocket::Connection::post()']]],
-  ['prefix_8',['prefix',['../structcrow_1_1CORSRules.html#a98b09d1b3ebcc8db99a845333dc1ffff',1,'crow::CORSRules::prefix()'],['../structcrow_1_1CORSHandler.html#a432bb066fbb39a476747923dde784eb2',1,'crow::CORSHandler::prefix()']]]
+  ['opcode_0',['opcode',['../classcrow_1_1websocket_1_1Connection.html#a47a804e0269c7e70f45434f7618c6e7b',1,'crow::websocket::Connection']]],
+  ['operator_20double_1',['operator double',['../structcrow_1_1multipart_1_1header.html#a0b87278e0ebe8d323f46c9ed64fc385a',1,'crow::multipart::header::operator double()'],['../structcrow_1_1multipart_1_1part.html#ac9c4ebeeabe158725bc67cf14c9f957e',1,'crow::multipart::part::operator double()']]],
+  ['operator_20int_2',['operator int',['../structcrow_1_1multipart_1_1header.html#adff380493f414108eb67420d06d426ee',1,'crow::multipart::header::operator int()'],['../structcrow_1_1multipart_1_1part.html#a06851f0fd2d36b71139e8488fb646b7e',1,'crow::multipart::part::operator int()']]],
+  ['operator_20std_3a_3astring_3',['string',['../classcrow_1_1json_1_1rvalue.html#a2d5dd8607112a132fe070dee432987ae',1,'crow::json::rvalue']]],
+  ['origin_4',['origin',['../structcrow_1_1CORSRules.html#a24c7fb4f22e72d9bf11c444eeefe27fe',1,'crow::CORSRules']]]
 ];

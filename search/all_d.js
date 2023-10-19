@@ -1,14 +1,12 @@
 var searchData=
 [
-  ['r_5fstring_0',['r_string',['../structcrow_1_1json_1_1detail_1_1r__string.html',1,'crow::json::detail']]],
-  ['raw_5furl_1',['raw_url',['../structcrow_1_1request.html#a72f5504a56f9ba70d7d33f86aaf9bc8a',1,'crow::request']]],
-  ['remote_5fip_5faddress_2',['remote_ip_address',['../structcrow_1_1request.html#aa8a04e30e2249f04614f233d25ffaad7',1,'crow::request']]],
-  ['render_3',['render',['../classcrow_1_1mustache_1_1template__t.html#a67caf7e23349a829b913c897ab882a8e',1,'crow::mustache::template_t::render() const'],['../classcrow_1_1mustache_1_1template__t.html#a17175fc5cda74aca475286f75aa2b941',1,'crow::mustache::template_t::render(context &amp;ctx) const']]],
-  ['render_5fstring_4',['render_string',['../classcrow_1_1mustache_1_1template__t.html#a21199e08a066d7c66b5728354c2c40fd',1,'crow::mustache::template_t::render_string() const'],['../classcrow_1_1mustache_1_1template__t.html#a85ce237f9d06fdb02e15919479fbf2d9',1,'crow::mustache::template_t::render_string(context &amp;ctx) const']]],
-  ['rendered_5ftemplate_5',['rendered_template',['../structcrow_1_1mustache_1_1rendered__template.html',1,'crow::mustache']]],
-  ['req_5fhandler_5fwrapper_6',['req_handler_wrapper',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1Wrapped_1_1req__handler__wrapper.html',1,'crow::detail::routing_handler_call_helper::Wrapped']]],
-  ['request_7',['request',['../structcrow_1_1request.html',1,'crow::request'],['../structcrow_1_1request.html#a838c9a8c9a5eb2283d57e66f3630b5a6',1,'crow::request::request()'],['../structcrow_1_1request.html#a111b70ddb2a100a79415b539e152e145',1,'crow::request::request(HTTPMethod method, std::string raw_url, std::string url, query_string url_params, ci_map headers, std::string body, unsigned char http_major, unsigned char http_minor, bool has_keep_alive, bool has_close_connection, bool is_upgrade)']]],
-  ['returnable_8',['returnable',['../structcrow_1_1returnable.html',1,'crow']]],
-  ['runapp_9',['runApp',['../classApplication.html#a2cf00501c668d5f9e53328607fc6c9e6',1,'Application']]],
-  ['rvalue_10',['rvalue',['../classcrow_1_1json_1_1rvalue.html',1,'crow::json']]]
+  ['params_0',['params',['../structcrow_1_1multipart_1_1header.html#a18422d09aac9c5d5751799862d41a73c',1,'crow::multipart::header']]],
+  ['part_1',['part',['../structcrow_1_1multipart_1_1part.html',1,'crow::multipart']]],
+  ['part_5fmap_2',['part_map',['../structcrow_1_1multipart_1_1message.html#a76d89e2bff4c90307053bcb895d334ec',1,'crow::multipart::message']]],
+  ['partial_5fcontext_3',['partial_context',['../structcrow_1_1detail_1_1partial__context.html',1,'crow::detail']]],
+  ['partial_5fcontext_3c_20middlewares_2e_2e_2e_20_3e_4',['partial_context&lt; Middlewares... &gt;',['../structcrow_1_1detail_1_1partial__context.html',1,'crow::detail']]],
+  ['partial_5fcontext_3c_3e_5',['partial_context&lt;&gt;',['../structcrow_1_1detail_1_1partial__context_3_4.html',1,'crow::detail']]],
+  ['parts_6',['parts',['../structcrow_1_1multipart_1_1message.html#a05e9cf3feb60f4534af334b2dd5eadf2',1,'crow::multipart::message']]],
+  ['post_7',['post',['../structcrow_1_1request.html#a33aa146a3914864ce82ef22136451601',1,'crow::request::post()'],['../classcrow_1_1websocket_1_1Connection.html#ac3d4cebfc05076982ff002b7c3186ade',1,'crow::websocket::Connection::post()']]],
+  ['prefix_8',['prefix',['../structcrow_1_1CORSRules.html#a98b09d1b3ebcc8db99a845333dc1ffff',1,'crow::CORSRules::prefix()'],['../structcrow_1_1CORSHandler.html#a432bb066fbb39a476747923dde784eb2',1,'crow::CORSHandler::prefix()']]]
 ];

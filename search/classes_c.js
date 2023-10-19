@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['utf8_0',['UTF8',['../structcrow_1_1UTF8.html',1,'crow']]]
+  ['template_5ft_0',['template_t',['../classcrow_1_1mustache_1_1template__t.html',1,'crow::mustache']]]
 ];

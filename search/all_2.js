@@ -19,12 +19,15 @@ var searchData=
   ['ci_5fkey_5feq_16',['ci_key_eq',['../structcrow_1_1ci__key__eq.html',1,'crow']]],
   ['clear_17',['clear',['../classcrow_1_1json_1_1wvalue.html#af46596998d8e639a23b401e951297b63',1,'crow::json::wvalue']]],
   ['close_18',['close',['../classcrow_1_1websocket_1_1Connection.html#a210e06034d286e82a3fd090b9a239c86',1,'crow::websocket::Connection']]],
-  ['connection_19',['connection',['../classcrow_1_1websocket_1_1Connection.html#a8c86760ae4680c1b48fb402beee51584',1,'crow::websocket::Connection::Connection()'],['../classcrow_1_1websocket_1_1Connection.html',1,'crow::websocket::Connection&lt; Adaptor &gt;'],['../structcrow_1_1websocket_1_1connection.html',1,'crow::websocket::connection']]],
-  ['container_20',['container',['../classcontainer.html',1,'']]],
-  ['context_21',['context',['../structcrow_1_1CORSHandler_1_1context.html',1,'crow::CORSHandler::context'],['../structcrow_1_1detail_1_1context.html',1,'crow::detail::context&lt; Middlewares &gt;'],['../structcrow_1_1UTF8_1_1context.html',1,'crow::UTF8::context'],['../structcrow_1_1CookieParser_1_1context.html',1,'crow::CookieParser::context']]],
-  ['context_3c_20middlewares_2e_2e_2e_20_3e_22',['context&lt; Middlewares... &gt;',['../structcrow_1_1detail_1_1context.html',1,'crow::detail']]],
-  ['cookieparser_23',['CookieParser',['../structcrow_1_1CookieParser.html',1,'crow']]],
-  ['corshandler_24',['CORSHandler',['../structcrow_1_1CORSHandler.html',1,'crow']]],
-  ['corsrules_25',['CORSRules',['../structcrow_1_1CORSRules.html',1,'crow']]],
-  ['crow_3a_3amultipart_26',['multipart',['../namespacecrow_1_1multipart.html',1,'crow']]]
+  ['color_19',['color',['../classcolor.html',1,'color'],['../namespacecolor.html',1,'color']]],
+  ['color_2ehpp_20',['color.hpp',['../color_8hpp.html',1,'']]],
+  ['colorcode_21',['ColorCode',['../classcolor.html#afca2423d3eeb95c4556737e2e18051f6',1,'color']]],
+  ['colortest_2ecpp_22',['colorTest.cpp',['../colorTest_8cpp.html',1,'']]],
+  ['connection_23',['connection',['../classcrow_1_1websocket_1_1Connection.html#a8c86760ae4680c1b48fb402beee51584',1,'crow::websocket::Connection::Connection()'],['../structcrow_1_1websocket_1_1connection.html',1,'crow::websocket::connection'],['../classcrow_1_1websocket_1_1Connection.html',1,'crow::websocket::Connection&lt; Adaptor &gt;']]],
+  ['context_24',['context',['../structcrow_1_1UTF8_1_1context.html',1,'crow::UTF8::context'],['../structcrow_1_1detail_1_1context.html',1,'crow::detail::context&lt; Middlewares &gt;'],['../structcrow_1_1CORSHandler_1_1context.html',1,'crow::CORSHandler::context'],['../structcrow_1_1CookieParser_1_1context.html',1,'crow::CookieParser::context']]],
+  ['context_3c_20middlewares_2e_2e_2e_20_3e_25',['context&lt; Middlewares... &gt;',['../structcrow_1_1detail_1_1context.html',1,'crow::detail']]],
+  ['cookieparser_26',['CookieParser',['../structcrow_1_1CookieParser.html',1,'crow']]],
+  ['corshandler_27',['CORSHandler',['../structcrow_1_1CORSHandler.html',1,'crow']]],
+  ['corsrules_28',['CORSRules',['../structcrow_1_1CORSRules.html',1,'crow']]],
+  ['crow_3a_3amultipart_29',['multipart',['../namespacecrow_1_1multipart.html',1,'crow']]]
 ];

@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['r_5fstring_0',['r_string',['../structcrow_1_1json_1_1detail_1_1r__string.html',1,'crow::json::detail']]],
-  ['rendered_5ftemplate_1',['rendered_template',['../structcrow_1_1mustache_1_1rendered__template.html',1,'crow::mustache']]],
-  ['req_5fhandler_5fwrapper_2',['req_handler_wrapper',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1Wrapped_1_1req__handler__wrapper.html',1,'crow::detail::routing_handler_call_helper::Wrapped']]],
-  ['request_3',['request',['../structcrow_1_1request.html',1,'crow']]],
-  ['returnable_4',['returnable',['../structcrow_1_1returnable.html',1,'crow']]],
-  ['rvalue_5',['rvalue',['../classcrow_1_1json_1_1rvalue.html',1,'crow::json']]]
+  ['part_0',['part',['../structcrow_1_1multipart_1_1part.html',1,'crow::multipart']]],
+  ['partial_5fcontext_1',['partial_context',['../structcrow_1_1detail_1_1partial__context.html',1,'crow::detail']]],
+  ['partial_5fcontext_3c_20middlewares_2e_2e_2e_20_3e_2',['partial_context&lt; Middlewares... &gt;',['../structcrow_1_1detail_1_1partial__context.html',1,'crow::detail']]],
+  ['partial_5fcontext_3c_3e_3',['partial_context&lt;&gt;',['../structcrow_1_1detail_1_1partial__context_3_4.html',1,'crow::detail']]]
 ];
