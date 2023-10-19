@@ -1,5 +1,7 @@
 # COS-214-Project
 
+![presentation](images/presentation.png "presentation")
+
 # Table of Contents
 
 - [COS-214-Project](#cos-214-project)

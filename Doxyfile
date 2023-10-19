@@ -44,14 +44,14 @@ PROJECT_NUMBER         =
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          =
+PROJECT_BRIEF          = "A restaurant simulation application that makes use of various design patterns. implemented in C++."
 
 # With the PROJECT_LOGO tag one can specify a logo or an icon that is included
 # in the documentation. The maximum height of the logo should not exceed 55
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           =
+PROJECT_LOGO           = "images/logo.png"
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
 # into which the generated documentation will be written. If a relative path is
@@ -2656,3 +2656,15 @@ GENERATE_LEGEND        = YES
 # The default value is: YES.
 
 DOT_CLEANUP            = YES
+
+# When both GENERATE_TREEVIEW and DISABLE_INDEX are set to YES, then the
+# FULL_SIDEBAR option determines if the side bar is limited to only the treeview
+# area (value NO) or if it should extend to the full height of the window (value
+# YES). Setting this to YES gives a layout similar to
+# https://docs.readthedocs.io with more room for contents, but less room for the
+# project logo, title, and description. If either GENERATE_TREEVIEW or
+# DISABLE_INDEX is set to NO, this option has no effect.
+# The default value is: NO.
+# This tag requires that the tag GENERATE_HTML is set to YES.
+
+FULL_SIDEBAR           = YES
