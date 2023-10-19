@@ -5,9 +5,10 @@
 *@brief Application class that runs the main application
 */
 
-#include "../backend/includes/crow_all.h"
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
+#include "../backend/includes/crow_all.h"
+#include "../backend/includes/color.hpp"
 
 /**
  * @brief Application class that runs the main application
