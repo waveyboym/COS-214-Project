@@ -9,7 +9,11 @@
   - [Building](#building)
     - [Building with visual studio code](#building-with-visual-studio-code)
     - [Building from the command line with windows OS](#building-from-the-command-line-with-windows-os)
-    - [Building from the command line with a Linux based OS(Debian, Ubuntu and Fedora)](#building-from-the-command-line-with-a-linux-based-osdebian-ubuntu-and-fedora)
+    - [Building from the command line with a Linux based OS(Debian, Ubuntu and Fedora) automatically](#building-from-the-command-line-with-a-linux-based-osdebian-ubuntu-and-fedora-automatically)
+    - [Building from the command line with a Linux based OS(Debian, Ubuntu and Fedora) manually](#building-from-the-command-line-with-a-linux-based-osdebian-ubuntu-and-fedora-manually)
+  - [Developing](#developing)
+    - [Automatic](#automatic)
+    - [Manually](#manually)
   - [Developing with makefiles(Exclusive to a Linux based OS(Debian, Ubuntu and Fedora))](#developing-with-makefilesexclusive-to-a-linux-based-osdebian-ubuntu-and-fedora)
   - [Contributors](#contributors)
 
@@ -32,8 +36,21 @@ Please have a look at <a href="https://github.com/waveyboym/COS-214-Project/blob
 8. Wait for VS code to initialize and set itself up(it may add some files under the build folder)
 9.  At the bottom of Visual Studio code, you should see a play button, click it and the project should build and run. ![build](images/build.png "build")
 10. Specify the build type(Release or Debug) by clicking and changing it. ![buildtype](images/buildtype.png "buildtype")
-11. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
-12. Alternative tutorials: 
+11. If you are in debug, skip steps 12 to 14
+12. Then open another terminal and from the root of this project run
+```
+cd COS-214-PROJECT/src/frontend
+```
+13.  Run
+```
+npm install
+```
+14.  Run
+```
+npm run dev
+```
+15. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
+16. Alternative tutorials: 
     * https://code.visualstudio.com/docs/cpp/cmake-linux
     * https://www.youtube.com/watch?v=sc6_86jgQls&ab_channel=TechHara
 
@@ -65,10 +82,40 @@ cd build && ./main
 ```
 cd build && ctest
 ```
-10. If any build files are generated on your local machine, please do not commit them. Rather create a ```.gitignore``` file in the build directory and add an asterik(*) to it.
-11. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
+10. If you are in debug, skip steps 11 to 13
+11. Then open another terminal and from the root of this project run
+```
+cd COS-214-PROJECT/src/frontend
+```
+12.  Run
+```
+npm install
+```
+13.  Run
+```
+npm run dev
+```
+14. If any build files are generated on your local machine, please do not commit them. Rather create a ```.gitignore``` file in the build directory and add an asterik(*) to it.
+15. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
-### Building from the command line with a Linux based OS(Debian, Ubuntu and Fedora)
+### Building from the command line with a Linux based OS(Debian, Ubuntu and Fedora) automatically
+1. Open a new terminal
+2. Download <a href="">this</a> bash file
+3. Run the bash script in your terminal and watch the magic happen ✨
+4. Then open another terminal and from the root of this project run
+```
+cd COS-214-PROJECT/src/frontend
+```
+5. Run
+```
+npm install
+```
+6. Run
+```
+npm run dev
+```
+
+### Building from the command line with a Linux based OS(Debian, Ubuntu and Fedora) manually
 1. Open a new terminal
 2. Run 
 ```
@@ -104,8 +151,92 @@ cd build && ./main
 ```
 cd build && ctest
 ```
-11. If any build files are generated on your local machine, please do not commit them. Rather create a ```.gitignore``` file in the build directory and add an asterik(*) to it.
-12. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
+11. If you are in debug, skip steps 12 to 14
+12. Then open another terminal and from the root of this project run
+```
+cd COS-214-PROJECT/src/frontend
+```
+13. Run
+```
+npm install
+```
+14. Run
+```
+npm run dev
+```
+15.  If any build files are generated on your local machine, please do not commit them. Rather create a ```.gitignore``` file in the build directory and add an asterik(*) to it.
+16.  For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
+
+## Developing
+
+### Automatic
+1. Open a new terminal
+2. Run
+```
+cd COS-214-PROJECT/scripts
+```
+3. Run either the debug or release bash scripts depending on your requirements and watch the magic happen ✨
+4. 
+```
+./build-and-run-debug.sh
+```
+5. 
+```
+./build-and-run-release.sh
+```
+6. If you are in debug, skip the next steps from here
+7. Then open another terminal and from the root of this project run
+```
+cd COS-214-PROJECT/src/frontend
+```
+8.  Run
+```
+npm install
+```
+9.  Run
+```
+npm run dev
+```
+
+### Manually
+1. Open a new terminal
+2. Run
+```
+cd COS-214-PROJECT/src
+```
+3. For Release(no unit tests, with gui), run
+```
+cmake -DCMAKE_BUILD_TYPE=Release -S . -B build
+```
+4. For Debug(google unit tests, with no gui), run
+```
+cmake -DCMAKE_BUILD_TYPE=Debug -S . -B build
+```
+5. Run 
+```
+cmake --build build
+```
+6. For Release(no unit tests, with gui), run
+```
+cd build && ./main
+```
+7. For Debug(google unit tests, with no gui), run
+```
+cd build && ctest
+```
+8. If you are in debug, skip the next steps from here
+9. Then open another terminal and from the root of this project run
+```
+cd COS-214-PROJECT/src/frontend
+```
+10.  Run
+```
+npm install
+```
+11.  Run
+```
+npm run dev
+```
 
 ## Developing with makefiles(Exclusive to a Linux based OS(Debian, Ubuntu and Fedora))
 sub-directories to cpp files work like so:
@@ -136,10 +267,10 @@ Thanks to these wonderful people for their contributions.
 
 | Profile      | Username | Personal Website | Role | Bio |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| <img src="https://avatars.githubusercontent.com/u/93211335?v=4" alt="profile" width="100"/> | Michael | <a href="https://waveyboym.github.io/">waveyboym</a> | Software developer, Software architect, UI/UX designer,  | interested in computer science and creating fun CS related projects |
-| <img src="https://avatars.githubusercontent.com/u/96811395?v=4" alt="profile" width="100"/> | Carey | <a href="https://github.com/u21631532">cmokou</a> | Software developer, UI/UX designer | - |
-| <img src="https://avatars.githubusercontent.com/u/86027693?v=4" alt="profile" width="100"/> | Lunga | <a href="https://github.com/Remiku-bit">Remiku-bit</a> | Tech lead, Business analyst | - |
-| <img src="https://avatars.githubusercontent.com/u/130374095?v=4" alt="profile" width="100"/> | Jaden | <a href="https://github.com/u22528492">Jaden Moodley</a> | Software developer | - |
-| <img src="https://avatars.githubusercontent.com/u/130366358?v=4" alt="profile" width="100"/> | Jaide | <a href="https://github.com/JMPastoll">JMPastoll</a> | Project manager, Business analyst  | - |
-| <img src="https://avatars.githubusercontent.com/u/133004091?v=4" alt="profile" width="100"/> | Linda | <a href="https://github.com/LOK3LANI">LOK3LANI</a> | Software developer | - |
-| <img src="https://avatars.githubusercontent.com/u/43268664?v=4" alt="profile" width="100"/> | Nicholas | <a href="https://github.com/NicholasJHarvey">NicholasJHarvey</a> | Software developer | - |
+| <img src="https://avatars.githubusercontent.com/u/93211335?v=4" alt="profile" width="100"/> | Michael | <a href="https://waveyboym.github.io/">waveyboym</a> | Tech Lead, Software developer, Software architect, UI/UX designer,  | interested in computer science and creating fun CS related projects |
+| <img src="https://avatars.githubusercontent.com/u/96811395?v=4" alt="profile" width="100"/> | Carey | <a href="https://github.com/u21631532">cmokou</a> | Software developer, UI/UX designer, Business analyst, | - |
+| <img src="https://avatars.githubusercontent.com/u/86027693?v=4" alt="profile" width="100"/> | Lunga | <a href="https://github.com/Remiku-bit">Remiku-bit</a> | Engineering Manager, Product manager, Business analyst, Software developer | - |
+| <img src="https://avatars.githubusercontent.com/u/130374095?v=4" alt="profile" width="100"/> | Jaden | <a href="https://github.com/u22528492">Jaden Moodley</a> | Software developer, Software architect | - |
+| <img src="https://avatars.githubusercontent.com/u/130366358?v=4" alt="profile" width="100"/> | Jaide | <a href="https://github.com/JMPastoll">JMPastoll</a> | Business analyst, Software developer | - |
+| <img src="https://avatars.githubusercontent.com/u/133004091?v=4" alt="profile" width="100"/> | Linda | <a href="https://github.com/LOK3LANI">LOK3LANI</a> | Software developer, Business analyst | - |
+| <img src="https://avatars.githubusercontent.com/u/43268664?v=4" alt="profile" width="100"/> | Nicholas | <a href="https://github.com/NicholasJHarvey">NicholasJHarvey</a> | Software developer, Tester, QA engineer, Business analyst | - |
