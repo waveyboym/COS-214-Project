@@ -25,8 +25,8 @@ function App() {
     const sendMessage = function() {
         //this is a template for sending messages to the backend,
         // please feel free to modify it or build on top of it
-        const json : {message: string} = { "message": "hello c++ from javascript"};
-        socket!.send(JSON.stringify(json));
+        const req: string = "command1=value1";
+        socket!.send(req);
     }
 
     return (
