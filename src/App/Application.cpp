@@ -63,7 +63,8 @@ void Application::runApp()
     this->quitApp = true;
 }
 
-void Application::progressForward(){
+void Application::progressForward()
+{
     //this can be removed if needed
     std::chrono::time_point<std::chrono::system_clock> start, end;
     end, start = std::chrono::system_clock::now();
@@ -87,8 +88,8 @@ void Application::progressForward(){
     }
 }
 
-
-std::string Application::processFrontendRequest(std::string req){
+std::string Application::processFrontendRequest(std::string req)
+{
     //TODO: add more code
     //ISSUE ID: 1 If you decide to take this issue, please indicate this on the issues tab on github for ISSUE ID: 1
 
@@ -133,6 +134,7 @@ std::string Application::processFrontendRequest(std::string req){
     return res;
 }
 
-std::string Application::doBackendTask(std::string command, std::string value){
+std::string Application::doBackendTask(std::string command, std::string value)
+{
     return "\"message\":\"you gave me this command -> "+ command +" with this message -> " + value +"\"";
 }
