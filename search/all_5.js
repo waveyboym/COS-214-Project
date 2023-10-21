@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['format_5fcolour_0',['format_colour',['../classcolor_1_1format__colour.html',1,'color']]]
+  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
+  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['make_5fcolour_2',['make_colour',['../classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633',1,'color::format_colour']]],
+  ['mtx_3',['mtx',['../classApplication.html#a90447f8d1015cbfc255961e5195e9f15',1,'Application']]]
 ];

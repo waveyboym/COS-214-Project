@@ -5,13 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COS214PROJECT: Class Members - Variables</title>
+<title>COS 214 PROJECT: Class Members - Variables</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -20,9 +25,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">COS214PROJECT
+   <div id="projectname">COS 214 PROJECT
    </div>
+   <div id="projectbrief">A restaurant simulation application that makes use of various design patterns.</div>
   </td>
  </tr>
  </tbody>
@@ -47,6 +54,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions_vars.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -70,24 +93,19 @@ $(function() {
 
 <div class="contents">
 <div class="textblock">Here is a list of all documented variables with links to the class documentation for each member:</div><ul>
-<li>body&#160;:&#160;<a class="el" href="structcrow_1_1multipart_1_1part.html#acbfa0a181e86a89dccdf70d985365695">crow::multipart::part</a></li>
-<li>boundary&#160;:&#160;<a class="el" href="structcrow_1_1multipart_1_1message.html#a56eb4bbf64d4930663ac4d5dd7b77d34">crow::multipart::message</a></li>
-<li>e_&#160;:&#160;<a class="el" href="structcrow_1_1json_1_1detail_1_1r__string.html#adeb368c4c0dfeb349bb32129e8dee23b">crow::json::detail::r_string</a></li>
-<li>headers&#160;:&#160;<a class="el" href="structcrow_1_1multipart_1_1message.html#ae333adda5d66d21018a978e6a3c317dd">crow::multipart::message</a>, <a class="el" href="structcrow_1_1multipart_1_1part.html#a8ff7f3aac814d93500d475da150fcbc6">crow::multipart::part</a></li>
-<li>params&#160;:&#160;<a class="el" href="structcrow_1_1multipart_1_1header.html#a18422d09aac9c5d5751799862d41a73c">crow::multipart::header</a></li>
-<li>part_map&#160;:&#160;<a class="el" href="structcrow_1_1multipart_1_1message.html#a76d89e2bff4c90307053bcb895d334ec">crow::multipart::message</a></li>
-<li>parts&#160;:&#160;<a class="el" href="structcrow_1_1multipart_1_1message.html#a05e9cf3feb60f4534af334b2dd5eadf2">crow::multipart::message</a></li>
-<li>raw_url&#160;:&#160;<a class="el" href="structcrow_1_1request.html#a72f5504a56f9ba70d7d33f86aaf9bc8a">crow::request</a></li>
-<li>remote_ip_address&#160;:&#160;<a class="el" href="structcrow_1_1request.html#aa8a04e30e2249f04614f233d25ffaad7">crow::request</a></li>
-<li>s_&#160;:&#160;<a class="el" href="structcrow_1_1json_1_1detail_1_1r__string.html#a9a0a048fb2cb904e8336926817947448">crow::json::detail::r_string</a></li>
-<li>url&#160;:&#160;<a class="el" href="structcrow_1_1request.html#aa3df34c56847d6d42887e73655276167">crow::request</a></li>
-<li>url_params&#160;:&#160;<a class="el" href="structcrow_1_1request.html#a745d5a94e9e9ae1fed64674aae0194b0">crow::request</a></li>
-<li>value&#160;:&#160;<a class="el" href="structcrow_1_1multipart_1_1header.html#aec60ea97914c4b9b102c3d5c1e89330a">crow::multipart::header</a></li>
+<li>app&#160;:&#160;<a class="el" href="classApplication.html#a0012ec89c33d794c132b94983dea48c2">Application</a></li>
+<li>connected_clients&#160;:&#160;<a class="el" href="classApplication.html#aaf038d0a11411c06864a2967f5d0c850">Application</a></li>
+<li>mtx&#160;:&#160;<a class="el" href="classApplication.html#a90447f8d1015cbfc255961e5195e9f15">Application</a></li>
+<li>pauseAppExecution&#160;:&#160;<a class="el" href="classApplication.html#a3442db61d834d1ea666175ddaec7af22">Application</a></li>
+<li>quitApp&#160;:&#160;<a class="el" href="classApplication.html#a2b74822397e2558f5e993891a587d370">Application</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

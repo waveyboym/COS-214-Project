@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['e_5f_0',['e_',['../structcrow_1_1json_1_1detail_1_1r__string.html#adeb368c4c0dfeb349bb32129e8dee23b',1,'crow::json::detail::r_string']]]
+  ['connected_5fclients_0',['connected_clients',['../classApplication.html#aaf038d0a11411c06864a2967f5d0c850',1,'Application']]]
 ];

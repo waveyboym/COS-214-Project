@@ -5,13 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COS214PROJECT: src/App/Application.cpp Source File</title>
+<title>COS 214 PROJECT: src/App/Application.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -20,9 +25,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">COS214PROJECT
+   <div id="projectname">COS 214 PROJECT
    </div>
+   <div id="projectbrief">A restaurant simulation application that makes use of various design patterns.</div>
   </td>
  </tr>
  </tbody>
@@ -51,6 +58,23 @@ $(function() {
 $(document).ready(function() { init_codefold(0); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('Application_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,11 +96,6 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_951f43124f8a9985ab7802551d674f01.html">App</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Application.cpp</div></div>
 </div><!--header-->
@@ -86,59 +105,171 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen00003" data-start="{" data-end="}">
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="classApplication.html#ac3fa5d4a2f804458229d9e039c71ed7f">    3</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classApplication.html#ac3fa5d4a2f804458229d9e039c71ed7f">Application::initApp</a>()</div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    CROW_ROUTE(this-&gt;app, <span class="stringliteral">&quot;/&quot;</span>)</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>        .websocket()</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>        .onopen([&amp;](<a class="code hl_struct" href="structcrow_1_1websocket_1_1connection.html">crow::websocket::connection</a>&amp; conn){</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>                CROW_LOG_INFO &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::GREEN) &lt;&lt; <span class="stringliteral">&quot;new websocket connection&quot;</span> &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::DEFAULT);</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>                })</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        .onclose([&amp;](<a class="code hl_struct" href="structcrow_1_1websocket_1_1connection.html">crow::websocket::connection</a>&amp; conn, <span class="keyword">const</span> std::string&amp; reason){</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>                CROW_LOG_INFO &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::RED) &lt;&lt; <span class="stringliteral">&quot;websocket connection closed: &quot;</span> &lt;&lt; reason &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::DEFAULT);</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>                })</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        .onmessage([&amp;](<a class="code hl_struct" href="structcrow_1_1websocket_1_1connection.html">crow::websocket::connection</a>&amp; conn, <span class="keyword">const</span> std::string&amp; data, <span class="keywordtype">bool</span> is_binary){</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>                    std::cout &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::BLUE) &lt;&lt; <span class="stringliteral">&quot;Received message: &quot;</span> &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::DEFAULT) &lt;&lt; data &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>                    <span class="keywordflow">if</span> (is_binary){</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>                        conn.send_binary(data);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>                    }</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>                    <span class="keywordflow">else</span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>                        std::string res = this-&gt;processFrontendRequest(data);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                        conn.send_text(res);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                        std::cout &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::BLUE) &lt;&lt;  <span class="stringliteral">&quot;Sent back response: &quot;</span> &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::DEFAULT) &lt;&lt; res &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                    }</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                });</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    this-&gt;app.port(18080)</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        .multithreaded()</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        .run();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="comment">//init important data here</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    this-&gt;<a class="code hl_variable" href="classApplication.html#a3442db61d834d1ea666175ddaec7af22">pauseAppExecution</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    this-&gt;<a class="code hl_variable" href="classApplication.html#a2b74822397e2558f5e993891a587d370">quitApp</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>}</div>
 </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classApplication.html#a2cf00501c668d5f9e53328607fc6c9e6">   30</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classApplication.html#a2cf00501c668d5f9e53328607fc6c9e6">Application::runApp</a>()</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">while</span>(<span class="keyword">true</span>){</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="comment">//poll events in events queue</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classApplication.html#a2cf00501c668d5f9e53328607fc6c9e6">   10</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classApplication.html#a2cf00501c668d5f9e53328607fc6c9e6">Application::runApp</a>()</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    CROW_ROUTE(this-&gt;<a class="code hl_variable" href="classApplication.html#a0012ec89c33d794c132b94983dea48c2">app</a>, <span class="stringliteral">&quot;/&quot;</span>)</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        .websocket()</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        .onopen([&amp;](crow::websocket::connection&amp; conn){</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>                CROW_LOG_INFO &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::GREEN) &lt;&lt; <span class="stringliteral">&quot;new websocket connection&quot;</span> &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::DEFAULT);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>                </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>                <span class="comment">//mutex locking here to prevent multiple client connections from trying to add at the same time</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>                std::lock_guard&lt;std::mutex&gt; _(this-&gt;<a class="code hl_variable" href="classApplication.html#a90447f8d1015cbfc255961e5195e9f15">mtx</a>);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>                this-&gt;<a class="code hl_variable" href="classApplication.html#aaf038d0a11411c06864a2967f5d0c850">connected_clients</a>.insert(&amp;conn);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>                <span class="comment">//release lock</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>                })</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        .onclose([&amp;](crow::websocket::connection&amp; conn, <span class="keyword">const</span> std::string&amp; reason){</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                CROW_LOG_INFO &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::RED) &lt;&lt; <span class="stringliteral">&quot;websocket connection closed: &quot;</span> &lt;&lt; reason &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::DEFAULT);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                <span class="comment">//mutex locking here to prevent multiple client connections from trying to erase at the same time</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>                std::lock_guard&lt;std::mutex&gt; _(this-&gt;<a class="code hl_variable" href="classApplication.html#a90447f8d1015cbfc255961e5195e9f15">mtx</a>);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>                this-&gt;<a class="code hl_variable" href="classApplication.html#aaf038d0a11411c06864a2967f5d0c850">connected_clients</a>.erase(&amp;conn);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                <span class="comment">//release lock</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                })</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        .onmessage([&amp;](crow::websocket::connection&amp; <span class="comment">/*conn*/</span>, <span class="keyword">const</span> std::string&amp; data, <span class="keywordtype">bool</span> is_binary){</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>                    std::cout &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::BLUE) &lt;&lt; <span class="stringliteral">&quot;Received message: &quot;</span> &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::DEFAULT) &lt;&lt; data &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>                    </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                    this-&gt;<a class="code hl_variable" href="classApplication.html#a3442db61d834d1ea666175ddaec7af22">pauseAppExecution</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="comment">//update game/simulation</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="comment">//display or send back updated data</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                    <span class="keywordflow">if</span> (is_binary){</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                        <span class="comment">//mutex locking here to prevent multiple client connections from trying to erase at the same time</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                        std::lock_guard&lt;std::mutex&gt; _(this-&gt;<a class="code hl_variable" href="classApplication.html#a90447f8d1015cbfc255961e5195e9f15">mtx</a>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                        <span class="comment">//pause game execution</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                        <span class="keywordflow">for</span>(<span class="keyword">auto</span> client : this-&gt;<a class="code hl_variable" href="classApplication.html#aaf038d0a11411c06864a2967f5d0c850">connected_clients</a>){<span class="comment">//send response to all clients connected to our websocket</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                            client-&gt;send_binary(data);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                        }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                        <span class="comment">//release lock</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                    }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                    <span class="keywordflow">else</span>{</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                        std::string res = this-&gt;<a class="code hl_function" href="classApplication.html#ad58a47be2ffb6d73fde0c80a19b6ff7d">processFrontendRequest</a>(data);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                        <span class="comment">//mutex locking here to prevent multiple client connections from trying to erase at the same time</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                        std::lock_guard&lt;std::mutex&gt; _(this-&gt;<a class="code hl_variable" href="classApplication.html#a90447f8d1015cbfc255961e5195e9f15">mtx</a>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                        <span class="comment">//pause game execution</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                        <span class="keywordflow">for</span>(<span class="keyword">auto</span> client : this-&gt;<a class="code hl_variable" href="classApplication.html#aaf038d0a11411c06864a2967f5d0c850">connected_clients</a>){<span class="comment">//send response to all clients connected to our websocket</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                            client-&gt;send_text(res);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                        }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                        <span class="comment">//release lock</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                        std::cout &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::BLUE) &lt;&lt;  <span class="stringliteral">&quot;Sent back response: &quot;</span> &lt;&lt; <a class="code hl_function" href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a>(color::DEFAULT) &lt;&lt; res &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                    }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                    this-&gt;<a class="code hl_variable" href="classApplication.html#a3442db61d834d1ea666175ddaec7af22">pauseAppExecution</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                });</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    this-&gt;<a class="code hl_variable" href="classApplication.html#a0012ec89c33d794c132b94983dea48c2">app</a>.port(18080)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="comment">//.multithreaded()</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        .run();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    this-&gt;<a class="code hl_variable" href="classApplication.html#a2b74822397e2558f5e993891a587d370">quitApp</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
 </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>std::string Application::processFrontendRequest(std::string req){</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">//TODO: add more code</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="comment">//ISSUE ID: 1 If you decide to take this issue, please indicate this on the issues tab on github for ISSUE ID: 1</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;{ \&quot;message\&quot;: \&quot;hello javascript from cplusplus\&quot;}&quot;</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classApplication.html#a6771d0683b56010300d0e0f50f00ff5f">   66</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classApplication.html#a6771d0683b56010300d0e0f50f00ff5f">Application::progressForward</a>()</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">//this can be removed if needed</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    std::chrono::time_point&lt;std::chrono::system_clock&gt; start, end;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    end, start = std::chrono::system_clock::now();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    std::chrono::duration&lt;double&gt; elapsed_seconds = end - start;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">//end of removable code</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">while</span>(!this-&gt;<a class="code hl_variable" href="classApplication.html#a2b74822397e2558f5e993891a587d370">quitApp</a>){</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="comment">//this can be removed if needed</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">while</span>(elapsed_seconds.count() &lt; 5){</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            end = std::chrono::system_clock::now();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            elapsed_seconds = end - start;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;ticked forward once in progressForward &quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="comment">//do processing here</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        end, start = std::chrono::system_clock::now();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        elapsed_seconds = end - start;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="comment">//end of removable code</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordflow">while</span> (this-&gt;<a class="code hl_variable" href="classApplication.html#a3442db61d834d1ea666175ddaec7af22">pauseAppExecution</a>) { std::this_thread::yield(); } <span class="comment">// do not modify</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
+</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="foldopen" id="foldopen00091" data-start="{" data-end="}">
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classApplication.html#ad58a47be2ffb6d73fde0c80a19b6ff7d">   91</a></span>std::string <a class="code hl_function" href="classApplication.html#ad58a47be2ffb6d73fde0c80a19b6ff7d">Application::processFrontendRequest</a>(std::string req)</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>{</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="comment">//TODO: add more code</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">//ISSUE ID: 1 If you decide to take this issue, please indicate this on the issues tab on github for ISSUE ID: 1</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">//expected req format -&gt; command1=value1&amp;command2=value2&amp;command3=value3...&amp;commandn=valuen</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">int</span> query_string_iterator = 0;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    std::string res = <span class="stringliteral">&quot;{&quot;</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordflow">while</span>(query_string_iterator &lt; req.length()){</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        std::string command = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">while</span>(query_string_iterator &lt; req.length() &amp;&amp; req[query_string_iterator] != <span class="charliteral">&#39;=&#39;</span>){</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            command += req[query_string_iterator];</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            ++query_string_iterator;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">if</span>(req[query_string_iterator] != <span class="charliteral">&#39;=&#39;</span>){</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;{ \&quot;message\&quot;: \&quot;failed to process -&gt; &quot;</span> + req +<span class="stringliteral">&quot;, because of missing = at index: &quot;</span> + std::to_string(query_string_iterator) + <span class="stringliteral">&quot;\&quot;}&quot;</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        ++query_string_iterator;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        std::string message = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">while</span>(query_string_iterator &lt; req.length() &amp;&amp; req[query_string_iterator] != <span class="charliteral">&#39;&amp;&#39;</span>){</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            message += req[query_string_iterator];</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            ++query_string_iterator;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordflow">if</span>(req[query_string_iterator] != <span class="charliteral">&#39;&amp;&#39;</span> &amp;&amp; query_string_iterator != req.length()){</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;{ \&quot;message\&quot;: \&quot;failed to process -&gt; &quot;</span> + req +<span class="stringliteral">&quot;, because of missing &amp; at index: &quot;</span> + std::to_string(query_string_iterator) + <span class="stringliteral">&quot;\&quot;}&quot;</span>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        ++query_string_iterator;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keywordflow">if</span>(query_string_iterator &lt; req.length()){<span class="comment">//query_string_iterator is req.length() + 1 now</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            res += <a class="code hl_function" href="classApplication.html#a81c50e1f8d57175065d145b75c0b8937">doBackendTask</a>(command, message) + <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">else</span>{</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            res += <a class="code hl_function" href="classApplication.html#a81c50e1f8d57175065d145b75c0b8937">doBackendTask</a>(command, message);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    }</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    res += <span class="stringliteral">&quot;}&quot;</span>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
+</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="foldopen" id="foldopen00137" data-start="{" data-end="}">
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classApplication.html#a81c50e1f8d57175065d145b75c0b8937">  137</a></span>std::string <a class="code hl_function" href="classApplication.html#a81c50e1f8d57175065d145b75c0b8937">Application::doBackendTask</a>(std::string command, std::string value)</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>{</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordflow">return</span> <span class="stringliteral">&quot;\&quot;message\&quot;:\&quot;you gave me this command -&gt; &quot;</span>+ command +<span class="stringliteral">&quot; with this message -&gt; &quot;</span> + value +<span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>}</div>
+</div>
 <div class="ttc" id="aApplication_8hpp_html"><div class="ttname"><a href="Application_8hpp.html">Application.hpp</a></div></div>
-<div class="ttc" id="aclassApplication_html_a2cf00501c668d5f9e53328607fc6c9e6"><div class="ttname"><a href="classApplication.html#a2cf00501c668d5f9e53328607fc6c9e6">Application::runApp</a></div><div class="ttdeci">void runApp()</div><div class="ttdoc">runs the application class until the user quits the program</div><div class="ttdef"><b>Definition</b> Application.cpp:30</div></div>
+<div class="ttc" id="aclassApplication_html_a0012ec89c33d794c132b94983dea48c2"><div class="ttname"><a href="classApplication.html#a0012ec89c33d794c132b94983dea48c2">Application::app</a></div><div class="ttdeci">crow::SimpleApp app</div><div class="ttdoc">this holds the app variable that creates a websocket and intercepts incoming requests</div><div class="ttdef"><b>Definition</b> Application.hpp:47</div></div>
+<div class="ttc" id="aclassApplication_html_a2b74822397e2558f5e993891a587d370"><div class="ttname"><a href="classApplication.html#a2b74822397e2558f5e993891a587d370">Application::quitApp</a></div><div class="ttdeci">volatile bool quitApp</div><div class="ttdoc">this has the the ability to quit the app when changed to true and does not quit the app as long as it...</div><div class="ttdef"><b>Definition</b> Application.hpp:69</div></div>
+<div class="ttc" id="aclassApplication_html_a2cf00501c668d5f9e53328607fc6c9e6"><div class="ttname"><a href="classApplication.html#a2cf00501c668d5f9e53328607fc6c9e6">Application::runApp</a></div><div class="ttdeci">void runApp()</div><div class="ttdoc">runs the application class until the user quits the program</div><div class="ttdef"><b>Definition</b> Application.cpp:10</div></div>
+<div class="ttc" id="aclassApplication_html_a3442db61d834d1ea666175ddaec7af22"><div class="ttname"><a href="classApplication.html#a3442db61d834d1ea666175ddaec7af22">Application::pauseAppExecution</a></div><div class="ttdeci">volatile bool pauseAppExecution</div><div class="ttdoc">this has the ability to pause app execution when changed to true and unpause when changed to false</div><div class="ttdef"><b>Definition</b> Application.hpp:64</div></div>
+<div class="ttc" id="aclassApplication_html_a6771d0683b56010300d0e0f50f00ff5f"><div class="ttname"><a href="classApplication.html#a6771d0683b56010300d0e0f50f00ff5f">Application::progressForward</a></div><div class="ttdeci">void progressForward()</div><div class="ttdoc">progresses the application forward on a separate thread until execution is briefly paused or the app ...</div><div class="ttdef"><b>Definition</b> Application.cpp:66</div></div>
+<div class="ttc" id="aclassApplication_html_a81c50e1f8d57175065d145b75c0b8937"><div class="ttname"><a href="classApplication.html#a81c50e1f8d57175065d145b75c0b8937">Application::doBackendTask</a></div><div class="ttdeci">std::string doBackendTask(std::string command, std::string value)</div><div class="ttdoc">does a backend task and returns updated data</div><div class="ttdef"><b>Definition</b> Application.cpp:137</div></div>
+<div class="ttc" id="aclassApplication_html_a90447f8d1015cbfc255961e5195e9f15"><div class="ttname"><a href="classApplication.html#a90447f8d1015cbfc255961e5195e9f15">Application::mtx</a></div><div class="ttdeci">std::mutex mtx</div><div class="ttdoc">thread locker.</div><div class="ttdef"><b>Definition</b> Application.hpp:59</div></div>
+<div class="ttc" id="aclassApplication_html_aaf038d0a11411c06864a2967f5d0c850"><div class="ttname"><a href="classApplication.html#aaf038d0a11411c06864a2967f5d0c850">Application::connected_clients</a></div><div class="ttdeci">std::unordered_set&lt; crow::websocket::connection * &gt; connected_clients</div><div class="ttdoc">this holds all of the connected/subscribed clients that way if there is an update on the backend,...</div><div class="ttdef"><b>Definition</b> Application.hpp:53</div></div>
 <div class="ttc" id="aclassApplication_html_ac3fa5d4a2f804458229d9e039c71ed7f"><div class="ttname"><a href="classApplication.html#ac3fa5d4a2f804458229d9e039c71ed7f">Application::initApp</a></div><div class="ttdeci">void initApp()</div><div class="ttdoc">initialises the application class</div><div class="ttdef"><b>Definition</b> Application.cpp:3</div></div>
+<div class="ttc" id="aclassApplication_html_ad58a47be2ffb6d73fde0c80a19b6ff7d"><div class="ttname"><a href="classApplication.html#ad58a47be2ffb6d73fde0c80a19b6ff7d">Application::processFrontendRequest</a></div><div class="ttdeci">std::string processFrontendRequest(std::string req)</div><div class="ttdoc">processes the incoming request from the frontend and sends back a response</div><div class="ttdef"><b>Definition</b> Application.cpp:91</div></div>
 <div class="ttc" id="aclasscolor_1_1format__colour_html_aa343e0f94c6d019c410b9152e0b59633"><div class="ttname"><a href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a></div><div class="ttdeci">static std::string make_colour(ColorCode cc)</div><div class="ttdoc">formatting a colour for the command line</div><div class="ttdef"><b>Definition</b> color.cpp:3</div></div>
-<div class="ttc" id="astructcrow_1_1websocket_1_1connection_html"><div class="ttname"><a href="structcrow_1_1websocket_1_1connection.html">crow::websocket::connection</a></div><div class="ttdoc">A base class for websocket connection.</div><div class="ttdef"><b>Definition</b> crow_all.h:3721</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_951f43124f8a9985ab7802551d674f01.html">App</a></li><li class="navelem"><b>Application.cpp</b></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

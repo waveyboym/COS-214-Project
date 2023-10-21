@@ -1,26 +1,4 @@
 var searchData=
 [
-  ['call_0',['call',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1call.html',1,'crow::detail::routing_handler_call_helper']]],
-  ['call_3c_20f_2c_20nint_2c_20nuint_2c_20ndouble_2c_20nstring_2c_20black_5fmagic_3a_3as_3c_20double_2c_20args1_2e_2e_2e_20_3e_2c_20black_5fmagic_3a_3as_3c_20args2_2e_2e_2e_20_3e_20_3e_1',['call&lt; F, NInt, NUint, NDouble, NString, black_magic::S&lt; double, Args1... &gt;, black_magic::S&lt; Args2... &gt; &gt;',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1call_3_01F_00_01NInt_00_01NUint_00_01N2e2867c43710c5cad97a5dd408eb7df4.html',1,'crow::detail::routing_handler_call_helper']]],
-  ['call_3c_20f_2c_20nint_2c_20nuint_2c_20ndouble_2c_20nstring_2c_20black_5fmagic_3a_3as_3c_20int64_5ft_2c_20args1_2e_2e_2e_20_3e_2c_20black_5fmagic_3a_3as_3c_20args2_2e_2e_2e_20_3e_20_3e_2',['call&lt; F, NInt, NUint, NDouble, NString, black_magic::S&lt; int64_t, Args1... &gt;, black_magic::S&lt; Args2... &gt; &gt;',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1call_3_01F_00_01NInt_00_01NUint_00_01N520045f9481a917bcd5aebfaafb639db.html',1,'crow::detail::routing_handler_call_helper']]],
-  ['call_3c_20f_2c_20nint_2c_20nuint_2c_20ndouble_2c_20nstring_2c_20black_5fmagic_3a_3as_3c_20std_3a_3astring_2c_20args1_2e_2e_2e_20_3e_2c_20black_5fmagic_3a_3as_3c_20args2_2e_2e_2e_20_3e_20_3e_3',['call&lt; F, NInt, NUint, NDouble, NString, black_magic::S&lt; std::string, Args1... &gt;, black_magic::S&lt; Args2... &gt; &gt;',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1call_3_01F_00_01NInt_00_01NUint_00_01N11f52edec2f61fbed5b633b7d2107bec.html',1,'crow::detail::routing_handler_call_helper']]],
-  ['call_3c_20f_2c_20nint_2c_20nuint_2c_20ndouble_2c_20nstring_2c_20black_5fmagic_3a_3as_3c_20uint64_5ft_2c_20args1_2e_2e_2e_20_3e_2c_20black_5fmagic_3a_3as_3c_20args2_2e_2e_2e_20_3e_20_3e_4',['call&lt; F, NInt, NUint, NDouble, NString, black_magic::S&lt; uint64_t, Args1... &gt;, black_magic::S&lt; Args2... &gt; &gt;',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1call_3_01F_00_01NInt_00_01NUint_00_01Naaf7fdd06cc762db3c7ac13ff08d8ede.html',1,'crow::detail::routing_handler_call_helper']]],
-  ['call_3c_20f_2c_20nint_2c_20nuint_2c_20ndouble_2c_20nstring_2c_20black_5fmagic_3a_3as_3c_3e_2c_20black_5fmagic_3a_3as_3c_20args1_2e_2e_2e_20_3e_20_3e_5',['call&lt; F, NInt, NUint, NDouble, NString, black_magic::S&lt;&gt;, black_magic::S&lt; Args1... &gt; &gt;',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1call_3_01F_00_01NInt_00_01NUint_00_01Nbca46006810c5063e9242bed6f2038f9.html',1,'crow::detail::routing_handler_call_helper']]],
-  ['call_5fpair_6',['call_pair',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1call__pair.html',1,'crow::detail::routing_handler_call_helper']]],
-  ['call_5fparams_7',['call_params',['../structcrow_1_1detail_1_1routing__handler__call__helper_1_1call__params.html',1,'crow::detail::routing_handler_call_helper']]],
-  ['cerrloghandler_8',['CerrLogHandler',['../classcrow_1_1CerrLogHandler.html',1,'crow']]],
-  ['check_5fafter_5fhandle_5farity_5f3_9',['check_after_handle_arity_3',['../structcrow_1_1detail_1_1check__after__handle__arity__3.html',1,'crow::detail']]],
-  ['check_5fafter_5fhandle_5farity_5f3_5fconst_10',['check_after_handle_arity_3_const',['../structcrow_1_1detail_1_1check__after__handle__arity__3__const.html',1,'crow::detail']]],
-  ['check_5fbefore_5fhandle_5farity_5f3_11',['check_before_handle_arity_3',['../structcrow_1_1detail_1_1check__before__handle__arity__3.html',1,'crow::detail']]],
-  ['check_5fbefore_5fhandle_5farity_5f3_5fconst_12',['check_before_handle_arity_3_const',['../structcrow_1_1detail_1_1check__before__handle__arity__3__const.html',1,'crow::detail']]],
-  ['check_5fglobal_5fcall_5ffalse_13',['check_global_call_false',['../structcrow_1_1detail_1_1check__global__call__false.html',1,'crow::detail']]],
-  ['ci_5fhash_14',['ci_hash',['../structcrow_1_1ci__hash.html',1,'crow']]],
-  ['ci_5fkey_5feq_15',['ci_key_eq',['../structcrow_1_1ci__key__eq.html',1,'crow']]],
-  ['color_16',['color',['../classcolor.html',1,'']]],
-  ['connection_17',['connection',['../classcrow_1_1websocket_1_1Connection.html',1,'crow::websocket::Connection&lt; Adaptor &gt;'],['../structcrow_1_1websocket_1_1connection.html',1,'crow::websocket::connection']]],
-  ['context_18',['context',['../structcrow_1_1CookieParser_1_1context.html',1,'crow::CookieParser::context'],['../structcrow_1_1CORSHandler_1_1context.html',1,'crow::CORSHandler::context'],['../structcrow_1_1detail_1_1context.html',1,'crow::detail::context&lt; Middlewares &gt;'],['../structcrow_1_1UTF8_1_1context.html',1,'crow::UTF8::context']]],
-  ['context_3c_20middlewares_2e_2e_2e_20_3e_19',['context&lt; Middlewares... &gt;',['../structcrow_1_1detail_1_1context.html',1,'crow::detail']]],
-  ['cookieparser_20',['CookieParser',['../structcrow_1_1CookieParser.html',1,'crow']]],
-  ['corshandler_21',['CORSHandler',['../structcrow_1_1CORSHandler.html',1,'crow']]],
-  ['corsrules_22',['CORSRules',['../structcrow_1_1CORSRules.html',1,'crow']]]
+  ['color_0',['color',['../classcolor.html',1,'']]]
 ];

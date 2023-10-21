@@ -5,13 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COS214PROJECT: src/App/Application.hpp Source File</title>
+<title>COS 214 PROJECT: src/App/Application.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript" src="darkmode_toggle.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -20,9 +25,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign">
-   <div id="projectname">COS214PROJECT
+   <div id="projectname">COS 214 PROJECT
    </div>
+   <div id="projectbrief">A restaurant simulation application that makes use of various design patterns.</div>
   </td>
  </tr>
  </tbody>
@@ -51,6 +58,23 @@ $(function() {
 $(document).ready(function() { init_codefold(0); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('Application_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,11 +96,6 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_951f43124f8a9985ab7802551d674f01.html">App</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Application.hpp</div></div>
 </div><!--header-->
@@ -86,28 +105,57 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define APPLICATION_HPP</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../backend/includes/crow_all.h&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../backend/includes/color.hpp&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classApplication.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classApplication.html">Application</a>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classApplication.html#ac3fa5d4a2f804458229d9e039c71ed7f">initApp</a>();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classApplication.html#a2cf00501c668d5f9e53328607fc6c9e6">runApp</a>();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        crow::SimpleApp app;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        std::string processFrontendRequest(std::string req);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;unordered_set&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;mutex&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classApplication.html">   20</a></span><span class="keyword">class </span><a class="code hl_class" href="classApplication.html">Application</a>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classApplication.html#ac3fa5d4a2f804458229d9e039c71ed7f">initApp</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classApplication.html#a2cf00501c668d5f9e53328607fc6c9e6">runApp</a>();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classApplication.html#a6771d0683b56010300d0e0f50f00ff5f">progressForward</a>();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classApplication.html#a0012ec89c33d794c132b94983dea48c2">   47</a></span>        crow::SimpleApp <a class="code hl_variable" href="classApplication.html#a0012ec89c33d794c132b94983dea48c2">app</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classApplication.html#aaf038d0a11411c06864a2967f5d0c850">   53</a></span>        std::unordered_set&lt;crow::websocket::connection*&gt; <a class="code hl_variable" href="classApplication.html#aaf038d0a11411c06864a2967f5d0c850">connected_clients</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classApplication.html#a90447f8d1015cbfc255961e5195e9f15">   59</a></span>        std::mutex <a class="code hl_variable" href="classApplication.html#a90447f8d1015cbfc255961e5195e9f15">mtx</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classApplication.html#a3442db61d834d1ea666175ddaec7af22">   64</a></span>        <span class="keyword">volatile</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="classApplication.html#a3442db61d834d1ea666175ddaec7af22">pauseAppExecution</a>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classApplication.html#a2b74822397e2558f5e993891a587d370">   69</a></span>        <span class="keyword">volatile</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="classApplication.html#a2b74822397e2558f5e993891a587d370">quitApp</a>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        std::string <a class="code hl_function" href="classApplication.html#ad58a47be2ffb6d73fde0c80a19b6ff7d">processFrontendRequest</a>(std::string req);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        std::string <a class="code hl_function" href="classApplication.html#a81c50e1f8d57175065d145b75c0b8937">doBackendTask</a>(std::string command, std::string value);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>};</div>
 </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassApplication_html"><div class="ttname"><a href="classApplication.html">Application</a></div><div class="ttdoc">Application class that runs the main application.</div><div class="ttdef"><b>Definition</b> Application.hpp:16</div></div>
-<div class="ttc" id="aclassApplication_html_a2cf00501c668d5f9e53328607fc6c9e6"><div class="ttname"><a href="classApplication.html#a2cf00501c668d5f9e53328607fc6c9e6">Application::runApp</a></div><div class="ttdeci">void runApp()</div><div class="ttdoc">runs the application class until the user quits the program</div><div class="ttdef"><b>Definition</b> Application.cpp:30</div></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassApplication_html"><div class="ttname"><a href="classApplication.html">Application</a></div><div class="ttdoc">Application class that runs the main application.</div><div class="ttdef"><b>Definition</b> Application.hpp:20</div></div>
+<div class="ttc" id="aclassApplication_html_a0012ec89c33d794c132b94983dea48c2"><div class="ttname"><a href="classApplication.html#a0012ec89c33d794c132b94983dea48c2">Application::app</a></div><div class="ttdeci">crow::SimpleApp app</div><div class="ttdoc">this holds the app variable that creates a websocket and intercepts incoming requests</div><div class="ttdef"><b>Definition</b> Application.hpp:47</div></div>
+<div class="ttc" id="aclassApplication_html_a2b74822397e2558f5e993891a587d370"><div class="ttname"><a href="classApplication.html#a2b74822397e2558f5e993891a587d370">Application::quitApp</a></div><div class="ttdeci">volatile bool quitApp</div><div class="ttdoc">this has the the ability to quit the app when changed to true and does not quit the app as long as it...</div><div class="ttdef"><b>Definition</b> Application.hpp:69</div></div>
+<div class="ttc" id="aclassApplication_html_a2cf00501c668d5f9e53328607fc6c9e6"><div class="ttname"><a href="classApplication.html#a2cf00501c668d5f9e53328607fc6c9e6">Application::runApp</a></div><div class="ttdeci">void runApp()</div><div class="ttdoc">runs the application class until the user quits the program</div><div class="ttdef"><b>Definition</b> Application.cpp:10</div></div>
+<div class="ttc" id="aclassApplication_html_a3442db61d834d1ea666175ddaec7af22"><div class="ttname"><a href="classApplication.html#a3442db61d834d1ea666175ddaec7af22">Application::pauseAppExecution</a></div><div class="ttdeci">volatile bool pauseAppExecution</div><div class="ttdoc">this has the ability to pause app execution when changed to true and unpause when changed to false</div><div class="ttdef"><b>Definition</b> Application.hpp:64</div></div>
+<div class="ttc" id="aclassApplication_html_a6771d0683b56010300d0e0f50f00ff5f"><div class="ttname"><a href="classApplication.html#a6771d0683b56010300d0e0f50f00ff5f">Application::progressForward</a></div><div class="ttdeci">void progressForward()</div><div class="ttdoc">progresses the application forward on a separate thread until execution is briefly paused or the app ...</div><div class="ttdef"><b>Definition</b> Application.cpp:66</div></div>
+<div class="ttc" id="aclassApplication_html_a81c50e1f8d57175065d145b75c0b8937"><div class="ttname"><a href="classApplication.html#a81c50e1f8d57175065d145b75c0b8937">Application::doBackendTask</a></div><div class="ttdeci">std::string doBackendTask(std::string command, std::string value)</div><div class="ttdoc">does a backend task and returns updated data</div><div class="ttdef"><b>Definition</b> Application.cpp:137</div></div>
+<div class="ttc" id="aclassApplication_html_a90447f8d1015cbfc255961e5195e9f15"><div class="ttname"><a href="classApplication.html#a90447f8d1015cbfc255961e5195e9f15">Application::mtx</a></div><div class="ttdeci">std::mutex mtx</div><div class="ttdoc">thread locker.</div><div class="ttdef"><b>Definition</b> Application.hpp:59</div></div>
+<div class="ttc" id="aclassApplication_html_aaf038d0a11411c06864a2967f5d0c850"><div class="ttname"><a href="classApplication.html#aaf038d0a11411c06864a2967f5d0c850">Application::connected_clients</a></div><div class="ttdeci">std::unordered_set&lt; crow::websocket::connection * &gt; connected_clients</div><div class="ttdoc">this holds all of the connected/subscribed clients that way if there is an update on the backend,...</div><div class="ttdef"><b>Definition</b> Application.hpp:53</div></div>
 <div class="ttc" id="aclassApplication_html_ac3fa5d4a2f804458229d9e039c71ed7f"><div class="ttname"><a href="classApplication.html#ac3fa5d4a2f804458229d9e039c71ed7f">Application::initApp</a></div><div class="ttdeci">void initApp()</div><div class="ttdoc">initialises the application class</div><div class="ttdef"><b>Definition</b> Application.cpp:3</div></div>
+<div class="ttc" id="aclassApplication_html_ad58a47be2ffb6d73fde0c80a19b6ff7d"><div class="ttname"><a href="classApplication.html#ad58a47be2ffb6d73fde0c80a19b6ff7d">Application::processFrontendRequest</a></div><div class="ttdeci">std::string processFrontendRequest(std::string req)</div><div class="ttdoc">processes the incoming request from the frontend and sends back a response</div><div class="ttdef"><b>Definition</b> Application.cpp:91</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_951f43124f8a9985ab7802551d674f01.html">App</a></li><li class="navelem"><a class="el" href="Application_8hpp.html">Application.hpp</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

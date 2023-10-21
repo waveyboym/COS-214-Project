@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['body_0',['body',['../structcrow_1_1multipart_1_1part.html#acbfa0a181e86a89dccdf70d985365695',1,'crow::multipart::part']]],
-  ['boundary_1',['boundary',['../structcrow_1_1multipart_1_1message.html#a56eb4bbf64d4930663ac4d5dd7b77d34',1,'crow::multipart::message']]]
+  ['app_0',['app',['../classApplication.html#a0012ec89c33d794c132b94983dea48c2',1,'Application']]]
 ];
