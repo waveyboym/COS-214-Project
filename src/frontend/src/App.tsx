@@ -6,16 +6,17 @@
 */
 
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
-
-const socket = new WebSocket("ws://127.0.0.1:18080");
+import { useSocket } from './contexts';
+import { reactsvg } from './assets';
+import { Button } from './components';
 
 function App() {
     const [message, setMessage] = useState<string>("no message has been received yet");
+    const socket: WebSocket | null = useSocket();
 
-    socket.onmessage = function(event){
+    socket!.onmessage = function(event){
         //this is a template for processing messages sent to the frontend from the backend
         const json : {message: string} = JSON.parse(event.data);
         setMessage(json.message);
@@ -24,8 +25,8 @@ function App() {
     const sendMessage = function() {
         //this is a template for sending messages to the backend,
         // please feel free to modify it or build on top of it
-        const json = { "message": "hello c++ from javascript"};
-        socket.send(JSON.stringify(json));
+        const req: string = "command1=value1";
+        socket!.send(req);
     }
 
     return (
@@ -35,14 +36,12 @@ function App() {
                 <img src={viteLogo} className="logo" alt="Vite logo" />
                 </a>
                 <a href="https://react.dev" target="_blank">
-                <img src={reactLogo} className="logo react" alt="React logo" />
+                <img src={reactsvg} className="logo react" alt="React logo" />
                 </a>
             </div>
             <h1>Vite + React</h1>
             <div className="card">
-                <button onClick={sendMessage}>
-                message from backend {message}
-                </button>
+                <Button text={message}/>
                 <p>
                 Edit <code>src/App.tsx</code> and save to test HMR or click on the button above to send and receive a message from the backend
                 </p>
