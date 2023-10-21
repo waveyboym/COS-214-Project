@@ -47,5 +47,7 @@ else()
 
   include_directories(${Boost_INCLUDE_DIR})
 
+  add_compile_options(-pthread)
+
   add_executable(main main.cpp) # add this executable
 endif()
