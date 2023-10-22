@@ -1,36 +1,21 @@
 /**
 *@file main.js
 *@class main
-*@author Michael
+*@author Michael, Carey
 *@brief presents the frontend gui and communicates with the backend
 */
 
 import { useState } from 'react';
-import viteLogo from '/vite.svg';
-import './App.css';
 import { useSocket } from './contexts';
-import { reactsvg } from './assets';
-import { Button } from './components';
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import { RouteProps } from 'react-router-dom'; // Import RouteProps
-
+//import { RouteProps } from 'react-router-dom'; // Import RouteProps
 
 // Import your components
-import Home from './components/Home';
-
-import './css/bootstrap.css';
-import './css/style.css';
-import './css/responsive.css';
-import './css/font-awesome.min.css';
-import './css/style.scss';
-// import './css/style.css.map';
+import { Home } from './pages';
 import './fonts/fontawesome-webfont.ttf';
 import './fonts/fontawesome-webfont.woff';
 import './fonts/fontawesome-webfont.woff2';
-// import './js/bootstrap.js';
-// import './js/custom.js';
-// import './js/jquery-3.4.1.min.js';
 
 const App: React.FC = () => {
     const [message, setMessage] = useState<string>("no message has been received yet");
