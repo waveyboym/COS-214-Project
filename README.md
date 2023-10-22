@@ -38,7 +38,7 @@ npm install
 ```
 6. Run
 ```
-npm run dev
+npm start
 ```
 
 ### Building from the command line with a Linux based OS(Debian, Ubuntu and Fedora) manually
