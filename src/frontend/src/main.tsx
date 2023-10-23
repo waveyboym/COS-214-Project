@@ -5,10 +5,21 @@ import './index.css';
 import "./css/style.css";
 import "./css/style.scss";
 import "./css/responsive.css";
+import './fonts/fontawesome-webfont.ttf';
+import './fonts/fontawesome-webfont.woff';
+import './fonts/fontawesome-webfont.woff2';
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
+// import line icons
+// import 'lineicons/styles.css';
+
+// import "./js/custom.js";
+// import "./js/bootstrap.js";
+import "./js/jquery-3.4.1.min.js";
+
+
 import {SocketProvider} from './contexts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

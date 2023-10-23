@@ -5,6 +5,7 @@ import '../fonts/fontawesome-webfont.woff2';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 // Import Swiper styles
 import 'swiper/css';
@@ -59,9 +60,7 @@ const Home: React.FC = () => {
                             Welcome to Everest, the ultimate destination for mouthwatering fast food in Pretoria, South Africa!
                           </p>
                           <div className="btn-box">
-                            <a href="menu.html" className="btn1">
-                              Order Now
-                            </a>
+                          <Link to="/menu">Order Now</Link>
                           </div>
                         </div>
                       </div>
@@ -78,9 +77,7 @@ const Home: React.FC = () => {
                             Indulge in our delectable menu and experience the flavors that will take your taste buds to new heights.
                           </p>
                           <div className="btn-box">
-                            <a href="" className="btn1">
-                              Order Now
-                            </a>
+                            <Link to="/menu">Order Now</Link>
                           </div>
                         </div>
                       </div>
@@ -97,9 +94,7 @@ const Home: React.FC = () => {
                             Join us at Everest and embark on a culinary journey like no other. Satisfaction guaranteed, one bite at a time!
                           </p>
                           <div className="btn-box">
-                            <a href="" className="btn1">
-                              Order Now
-                            </a>
+                            <Link to="/menu">Order Now</Link>
                           </div>
                         </div>
                       </div>

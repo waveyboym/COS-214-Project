@@ -13,6 +13,9 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
 // Import your components
 import { Home } from './pages';
+import { Menu } from './pages';
+import CartSummary from './pages/CartSummary';
+import TrackingPage from './pages/TrackingPage';
 import './fonts/fontawesome-webfont.ttf';
 import './fonts/fontawesome-webfont.woff';
 import './fonts/fontawesome-webfont.woff2';
@@ -46,11 +49,7 @@ const App: React.FC = () => {
                   <header className="header_section">
                     <div className="container">
                       <nav className="navbar navbar-expand-lg custom_nav-container">
-                        <a className="navbar-brand" href="game.html">
-                          <span>
-                            Everest
-                          </span>
-                        </a>
+                      <Link className="navbar-brand" to="/game"><span>Everest</span></Link>
                       </nav>
                     </div>
                   </header>
@@ -87,6 +86,9 @@ const App: React.FC = () => {
               </>
             } />
             <Route path="/home" element={<Home />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/cart-summary" element={<CartSummary cartItems={[]}/>} />
+            <Route path="/tracking" element={<TrackingPage foodProcessingTime={0} waiterName={""} orderStatus={""} />} />
           </Routes>
         </Router>
       );

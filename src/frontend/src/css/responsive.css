@@ -7,6 +7,17 @@
     min-height: auto;
   }
 
+  .cart_counter {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 12px;
+  }  
+
   .custom_nav-container .navbar-nav {
     padding-top: 15px;
 padding-left: 0;
