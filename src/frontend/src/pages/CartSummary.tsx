@@ -136,6 +136,8 @@ const CartSummary = () => {
             <button onClick={closeModal}>Cancel</button>
           </Modal>
 
+          {/* Tracking info NOT WORKING WELL -- NEED TO FIX
+          maybe its waiting for backend idk :)*/}
           {foodProcessingTime > 0 && waiterName && (
             <div className="tracking-info">
               <h3>Food Processing Time: {foodProcessingTime} seconds</h3>
