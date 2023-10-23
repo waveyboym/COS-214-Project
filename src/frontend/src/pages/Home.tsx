@@ -42,7 +42,7 @@ const Home: React.FC = () => {
                 disableOnInteraction: true,
               }}
               style={{
-                '--swiper-pagination-color': '#ffbe33',//just leave this alone if it vscode underlines it in red squigglies
+                '--swiper-pagination-color': '#ffbe33',//just leave this alone if vscode underlines it in red squigglies
               }}
               pagination={{
                 clickable: true,

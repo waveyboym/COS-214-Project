@@ -8,7 +8,8 @@ interface TrackingPageProps {
 }
 
 const TrackingPage: React.FC<TrackingPageProps> = ({ foodProcessingTime, waiterName, orderStatus }) => {
-  const [timeLeft, setTimeLeft] = useState(foodProcessingTime);
+  const [timeLeft, setTimeLeft] = useState<number>(foodProcessingTime);
+  const [ratingVal, setRatingVal] = useState<number>(0);
 
   useEffect(() => {
     if (foodProcessingTime > 0) {
@@ -25,6 +26,7 @@ const TrackingPage: React.FC<TrackingPageProps> = ({ foodProcessingTime, waiterN
   const handleRatingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // Handle rating change logic here
     const rating = Number(event.target.value);
+    //setRatingVal(rating);
     // Update the rating in your state or send it to the backend
   };
 
@@ -63,7 +65,7 @@ const TrackingPage: React.FC<TrackingPageProps> = ({ foodProcessingTime, waiterN
           type="number"
           min="1"
           max="5"
-          value={rating}
+          value={ratingVal}
           onChange={handleRatingChange}
         />
       </div>

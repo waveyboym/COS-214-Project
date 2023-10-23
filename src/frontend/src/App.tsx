@@ -87,7 +87,7 @@ const App: React.FC = () => {
             } />
             <Route path="/home" element={<Home />} />
             <Route path="/menu" element={<Menu />} />
-            <Route path="/cart-summary" element={<CartSummary cartItems={[]}/>} />
+            <Route path="/cart-summary" element={<CartSummary/>} />
             <Route path="/tracking" element={<TrackingPage foodProcessingTime={0} waiterName={""} orderStatus={""} />} />
           </Routes>
         </Router>
