@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+}
+
+ /*scrollbars*/
+ ::-webkit-scrollbar { 
+  width: 6px; 
+  z-index: 5000;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 15px;
+  z-index: 5000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #535353;
+  border-radius: 15px;
+  z-index: 5000;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffbe33;
+  z-index: 5000; 
+}
+
+/* Handle on active */
+::-webkit-scrollbar-thumb:active {
+  background: #ffbe33;
+  z-index: 5000; 
+}
