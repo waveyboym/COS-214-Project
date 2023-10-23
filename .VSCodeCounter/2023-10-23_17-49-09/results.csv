@@ -1,0 +1,49 @@
+"filename", "language", "Shell Script", "C++", "JavaScript", "HTML", "JSON", "TypeScript", "TypeScript JSX", "JSON with Comments", "XML", "Makefile", "Markdown", "CSS", "YAML", "comment", "blank", "total"
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\.github\workflows\autoDocs.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 2, 6, 39
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\.github\workflows\autoTests.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 9, 37
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\CONTRIBUTING.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 117, 0, 0, 0, 16, 133
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\README.md", "Markdown", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 194, 0, 0, 0, 15, 209
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\makefiles\makefile", "Makefile", 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 11, 35
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\scripts\build-and-run-app.sh", "Shell Script", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 17
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\scripts\build-and-run-tests.sh", "Shell Script", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 17
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\scripts\setup-build-and-run-app.sh", "Shell Script", 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 21
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\scripts\setup-build-and-run-tests.sh", "Shell Script", 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 21
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\scripts\ubuntu-set-me-up.sh", "Shell Script", 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 11, 40
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\App\Application.cpp", "C++", 0, 96, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 24, 140
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\App\Application.hpp", "C++", 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, 12, 87
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\backend\color\color.cpp", "C++", 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 7
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\backend\includes\color.hpp", "C++", 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 3, 44
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\.eslintrc.cjs", "JavaScript", 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 19
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\index.html", "HTML", 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 14
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\package.json", "JSON", 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 48
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\public\vite.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\App.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 79, 0, 0, 0, 0, 0, 0, 11, 7, 97
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\assets\index.ts", "TypeScript", 0, 0, 0, 0, 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 1, 37
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\assets\logo.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 4
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\assets\react.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\components\Button.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 2, 6, 23
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\components\CartObject.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 0, 2, 30
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\components\FoodCard.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 56, 0, 0, 0, 0, 0, 0, 2, 6, 64
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\components\Footer.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 76, 0, 0, 0, 0, 0, 0, 0, 2, 78
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\components\Navbar.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 67, 0, 0, 0, 0, 0, 0, 0, 6, 73
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\components\index.ts", "TypeScript", 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 1, 8
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\content\index.ts", "TypeScript", 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 0, 0, 2, 40
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\contexts\SocketProvider.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 5, 17
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\contexts\index.ts", "TypeScript", 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\index.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28, 0, 5, 5, 38
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\main.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 6, 5, 32
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\pages\CartSummary.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 84, 0, 0, 0, 0, 0, 0, 10, 20, 114
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\pages\Home.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 103, 0, 0, 0, 0, 0, 0, 3, 7, 113
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\pages\Menu.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 2, 9, 74
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\pages\TrackingPage.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 62, 0, 0, 0, 0, 0, 0, 3, 12, 77
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\pages\index.ts", "TypeScript", 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 6
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\stateStore.ts", "TypeScript", 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 1, 16
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\types\index.ts", "TypeScript", 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 1, 1, 14
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\src\vite-env.d.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\tsconfig.json", "JSON with Comments", 0, 0, 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 2, 3, 26
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\tsconfig.node.json", "JSON", 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 11
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\frontend\vite.config.ts", "TypeScript", 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 1, 2, 11
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\main.cpp", "C++", 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 3, 25
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\tests.cpp", "C++", 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 2, 15
+"c:\School Work\Year 2 Semester 2\COS 214 Notes\Project\COS-214-Project\src\tests\colorTest.cpp", "C++", 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 12, 59
+"Total", "-", 51, 203, 18, 13, 57, 127, 666, 21, 5, 24, 311, 28, 59, 199, 259, 2041
