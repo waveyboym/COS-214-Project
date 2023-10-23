@@ -1,1 +1,3 @@
 build
+*.lck
+*.bak_000f
