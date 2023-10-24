@@ -7,12 +7,15 @@
 
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
-#include "../backend/includes/crow_all.h"
+#include "../backend/includes/crow_all.h" //don't try to sort out this squiggly, if it's red, leave it!
+#include "../backend/includes/json.hpp"
 #include "../backend/includes/color.hpp"
 #include <unordered_set>
 #include <mutex>
 #include <chrono>
 #include <thread>
+
+using json = nlohmann::json;
 
 /**
  * @brief Application class that runs the main application
@@ -76,12 +79,18 @@ class Application{
         std::string processFrontendRequest(std::string req);
 
         /**
-         * @brief does a backend task and returns updated data
-         * @param command command to execute on the backend
-         * @param value value to update to on the backend
+         * @brief processes the incoming request from the frontend customer and sends back a response
+         * @param req incoming json request from the frontend
          * @return std::string
         */
-        std::string doBackendTask(std::string command, std::string value);
+        std::string processCustomerRequest(json req_obj);
+
+        /**
+         * @brief processes the incoming request from the frontend manager and sends back a response
+         * @param req incoming json request from the frontend
+         * @return std::string
+        */
+        std::string processManagerRequest(json req_obj);
 };
 
 #endif
