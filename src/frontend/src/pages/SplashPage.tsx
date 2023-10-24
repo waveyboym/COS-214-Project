@@ -9,7 +9,7 @@ const SplashPage = () => {
                   <header className="header_section">
                     <div className="container">
                       <nav className="navbar navbar-expand-lg custom_nav-container">
-                      <Link className="navbar-brand" to="/game"><span>Everest</span></Link>
+                      <Link className="navbar-brand" to="/menu"><span>Everest</span></Link>
                       </nav>
                     </div>
                   </header>

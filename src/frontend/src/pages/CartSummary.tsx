@@ -34,8 +34,8 @@ const CartSummary = () => {
   const sendMessage = function(message: string) {
       //this is a template for sending messages to the backend,
       // please feel free to modify it or build on top of it
-      const req: string = "command1=value1";
-      socket!.send(req);
+      const json = { "player": "customer", "command": "create_order"};
+      socket!.send(JSON.stringify(json));
   }
 
   const openModal = () => { setIsModalOpen(true); };
