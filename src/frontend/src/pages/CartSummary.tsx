@@ -1,27 +1,46 @@
 // CartSummary.tsx or CartSummary.jsx
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import { Link, Route } from 'react-router-dom';
-import TrackingPage from './TrackingPage';
 import { CartObject, Footer } from '../components';
-import { useCartStore } from '../stateStore';
+import { useCartStore, useWaiterStore, usefoodProcessingTimeStore } from '../stateStore';
 import { Navbar } from '../components';
 import { hero_bg } from '../assets';
+import { useSocket } from '../contexts';
 
 const CartSummary = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [foodProcessingTime, setFoodProcessingTime] = useState(0);
-  const [waiterName, setWaiterName] = useState('');
+  const {foodProcessingTime, setFoodProcessingTime } = usefoodProcessingTimeStore((state) => { return { foodProcessingTime: state.foodProcessingTime, setFoodProcessingTime: state.setFoodProcessingTime }; });
+  const {waiterName, setWaiterName } = useWaiterStore((state) => { return { waiterName: state.waiterName, setWaiterName: state.setWaiterName }; });
   const [rating, setRating] = useState(0);
-  const { cartItems } = useCartStore((state) => { return { cartItems: state.cartItems }; });
+
+  const { cartItems, deleteFromCart } = useCartStore((state) => { return { cartItems: state.cartItems, deleteFromCart: state.deleteFromCart }; });
   const [totalAmount, setTotalAmount] = useState(cartItems.reduce((acc, item) => acc + item.price, 0));
-  const [selectedItems, setSelectedItems] = useState(cartItems);
+  const socket: WebSocket | null = useSocket();
 
+  socket!.onmessage = function(event){
+    //the backend responds with the needed data
+    const json : {message: string} = JSON.parse(event.data);
+    const processingTime = 20; // Adjust this value as needed
+    setFoodProcessingTime(processingTime);
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+    // Assign a waiter (replace with actual logic)
+    const assignedWaiter = 'John Doe'; // Replace with actual waiter assignment logic
+    setWaiterName(assignedWaiter);
+    
+    //navigate to the trackingpage here
+  }
+  
+  const sendMessage = function(message: string) {
+      //this is a template for sending messages to the backend,
+      // please feel free to modify it or build on top of it
+      const req: string = "command1=value1";
+      socket!.send(req);
+  }
+
+  const openModal = () => { setIsModalOpen(true); };
+
+  const closeModal = () => { setIsModalOpen(false); };
 
   // Handle user input for rating
   const handleRatingChange = (e: { target: { value: string; }; }) => {
@@ -29,61 +48,27 @@ const CartSummary = () => {
     setRating(userRating);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
   const handleCheckout = async () => {
-    // Simulate food processing time (in seconds)
-    const processingTime = 20; // Adjust this value as needed
-    setFoodProcessingTime(processingTime);
-
-    // Assign a waiter (replace with actual logic)
-    const assignedWaiter = 'John Doe'; // Replace with actual waiter assignment logic
-    setWaiterName(assignedWaiter);
-
-    try {
-      // Send the order to your backend for processing
-      const response = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(cartItems),
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        // Handle the response from your backend
-        // For example, set foodProcessingTime and waiterName based on the response
-
-        // Redirect the user to the tracking page
-        // You can use React Router or other routing mechanisms to do this
-      } else {
-        // Handle errors or display an error message to the user
-      }
-    } catch (error) {
-      console.error('Error during checkout:', error);
-      // Handle errors or display an error message to the user
-    }
+    sendMessage(JSON.stringify(cartItems));
   };
 
 
   // In your routing setup
-  <Route path="/tracking" element={<TrackingPage foodProcessingTime={foodProcessingTime} waiterName={waiterName} orderStatus={''} />} />
 
   function handleRemoveItem(id: number): void {
     //remove the item from the selected items
-    const newSelectedItems = selectedItems.filter((item) => item.id !== id);
-    setSelectedItems(newSelectedItems);
+    deleteFromCart(id);
+    setTotalAmount(cartItems.reduce((acc, item) => acc + item.price, 0));
+  }
 
-
-    //remove the total amount of the item from the total amount
-    const itemToRemove = selectedItems.find((item) => item.id === id);
-    if (itemToRemove) {
-      setTotalAmount(totalAmount - itemToRemove.price);
+  useEffect(() => {
+    const countItems = () =>{
+      setTotalAmount(cartItems.reduce((acc, item) => acc + item.price, 0));
     }
 
-  }
+    countItems();
+  }, [cartItems])
+  
 
   return (
     <div className="sub_page">
@@ -91,7 +76,7 @@ const CartSummary = () => {
         <div className="bg-box">
           <img src={hero_bg} alt="" />
         </div>
-        <Navbar route={"Menu"} />
+        <Navbar route={"CartSummary"} />
       </div>
       <section className="food_section layout_padding">
         <div className="container">
@@ -100,30 +85,14 @@ const CartSummary = () => {
           </div>
           <div className="filters-content">
             <div className="row grid">
-              {selectedItems.map((item) => (
-                <div key={item.id} className="col-sm-6 col-lg-4 all">
-                  <div className="box">
-                    <div>
-                      <div className="img-box">
-                        <img src={item.img} alt="" />
-                      </div>
-                      <div className="detail-box">
-                        <h5>{item.name}</h5>
-                        <p>{item.description}</p>
-                        <div className="options">
-                          <h6>R{item.price}.00</h6>
-                          <button onClick={() => handleRemoveItem(item.id)}>Remove</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              {cartItems.map((item) => (
+                <CartObject key={item.id} id={item.id} name={item.name} price={item.price} img={item.img} description={item.description} handleRemoveItem={handleRemoveItem}/>
               ))}
             </div>
           </div>
           {/* Checkout button */}
           <div className="total-amount">Total: ${totalAmount}.00</div>
-          <button onClick={openModal}>Checkout</button>
+          <button className="btn my-2 my-sm-0 btn-warning" onClick={openModal}>Checkout</button>
 
           <Modal
             isOpen={isModalOpen}
@@ -132,8 +101,8 @@ const CartSummary = () => {
           >
             <h2>Confirm Checkout</h2>
             <p>Are you sure you want to proceed with the checkout?</p>
-            <button onClick={handleCheckout}>Yes, Checkout</button>
-            <button onClick={closeModal}>Cancel</button>
+            <button className="btn my-2 my-sm-0 btn-warning" onClick={handleCheckout}>Yes, Checkout</button>
+            <button className="btn my-2 my-sm-0 btn-secondary" onClick={closeModal}>Cancel</button>
           </Modal>
 
           {/* Tracking info NOT WORKING WELL -- NEED TO FIX
