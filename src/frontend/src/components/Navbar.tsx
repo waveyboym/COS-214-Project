@@ -37,12 +37,6 @@ const Navbar = (props: NavbarProps) => {
                   <li className={"nav-item " + (props.route === "Menu" ? "active" : "")}>
                     <Link className="nav-link" to="/menu"><span>Menu</span></Link>
                   </li>
-                  <li className={"nav-item " + (props.route === "About" ? "active" : "")}>
-                    <Link className="nav-link" to="/about"><span>About</span></Link>
-                  </li>
-                  <li className={"nav-item " + (props.route === "Book" ? "active" : "")}>
-                    <Link className="nav-link" to="/book"><span>Book</span></Link>
-                  </li>
                 </ul>
                 <div className="user_option">
                   <Link to="/tracking" className="user_link">
