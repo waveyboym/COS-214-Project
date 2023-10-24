@@ -1,3 +1,4 @@
 build
 *.lck
 *.vpp.*
+.vscode

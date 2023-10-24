@@ -1,4 +1,4 @@
-#include "Application.hpp"
+#include "Application.hpp" //don't try to sort out this squiggly, if it's red, leave it!
 
 void Application::initApp()
 {
@@ -90,51 +90,49 @@ void Application::progressForward()
 
 std::string Application::processFrontendRequest(std::string req)
 {
-    //TODO: add more code
-    //ISSUE ID: 1 If you decide to take this issue, please indicate this on the issues tab on github for ISSUE ID: 1
+    //expected req format
+    json req_obj = json::parse(req);
 
-    //expected req format -> command1=value1&command2=value2&command3=value3...&commandn=valuen
-
-    int query_string_iterator = 0;
-    std::string res = "{";
-
-    while(query_string_iterator < req.length()){
-        std::string command = "";
-        while(query_string_iterator < req.length() && req[query_string_iterator] != '='){
-            command += req[query_string_iterator];
-            ++query_string_iterator;
-        }
-        
-        if(req[query_string_iterator] != '='){
-            return "{ \"message\": \"failed to process -> " + req +", because of missing = at index: " + std::to_string(query_string_iterator) + "\"}";
-        }
-        ++query_string_iterator;
-        
-        std::string message = "";
-        while(query_string_iterator < req.length() && req[query_string_iterator] != '&'){
-            message += req[query_string_iterator];
-            ++query_string_iterator;
-        }
-        
-        if(req[query_string_iterator] != '&' && query_string_iterator != req.length()){
-            return "{ \"message\": \"failed to process -> " + req +", because of missing & at index: " + std::to_string(query_string_iterator) + "\"}";
-        }
-
-        ++query_string_iterator;
-        if(query_string_iterator < req.length()){//query_string_iterator is req.length() + 1 now
-            res += doBackendTask(command, message) + ",";
-        }
-        else{
-            res += doBackendTask(command, message);
-        }
+    if(!req_obj.contains("player") || !req_obj.contains("command")){
+        std::cout << color::format_colour::make_colour(color::RED) << " missing player or command request in json object " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"message\":\"missing player or command request in json object\"}";
     }
-
-    res += "}";
-
-    return res;
+    else if(req_obj["player"] == "customer"){
+        return this->processCustomerRequest(req_obj);
+    }
+    else if(req_obj["player"] == "manager"){
+        return this->processManagerRequest(req_obj);
+    }
+    else{
+        std::cout << color::format_colour::make_colour(color::RED) << req_obj["player"] << " is not a valid player " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"message\":\"invalid player found\"}";
+    }
 }
 
-std::string Application::doBackendTask(std::string command, std::string value)
+std::string Application::processCustomerRequest(json req_obj)
 {
-    return "\"message\":\"you gave me this command -> "+ command +" with this message -> " + value +"\"";
+    //TODO: add more code
+    //ISSUE ID: 2 If you decide to take this issue, please indicate this on the issues tab on github for ISSUE ID: 2
+    if(req_obj["command"] == "create_order"){
+        std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"message\":\"received request\"}";
+    }
+    else{
+        std::cout << color::format_colour::make_colour(color::RED) << req_obj["command"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"message\":\"invalid command found\"}";
+    }
+}
+
+std::string Application::processManagerRequest(json req_obj)
+{
+    //TODO: add more code
+    //ISSUE ID: 3 If you decide to take this issue, please indicate this on the issues tab on github for ISSUE ID: 3
+    if(req_obj["command"] == "get_all"){
+        std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"message\":\"received request\"}";
+    }
+    else{
+        std::cout << color::format_colour::make_colour(color::RED) << req_obj["player"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"message\":\"invalid command found\"}";
+    }
 }
