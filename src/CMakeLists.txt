@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.5)  # version can be different
 
 project(container) #name of your project
 
-# GoogleTest requires at least C++14
-set(CMAKE_CXX_STANDARD 14)
+# Our project requires at least C++20
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")

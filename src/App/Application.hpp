@@ -9,11 +9,14 @@
 #define APPLICATION_HPP
 #include "../backend/includes/crow_all.h" //don't try to sort out this squiggly, if it's red, leave it!
 #include "../backend/includes/json.hpp"
+#include "../backend/includes/uuid.h"
 #include "../backend/includes/color.hpp"
 #include <unordered_set>
+#include <map>
 #include <mutex>
 #include <chrono>
 #include <thread>
+#include <list>
 
 using json = nlohmann::json;
 
@@ -64,12 +67,22 @@ class Application{
         /**
          * @brief this has the ability to pause app execution when changed to true and unpause when changed to false
         */
-        volatile bool pauseAppExecution;
+        volatile bool pause_app_execution;
 
         /**
          * @brief this has the the ability to quit the app when changed to true and does not quit the app as long as it is false
         */
-        volatile bool quitApp;
+        volatile bool quit_app;
+
+        /**
+         * @brief this stores the uuid of connected customers
+        */
+        std::list<std::string> connected_customers;
+
+        /**
+         * @brief this stores the uuid of connected managers
+        */
+        std::list<std::string> connected_managers;
 
         /**
          * @brief processes the incoming request from the frontend and sends back a response
@@ -91,6 +104,21 @@ class Application{
          * @return std::string
         */
         std::string processManagerRequest(json req_obj);
+
+        /**
+         * @brief checks if the token exists in the passed in linked list. returns true on success and false on failure
+         * @param linked_list list to find token in
+         * @param token token to find in list
+         * @return bool
+        */
+        bool existingToken(std::list<std::string> linked_list, std::string token);
+
+        /**
+         * @brief generates unique uid
+         * @param none
+         * @return std::string
+        */
+        std::string generateUUID();
 };
 
 #endif
