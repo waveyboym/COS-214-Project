@@ -12,9 +12,9 @@
 #include "backend/Bill/Bill.cpp"
 #include "backend/People/People.cpp"
 #include "backend/Iterators/RestaurantIterator.cpp"
-#include "backend/iterators/BillIterator.cpp"
-#include "backend/iterators/TableIterator.cpp"
-#include "backend/iterators/PeopleIterator.cpp"
+#include "backend/Iterators/BillIterator.cpp"
+#include "backend/Iterators/TableIterator.cpp"
+#include "backend/Iterators/PeopleIterator.cpp"
 #include "tests/iteratorTest.cpp"
 
 int main(int argc, char* argv[])
