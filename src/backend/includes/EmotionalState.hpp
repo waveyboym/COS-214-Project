@@ -11,7 +11,9 @@
 enum EMOTIONAL_STATE{
     NEUTRAL,
     ANGRY,
-    HAPPY
+    HAPPY,
+    SLIGHTLY_ANGRY,
+    SLIGHTLY_HAPPY,
 };
 
 /** 

@@ -1,36 +1,36 @@
 /**
-*@file CustomerIterator.hpp CustomerIterator.cpp
-*@class CustomerIterator
+*@file WaiterIterator.hpp WaiterIterator.cpp
+*@class WaiterIterator
 *@implements RestaurantIterator
 *@author Michael
-*@brief traverses through a map of Customer objects
+*@brief traverses through a map of Waiter objects
 */
-#ifndef CUSTOMER_ITERATOR_HPP
-#define CUSTOMER_ITERATOR_HPP
+#ifndef WAITER_ITERATOR_HPP
+#define WAITER_ITERATOR_HPP
 #include "RestaurantIterator.hpp"
-#include "Customer.hpp"
+#include "Waiter.hpp"
 
 /**
-*@brief traverses through a map of Customer objects
+*@brief traverses through a map of Waiter objects
 */
-class CustomerIterator : public RestaurantIterator{
+class WaiterIterator : public RestaurantIterator{
     private:
         /** 
         *@brief the list to traverse through
         */
-        std::map<std::string, std::shared_ptr<Customer>> m_customers;
+        std::map<std::string, std::shared_ptr<Waiter>> m_waiters;
         /** 
         *@brief the current item being pointed to in the list
         */
-        std::map<std::string, std::shared_ptr<Customer>>::iterator current;
+        std::map<std::string, std::shared_ptr<Waiter>>::iterator current;
 
     public:
         /** 
         *@brief initialises the list to traverse through
         *@note does nothing if the list is empty
-        *@param customers the list to iterate through
+        *@param waiters the list to iterate through
         */
-        CustomerIterator(std::map<std::string, std::shared_ptr<Customer>> customers);
+        WaiterIterator(std::map<std::string, std::shared_ptr<Waiter>> waiters);
         /** 
         *@brief iterates by one step to the next element
         *@note does nothing if the list is empty

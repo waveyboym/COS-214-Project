@@ -11,6 +11,8 @@
 #include "Angry.hpp"
 #include "Happy.hpp"
 #include "Neutral.hpp"
+#include "SlightlyHappy.hpp"
+#include "SlightlyAngry.hpp"
 #include <memory>
 
 /** 

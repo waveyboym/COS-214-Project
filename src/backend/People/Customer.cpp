@@ -26,4 +26,10 @@ void Customer::setEmotionalState(EMOTIONAL_STATE state){
     else if(state == EMOTIONAL_STATE::NEUTRAL){
         this->currentEmotionalState = std::make_shared<Neutral>();
     }
+    else if(state == EMOTIONAL_STATE::SLIGHTLY_ANGRY){
+        this->currentEmotionalState = std::make_shared<SlightlyAngry>();
+    }
+    else if(state == EMOTIONAL_STATE::SLIGHTLY_HAPPY){
+        this->currentEmotionalState = std::make_shared<SlightlyHappy>();
+    }
 }
