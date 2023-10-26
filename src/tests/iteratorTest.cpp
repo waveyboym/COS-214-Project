@@ -10,6 +10,7 @@
 #include "../backend/includes/BillIterator.hpp"
 #include "../backend/includes/TableIterator.hpp"
 #include "../backend/includes/CustomerIterator.hpp"
+#include "../backend/includes/WaiterIterator.hpp"
 
 namespace BILL_ITERATOR_TEST{
 
@@ -511,5 +512,197 @@ namespace TABLE_ITERATOR_TEST
         EXPECT_EQ(bill, nullptr);
         std::shared_ptr<Customer> customer = std::dynamic_pointer_cast<Customer>(TI->currentItem());
         EXPECT_EQ(customer, nullptr);
+    }
+}
+
+namespace WAITER_ITERATOR_TEST{
+
+    TEST(WaiterIterator_test, INIT_PEOPLE_ITERATOR)
+    {
+        std::map<std::string, std::shared_ptr<Waiter>> waiters;
+        std::shared_ptr<WaiterIterator> PI = std::make_shared<WaiterIterator>(waiters);
+
+        ASSERT_NE(PI, nullptr);
+        EXPECT_EQ(PI->size(), 0);
+    }
+
+    TEST(WaiterIterator_test, NULL_CURRENT_ITEM_PEOPLE_ITERATOR)
+    {
+        std::map<std::string, std::shared_ptr<Waiter>> waiters;
+        std::shared_ptr<WaiterIterator> PI = std::make_shared<WaiterIterator>(waiters);
+
+        ASSERT_NE(PI, nullptr);
+        EXPECT_EQ(PI->size(), 0);
+        EXPECT_EQ(PI->currentItem(), nullptr);
+    }
+
+    TEST(WaiterIterator_test, NULL_FIRST_ITEM_PEOPLE_ITERATOR)
+    {
+        std::map<std::string, std::shared_ptr<Waiter>> waiters;
+        std::shared_ptr<WaiterIterator> PI = std::make_shared<WaiterIterator>(waiters);
+
+        ASSERT_NE(PI, nullptr);
+        EXPECT_EQ(PI->size(), 0);
+        EXPECT_EQ(PI->currentItem(), nullptr);
+        EXPECT_EQ(PI->first(), nullptr);
+    }
+
+    TEST(WaiterIterator_test, NULL_LAST_ITEM_PEOPLE_ITERATOR)
+    {
+        std::map<std::string, std::shared_ptr<Waiter>> waiters;
+        std::shared_ptr<WaiterIterator> PI = std::make_shared<WaiterIterator>(waiters);
+
+        ASSERT_NE(PI, nullptr);
+        EXPECT_EQ(PI->size(), 0);
+        EXPECT_EQ(PI->currentItem(), nullptr);
+        EXPECT_EQ(PI->first(), nullptr);
+        EXPECT_EQ(PI->last(), nullptr);
+    }
+
+    TEST(WaiterIterator_test, NULL_ISDONE_PEOPLE_ITERATOR)
+    {
+        std::map<std::string, std::shared_ptr<Waiter>> waiters;
+        std::shared_ptr<WaiterIterator> PI = std::make_shared<WaiterIterator>(waiters);
+
+        ASSERT_NE(PI, nullptr);
+        EXPECT_EQ(PI->size(), 0);
+        EXPECT_EQ(PI->currentItem(), nullptr);
+        EXPECT_EQ(PI->first(), nullptr);
+        EXPECT_EQ(PI->last(), nullptr);
+        EXPECT_EQ(PI->isDone(), true);
+    }
+    
+    TEST(WaiterIterator_test, SIZE_PEOPLE_ITERATOR)
+    {
+        std::map<std::string, std::shared_ptr<Waiter>> waiters;
+
+        waiters.insert({ "33", std::make_shared<Waiter>()});
+        waiters.insert({ "39", std::make_shared<Waiter>()});
+        waiters.insert({ "25", std::make_shared<Waiter>()});
+        waiters.insert({ "19", std::make_shared<Waiter>()});
+        waiters.insert({ "40", std::make_shared<Waiter>()});
+        waiters.insert({ "30", std::make_shared<Waiter>()});
+        waiters.insert({ "86", std::make_shared<Waiter>()});
+        waiters.insert({ "63", std::make_shared<Waiter>()});
+        waiters.insert({ "58", std::make_shared<Waiter>()});
+        waiters.insert({ "29", std::make_shared<Waiter>()});
+        waiters.insert({ "59", std::make_shared<Waiter>()});
+        waiters.insert({ "57", std::make_shared<Waiter>()});
+        waiters.insert({ "96", std::make_shared<Waiter>()});
+        waiters.insert({ "28", std::make_shared<Waiter>()});
+        
+        
+        std::shared_ptr<WaiterIterator> PI = std::make_shared<WaiterIterator>(waiters);
+
+        ASSERT_NE(PI, nullptr);
+        EXPECT_EQ(PI->size(), 14);
+    }
+
+    TEST(WaiterIterator_test, FIRST_IS_CURRENT_BEFORE_PEOPLE_ITERATOR)
+    {
+        std::map<std::string, std::shared_ptr<Waiter>> waiters;
+
+        waiters.insert({ "33", std::make_shared<Waiter>()});
+        waiters.insert({ "39", std::make_shared<Waiter>()});
+        waiters.insert({ "25", std::make_shared<Waiter>()});
+        waiters.insert({ "19", std::make_shared<Waiter>()});
+        waiters.insert({ "40", std::make_shared<Waiter>()});
+        waiters.insert({ "30", std::make_shared<Waiter>()});
+        waiters.insert({ "86", std::make_shared<Waiter>()});
+        waiters.insert({ "63", std::make_shared<Waiter>()});
+        waiters.insert({ "58", std::make_shared<Waiter>()});
+        waiters.insert({ "29", std::make_shared<Waiter>()});
+        waiters.insert({ "59", std::make_shared<Waiter>()});
+        waiters.insert({ "57", std::make_shared<Waiter>()});
+        waiters.insert({ "96", std::make_shared<Waiter>()});
+        waiters.insert({ "28", std::make_shared<Waiter>()});
+        
+        
+        std::shared_ptr<WaiterIterator> PI = std::make_shared<WaiterIterator>(waiters);
+
+        ASSERT_NE(PI, nullptr);
+        EXPECT_EQ(PI->size(), 14);
+        EXPECT_EQ(PI->first(), PI->currentItem());
+    }
+
+    TEST(WaiterIterator_test, ITERATE_PEOPLE_ITERATOR)
+    {
+        std::map<std::string, std::shared_ptr<Waiter>> waiters;
+
+        waiters.insert({ "33", std::make_shared<Waiter>()});
+        waiters.insert({ "39", std::make_shared<Waiter>()});
+        waiters.insert({ "25", std::make_shared<Waiter>()});
+        waiters.insert({ "19", std::make_shared<Waiter>()});
+        waiters.insert({ "40", std::make_shared<Waiter>()});
+        waiters.insert({ "30", std::make_shared<Waiter>()});
+        waiters.insert({ "86", std::make_shared<Waiter>()});
+        waiters.insert({ "63", std::make_shared<Waiter>()});
+        waiters.insert({ "58", std::make_shared<Waiter>()});
+        waiters.insert({ "29", std::make_shared<Waiter>()});
+        waiters.insert({ "59", std::make_shared<Waiter>()});
+        waiters.insert({ "57", std::make_shared<Waiter>()});
+        waiters.insert({ "96", std::make_shared<Waiter>()});
+        waiters.insert({ "28", std::make_shared<Waiter>()});
+        
+        
+        std::shared_ptr<WaiterIterator> PI = std::make_shared<WaiterIterator>(waiters);
+
+        ASSERT_NE(PI, nullptr);
+        EXPECT_EQ(PI->size(), 14);
+        EXPECT_EQ(PI->first(), PI->currentItem());
+
+        while(!PI->isDone()){
+            PI->next();
+        }
+    }
+
+    TEST(WaiterIterator_test, LAST_IS_CURRENT_AFTER_PEOPLE_ITERATOR)
+    {
+        std::map<std::string, std::shared_ptr<Waiter>> waiters;
+
+        waiters.insert({ "33", std::make_shared<Waiter>()});
+        waiters.insert({ "39", std::make_shared<Waiter>()});
+        waiters.insert({ "25", std::make_shared<Waiter>()});
+        waiters.insert({ "19", std::make_shared<Waiter>()});
+        waiters.insert({ "40", std::make_shared<Waiter>()});
+        waiters.insert({ "30", std::make_shared<Waiter>()});
+        waiters.insert({ "86", std::make_shared<Waiter>()});
+        waiters.insert({ "63", std::make_shared<Waiter>()});
+        waiters.insert({ "58", std::make_shared<Waiter>()});
+        waiters.insert({ "29", std::make_shared<Waiter>()});
+        waiters.insert({ "59", std::make_shared<Waiter>()});
+        waiters.insert({ "57", std::make_shared<Waiter>()});
+        waiters.insert({ "96", std::make_shared<Waiter>()});
+        waiters.insert({ "28", std::make_shared<Waiter>()});
+        
+        
+        std::shared_ptr<WaiterIterator> PI = std::make_shared<WaiterIterator>(waiters);
+
+        ASSERT_NE(PI, nullptr);
+        EXPECT_EQ(PI->size(), 14);
+        EXPECT_EQ(PI->first(), PI->currentItem());
+
+        while(!PI->isDone()){
+            PI->next();
+        }
+
+        EXPECT_EQ(PI->last(), PI->currentItem());
+    }
+
+    TEST(WaiterIterator_test, PEOPLE_ITERATOR_DOWNCAST)
+    {
+        std::map<std::string, std::shared_ptr<Waiter>> waiters;
+        waiters.insert({ "33", std::make_shared<Waiter>()});
+        std::shared_ptr<WaiterIterator> PI = std::make_shared<WaiterIterator>(waiters);
+
+        ASSERT_NE(PI, nullptr);
+        EXPECT_EQ(PI->size(), 1);
+
+        std::shared_ptr<Waiter> customer = std::dynamic_pointer_cast<Waiter>(PI->currentItem());
+        ASSERT_NE(customer, nullptr);
+        std::shared_ptr<Bill> bill = std::dynamic_pointer_cast<Bill>(PI->currentItem());
+        EXPECT_EQ(bill, nullptr);
+        std::shared_ptr<Table> table = std::dynamic_pointer_cast<Table>(PI->currentItem());
+        EXPECT_EQ(table, nullptr);
     }
 }
