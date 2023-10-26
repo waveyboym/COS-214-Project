@@ -10,49 +10,49 @@
 #include "../backend/includes/color.hpp"
 
 namespace colorTest{
-    TEST(COLOR_BLACK, color)
+    TEST(color_test, COLOR_BLACK)
     {
-        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::BLACK), "\033[" + std::to_string(color::BLACK) + "m");
+        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::BLACK), "\033[30m");
     }
 
-    TEST(COLOR_RED, color)
+    TEST(color_test, COLOR_RED)
     {
-        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::RED), "\033[" + std::to_string(color::RED) + "m");
+        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::RED), "\033[31m");
     }
 
-    TEST(COLOR_GREEN, color)
+    TEST(color_test, COLOR_GREEN)
     {
-        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::GREEN), "\033[" + std::to_string(color::GREEN) + "m");
+        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::GREEN), "\033[32m");
     }
 
-    TEST(COLOR_YELLOW, color)
+    TEST(color_test, COLOR_YELLOW)
     {
-        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::YELLOW), "\033[" + std::to_string(color::YELLOW) + "m");
+        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::YELLOW), "\033[33m");
     }
 
-    TEST(COLOR_BLUE, color)
+    TEST(color_test, COLOR_BLUE)
     {
-        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::BLUE), "\033[" + std::to_string(color::BLUE) + "m");
+        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::BLUE), "\033[34m");
     }
 
-    TEST(COLOR_MAGENTA, color)
+    TEST(color_test, COLOR_MAGENT)
     {
-        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::MAGENTA), "\033[" + std::to_string(color::MAGENTA) + "m");
+        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::MAGENTA), "\033[35m");
     }
 
-    TEST(COLOR_CYAN, color)
+    TEST(color_test, COLOR_CYAN)
     {
-        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::CYAN), "\033[" + std::to_string(color::CYAN) + "m");
+        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::CYAN), "\033[36m");
     }
 
-    TEST(COLOR_WHITE, color)
+    TEST(color_test, COLOR_WHITE)
     {
-        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::WHITE), "\033[" + std::to_string(color::WHITE) + "m");
+        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::WHITE), "\033[37m");
     }
 
-    TEST(COLOR_DEFAULT, color)
+    TEST(color_test, COLOR_DEFAULT)
     {
-        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::DEFAULT), "\033[" + std::to_string(color::DEFAULT) + "m");
+        GTEST_ASSERT_EQ(color::format_colour::make_colour(color::DEFAULT), "\033[39m");
     }
 }
 

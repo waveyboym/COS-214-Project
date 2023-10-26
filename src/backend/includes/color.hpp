@@ -4,8 +4,8 @@
 *@author Michael
 *@brief a color class
 */
-#ifndef color_hpp
-#define color_hpp
+#ifndef COLOR_HPP
+#define COLOR_HPP
 #include <string>
 
 /** 
