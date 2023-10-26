@@ -5,8 +5,8 @@
 class People : public Collectable{
     //TODO: implement
     public:
-        People();
         void nill();
+        virtual bool personAction() = 0;
 };
 
 #endif

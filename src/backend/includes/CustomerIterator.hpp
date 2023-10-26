@@ -1,36 +1,36 @@
 /**
-*@file PeopleIterator.hpp PeopleIterator.cpp
-*@class PeopleIterator
+*@file CustomerIterator.hpp CustomerIterator.cpp
+*@class CustomerIterator
 *@implements RestaurantIterator
 *@author Michael
-*@brief traverses through a map of People objects
+*@brief traverses through a map of Customer objects
 */
 #ifndef PEOPLEITERATOR_HPP
 #define PEOPLEITERATOR_HPP
 #include "RestaurantIterator.hpp"
-#include "People.hpp"
+#include "Customer.hpp"
 
 /**
-*@brief traverses through a map of People objects
+*@brief traverses through a map of Customer objects
 */
-class PeopleIterator : public RestaurantIterator{
+class CustomerIterator : public RestaurantIterator{
     private:
         /** 
         *@brief the list to traverse through
         */
-        std::map<std::string, std::shared_ptr<People>> m_people;
+        std::map<std::string, std::shared_ptr<Customer>> m_customers;
         /** 
         *@brief the current item being pointed to in the list
         */
-        std::map<std::string, std::shared_ptr<People>>::iterator current;
+        std::map<std::string, std::shared_ptr<Customer>>::iterator current;
 
     public:
         /** 
         *@brief initialises the list to traverse through
         *@note does nothing if the list is empty
-        *@param people the list to iterate through
+        *@param customers the list to iterate through
         */
-        PeopleIterator(std::map<std::string, std::shared_ptr<People>> people);
+        CustomerIterator(std::map<std::string, std::shared_ptr<Customer>> customers);
         /** 
         *@brief iterates by one step to the next element
         *@note does nothing if the list is empty
