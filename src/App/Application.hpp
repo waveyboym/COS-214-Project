@@ -11,7 +11,6 @@
 #include "../backend/includes/json.hpp"
 #include "../backend/includes/uuid.h"
 #include "../backend/includes/color.hpp"
-#include <unordered_set>
 #include <map>
 #include <mutex>
 #include <chrono>
@@ -56,7 +55,7 @@ class Application{
          * @brief this holds all of the connected/subscribed clients that way if there is an update on the backend, we can send updated data to the client in json form.
          * @note Note that when a client closes their connection, they become unsubscribed and will no longer receive any messages from the backend.
         */
-        std::unordered_set<crow::websocket::connection*> connected_clients;
+        std::map<std::string, crow::websocket::connection*> connected_clients;
 
         /**
          * @brief thread locker.
@@ -119,6 +118,20 @@ class Application{
          * @return std::string
         */
         std::string generateUUID();
+
+        /**
+         * @brief inserts this client into the map of clients and returns the uuid of that client as a string
+         * @param client the client connection to insert
+         * @return std::string
+        */
+        std::string insertClient(crow::websocket::connection* client);
+
+        /**
+         * @brief removes this client from the map of clients and returns true on success else false
+         * @param client the client connection to remove
+         * @return bool
+        */
+        bool removeClient(crow::websocket::connection* client);
 };
 
 #endif

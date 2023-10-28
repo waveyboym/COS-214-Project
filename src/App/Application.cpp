@@ -43,8 +43,7 @@ void Application::runApp()
                 
                 //mutex locking here to prevent multiple client connections from trying to add at the same time
                 std::lock_guard<std::mutex> _(this->mtx);
-                std::string id = this->generateUUID();
-                this->connected_clients.insert(&conn);
+                std::string id = this->insertClient(&conn);
                 conn.send_text("{\"status\":\"success\", \"message\":\"create_token\", \"token\":\"" + id + "\"}");
                 //release lock
                 })
@@ -53,7 +52,14 @@ void Application::runApp()
                 
                 //mutex locking here to prevent multiple client connections from trying to erase at the same time
                 std::lock_guard<std::mutex> _(this->mtx);
-                this->connected_clients.erase(&conn);
+                bool remove_status = this->removeClient(&conn);
+
+                if(remove_status){
+                    CROW_LOG_INFO << color::format_colour::make_colour(color::GREEN) << "successfully removed client" << color::format_colour::make_colour(color::DEFAULT);
+                }
+                else{
+                    CROW_LOG_INFO << color::format_colour::make_colour(color::RED) << "failed to remove client" << color::format_colour::make_colour(color::DEFAULT);
+                }
                 //release lock
                 })
         .onmessage([&](crow::websocket::connection& conn, const std::string& data, bool is_binary){
@@ -81,7 +87,7 @@ void Application::runApp()
                 });
 
     this->app.port(18080)
-        //.multithreaded()
+        //.multithreaded() //if you use all threads, none might be left to execute the game hence why we commented this out
         .run();
     
     this->quit_app = true;
@@ -106,9 +112,14 @@ void Application::progressForward()
         //do processing here
         end, start = std::chrono::system_clock::now();
         elapsed_seconds = end - start;
+
+        //send message out to all managers
+
         //end of removable code
 
-        while (this->pause_app_execution) { std::this_thread::yield(); } // do not modify
+        while (this->pause_app_execution) { 
+            std::this_thread::yield(); //do not modify 
+        }
     }
 }
 
@@ -137,6 +148,12 @@ std::string Application::processCustomerRequest(json req_obj)
 {
     //TODO: add more code
     //ISSUE ID: 2 If you decide to take this issue, please indicate this on the issues tab on github for ISSUE ID: 2
+
+    //check if this client is connected to us
+    if(!this->connected_clients.contains(req_obj["token"])){
+        std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token does not exist in connected client tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"status\":\"error\", \"message\":\"token does not exist in connected client tokens\"}";
+    }
 
     //check if a manager is trying to play as a customer
     if(this->existingToken(this->connected_managers, req_obj["token"])){
@@ -170,6 +187,12 @@ std::string Application::processManagerRequest(json req_obj)
 {
     //TODO: add more code
     //ISSUE ID: 3 If you decide to take this issue, please indicate this on the issues tab on github for ISSUE ID: 3
+    
+    //check if this client is connected to us
+    if(!this->connected_clients.contains(req_obj["token"])){
+        std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token does not exist in connected client tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"status\":\"error\", \"message\":\"token does not exist in connected client tokens\"}";
+    }
 
     //check if a customer is trying to play as a manager
     if(this->existingToken(this->connected_customers, req_obj["token"])){
@@ -196,5 +219,35 @@ std::string Application::processManagerRequest(json req_obj)
     else{
         std::cout << color::format_colour::make_colour(color::RED) << req_obj["player"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\", \"message\":\"invalid command found\"}";
+    }
+}
+
+std::string Application::insertClient(crow::websocket::connection* client){
+    std::string id = "";
+    
+    while(true){
+        id = this->generateUUID();
+        if(!this->connected_clients.contains(id)){
+            this->connected_clients[id] = client;
+            break;
+        }
+    }
+
+    return id;
+}
+
+bool Application::removeClient(crow::websocket::connection* client){
+    std::map<std::string, crow::websocket::connection*>::iterator it = this->connected_clients.begin(); 
+
+    while (it != this->connected_clients.end() && it->second != client) { 
+        it++; 
+    } 
+
+    if(it != this->connected_clients.end()){
+        this->connected_clients.erase(it);
+        return true;
+    }
+    else{
+        return false;
     }
 }

@@ -27,6 +27,7 @@
 #include "tests/colorTest.cpp"
 #include "tests/iteratorTest.cpp"
 #include "tests/stateTest.cpp"
+#include "tests/peopleTest.cpp"
 
 int main(int argc, char* argv[])
 {
