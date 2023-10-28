@@ -37,17 +37,11 @@ const Navbar = (props: NavbarProps) => {
                   <li className={"nav-item " + (props.route === "Menu" ? "active" : "")}>
                     <Link className="nav-link" to="/menu"><span>Menu</span></Link>
                   </li>
-                  <li className={"nav-item " + (props.route === "About" ? "active" : "")}>
-                    <Link className="nav-link" to="/about"><span>About</span></Link>
-                  </li>
-                  <li className={"nav-item " + (props.route === "Book" ? "active" : "")}>
-                    <Link className="nav-link" to="/book"><span>Book</span></Link>
-                  </li>
                 </ul>
                 <div className="user_option">
-                  <a href="" className="user_link">
+                  <Link to="/tracking" className="user_link">
                     <FontAwesomeIcon icon={faUser} />
-                  </a>
+                  </Link>
                   <Link to="/cart-summary" className="cart_link">
                     <FontAwesomeIcon icon={faShoppingCart} />
                     <span className="cart_counter">{cartItems.length}</span>

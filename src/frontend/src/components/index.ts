@@ -1,8 +1,8 @@
-import Button from "./Button";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import CartObject from './CartObject';
+import FoodCard from './FoodCard';
 
 export {
-    Button, Navbar, Footer, CartObject
+    Navbar, Footer, CartObject, FoodCard
 }

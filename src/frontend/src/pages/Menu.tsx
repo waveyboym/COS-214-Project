@@ -4,9 +4,8 @@ import React, { useState } from 'react';
 
 //import pictures
 import { hero_bg } from '../assets';
-import { Footer, Navbar } from '../components';
+import { Footer, Navbar, FoodCard } from '../components';
 import { MenuItems } from '../content';
-import FoodCard from '../components/FoodCard';
 import { AnimatePresence } from "framer-motion";
 
 const Menu: React.FC = () => {
