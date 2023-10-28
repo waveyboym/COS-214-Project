@@ -1,6 +1,6 @@
-#include "../includes/TableIterator.hpp"
+#include "../includes/JoinedTableIterator.hpp"
 
-TableIterator::TableIterator(std::vector<std::shared_ptr<Table>> tables)
+JoinedTableIterator::JoinedTableIterator(std::list<std::shared_ptr<JoinedTable>> tables)
 {
     if(tables.size() == 0){
         return;
@@ -11,7 +11,7 @@ TableIterator::TableIterator(std::vector<std::shared_ptr<Table>> tables)
     }
 }
 
-void TableIterator::next()
+void JoinedTableIterator::next()
 {
     if(this->size() == 0){
         return;
@@ -21,7 +21,7 @@ void TableIterator::next()
     }
 }
 
-std::shared_ptr<Collectable> TableIterator::first()
+std::shared_ptr<Collectable> JoinedTableIterator::first()
 {
     if(this->size() == 0){
         return nullptr;
@@ -31,7 +31,7 @@ std::shared_ptr<Collectable> TableIterator::first()
     }
 }
 
-std::shared_ptr<Collectable> TableIterator::last()
+std::shared_ptr<Collectable> JoinedTableIterator::last()
 {
     if(this->size() == 0){
         return nullptr;
@@ -41,7 +41,7 @@ std::shared_ptr<Collectable> TableIterator::last()
     }
 }
 
-bool TableIterator::isDone()
+bool JoinedTableIterator::isDone()
 {
     if(this->size() == 0){
         return true;
@@ -54,11 +54,11 @@ bool TableIterator::isDone()
     }
 }
 
-int TableIterator::size(){
+int JoinedTableIterator::size(){
     return this->m_tables.size();
 }
 
-std::shared_ptr<Collectable> TableIterator::currentItem()
+std::shared_ptr<Collectable> JoinedTableIterator::currentItem()
 {
     if(this->size() == 0){
         return nullptr;

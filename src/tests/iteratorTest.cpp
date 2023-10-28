@@ -8,7 +8,8 @@
 
 #include <gtest/gtest.h>
 #include "../backend/includes/BillIterator.hpp"
-#include "../backend/includes/TableIterator.hpp"
+#include "../backend/includes/SingleTableIterator.hpp"
+#include "../backend/includes/JoinedTableIterator.hpp"
 #include "../backend/includes/CustomerIterator.hpp"
 #include "../backend/includes/WaiterIterator.hpp"
 
@@ -366,151 +367,299 @@ namespace CUSTOMER_ITERATOR_TEST{
     }
 }
 
-namespace TABLE_ITERATOR_TEST
+namespace SINGLE_TABLE_ITERATOR_TEST
 {
     
-    TEST(TableIterator_test, INIT_TABLE_ITERATOR)
+    TEST(SingleTableIterator_test, INIT_TABLE_ITERATOR)
     {
-        std::vector<std::shared_ptr<Table>> tables;
-        std::shared_ptr<TableIterator> TI = std::make_shared<TableIterator>(tables);
+        std::list<std::shared_ptr<SingleTable>> tables;
+        std::shared_ptr<SingleTableIterator> STI = std::make_shared<SingleTableIterator>(tables);
 
-        ASSERT_NE(TI, nullptr);
-        EXPECT_EQ(TI->size(), 0);
+        ASSERT_NE(STI, nullptr);
+        EXPECT_EQ(STI->size(), 0);
     }
 
-    TEST(TableIterator_test, NULL_CURRENT_ITEM_TABLE_ITERATOR)
+    TEST(SingleTableIterator_test, NULL_CURRENT_ITEM_TABLE_ITERATOR)
     {
-        std::vector<std::shared_ptr<Table>> tables;
-        std::shared_ptr<TableIterator> TI = std::make_shared<TableIterator>(tables);
+        std::list<std::shared_ptr<SingleTable>> tables;
+        std::shared_ptr<SingleTableIterator> STI = std::make_shared<SingleTableIterator>(tables);
 
-        ASSERT_NE(TI, nullptr);
-        EXPECT_EQ(TI->size(), 0);
-        EXPECT_EQ(TI->currentItem(), nullptr);
+        ASSERT_NE(STI, nullptr);
+        EXPECT_EQ(STI->size(), 0);
+        EXPECT_EQ(STI->currentItem(), nullptr);
     }
 
-    TEST(TableIterator_test, NULL_FIRST_ITEM_TABLE_ITERATOR)
+    TEST(SingleTableIterator_test, NULL_FIRST_ITEM_TABLE_ITERATOR)
     {
-        std::vector<std::shared_ptr<Table>> tables;
-        std::shared_ptr<TableIterator> TI = std::make_shared<TableIterator>(tables);
+        std::list<std::shared_ptr<SingleTable>> tables;
+        std::shared_ptr<SingleTableIterator> STI = std::make_shared<SingleTableIterator>(tables);
 
-        ASSERT_NE(TI, nullptr);
-        EXPECT_EQ(TI->size(), 0);
-        EXPECT_EQ(TI->currentItem(), nullptr);
-        EXPECT_EQ(TI->first(), nullptr);
+        ASSERT_NE(STI, nullptr);
+        EXPECT_EQ(STI->size(), 0);
+        EXPECT_EQ(STI->currentItem(), nullptr);
+        EXPECT_EQ(STI->first(), nullptr);
     }
 
-    TEST(TableIterator_test, NULL_LAST_ITEM_TABLE_ITERATOR)
+    TEST(SingleTableIterator_test, NULL_LAST_ITEM_TABLE_ITERATOR)
     {
-        std::vector<std::shared_ptr<Table>> tables;
-        std::shared_ptr<TableIterator> TI = std::make_shared<TableIterator>(tables);
+        std::list<std::shared_ptr<SingleTable>> tables;
+        std::shared_ptr<SingleTableIterator> STI = std::make_shared<SingleTableIterator>(tables);
 
-        ASSERT_NE(TI, nullptr);
-        EXPECT_EQ(TI->size(), 0);
-        EXPECT_EQ(TI->currentItem(), nullptr);
-        EXPECT_EQ(TI->first(), nullptr);
-        EXPECT_EQ(TI->last(), nullptr);
+        ASSERT_NE(STI, nullptr);
+        EXPECT_EQ(STI->size(), 0);
+        EXPECT_EQ(STI->currentItem(), nullptr);
+        EXPECT_EQ(STI->first(), nullptr);
+        EXPECT_EQ(STI->last(), nullptr);
     }
 
-    TEST(TableIterator_test, NULL_ISDONE_TABLE_ITERATOR)
+    TEST(SingleTableIterator_test, NULL_ISDONE_TABLE_ITERATOR)
     {
-        std::vector<std::shared_ptr<Table>> tables;
-        std::shared_ptr<TableIterator> TI = std::make_shared<TableIterator>(tables);
+        std::list<std::shared_ptr<SingleTable>> tables;
+        std::shared_ptr<SingleTableIterator> STI = std::make_shared<SingleTableIterator>(tables);
 
-        ASSERT_NE(TI, nullptr);
-        EXPECT_EQ(TI->size(), 0);
-        EXPECT_EQ(TI->currentItem(), nullptr);
-        EXPECT_EQ(TI->first(), nullptr);
-        EXPECT_EQ(TI->last(), nullptr);
-        EXPECT_EQ(TI->isDone(), true);
+        ASSERT_NE(STI, nullptr);
+        EXPECT_EQ(STI->size(), 0);
+        EXPECT_EQ(STI->currentItem(), nullptr);
+        EXPECT_EQ(STI->first(), nullptr);
+        EXPECT_EQ(STI->last(), nullptr);
+        EXPECT_EQ(STI->isDone(), true);
     }
 
-    TEST(TableIterator_test, SIZE_TABLE_ITERATOR)
+    TEST(SingleTableIterator_test, SIZE_TABLE_ITERATOR)
     {
-        std::vector<std::shared_ptr<Table>> tables;
+        std::list<std::shared_ptr<SingleTable>> tables;
 
-        tables.push_back(std::make_shared<Table>());
-        tables.push_back(std::make_shared<Table>());
-        tables.push_back(std::make_shared<Table>());
-        tables.push_back(std::make_shared<Table>());
+        tables.push_back(std::make_shared<SingleTable>());
+        tables.push_back(std::make_shared<SingleTable>());
+        tables.push_back(std::make_shared<SingleTable>());
+        tables.push_back(std::make_shared<SingleTable>());
+        std::shared_ptr<SingleTableIterator> STI = std::make_shared<SingleTableIterator>(tables);
+
+        ASSERT_NE(STI, nullptr);
+        EXPECT_EQ(STI->size(), 4);
+    }
+
+    TEST(SingleTableIterator_test, FIRST_IS_CURRENT_BEFORE_TABLE_ITERATOR)
+    {
+        std::list<std::shared_ptr<SingleTable>> tables;
+
+        tables.push_back(std::make_shared<SingleTable>());
+        tables.push_back(std::make_shared<SingleTable>());
+        tables.push_back(std::make_shared<SingleTable>());
+        tables.push_back(std::make_shared<SingleTable>());
         
-        std::shared_ptr<TableIterator> TI = std::make_shared<TableIterator>(tables);
+        std::shared_ptr<SingleTableIterator> STI = std::make_shared<SingleTableIterator>(tables);
 
-        ASSERT_NE(TI, nullptr);
-        EXPECT_EQ(TI->size(), 4);
+        ASSERT_NE(STI, nullptr);
+        EXPECT_EQ(STI->size(), 4);
+        EXPECT_EQ(STI->first(), STI->currentItem());
     }
 
-    TEST(TableIterator_test, FIRST_IS_CURRENT_BEFORE_TABLE_ITERATOR)
+    TEST(SingleTableIterator_test, ITERATE_TABLE_ITERATOR)
     {
-        std::vector<std::shared_ptr<Table>> tables;
+        std::list<std::shared_ptr<SingleTable>> tables;
 
-        tables.push_back(std::make_shared<Table>());
-        tables.push_back(std::make_shared<Table>());
-        tables.push_back(std::make_shared<Table>());
-        tables.push_back(std::make_shared<Table>());
+        tables.push_back(std::make_shared<SingleTable>());
+        tables.push_back(std::make_shared<SingleTable>());
+        tables.push_back(std::make_shared<SingleTable>());
+        tables.push_back(std::make_shared<SingleTable>());
         
-        std::shared_ptr<TableIterator> TI = std::make_shared<TableIterator>(tables);
+        std::shared_ptr<SingleTableIterator> STI = std::make_shared<SingleTableIterator>(tables);
 
-        ASSERT_NE(TI, nullptr);
-        EXPECT_EQ(TI->size(), 4);
-        EXPECT_EQ(TI->first(), TI->currentItem());
-    }
+        ASSERT_NE(STI, nullptr);
+        EXPECT_EQ(STI->size(), 4);
+        EXPECT_EQ(STI->first(), STI->currentItem());
 
-    TEST(TableIterator_test, ITERATE_TABLE_ITERATOR)
-    {
-        std::vector<std::shared_ptr<Table>> tables;
-
-        tables.push_back(std::make_shared<Table>());
-        tables.push_back(std::make_shared<Table>());
-        tables.push_back(std::make_shared<Table>());
-        tables.push_back(std::make_shared<Table>());
-        
-        std::shared_ptr<TableIterator> TI = std::make_shared<TableIterator>(tables);
-
-        ASSERT_NE(TI, nullptr);
-        EXPECT_EQ(TI->size(), 4);
-        EXPECT_EQ(TI->first(), TI->currentItem());
-
-        while(!TI->isDone()){
-            TI->next();
+        while(!STI->isDone()){
+            STI->next();
         }
     }
 
-    TEST(TableIterator_test, LAST_IS_CURRENT_AFTER_TABLE_ITERATOR)
+    TEST(SingleTableIterator_test, LAST_IS_CURRENT_AFTER_TABLE_ITERATOR)
     {
-        std::vector<std::shared_ptr<Table>> tables;
+        std::list<std::shared_ptr<SingleTable>> tables;
 
-        tables.push_back(std::make_shared<Table>());
-        tables.push_back(std::make_shared<Table>());
-        tables.push_back(std::make_shared<Table>());
-        tables.push_back(std::make_shared<Table>());
+        tables.push_back(std::make_shared<SingleTable>());
+        tables.push_back(std::make_shared<SingleTable>());
+        tables.push_back(std::make_shared<SingleTable>());
+        tables.push_back(std::make_shared<SingleTable>());
         
-        std::shared_ptr<TableIterator> TI = std::make_shared<TableIterator>(tables);
+        std::shared_ptr<SingleTableIterator> STI = std::make_shared<SingleTableIterator>(tables);
 
-        ASSERT_NE(TI, nullptr);
-        EXPECT_EQ(TI->size(), 4);
-        EXPECT_EQ(TI->first(), TI->currentItem());
+        ASSERT_NE(STI, nullptr);
+        EXPECT_EQ(STI->size(), 4);
+        EXPECT_EQ(STI->first(), STI->currentItem());
 
-        while(!TI->isDone()){
-            TI->next();
+        while(!STI->isDone()){
+            STI->next();
         }
 
-        EXPECT_EQ(TI->last(), TI->currentItem());
+        EXPECT_EQ(STI->last(), STI->currentItem());
     }
 
-    TEST(TableIterator_test, TABLE_ITERATOR_DOWNCAST)
+    TEST(SingleTableIterator_test, TABLE_ITERATOR_DOWNCAST)
     {
-        std::vector<std::shared_ptr<Table>> tables;
-        tables.push_back(std::make_shared<Table>());
-        std::shared_ptr<TableIterator> TI = std::make_shared<TableIterator>(tables);
+        std::list<std::shared_ptr<SingleTable>> tables;
+        tables.push_back(std::make_shared<SingleTable>());
+        std::shared_ptr<SingleTableIterator> STI = std::make_shared<SingleTableIterator>(tables);
 
-        ASSERT_NE(TI, nullptr);
-        EXPECT_EQ(TI->size(), 1);
+        ASSERT_NE(STI, nullptr);
+        EXPECT_EQ(STI->size(), 1);
 
-        std::shared_ptr<Table> table = std::dynamic_pointer_cast<Table>(TI->currentItem());
+        std::shared_ptr<SingleTable> table = std::dynamic_pointer_cast<SingleTable>(STI->currentItem());
         ASSERT_NE(table, nullptr);
-        std::shared_ptr<Bill> bill = std::dynamic_pointer_cast<Bill>(TI->currentItem());
+        std::shared_ptr<Bill> bill = std::dynamic_pointer_cast<Bill>(STI->currentItem());
         EXPECT_EQ(bill, nullptr);
-        std::shared_ptr<Customer> customer = std::dynamic_pointer_cast<Customer>(TI->currentItem());
+        std::shared_ptr<Customer> customer = std::dynamic_pointer_cast<Customer>(STI->currentItem());
+        EXPECT_EQ(customer, nullptr);
+    }
+}
+
+namespace JOINED_TABLE_ITERATOR_TEST
+{
+    
+    TEST(JoinedTableIterator_test, INIT_TABLE_ITERATOR)
+    {
+        std::list<std::shared_ptr<JoinedTable>> tables;
+        std::shared_ptr<JoinedTableIterator> JTI = std::make_shared<JoinedTableIterator>(tables);
+
+        ASSERT_NE(JTI, nullptr);
+        EXPECT_EQ(JTI->size(), 0);
+    }
+
+    TEST(JoinedTableIterator_test, NULL_CURRENT_ITEM_TABLE_ITERATOR)
+    {
+        std::list<std::shared_ptr<JoinedTable>> tables;
+        std::shared_ptr<JoinedTableIterator> JTI = std::make_shared<JoinedTableIterator>(tables);
+
+        ASSERT_NE(JTI, nullptr);
+        EXPECT_EQ(JTI->size(), 0);
+        EXPECT_EQ(JTI->currentItem(), nullptr);
+    }
+
+    TEST(JoinedTableIterator_test, NULL_FIRST_ITEM_TABLE_ITERATOR)
+    {
+        std::list<std::shared_ptr<JoinedTable>> tables;
+        std::shared_ptr<JoinedTableIterator> JTI = std::make_shared<JoinedTableIterator>(tables);
+
+        ASSERT_NE(JTI, nullptr);
+        EXPECT_EQ(JTI->size(), 0);
+        EXPECT_EQ(JTI->currentItem(), nullptr);
+        EXPECT_EQ(JTI->first(), nullptr);
+    }
+
+    TEST(JoinedTableIterator_test, NULL_LAST_ITEM_TABLE_ITERATOR)
+    {
+        std::list<std::shared_ptr<JoinedTable>> tables;
+        std::shared_ptr<JoinedTableIterator> JTI = std::make_shared<JoinedTableIterator>(tables);
+
+        ASSERT_NE(JTI, nullptr);
+        EXPECT_EQ(JTI->size(), 0);
+        EXPECT_EQ(JTI->currentItem(), nullptr);
+        EXPECT_EQ(JTI->first(), nullptr);
+        EXPECT_EQ(JTI->last(), nullptr);
+    }
+
+    TEST(JoinedTableIterator_test, NULL_ISDONE_TABLE_ITERATOR)
+    {
+        std::list<std::shared_ptr<JoinedTable>> tables;
+        std::shared_ptr<JoinedTableIterator> JTI = std::make_shared<JoinedTableIterator>(tables);
+
+        ASSERT_NE(JTI, nullptr);
+        EXPECT_EQ(JTI->size(), 0);
+        EXPECT_EQ(JTI->currentItem(), nullptr);
+        EXPECT_EQ(JTI->first(), nullptr);
+        EXPECT_EQ(JTI->last(), nullptr);
+        EXPECT_EQ(JTI->isDone(), true);
+    }
+
+    TEST(JoinedTableIterator_test, SIZE_TABLE_ITERATOR)
+    {
+        std::list<std::shared_ptr<JoinedTable>> tables;
+
+        tables.push_back(std::make_shared<JoinedTable>());
+        tables.push_back(std::make_shared<JoinedTable>());
+        tables.push_back(std::make_shared<JoinedTable>());
+        tables.push_back(std::make_shared<JoinedTable>());
+        
+        std::shared_ptr<JoinedTableIterator> JTI = std::make_shared<JoinedTableIterator>(tables);
+
+        ASSERT_NE(JTI, nullptr);
+        EXPECT_EQ(JTI->size(), 4);
+    }
+
+    TEST(JoinedTableIterator_test, FIRST_IS_CURRENT_BEFORE_TABLE_ITERATOR)
+    {
+        std::list<std::shared_ptr<JoinedTable>> tables;
+
+        tables.push_back(std::make_shared<JoinedTable>());
+        tables.push_back(std::make_shared<JoinedTable>());
+        tables.push_back(std::make_shared<JoinedTable>());
+        tables.push_back(std::make_shared<JoinedTable>());
+        
+        std::shared_ptr<JoinedTableIterator> JTI = std::make_shared<JoinedTableIterator>(tables);
+
+        ASSERT_NE(JTI, nullptr);
+        EXPECT_EQ(JTI->size(), 4);
+        EXPECT_EQ(JTI->first(), JTI->currentItem());
+    }
+
+    TEST(JoinedTableIterator_test, ITERATE_TABLE_ITERATOR)
+    {
+        std::list<std::shared_ptr<JoinedTable>> tables;
+
+        tables.push_back(std::make_shared<JoinedTable>());
+        tables.push_back(std::make_shared<JoinedTable>());
+        tables.push_back(std::make_shared<JoinedTable>());
+        tables.push_back(std::make_shared<JoinedTable>());
+        
+        std::shared_ptr<JoinedTableIterator> JTI = std::make_shared<JoinedTableIterator>(tables);
+
+        ASSERT_NE(JTI, nullptr);
+        EXPECT_EQ(JTI->size(), 4);
+        EXPECT_EQ(JTI->first(), JTI->currentItem());
+
+        while(!JTI->isDone()){
+            JTI->next();
+        }
+    }
+
+    TEST(JoinedTableIterator_test, LAST_IS_CURRENT_AFTER_TABLE_ITERATOR)
+    {
+        std::list<std::shared_ptr<JoinedTable>> tables;
+
+        tables.push_back(std::make_shared<JoinedTable>());
+        tables.push_back(std::make_shared<JoinedTable>());
+        tables.push_back(std::make_shared<JoinedTable>());
+        tables.push_back(std::make_shared<JoinedTable>());
+        
+        std::shared_ptr<JoinedTableIterator> JTI = std::make_shared<JoinedTableIterator>(tables);
+
+        ASSERT_NE(JTI, nullptr);
+        EXPECT_EQ(JTI->size(), 4);
+        EXPECT_EQ(JTI->first(), JTI->currentItem());
+
+        while(!JTI->isDone()){
+            JTI->next();
+        }
+
+        EXPECT_EQ(JTI->last(), JTI->currentItem());
+    }
+
+    TEST(JoinedTableIterator_test, TABLE_ITERATOR_DOWNCAST)
+    {
+        std::list<std::shared_ptr<JoinedTable>> tables;
+        tables.push_back(std::make_shared<JoinedTable>());
+        std::shared_ptr<JoinedTableIterator> JTI = std::make_shared<JoinedTableIterator>(tables);
+
+        ASSERT_NE(JTI, nullptr);
+        EXPECT_EQ(JTI->size(), 1);
+
+        std::shared_ptr<JoinedTable> table = std::dynamic_pointer_cast<JoinedTable>(JTI->currentItem());
+        ASSERT_NE(table, nullptr);
+        std::shared_ptr<Bill> bill = std::dynamic_pointer_cast<Bill>(JTI->currentItem());
+        EXPECT_EQ(bill, nullptr);
+        std::shared_ptr<Customer> customer = std::dynamic_pointer_cast<Customer>(JTI->currentItem());
         EXPECT_EQ(customer, nullptr);
     }
 }

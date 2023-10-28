@@ -8,6 +8,9 @@
 #define EMOTIONAL_STATE_HPP
 #include <string>
 
+/** 
+*@brief an EmotionalState enum that present strong typings for various emotional states
+*/
 enum EMOTIONAL_STATE{
     NEUTRAL,
     ANGRY,
