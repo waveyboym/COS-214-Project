@@ -3,7 +3,7 @@
 *@class SlightlyHappy
 *@author Michael
 *@implements EmotionalState
-*@brief an SlightlyHappy class which is a concrete state class of EmotionalState
+*@brief a SlightlyHappy class which is a concrete state class of EmotionalState
 */
 #ifndef SLIGHTLY_HAPPY_HPP
 #define SLIGHTLY_HAPPY_HPP

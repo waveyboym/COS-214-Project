@@ -3,14 +3,14 @@
 *@class SlightlyAngry
 *@author Michael
 *@implements EmotionalState
-*@brief an SlightlyAngry class which is a concrete state class of EmotionalState
+*@brief a SlightlyAngry class which is a concrete state class of EmotionalState
 */
 #ifndef SLIGHTLY_ANGRY_HPP
 #define SLIGHTLY_ANGRY_HPP
 #include "EmotionalState.hpp"
 
 /** 
-*@brief an SlightlyAngry class which is a concrete state class of EmotionalState
+*@brief a SlightlyAngry class which is a concrete state class of EmotionalState
 */
 class SlightlyAngry: public EmotionalState{
     public:

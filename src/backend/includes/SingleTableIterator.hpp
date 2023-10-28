@@ -1,28 +1,28 @@
 /**
-*@file PeopleIterator.hpp PeopleIterator.cpp
-*@class PeopleIterator
+*@file SingleTableIterator.hpp SingleTableIterator.cpp
+*@class SingleTableIterator
 *@implements RestaurantIterator
 *@author Michael
-*@brief traverses through a vector of Table objects
+*@brief traverses through a list of SingleTable objects
 */
-#ifndef PEOPLE_ITERATOR_HPP
-#define PEOPLE_ITERATOR_HPP
+#ifndef SINGLE_TABLE_ITERATOR_HPP
+#define SINGLE_TABLE_ITERATOR_HPP
 #include "RestaurantIterator.hpp"
-#include "Table.hpp"
+#include "SingleTable.hpp"
 
 /**
-*@brief traverses through a vector of Table objects
+*@brief traverses through a list of SingleTable objects
 */
-class TableIterator : public RestaurantIterator{
+class SingleTableIterator : public RestaurantIterator{
     private:
         /** 
         *@brief the list to traverse through
         */
-        std::vector<std::shared_ptr<Table>> m_tables;
+        std::list<std::shared_ptr<SingleTable>> m_tables;
         /** 
         *@brief the current item being pointed to in the list
         */
-        std::vector<std::shared_ptr<Table>>::iterator current;
+        std::list<std::shared_ptr<SingleTable>>::iterator current;
 
     public:
         /** 
@@ -30,7 +30,7 @@ class TableIterator : public RestaurantIterator{
         *@note does nothing if the list is empty
         *@param tables the list to iterate through
         */
-        TableIterator(std::vector<std::shared_ptr<Table>> tables);
+        SingleTableIterator(std::list<std::shared_ptr<SingleTable>> tables);
         /** 
         *@brief iterates by one step to the next element
         *@note does nothing if the list is empty
