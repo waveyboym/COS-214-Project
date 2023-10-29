@@ -13,7 +13,7 @@
 #include <list>
 
 /** 
-*@brief an Table class which is a component class of Collectable
+*@brief a Table class which is a component class of Collectable
 */ 
 class Table : public Collectable{
     public:

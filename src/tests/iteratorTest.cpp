@@ -12,6 +12,8 @@
 #include "../backend/includes/JoinedTableIterator.hpp"
 #include "../backend/includes/CustomerIterator.hpp"
 #include "../backend/includes/WaiterIterator.hpp"
+#include "../backend/includes/SubBill.hpp"
+#include "../backend/includes/MainBill.hpp"
 
 namespace BILL_ITERATOR_TEST{
 
@@ -74,13 +76,13 @@ namespace BILL_ITERATOR_TEST{
     {
         std::vector<std::shared_ptr<Bill>> bills;
 
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
+        bills.push_back(std::make_shared<SubBill>());
+        bills.push_back(std::make_shared<SubBill>());
+        bills.push_back(std::make_shared<SubBill>());
+        bills.push_back(std::make_shared<SubBill>());
+        bills.push_back(std::make_shared<SubBill>());
+        bills.push_back(std::make_shared<SubBill>());
+        bills.push_back(std::make_shared<SubBill>());
         
         std::shared_ptr<BillIterator> BI = std::make_shared<BillIterator>(bills);
 
@@ -92,13 +94,13 @@ namespace BILL_ITERATOR_TEST{
     {
         std::vector<std::shared_ptr<Bill>> bills;
 
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
+        bills.push_back(std::make_shared<SubBill>());
+        bills.push_back(std::make_shared<SubBill>());
+        bills.push_back(std::make_shared<SubBill>());
+        bills.push_back(std::make_shared<SubBill>());
+        bills.push_back(std::make_shared<SubBill>());
+        bills.push_back(std::make_shared<SubBill>());
+        bills.push_back(std::make_shared<SubBill>());
         
         std::shared_ptr<BillIterator> BI = std::make_shared<BillIterator>(bills);
 
@@ -111,13 +113,13 @@ namespace BILL_ITERATOR_TEST{
     {
         std::vector<std::shared_ptr<Bill>> bills;
 
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
+        bills.push_back(std::make_shared<SubBill>());
+        bills.push_back(std::make_shared<MainBill>());
+        bills.push_back(std::make_shared<MainBill>());
+        bills.push_back(std::make_shared<MainBill>());
+        bills.push_back(std::make_shared<MainBill>());
+        bills.push_back(std::make_shared<MainBill>());
+        bills.push_back(std::make_shared<MainBill>());
         
         std::shared_ptr<BillIterator> BI = std::make_shared<BillIterator>(bills);
 
@@ -136,13 +138,13 @@ namespace BILL_ITERATOR_TEST{
     {
         std::vector<std::shared_ptr<Bill>> bills;
 
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
-        bills.push_back(std::make_shared<Bill>());
+        bills.push_back(std::make_shared<MainBill>());
+        bills.push_back(std::make_shared<MainBill>());
+        bills.push_back(std::make_shared<MainBill>());
+        bills.push_back(std::make_shared<MainBill>());
+        bills.push_back(std::make_shared<MainBill>());
+        bills.push_back(std::make_shared<MainBill>());
+        bills.push_back(std::make_shared<MainBill>());
         
         std::shared_ptr<BillIterator> BI = std::make_shared<BillIterator>(bills);
 
@@ -160,7 +162,7 @@ namespace BILL_ITERATOR_TEST{
     TEST(BillIterator_test, BILL_ITERATOR_DOWNCAST)
     {
         std::vector<std::shared_ptr<Bill>> bills;
-        bills.push_back(std::make_shared<Bill>());
+        bills.push_back(std::make_shared<MainBill>());
         std::shared_ptr<BillIterator> BI = std::make_shared<BillIterator>(bills);
 
         ASSERT_NE(BI, nullptr);
