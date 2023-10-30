@@ -11,11 +11,25 @@
 #include "Customer.hpp"
 #include <memory>
 #include <list>
+#include <string>
 
 /** 
 *@brief a Table class which is a component class of Collectable
 */ 
 class Table : public Collectable{
+    protected:
+        /** 
+        *@brief whether or not this table is currently assigned a waiter
+        */ 
+        bool assigned_a_waiter = false;
+        /** 
+        *@brief id of this table
+        */ 
+        int table_id = -1;
+        /** 
+        *@brief id of the waiter assigned to this table
+        */ 
+        std::string waiter_uuid = "";
     public:
         /** 
         *@brief a null function to allow for polymorphic features to be used
@@ -47,6 +61,49 @@ class Table : public Collectable{
         *@return std::list<std::shared_ptr<Customer>>
         */ 
         virtual std::list<std::shared_ptr<Customer>> getAllSeatedCustomers() = 0;
+        /** 
+        *@brief checks if this table is occupied
+        *@param none
+        *@return bool
+        */ 
+        virtual bool isTableAvailable() = 0;
+        /** 
+        *@brief checks if this table is assigned a waiter
+        *@param none
+        *@return bool
+        */ 
+        bool isAssignedAWaiter();
+        /** 
+        *@brief sets whether or not this table is assigned to a waiter
+        *@param set_to assign to set to
+        *@return void
+        */ 
+        void setIsAssignedAWaiter(bool set_to);
+        /** 
+        *@brief gets the id of this table
+        *@param none
+        *@return int
+        */ 
+        int getTableID();
+        /** 
+        *@brief sets the id of this table
+        *@note this should only be set once when this object is created
+        *@param set_to id to set to
+        *@return void
+        */ 
+        void setID(int set_to);
+        /** 
+        *@brief gets the id of the waiter assigned to this table
+        *@param none
+        *@return std::string
+        */ 
+        std::string getAssignedWaiterID();
+        /** 
+        *@brief sets the id of the waiter who has been assigned to this table
+        *@param set_to id to set to
+        *@return void
+        */ 
+        void setWaiterID(std::string set_to);
 };
 
 #endif

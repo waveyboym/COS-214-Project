@@ -4,6 +4,10 @@ JoinedTable::JoinedTable(){
 
 }
 
+JoinedTable::JoinedTable(int tableid){
+    this->table_id = table_id;
+}
+
 void JoinedTable::seatCustomer(std::shared_ptr<Customer> customer){
     this->customer_list.push_back(customer);
 }
@@ -74,4 +78,15 @@ bool JoinedTable::isThisTableJoined(std::shared_ptr<Table> table){
 
 std::list<std::shared_ptr<Table>> JoinedTable::getAllJoinedTables(){
     return this->table_list;
+}
+
+bool JoinedTable::isTableAvailable(){
+    std::list<std::shared_ptr<Customer>> cust_list = this->getAllSeatedCustomers();
+
+    if(cust_list.size() == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
 }

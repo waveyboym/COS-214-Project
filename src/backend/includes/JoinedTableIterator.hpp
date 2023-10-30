@@ -30,7 +30,7 @@ class JoinedTableIterator : public RestaurantIterator{
         *@note does nothing if the list is empty
         *@param tables the list to iterate through
         */
-        JoinedTableIterator(std::list<std::shared_ptr<JoinedTable>> tables);
+        JoinedTableIterator(std::list<std::shared_ptr<JoinedTable>>& tables);
         /** 
         *@brief iterates by one step to the next element
         *@note does nothing if the list is empty

@@ -30,7 +30,7 @@ class BillIterator : public RestaurantIterator{
         *@note does nothing if the list is empty
         *@param bills the list to iterate through
         */
-        BillIterator(std::vector<std::shared_ptr<Bill>> bills);
+        BillIterator(std::vector<std::shared_ptr<Bill>>& bills);
         /** 
         *@brief iterates by one step to the next element
         *@note does nothing if the list is empty

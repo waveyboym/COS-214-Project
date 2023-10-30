@@ -4,6 +4,10 @@ SingleTable::SingleTable(){
 
 }
 
+SingleTable::SingleTable(int tableid){
+    this->table_id = table_id;
+}
+
 bool SingleTable::isSeatedHere(std::shared_ptr<Customer> customer){
     std::list<std::shared_ptr<Customer>>::iterator it;
 
@@ -31,4 +35,13 @@ void SingleTable::unseatCustomer(std::shared_ptr<Customer> customer){
 
 std::list<std::shared_ptr<Customer>> SingleTable::getAllSeatedCustomers(){
     return this->customer_list;
+}
+
+bool SingleTable::isTableAvailable(){
+    if(this->customer_list.size() == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
