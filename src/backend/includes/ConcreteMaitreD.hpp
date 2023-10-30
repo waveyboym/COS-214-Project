@@ -17,7 +17,6 @@
 #include <list>
 #include <map>
 #include <string>
-#include <iostream>
 
 /** 
 *@brief defines a Concrete MaitreD which is responsible for observing a customer, seating a customer and assigning tables to a waiter
@@ -52,7 +51,7 @@ class ConcreteMaitreD : public MaitreD{
         *@param customer_to_unseat a customer to un-seat in the restaurant
         *@return bool
         */
-        bool unseatCustomer(std::list<std::shared_ptr<SingleTable>>& restaurant_single_tables, std::list<std::shared_ptr<JoinedTable>>& restaurant_joined_tables, std::shared_ptr<Customer> customer_to_unseat, std::map<std::string, std::shared_ptr<Waiter>> waiters);
+        bool unseatCustomer(std::list<std::shared_ptr<SingleTable>>& restaurant_single_tables, std::list<std::shared_ptr<JoinedTable>>& restaurant_joined_tables, std::shared_ptr<Customer> customer_to_unseat, std::map<std::string, std::shared_ptr<Waiter>>& waiters);
         /** 
         *@brief returns a list of open tables from the list of tables in the restaurant
         *@param restaurant_single_tables a reference list of tables at which a customer is to be seated
@@ -61,13 +60,13 @@ class ConcreteMaitreD : public MaitreD{
         */
         std::list<std::shared_ptr<Table>> availableTables(std::list<std::shared_ptr<SingleTable>>& restaurant_single_tables, std::list<std::shared_ptr<JoinedTable>>& restaurant_joined_tables);
         /** 
-        *@brief assigns a waiter to a table
+        *@brief assigns a waiter to a table and returns true on success and false on failure
         *@param restaurant_single_tables a reference list of tables at which a customer is to be seated
         *@param restaurant_joined_tables a reference list of tables at which a customer is to be seated
         *@param waiter waiter to assign a job to
-        *@return void
+        *@return bool
         */
-        void assignWaiterToTable(std::list<std::shared_ptr<SingleTable>>& restaurant_single_tables, std::list<std::shared_ptr<JoinedTable>>& restaurant_joined_tables, std::shared_ptr<Waiter> waiter);
+        bool assignWaiterToTable(std::list<std::shared_ptr<SingleTable>>& restaurant_single_tables, std::list<std::shared_ptr<JoinedTable>>& restaurant_joined_tables, std::shared_ptr<Waiter> waiter);
         /** 
         *@brief 
         *@note TODO: more detail is needed about this function. ISSUE ID: 16

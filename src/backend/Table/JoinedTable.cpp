@@ -5,7 +5,7 @@ JoinedTable::JoinedTable(){
 }
 
 JoinedTable::JoinedTable(int tableid){
-    this->table_id = table_id;
+    this->table_id = tableid;
 }
 
 void JoinedTable::seatCustomer(std::shared_ptr<Customer> customer){
@@ -15,9 +15,11 @@ void JoinedTable::seatCustomer(std::shared_ptr<Customer> customer){
 void JoinedTable::unseatCustomer(std::shared_ptr<Customer> customer){
     std::list<std::shared_ptr<Customer>>::iterator it;
 
-    for (it = this->customer_list.begin(); it != this->customer_list.end() && *it != customer; ++it);
+    for(it = this->customer_list.begin(); it != this->customer_list.end() && *it != customer; ++it);
 
-    this->customer_list.erase(it);
+    if(*it == customer){
+        this->customer_list.erase(it);
+    }
 }
 
 bool JoinedTable::isSeatedHere(std::shared_ptr<Customer> customer){
