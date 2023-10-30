@@ -1,6 +1,6 @@
 #include "../includes/CustomerIterator.hpp"
 
-CustomerIterator::CustomerIterator(std::map<std::string, std::shared_ptr<Customer>> customers)
+CustomerIterator::CustomerIterator(std::map<std::string, std::shared_ptr<Customer>>& customers)
 {
     if(customers.size() == 0){
         return;
@@ -17,7 +17,12 @@ void CustomerIterator::next()
         return;
     }
     else{
-        ++this->current;
+        if(this->current == this->m_customers.end()){
+            return;
+        }
+        else{
+            ++this->current;
+        }
     }
 }
 
@@ -46,7 +51,7 @@ bool CustomerIterator::isDone()
     if(this->size() == 0){
         return true;
     }
-    else if(this->current == std::prev(this->m_customers.end())){
+    else if(this->current == this->m_customers.end()){
         return true;
     }
     else{
@@ -63,7 +68,10 @@ std::shared_ptr<Collectable> CustomerIterator::currentItem()
     if(this->size() == 0){
         return nullptr;
     }
-    else{
+    else if(this->current == this->m_customers.end()){
+        return std::prev(this->m_customers.end())->second;
+    }
+    else{ 
         return this->current->second;
     }
 }

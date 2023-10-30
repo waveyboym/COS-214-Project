@@ -30,6 +30,11 @@ class JoinedTable : public Table{
         */ 
         JoinedTable();
         /** 
+        *@brief constructor
+        *@param tableid id of this table
+        */ 
+        JoinedTable(int tableid);
+        /** 
         *@brief seats a customer at this table
         *@param customer a customer to seat at this table
         *@return void
@@ -77,6 +82,12 @@ class JoinedTable : public Table{
         *@return std::list<std::shared_ptr<Table>>
         */ 
         std::list<std::shared_ptr<Table>> getAllJoinedTables();
+        /** 
+        *@brief checks if this table is occupied
+        *@param none
+        *@return bool
+        */ 
+        bool isTableAvailable();
 };
 
 #endif

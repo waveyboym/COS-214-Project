@@ -30,7 +30,7 @@ class SingleTableIterator : public RestaurantIterator{
         *@note does nothing if the list is empty
         *@param tables the list to iterate through
         */
-        SingleTableIterator(std::list<std::shared_ptr<SingleTable>> tables);
+        SingleTableIterator(std::list<std::shared_ptr<SingleTable>>& tables);
         /** 
         *@brief iterates by one step to the next element
         *@note does nothing if the list is empty

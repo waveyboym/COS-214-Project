@@ -32,6 +32,11 @@ class Customer : public People{
         */
         Customer();
         /** 
+        *@brief constructor
+        *@param customeruuid the uuid of this customer
+        */
+        Customer(std::string customeruuid);
+        /** 
         *@brief 
         *@param none
         *@return bool
