@@ -65,7 +65,7 @@ class JoinedTable : public Table{
         */ 
         void joinTable(std::shared_ptr<Table> table);
         /** 
-        *@brief unjoins this the passed in table from this table
+        *@brief un-joins this the passed in table from this table
         *@param table a table to un-join from this table
         *@return void
         */ 

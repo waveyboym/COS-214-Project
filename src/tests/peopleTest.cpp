@@ -73,7 +73,7 @@ namespace customerTest{
         EXPECT_EQ(C->getCurrentEmotionalStateEnum(), EMOTIONAL_STATE::SLIGHTLY_HAPPY);
     }
 
-    TEST(Waiter_test, CUSTOMER_SET_UUID)
+    TEST(Customer_test, CUSTOMER_SET_UUID)
     {
         std::shared_ptr<Customer> C = std::make_shared<Customer>();
 
@@ -124,5 +124,20 @@ namespace waiterTest{
         W->setUUID("waiter");
 
         EXPECT_EQ(W->getUUID(), "waiter");
+    }
+
+    TEST(Waiter_test, WAITER_JOIN_TABLES)
+    {
+        std::shared_ptr<Waiter> W = std::make_shared<Waiter>();
+        std::shared_ptr<JoinedTable> table_to_join_to = std::make_shared<JoinedTable>();
+        std::shared_ptr<Table> table_to_join = std::make_shared<SingleTable>();
+
+        ASSERT_NE(W, nullptr);
+        ASSERT_NE(table_to_join_to, nullptr);
+        ASSERT_NE(table_to_join, nullptr);
+
+        W->joinTables(table_to_join_to, table_to_join);
+
+        EXPECT_EQ(table_to_join_to->isThisTableJoined(table_to_join), true);
     }
 }
