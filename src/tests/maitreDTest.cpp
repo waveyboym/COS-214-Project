@@ -246,7 +246,7 @@ namespace  maitreDTest{
         EXPECT_EQ(table->getAssignedWaiterID(), "0000");
     }
 
-    /*TEST(maitreD_Test, MAITRE_D_UNSEAT_CUSTOMER_UNASSIGN_WAITER)
+    TEST(maitreD_Test, MAITRE_D_UNSEAT_CUSTOMER_UNASSIGN_WAITER)
     {
         std::shared_ptr<ConcreteMaitreD> CMD = std::make_shared<ConcreteMaitreD>();
 
@@ -278,5 +278,5 @@ namespace  maitreDTest{
 
         EXPECT_EQ(table->isAssignedAWaiter(), false);
         EXPECT_EQ(C->isAssignedATable(), false);
-    }*/
+    }
 }
