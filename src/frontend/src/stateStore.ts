@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { CartState, foodProcessingState, waiterState } from './types';
+import { CartState, apikeyState, foodProcessingState, waiterState } from './types';
 
 export const useCartStore = create<CartState>()(
     devtools(
@@ -35,6 +35,18 @@ export const useWaiterStore = create<waiterState>()(
             setWaiterName: (setTo) => set((state) => ({ waiterName: setTo })),
         }),
         {name: 'waiterName',}
+        )
+    )
+)
+
+export const useApiKeyStore = create<apikeyState>()(
+    devtools(
+        persist(
+        (set) => ({
+            apikey: "",
+            setApiKey: (setTo) => set((state) => ({ apikey: setTo })),
+        }),
+        {name: 'apikey',}
         )
     )
 )
