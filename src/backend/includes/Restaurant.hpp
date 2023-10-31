@@ -9,6 +9,11 @@
 #include "ConcreteMaitreD.hpp"
 #include "Waiter.hpp"
 #include "Customer.hpp"
+#include "../includes/json.hpp"
+#include <memory>
+#include <vector>
+
+using json = nlohmann::json;
 
 /**
 *@brief implements the facade pattern and uses various classes to run the restaurant
@@ -28,13 +33,50 @@ class Restaurant{
         *@brief stores the singular instance of the maitre_d object
         */
         std::shared_ptr<ConcreteMaitreD> maitre_d;
-
-    public:
         /**
         *@brief constructor
         *@param none
         */
         Restaurant();
+
+    public:
+        /**
+        *@brief destructor
+        */
+        ~Restaurant();
+        /**
+        *@brief constructor
+        *@note this function is deleted so it can never be accessed. If you use this function and try to compile, your code will not compile
+        */
+        Restaurant(Restaurant const&) = delete;
+        /**
+        *@brief equals operator
+        *@note this function is deleted so it can never be accessed. If you use this function and try to compile, your code will not compile
+        */
+        Restaurant& operator=(Restaurant const&) = delete;
+        /**
+        *@brief gets an instance of this restaurant and returns it as a shared pointer
+        *@note if no restaurant instance exists, one is created and returned, otherwise the existing instance is returned
+        */
+        static std::shared_ptr<Restaurant> instance();
+        /**
+        *@brief processes this customers order and returns a response
+        *@param req_obj contains the incoming request
+        *@return std::string
+        */
+        std::string processCustomerOrder(json req_obj);
+        /**
+        *@brief processes this customers emotions and returns a response
+        *@param req_obj contains the incoming request
+        *@return std::string
+        */
+        std::string processCustomersEmotion(json req_obj);
+        /**
+        *@brief processes this customers update check and returns a response
+        *@param req_obj contains the incoming request
+        *@return std::string
+        */
+        std::string processUpdateCheck(json req_obj);
 };
 
 #endif
