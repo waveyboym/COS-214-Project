@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useWaiterStore, usefoodProcessingTimeStore } from '../stateStore';
 import { hero_bg } from '../assets';
-import { Navbar } from '../components';
-import "../css/tracker.css";
+import { EmotionalStateTab, Navbar, TrackingComponent } from '../components';
 
-
-interface TrackingPageProps {
-  orderStatus: string;
-}
-
-const TrackingPage: React.FC<TrackingPageProps> = ({ orderStatus }) => {
+//when this page loads, it will make a socket request to the backend to get details about it's order(like all details)
+const TrackingPage = () => {
   const [ratingVal, setRatingVal] = useState<number>(0);
+  const [orderStatus, ] = useState<string>("");
 
   const {foodProcessingTime, setFoodProcessingTime } = usefoodProcessingTimeStore((state) => { return { foodProcessingTime: state.foodProcessingTime, setFoodProcessingTime: state.setFoodProcessingTime }; });
   const {waiterName, setWaiterName } = useWaiterStore((state) => { return { waiterName: state.waiterName, setWaiterName: state.setWaiterName }; });
@@ -43,51 +39,9 @@ const TrackingPage: React.FC<TrackingPageProps> = ({ orderStatus }) => {
           <Navbar route={"Tracking"} />
         </div>
         <h1 style={{textAlign: "center"}}>Order Tracking</h1>
-        <section className='mt-4 mb-4'>
-          <div className="container h-100">
-            <div className="row d-flex justify-content-center align-items-center h-100">
-              <div className="col">
-                <div className="card card-stepper" style={{borderRadius: "10px"}}>
-                  <div className="card-body p-4">
+        
+        <TrackingComponent orderStatus={"Your order has been delivered"} date={new Date().toString()} />
 
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div className="d-flex flex-column">
-                        <span className="lead fw-normal">Your order has been delivered</span>
-                        <span className="text-muted small">by DHFL on 21 Jan, 2020</span>
-                      </div>
-                      <div>
-                        <button className="btn btn-outline-primary" type="button">Track order details</button>
-                      </div>
-                    </div>
-                    <hr className="my-4"/>
-
-                    <div className="d-flex flex-row justify-content-between align-items-center align-content-center">
-                      <span className="dot"></span>
-                      <hr className="flex-fill track-line"/><span className="dot"></span>
-                      <hr className="flex-fill track-line"/><span className="dot"></span>
-                      <hr className="flex-fill track-line"/><span className="dot"></span>
-                      <hr className="flex-fill track-line"/><span
-                        className="d-flex justify-content-center align-items-center big-dot dot">
-                        <i className="fa fa-check text-white"></i></span>
-                    </div>
-
-                    <div className="d-flex flex-row justify-content-between align-items-center">
-                      <div className="d-flex flex-column align-items-start"><span>15 Mar</span><span>Order placed</span>
-                      </div>
-                      <div className="d-flex flex-column justify-content-center"><span>15 Mar</span><span>Order
-                          placed</span></div>
-                      <div className="d-flex flex-column justify-content-center align-items-center"><span>15
-                          Mar</span><span>Order Dispatched</span></div>
-                      <div className="d-flex flex-column align-items-center"><span>15 Mar</span><span>Out for
-                          delivery</span></div>
-                      <div className="d-flex flex-column align-items-end"><span>15 Mar</span><span>Delivered</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       <div className="col-sm-6 col-lg-4 all fries">
         {foodProcessingTime > 0 ? (
           <div>
@@ -115,7 +69,7 @@ const TrackingPage: React.FC<TrackingPageProps> = ({ orderStatus }) => {
           <h2 >Your order is ready!</h2>
         )}
 
-
+          
 
         <div className=''>
           <h2>Rate Your Experience (1 - 5)</h2>
@@ -128,6 +82,7 @@ const TrackingPage: React.FC<TrackingPageProps> = ({ orderStatus }) => {
           />
         </div>
       </div>
+      <EmotionalStateTab />
     </div>
   );
 };

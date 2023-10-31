@@ -24,7 +24,7 @@ const App: React.FC = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/cart-summary" element={<CartSummary/>} />
-            <Route path="/tracking" element={<TrackingPage orderStatus={""} />} />
+            <Route path="/tracking" element={<TrackingPage/>} />
           </Routes>
         </Router>
       );

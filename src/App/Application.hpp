@@ -16,6 +16,7 @@
 #include <chrono>
 #include <thread>
 #include <list>
+#include <vector>
 
 using json = nlohmann::json;
 
