@@ -126,6 +126,9 @@ bool ConcreteMaitreD::assignWaiterToTable(std::list<std::shared_ptr<SingleTable>
 }
 
 
-bool ConcreteMaitreD::reserveTable(){
-    
+bool ConcreteMaitreD::reserveTable(std::shared_ptr<Table> T,std::shared_ptr<Customer> C){
+    if(T->getReservedBy() == NULL){
+        T->setReservedBy(C);
+
+    }else return false;
 }
