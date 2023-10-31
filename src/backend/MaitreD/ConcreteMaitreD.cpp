@@ -129,5 +129,8 @@ bool ConcreteMaitreD::reserveTable(std::shared_ptr<Table> T,std::string C_uid){
     if(T->getReserverUUID() ==""){
         T->setReserverUUID(C_uid);
         return true;
-    }else return false;
+    }
+    else {
+        return false;
+    }
 }
