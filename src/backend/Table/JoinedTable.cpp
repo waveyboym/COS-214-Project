@@ -101,10 +101,4 @@ bool JoinedTable::isTableAvailable() {
         return false;
     }
 }
-void JoinedTable::setReservedBy(std::shared_ptr<Customer> ReservedBy) {
-    this->ReservedBy = ReservedBy;
-}
 
-std::shared_ptr<Customer> JoinedTable::getReservedBy() {
-    return this->ReservedBy;
-}
