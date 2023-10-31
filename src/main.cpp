@@ -20,5 +20,5 @@ int main(){
     std::thread runnable_app_func(&Application::progressForward, &app);
     app.runApp(); //run app
     runnable_app_func.join();
-    return 0; //return
+    return EXIT_SUCCESS;
 }

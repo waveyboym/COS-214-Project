@@ -25,6 +25,11 @@ class SingleTable : public Table{
         */ 
         SingleTable();
         /** 
+        *@brief constructor
+        *@param tableid id of this table
+        */ 
+        SingleTable(int tableid);
+        /** 
         *@brief seats a customer at this table
         *@param customer a customer to seat at this table
         *@return void
@@ -48,6 +53,12 @@ class SingleTable : public Table{
         *@return std::list<std::shared_ptr<Customer>>
         */ 
         std::list<std::shared_ptr<Customer>> getAllSeatedCustomers();
+        /** 
+        *@brief checks if this table is occupied
+        *@param none
+        *@return bool
+        */ 
+        bool isTableAvailable();
 };
 
 #endif

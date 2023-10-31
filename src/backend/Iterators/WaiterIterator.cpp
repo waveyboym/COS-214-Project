@@ -1,6 +1,6 @@
 #include "../includes/WaiterIterator.hpp"
 
-WaiterIterator::WaiterIterator(std::map<std::string, std::shared_ptr<Waiter>> waiters)
+WaiterIterator::WaiterIterator(std::map<std::string, std::shared_ptr<Waiter>>& waiters)
 {
     if(waiters.size() == 0){
         return;
@@ -17,7 +17,12 @@ void WaiterIterator::next()
         return;
     }
     else{
-        ++this->current;
+        if(this->current == this->m_waiters.end()){
+            return;
+        }
+        else{
+            ++this->current;
+        }
     }
 }
 
@@ -46,7 +51,7 @@ bool WaiterIterator::isDone()
     if(this->size() == 0){
         return true;
     }
-    else if(this->current == std::prev(this->m_waiters.end())){
+    else if(this->current == this->m_waiters.end()){
         return true;
     }
     else{
@@ -63,7 +68,10 @@ std::shared_ptr<Collectable> WaiterIterator::currentItem()
     if(this->size() == 0){
         return nullptr;
     }
-    else{
+    else if(this->current == this->m_waiters.end()){
+        return std::prev(this->m_waiters.end())->second;
+    }
+    else{ 
         return this->current->second;
     }
 }

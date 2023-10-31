@@ -30,7 +30,7 @@ class CustomerIterator : public RestaurantIterator{
         *@note does nothing if the list is empty
         *@param customers the list to iterate through
         */
-        CustomerIterator(std::map<std::string, std::shared_ptr<Customer>> customers);
+        CustomerIterator(std::map<std::string, std::shared_ptr<Customer>>& customers);
         /** 
         *@brief iterates by one step to the next element
         *@note does nothing if the list is empty

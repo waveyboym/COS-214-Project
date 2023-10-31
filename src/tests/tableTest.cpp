@@ -19,6 +19,15 @@ namespace singleTableTest{
         ASSERT_NE(ST, nullptr);
     }
 
+    TEST(SingleTable_test, SINGLE_TABLE_EMPTY_AVAILABILITY)
+    {
+        std::shared_ptr<SingleTable> ST = std::make_shared<SingleTable>();
+
+        ASSERT_NE(ST, nullptr);
+
+        EXPECT_EQ(ST->isTableAvailable(), true);
+    }
+
     TEST(SingleTable_test, SINGLE_TABLE_SEAT_CUSTOMER)
     {
         std::shared_ptr<SingleTable> ST = std::make_shared<SingleTable>();
@@ -36,6 +45,25 @@ namespace singleTableTest{
         ST->seatCustomer(D);
 
         EXPECT_EQ(ST->isSeatedHere(C), true);
+    }
+
+    TEST(SingleTable_test, SINGLE_TABLE_NOT_EMPTY_AVAILABILITY)
+    {
+        std::shared_ptr<SingleTable> ST = std::make_shared<SingleTable>();
+
+        ASSERT_NE(ST, nullptr);
+
+        std::shared_ptr<Customer> A = std::make_shared<Customer>();
+        std::shared_ptr<Customer> B = std::make_shared<Customer>();
+        std::shared_ptr<Customer> C = std::make_shared<Customer>();
+        std::shared_ptr<Customer> D = std::make_shared<Customer>();
+
+        ST->seatCustomer(A);
+        ST->seatCustomer(B);
+        ST->seatCustomer(C);
+        ST->seatCustomer(D);
+
+        EXPECT_EQ(ST->isTableAvailable(), false);
     }
 
     TEST(SingleTable_test, SINGLE_TABLE_UNSEAT_CUSTOMER)
@@ -95,6 +123,15 @@ namespace joinedTableTest{
         ASSERT_NE(JT, nullptr);
     }
 
+    TEST(SingleTable_test, JOINED_TABLE_EMPTY_AVAILABILITY)
+    {
+        std::shared_ptr<JoinedTable> JT = std::make_shared<JoinedTable>();
+
+        ASSERT_NE(JT, nullptr);
+
+        EXPECT_EQ(JT->isTableAvailable(), true);
+    }
+
     TEST(JoinedTable_test, JOINED_TABLE_SEAT_CUSTOMER)
     {
         std::shared_ptr<JoinedTable> JT = std::make_shared<JoinedTable>();
@@ -113,7 +150,7 @@ namespace joinedTableTest{
 
         EXPECT_EQ(JT->isSeatedHere(C), true);
     }
-
+    
     TEST(JoinedTable_test, JOINED_TABLE_UNSEAT_CUSTOMER)
     {
         std::shared_ptr<JoinedTable> JT = std::make_shared<JoinedTable>();
@@ -133,6 +170,48 @@ namespace joinedTableTest{
         JT->unseatCustomer(C);
 
         EXPECT_EQ(JT->isSeatedHere(C), false);
+    }
+
+    TEST(SingleTable_test, JOINED_TABLE_NOT_EMPTY_AVAILABILITY)
+    {
+        std::shared_ptr<JoinedTable> JT = std::make_shared<JoinedTable>();
+
+        ASSERT_NE(JT, nullptr);
+
+        std::shared_ptr<Customer> A = std::make_shared<Customer>();
+        std::shared_ptr<Customer> B = std::make_shared<Customer>();
+        std::shared_ptr<Customer> C = std::make_shared<Customer>();
+        std::shared_ptr<Customer> D = std::make_shared<Customer>();
+
+        JT->seatCustomer(A);
+        JT->seatCustomer(B);
+        JT->seatCustomer(C);
+        JT->seatCustomer(D);
+
+        EXPECT_EQ(JT->isTableAvailable(), false);
+    }
+
+    TEST(SingleTable_test, JOINED_JOINED_TABLE_NOT_EMPTY_AVAILABILITY)
+    {
+        std::shared_ptr<JoinedTable> JT1 = std::make_shared<JoinedTable>();
+        std::shared_ptr<JoinedTable> JT2 = std::make_shared<JoinedTable>();
+
+        ASSERT_NE(JT1, nullptr);
+        ASSERT_NE(JT2, nullptr);
+
+        std::shared_ptr<Customer> E = std::make_shared<Customer>();
+        std::shared_ptr<Customer> F = std::make_shared<Customer>();
+        std::shared_ptr<Customer> G = std::make_shared<Customer>();
+        std::shared_ptr<Customer> H = std::make_shared<Customer>();
+
+        JT2->seatCustomer(E);
+        JT2->seatCustomer(F);
+        JT2->seatCustomer(G);
+        JT2->seatCustomer(H);
+
+        JT1->joinTable(JT2);
+
+        EXPECT_EQ(JT1->isTableAvailable(), false);
     }
 
     TEST(JoinedTable_test, JOINED_TABLE_GET_ALL_SEATED_CUSTOMERS)

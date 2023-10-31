@@ -72,8 +72,57 @@ namespace customerTest{
         EXPECT_EQ(C->getCurrentEmotionalStateString(), "SlightlyHappy");
         EXPECT_EQ(C->getCurrentEmotionalStateEnum(), EMOTIONAL_STATE::SLIGHTLY_HAPPY);
     }
+
+    TEST(Waiter_test, CUSTOMER_SET_UUID)
+    {
+        std::shared_ptr<Customer> C = std::make_shared<Customer>();
+
+        ASSERT_NE(C, nullptr);
+
+        C->setUUID("customer");
+
+        EXPECT_EQ(C->getUUID(), "customer");
+    }
 }
 
 namespace waiterTest{
-    
+    TEST(Waiter_test, INIT_WAITER)
+    {
+        std::shared_ptr<Waiter> W = std::make_shared<Waiter>();
+
+        ASSERT_NE(W, nullptr);
+    }
+
+    TEST(Waiter_test, WAITER_ASSIGN_TABLE_ID)
+    {
+        std::shared_ptr<Waiter> W = std::make_shared<Waiter>();
+
+        ASSERT_NE(W, nullptr);
+
+        W->assignID(1);
+
+        EXPECT_EQ(W->getAssignedTableID(), 1);
+    }
+
+    TEST(Waiter_test, WAITER_IS_ASSIGNED_TABLE)
+    {
+        std::shared_ptr<Waiter> W = std::make_shared<Waiter>();
+
+        ASSERT_NE(W, nullptr);
+
+        W->setIsAssignedATable(true);
+
+        EXPECT_EQ(W->isAssignedATable(), true);
+    }
+
+    TEST(Waiter_test, WAITER_SET_UUID)
+    {
+        std::shared_ptr<Waiter> W = std::make_shared<Waiter>();
+
+        ASSERT_NE(W, nullptr);
+
+        W->setUUID("waiter");
+
+        EXPECT_EQ(W->getUUID(), "waiter");
+    }
 }

@@ -1,6 +1,6 @@
 #include "../includes/JoinedTableIterator.hpp"
 
-JoinedTableIterator::JoinedTableIterator(std::list<std::shared_ptr<JoinedTable>> tables)
+JoinedTableIterator::JoinedTableIterator(std::list<std::shared_ptr<JoinedTable>>& tables)
 {
     if(tables.size() == 0){
         return;
@@ -17,7 +17,12 @@ void JoinedTableIterator::next()
         return;
     }
     else{
-        ++this->current;
+        if(this->current == this->m_tables.end()){
+            return;
+        }
+        else{
+            ++this->current;
+        }
     }
 }
 
@@ -46,7 +51,7 @@ bool JoinedTableIterator::isDone()
     if(this->size() == 0){
         return true;
     }
-    else if(*this->current == this->m_tables.back()){
+    else if(this->current == this->m_tables.end()){
         return true;
     }
     else{
@@ -62,6 +67,9 @@ std::shared_ptr<Collectable> JoinedTableIterator::currentItem()
 {
     if(this->size() == 0){
         return nullptr;
+    }
+    else if(this->current == this->m_tables.end()){
+        return this->m_tables.back();
     }
     else{ 
         return *this->current;

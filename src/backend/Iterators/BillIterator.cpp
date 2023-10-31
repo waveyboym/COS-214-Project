@@ -1,6 +1,6 @@
 #include "../includes/BillIterator.hpp"
 
-BillIterator::BillIterator(std::vector<std::shared_ptr<Bill>> bills)
+BillIterator::BillIterator(std::vector<std::shared_ptr<Bill>>& bills)
 {
     if(bills.size() == 0){
         return;
@@ -17,7 +17,12 @@ void BillIterator::next()
         return;
     }
     else{
-        ++this->current;
+        if(this->current == this->m_bills.end()){
+            return;
+        }
+        else{
+            ++this->current;
+        }
     }
 }
 
@@ -46,7 +51,7 @@ bool BillIterator::isDone()
     if(this->size() == 0){
         return true;
     }
-    else if(*this->current == this->m_bills.back()){
+    else if(this->current == this->m_bills.end()){
         return true;
     }
     else{
@@ -63,7 +68,10 @@ std::shared_ptr<Collectable> BillIterator::currentItem()
     if(this->size() == 0){
         return nullptr;
     }
-    else{
+    else if(this->current == this->m_bills.end()){
+        return this->m_bills.back();
+    }
+    else{ 
         return *this->current;
     }
 }

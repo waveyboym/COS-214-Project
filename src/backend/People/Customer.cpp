@@ -4,6 +4,11 @@ Customer::Customer(){
     this->currentEmotionalState = std::make_shared<Neutral>();
 }
 
+Customer::Customer(std::string customeruuid){
+    this->currentEmotionalState = std::make_shared<Neutral>();
+    this->person_uuid = customeruuid;
+}
+
 bool Customer::personAction(){
     return false;
 }

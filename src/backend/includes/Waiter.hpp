@@ -1,7 +1,7 @@
 /**
 *@file Waiter.hpp Waiter.cpp
 *@class Waiter
-*@author 
+*@author Michael
 *@implements People
 *@brief a waiter object
 */
@@ -9,29 +9,32 @@
 #define WAITER_HPP
 #include "People.hpp"
 #include "Table.hpp"
-#include "Orders.hpp"
+//#include "Orders.hpp"
 #include <memory>
+#include <string>
 
 /** 
 *@brief a waiter object
 */
 class Waiter : public People{
-    //TODO: implement
     private:
-    vector<std::shared_ptr<Order>> OrderList;
-    std::shared_ptr<Table> T;
     public:
         /** 
-        *@brief initialises a waiter object
+        *@brief constructor
         *@param none
         */
         Waiter();
+        /** 
+        *@brief constructor
+        *@param waiteruuid the uuid of this waiter
+        */
+        Waiter(std::string waiteruuid);
         /** 
         *@brief 
         *@param none
         *@return bool
         */
-        bool personAction(std::shared_ptr<People> c);
+        bool personAction();
 };
 
 #endif

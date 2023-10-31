@@ -3,7 +3,7 @@
 *@class Bill
 *@author Michael
 *@implements Collectable
-*@brief a Bill class which is a component class of Collectable
+*@brief a Bill class which is a concrete iterator class of Collectable
 */
 #ifndef BILL_HPP
 #define BILL_HPP
@@ -11,7 +11,7 @@
 #include <string>
 
 /** 
-*@brief an Bill class which is a component class of Collectable
+*@brief an Bill class which is a concrete iterator class of Collectable
 */
 class Bill : public Collectable{
     public:
