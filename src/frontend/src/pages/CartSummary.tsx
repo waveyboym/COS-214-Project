@@ -3,54 +3,51 @@
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { CartObject, Footer } from '../components';
-import { useCartStore, useWaiterStore, usefoodProcessingTimeStore } from '../stateStore';
+import { useApiKeyStore, useCartStore, } from '../stateStore';
 import { Navbar } from '../components';
 import { hero_bg } from '../assets';
 import { useSocket } from '../contexts';
+import { useNavigate } from 'react-router-dom';
 
 const CartSummary = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const {foodProcessingTime, setFoodProcessingTime } = usefoodProcessingTimeStore((state) => { return { foodProcessingTime: state.foodProcessingTime, setFoodProcessingTime: state.setFoodProcessingTime }; });
-  const {waiterName, setWaiterName } = useWaiterStore((state) => { return { waiterName: state.waiterName, setWaiterName: state.setWaiterName }; });
-  const [rating, setRating] = useState(0);
-
   const { cartItems, deleteFromCart } = useCartStore((state) => { return { cartItems: state.cartItems, deleteFromCart: state.deleteFromCart }; });
   const [totalAmount, setTotalAmount] = useState(cartItems.reduce((acc, item) => acc + item.price, 0));
+  const { apikey } = useApiKeyStore((state) => { return { apikey: state.apikey }; });
   const socket: WebSocket | null = useSocket();
+  const navigate = useNavigate();
+
+  //const {foodProcessingTime, setFoodProcessingTime } = usefoodProcessingTimeStore((state) => { return { foodProcessingTime: state.foodProcessingTime, setFoodProcessingTime: state.setFoodProcessingTime }; });
+  //const {waiterName, setWaiterName } = useWaiterStore((state) => { return { waiterName: state.waiterName, setWaiterName: state.setWaiterName }; });
+  //const [rating, setRating] = useState(0);
+
 
   socket!.onmessage = function(event){
     //the backend responds with the needed data
-    const json : {message: string} = JSON.parse(event.data);
-    const processingTime = 20; // Adjust this value as needed
-    setFoodProcessingTime(processingTime);
-
-    // Assign a waiter (replace with actual logic)
-    const assignedWaiter = 'John Doe'; // Replace with actual waiter assignment logic
-    setWaiterName(assignedWaiter);
+    const json = JSON.parse(event.data);
     
-    //navigate to the trackingpage here
+    //navigate to the tracking - page here
+    if(json.status === "success" && json.player === "customer"){
+      navigate("/tracking");
+    }
+    else{
+      console.log(json);
+    }
   }
   
-  const sendMessage = function(message: string) {
-      //this is a template for sending messages to the backend,
-      // please feel free to modify it or build on top of it
-      const json = { "player": "customer", "command": "create_order"};
-      socket!.send(JSON.stringify(json));
-  }
 
   const openModal = () => { setIsModalOpen(true); };
 
   const closeModal = () => { setIsModalOpen(false); };
 
-  // Handle user input for rating
-  const handleRatingChange = (e: { target: { value: string; }; }) => {
-    const userRating = parseInt(e.target.value, 10);
-    setRating(userRating);
+  const handleCheckout = async () => {
+    sendMessage();
   };
 
-  const handleCheckout = async () => {
-    sendMessage(JSON.stringify(cartItems));
-  };
+  const sendMessage = function() {
+    const json = { token: apikey, player: "customer", command: "create_order", order: cartItems};
+    socket!.send(JSON.stringify(json));
+}
 
 
   // In your routing setup
@@ -91,7 +88,7 @@ const CartSummary = () => {
             </div>
           </div>
           {/* Checkout button */}
-          <div className="total-amount">Total: ${totalAmount}.00</div>
+          <h2 className="total-amount mt-3 mb-3">Total: ${totalAmount}.00</h2>
           <button className="btn my-2 my-sm-0 btn-warning" onClick={openModal}>Checkout</button>
 
           <Modal
@@ -106,7 +103,9 @@ const CartSummary = () => {
           </Modal>
 
           {/* Tracking info NOT WORKING WELL -- NEED TO FIX
-          maybe its waiting for backend idk :)*/}
+          maybe its waiting for backend idk :)
+
+
           {foodProcessingTime > 0 && waiterName && (
             <div className="tracking-info">
               <h3>Food Processing Time: {foodProcessingTime} seconds</h3>
@@ -121,6 +120,9 @@ const CartSummary = () => {
               />
             </div>
           )}
+          
+          */}
+          
         </div>
       </section>
 
