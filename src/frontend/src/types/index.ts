@@ -12,3 +12,13 @@ export interface CartState {
     addToCart: (item: CartItem) => void;
     deleteFromCart: (id: number) => void;
 }
+
+export interface foodProcessingState {
+    foodProcessingTime: number
+    setFoodProcessingTime: (setTo: number) => void
+}
+
+export interface waiterState {
+    waiterName: string
+    setWaiterName: (setTo: string) => void
+}
