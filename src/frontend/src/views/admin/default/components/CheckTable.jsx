@@ -19,8 +19,8 @@ import {
 } from "react-table";
 
 // Custom components
-import Card from "../../../../components/card/Card.jsx";
-import Menu from "../../../../components/menu/MainMenu.jsx";
+import Card from "../../../../components/card/Card";
+import Menu from "../../../../components/menu/MainMenu";
 export default function CheckTable(props) {
   const { columnsData, tableData } = props;
 
@@ -61,7 +61,7 @@ export default function CheckTable(props) {
           fontSize='22px'
           fontWeight='700'
           lineHeight='100%'>
-          Guests Table
+          Check Table
         </Text>
         <Menu />
       </Flex>
@@ -94,9 +94,14 @@ export default function CheckTable(props) {
               <Tr {...row.getRowProps()} key={index}>
                 {row.cells.map((cell, index) => {
                   let data = "";
-                  if (cell.column.Header === "Table #") {
+                  if (cell.column.Header === "NAME") {
                     data = (
                       <Flex align='center'>
+                        <Checkbox
+                          defaultChecked={cell.value[1]}
+                          colorScheme='brandScheme'
+                          me='10px'
+                        />
                         <Text color={textColor} fontSize='sm' fontWeight='700'>
                           {cell.value[0]}
                         </Text>
@@ -120,7 +125,7 @@ export default function CheckTable(props) {
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === "Waiter") {
+                  } else if (cell.column.Header === "DATE") {
                     data = (
                       <Text color={textColor} fontSize='sm' fontWeight='700'>
                         {cell.value}

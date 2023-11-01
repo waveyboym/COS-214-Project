@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import "../../../src/assets/css/MiniCalendar.css";
+import "../../css/MiniCalendar.css";
 import { Text, Icon } from "@chakra-ui/react";
 // Chakra imports
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 // Custom components
-import Card from "../card/Card.jsx";
+import Card from "../card/Card";
 
 export default function MiniCalendar(props) {
   const { selectRange, ...rest } = props;

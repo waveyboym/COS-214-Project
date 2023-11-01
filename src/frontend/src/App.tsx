@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Dashboard from './layouts/admin';
+import DashboardContainer from './pages/DashboardContainer';
 // Import your other components
 import { Home, SplashPage } from './pages';
 import { Menu } from './pages';
@@ -33,7 +33,7 @@ const App: React.FC = () => {
 
 
             {/* Add the admin route here */}
-            <Route path="/admin" element={<Dashboard />} />
+            <Route path="/admin" element={<DashboardContainer />} />
           </Routes>
         </Router>
       </ThemeEditorProvider>

@@ -1,10 +1,10 @@
 // Chakra imports
 import { Box, Flex, Text, Select, useColorModeValue } from "@chakra-ui/react";
 // Custom components
-import Card from "../../../../components/card/Card.jsx";
-import PieChart from "../../../../components/charts/PieChart.jsx";
-import { pieChartData, pieChartOptions } from "../../../../variables/charts.jsx";
-import { VSeparator } from "../../../../components/separator/Separator.jsx";
+import Card from "../../../../components/card/Card";
+import PieChart from "../../../../components/charts/PieChart";
+import { pieChartData, pieChartOptions } from "variables/charts";
+import { VSeparator } from "../../../../components/separator/Separator";
 import React from "react";
 
 export default function Conversion(props) {
@@ -12,7 +12,7 @@ export default function Conversion(props) {
 
   // Chakra Color Mode
   const textColor = useColorModeValue("secondaryGray.900", "white");
-  const cardColor = useColorModeValue("white", "orange.500");
+  const cardColor = useColorModeValue("white", "navy.700");
   const cardShadow = useColorModeValue(
     "0px 18px 40px rgba(112, 144, 176, 0.12)",
     "unset"
@@ -26,8 +26,18 @@ export default function Conversion(props) {
         w='100%'
         mb='8px'>
         <Text color={textColor} fontSize='md' fontWeight='600' mt='4px'>
-          Chefs in the Kitchen
+          Your Pie Chart
         </Text>
+        <Select
+          fontSize='sm'
+          variant='subtle'
+          defaultValue='monthly'
+          width='unset'
+          fontWeight='700'>
+          <option value='daily'>Daily</option>
+          <option value='monthly'>Monthly</option>
+          <option value='yearly'>Yearly</option>
+        </Select>
       </Flex>
 
       <PieChart
@@ -53,7 +63,7 @@ export default function Conversion(props) {
               color='secondaryGray.600'
               fontWeight='700'
               mb='5px'>
-             Working Chefs
+              Your files
             </Text>
           </Flex>
           <Text fontSize='lg' color={textColor} fontWeight='700'>
@@ -69,7 +79,7 @@ export default function Conversion(props) {
               color='secondaryGray.600'
               fontWeight='700'
               mb='5px'>
-              Chefs Available
+              System
             </Text>
           </Flex>
           <Text fontSize='lg' color={textColor} fontWeight='700'>

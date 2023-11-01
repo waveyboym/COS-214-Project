@@ -8,8 +8,8 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 // Custom components
-import Card from "../../../../components/card/Card.jsx";
-import LineChart from "../../../../components/charts/LineChart.jsx";
+import Card from "../../../../components/card/Card.js";
+import LineChart from "../../../../components/charts/LineChart";
 import React from "react";
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { MdBarChart, MdOutlineCalendarToday } from "react-icons/md";
@@ -18,7 +18,7 @@ import { RiArrowUpSFill } from "react-icons/ri";
 import {
   lineChartDataTotalSpent,
   lineChartOptionsTotalSpent,
-} from "../../../../variables/charts.jsx";
+} from "variables/charts";
 
 export default function TotalSpent(props) {
   const { ...rest } = props;
@@ -59,7 +59,7 @@ export default function TotalSpent(props) {
               color={textColorSecondary}
               me='4px'
             />
-            Today
+            This month
           </Button>
           <Button
             ms='auto'
@@ -86,7 +86,7 @@ export default function TotalSpent(props) {
             textAlign='start'
             fontWeight='700'
             lineHeight='100%'>
-            R37.5K
+            $37.5K
           </Text>
           <Flex align='center' mb='20px'>
             <Text
@@ -97,7 +97,12 @@ export default function TotalSpent(props) {
               me='12px'>
               Total Spent
             </Text>
-            
+            <Flex align='center'>
+              <Icon as={RiArrowUpSFill} color='green.500' me='2px' mt='2px' />
+              <Text color='green.500' fontSize='sm' fontWeight='700'>
+                +2.45%
+              </Text>
+            </Flex>
           </Flex>
 
           <Flex align='center'>

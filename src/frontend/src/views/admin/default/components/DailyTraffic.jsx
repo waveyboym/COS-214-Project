@@ -2,16 +2,17 @@ import React from "react";
 
 // Chakra imports
 import { Box, Flex, Icon, Text, useColorModeValue } from "@chakra-ui/react";
-import BarChart from "../../../../components/charts/BarChart.jsx";
+import BarChart from "../../../../components/charts/BarChart";
 
 // Custom components
-import Card from "../../../../components/card/Card.jsx";
+import Card from "../../../../components/card/Card";
 import {
   barChartDataDailyTraffic,
   barChartOptionsDailyTraffic,
-} from "../../../../variables/charts.jsx";
+} from "variables/charts";
 
 // Assets
+import { RiArrowUpSFill } from "react-icons/ri";
 
 export default function DailyTraffic(props) {
   const { ...rest } = props;
@@ -28,7 +29,7 @@ export default function DailyTraffic(props) {
               color='secondaryGray.600'
               fontSize='sm'
               fontWeight='500'>
-              Most Popular Dish
+              Daily Traffic
             </Text>
           </Flex>
           <Flex align='end'>
@@ -37,16 +38,22 @@ export default function DailyTraffic(props) {
               fontSize='34px'
               fontWeight='700'
               lineHeight='100%'>
-              19
+              2.579
             </Text>
             <Text
               ms='6px'
               color='secondaryGray.600'
               fontSize='sm'
               fontWeight='500'>
-              Customers Today
+              Visitors
             </Text>
           </Flex>
+        </Flex>
+        <Flex align='center'>
+          <Icon as={RiArrowUpSFill} color='green.500' />
+          <Text color='green.500' fontSize='sm' fontWeight='700'>
+            +2.45%
+          </Text>
         </Flex>
       </Flex>
       <Box h='240px' mt='auto'>

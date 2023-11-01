@@ -7,14 +7,14 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Card from "../../../../components/card/Card.jsx";
+import Card from "../../../../components/card/Card.js";
 // Custom components
-import BarChart from "../../../../components/charts/BarChart.jsx";
+import BarChart from "../../../../components/charts/BarChart";
 import React from "react";
 import {
   barChartDataConsumption,
   barChartOptionsConsumption,
-} from "../../../../variables/charts.jsx";
+} from "../../../../variables/charts";
 import { MdBarChart } from "react-icons/md";
 
 export default function WeeklyRevenue(props) {
@@ -41,7 +41,7 @@ export default function WeeklyRevenue(props) {
           fontSize='xl'
           fontWeight='700'
           lineHeight='100%'>
-          Waiters in Everest
+          Weekly Revenue
         </Text>
         <Button
           align='center'

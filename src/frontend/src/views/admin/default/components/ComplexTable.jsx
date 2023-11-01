@@ -20,7 +20,8 @@ import {
 } from "react-table";
 
 // Custom components
-import Card from "../../../../components/card/Card.jsx";
+import Card from "../../../../components/card/Card";
+import Menu from "../../../../components/menu/MainMenu";
 
 // Assets
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
@@ -64,8 +65,9 @@ export default function ColumnsTable(props) {
           fontSize='22px'
           fontWeight='700'
           lineHeight='100%'>
-          Dishes Prepared
+          Complex Table
         </Text>
+        <Menu />
       </Flex>
       <Table {...getTableProps()} variant='simple' color='gray.500' mb='24px'>
         <Thead>
@@ -133,7 +135,7 @@ export default function ColumnsTable(props) {
                         </Text>
                       </Flex>
                     );
-                  } else if (cell.column.Header === "CHEF #") {
+                  } else if (cell.column.Header === "DATE") {
                     data = (
                       <Text color={textColor} fontSize='sm' fontWeight='700'>
                         {cell.value}

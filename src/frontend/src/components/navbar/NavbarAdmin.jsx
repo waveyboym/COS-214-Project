@@ -2,8 +2,7 @@
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Flex, Link, Text, useColorModeValue } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
-import AdminNavbarLinks from '../../components/navbar/NavbarLinksAdmin.jsx';
-
+import AdminNavbarLinks from './NavbarLinksAdmin';
 
 export default function AdminNavbar(props) {
 	const [ scrolled, setScrolled ] = useState(false);
@@ -75,10 +74,6 @@ export default function AdminNavbar(props) {
 			top={{ base: '12px', md: '16px', lg: '20px', xl: '20px' }}
 			w={{
 				base: 'calc(100vw - 6%)',
-				md: 'calc(100vw - 8%)',
-				lg: 'calc(100vw - 6%)',
-				xl: 'calc(100vw - 350px)',
-				'2xl': 'calc(100vw - 365px)'
 			}}>
 			<Flex
 				w='100%'
@@ -92,7 +87,7 @@ export default function AdminNavbar(props) {
 					<Breadcrumb>
 						<BreadcrumbItem color={secondaryText} fontSize='sm' mb='5px'>
 							<BreadcrumbLink href='#' color={secondaryText}>
-								Home
+								Pages
 							</BreadcrumbLink>
 						</BreadcrumbItem>
 

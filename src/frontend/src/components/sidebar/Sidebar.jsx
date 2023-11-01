@@ -13,7 +13,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
 } from "@chakra-ui/react";
-import Content from "./components/Content";
+import Content from "../../components/sidebar/components/Content";
 import {
   renderThumb,
   renderTrack,
@@ -34,7 +34,7 @@ function Sidebar(props) {
     "unset"
   );
   // Chakra Color Mode
-  let sidebarBg = useColorModeValue("white", "orange.100");
+  let sidebarBg = useColorModeValue("white", "navy.800");
   let sidebarMargins = "0px";
 
   // SIDEBAR
@@ -63,7 +63,7 @@ function Sidebar(props) {
 
 // FUNCTIONS
 export function SidebarResponsive(props) {
-  let sidebarBackgroundColor = useColorModeValue("white", "orange.100");
+  let sidebarBackgroundColor = useColorModeValue("white", "navy.800");
   let menuColor = useColorModeValue("gray.400", "white");
   // // SIDEBAR
   const { isOpen, onOpen, onClose } = useDisclosure();

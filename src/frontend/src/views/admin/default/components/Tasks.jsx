@@ -8,8 +8,9 @@ import {
   Checkbox,
 } from "@chakra-ui/react";
 // Custom components
-import Card from "../../../../components/card/Card.jsx";
-import IconBox from "../../../../components/icons/IconBox.jsx";
+import Card from "../../../../components/card/Card";
+import Menu from "../../../../components/menu/MainMenu";
+import IconBox from "../../../../components/icons/IconBox";
 
 // Assets
 import { MdCheckBox, MdDragIndicator } from "react-icons/md";
@@ -34,8 +35,9 @@ export default function Conversion(props) {
         />
 
         <Text color={textColor} fontSize='lg' fontWeight='700'>
-          Chefs Tasks
+          Tasks
         </Text>
+        <Menu ms='auto' />
       </Flex>
       <Box px='11px'>
         <Flex mb='20px'>
@@ -45,7 +47,7 @@ export default function Conversion(props) {
             color={textColor}
             fontSize='md'
             textAlign='start'>
-           (insert tasks)
+            Landing Page Design
           </Text>
           <Icon
             ms='auto'
@@ -62,7 +64,7 @@ export default function Conversion(props) {
             color={textColor}
             fontSize='md'
             textAlign='start'>
-           (insert tasks)
+            Dashboard Builder
           </Text>
           <Icon
             ms='auto'
@@ -79,7 +81,7 @@ export default function Conversion(props) {
             color={textColor}
             fontSize='md'
             textAlign='start'>
-           (insert tasks)
+            Mobile App Design
           </Text>
           <Icon
             ms='auto'
@@ -96,7 +98,7 @@ export default function Conversion(props) {
             color={textColor}
             fontSize='md'
             textAlign='start'>
-           (insert tasks)
+            Illustrations
           </Text>
           <Icon
             ms='auto'
@@ -113,7 +115,7 @@ export default function Conversion(props) {
             color={textColor}
             fontSize='md'
             textAlign='start'>
-              (insert tasks)
+            Promotional LP
           </Text>
           <Icon
             ms='auto'
