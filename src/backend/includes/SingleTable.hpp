@@ -14,6 +14,11 @@
 */ 
 class SingleTable : public Table{
     private:
+        /**
+         * @brief max number of seats at table
+        */
+        const int seatLimit = 4;
+        
         /** 
         *@brief a list containing all customers seated at this table
         */ 

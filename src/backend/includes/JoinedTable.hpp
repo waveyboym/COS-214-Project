@@ -14,6 +14,11 @@
 */ 
 class JoinedTable : public Table{
     private:
+        /**
+         * @brief max number of seats at table
+        */
+        int seatLimit;
+
         /** 
         *@brief a list of tables that are joined together to this joined table
         */ 
@@ -88,6 +93,13 @@ class JoinedTable : public Table{
         *@return bool
         */ 
         bool isTableAvailable();
+
+        /**
+         * @brief gets seat limit
+         * @param none
+         * @return int
+        */
+        int getSeatLimit();
 };
 
 #endif
