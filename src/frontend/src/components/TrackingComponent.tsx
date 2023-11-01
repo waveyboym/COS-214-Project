@@ -21,9 +21,9 @@ const TrackingComponent = (props: TrackingComponentProps) => {
                             <span className="lead fw-normal">{props.orderStatus}</span>
                             <span className="text-muted small">by Everest on {props.date}</span>
                         </div>
-                        <div>
+                        {/* <div>
                             <button className="btn btn-outline-primary" type="button">Track order details</button>
-                        </div>
+                        </div> */}
                         </div>
                         <hr className="my-4"/>
 

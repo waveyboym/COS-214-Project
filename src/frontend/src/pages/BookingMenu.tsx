@@ -36,7 +36,9 @@ const BookingMenu: React.FC = () => {
                 <div className="bg-box">
                     <img src={hero_bg} alt="" />
                 </div>
-                <Navbar route={"Menu"} />
+                <Navbar route={"Menu"} is_seated={false} setIsSeated={function (set_to: boolean): void {
+                    throw new Error('Function not implemented.');
+                } } />
             </div>
             <section className="food_section layout_padding">
                 <div className="container">
@@ -94,7 +96,7 @@ const BookingMenu: React.FC = () => {
                 </div>
             </section>
             <EmotionalStateTab setEmotionalState={setEmotionalState} />
-            <TrackingBooking orderStatus="In Progress" date="2023-11-01" emotionalState={emotionalState} />
+            <TrackingBooking orderStatus="In Progress" date="2023-11-01" emotionalState={emotionalState} cartName={''} cartImage={''} waiterName={''} />
             <Footer />
         </div>
     );

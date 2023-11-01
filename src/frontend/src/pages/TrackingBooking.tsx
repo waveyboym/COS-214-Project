@@ -7,19 +7,28 @@ type TrackingComponentProps = {
     orderStatus: string;
     date: string;
     emotionalState: string;
+    cartName: string;
+    cartImage: string;
+    waiterName: string;
 }
 
 const TrackingBooking = (props: TrackingComponentProps) => {
-    const [animationClass, setAnimationClass] = useState<string>("pulse"); // Initial animation class
+    const [animationClass, setAnimationClass] = useState<string>("pulse");
+    const [isModalOpen, setIsModalOpen] = useState(false); // State to control the modal
 
     useEffect(() => {
-        // Update animation class based on the emotional state
         if (props.emotionalState === "angry" || props.emotionalState === "slight angry") {
             setAnimationClass("pulse");
         } else {
-            setAnimationClass(""); // Remove animation class for other emotional states
+            setAnimationClass("");
         }
     }, [props.emotionalState]);
+
+    const toggleModal = () => {
+        console.log("Toggling modal"); // Add this for debugging
+        setIsModalOpen(!isModalOpen);
+    };
+    
 
     return (
         <section className='mt-4 mb-4'>
@@ -34,7 +43,9 @@ const TrackingBooking = (props: TrackingComponentProps) => {
                                         <span className="text-muted small">by Everest on {props.date}</span>
                                     </div>
                                     <div>
-                                        <button className="btn btn-outline-primary" type="button">Track order details</button>
+                                        <button className="btn btn-outline-primary" type="button" onClick={toggleModal}>
+                                            Track order details
+                                        </button>
                                     </div>
                                 </div>
                                 <hr className="my-4" />
@@ -82,8 +93,20 @@ const TrackingBooking = (props: TrackingComponentProps) => {
                     </div>
                 </div>
             </div>
+            {isModalOpen && (
+                
+                <div className="modal">
+                    <div className="modal-content">
+                        <h2>Order Details</h2>
+                        <p>Cart Name: {props.cartName}</p>
+                        <img src={props.cartImage} alt="Cart Image" />
+                        <p>Waiter Name: {props.waiterName}</p>
+                        <button onClick={toggleModal}>Close</button>
+                    </div>
+                </div>
+            )}
         </section>
-    )
+    );
 }
 
 export default TrackingBooking;
