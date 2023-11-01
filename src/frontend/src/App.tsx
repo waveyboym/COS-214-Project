@@ -7,6 +7,7 @@ import { Menu } from './pages';
 import CartSummary from './pages/CartSummary';
 import TrackingPage from './pages/TrackingPage';
 import Booking from './pages/Booking';
+import TrackingBooking from './pages/TrackingBooking';
 import BookingMenu from './pages/BookingMenu';
 import './fonts/fontawesome-webfont.ttf';
 import './fonts/fontawesome-webfont.woff';
@@ -28,6 +29,7 @@ const App: React.FC = () => {
             <Route path="/tracking" element={<TrackingPage />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/bookingmenu" element={<BookingMenu />} />
+            <Route path="/trackingbooking" element={<TrackingBooking orderStatus={''} date={''} emotionalState={''}/>} />
 
 
             {/* Add the admin route here */}

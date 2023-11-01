@@ -4,29 +4,29 @@ import React, { useState } from 'react';
 
 //import pictures
 import { hero_bg } from '../assets';
-import { Footer, Navbar, FoodCard } from '../components';
+import { Footer, Navbar, FoodCard, EmotionalStateTab, TrackingComponent } from '../components';
 import MenuItems from '../content';
 import { AnimatePresence } from "framer-motion";
+import TrackingBooking from './TrackingBooking';
 
-const Menu: React.FC = () => {
-
-    const [filteredItems, setfilteredItems] = useState(MenuItems);
+const BookingMenu: React.FC = () => {
+ const [filteredItems, setFilteredItems] = useState(MenuItems);
     const [filtered, setFiltered] = useState<string>("All");
+    const [emotionalState, setEmotionalState] = useState('neutral'); // Define and set emotionalState
 
     const setFilterTo = (filter: string) => {
         if (filter === "All") {
             setFiltered("All");
-            setfilteredItems(MenuItems);
-        }
-        else {
+            setFilteredItems(MenuItems);
+        } else {
             setFiltered(filter);
-            setfilteredItems(
+            setFilteredItems(
                 MenuItems.filter(item => {
                     const check: string = item.title.toLowerCase();
-                    if (check.includes(filter.toLowerCase())) return true
-                    else return false
+                    if (check.includes(filter.toLowerCase())) return true;
+                    else return false;
                 })
-            )
+            );
         }
     }
 
@@ -93,10 +93,12 @@ const Menu: React.FC = () => {
                     </div>
                 </div>
             </section>
+            <EmotionalStateTab setEmotionalState={setEmotionalState} />
+            <TrackingBooking orderStatus="In Progress" date="2023-11-01" emotionalState={emotionalState} />
             <Footer />
         </div>
     );
 };
 
-export default Menu;
+export default BookingMenu;
 

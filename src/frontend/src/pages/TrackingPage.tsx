@@ -66,23 +66,10 @@ const TrackingPage = () => {
             </div>
           </div>
         ) : (
-          <h2 >Your order is ready!</h2>
+          <h5 >Your order is ready!</h5>
         )}
 
-          
-
-        <div className=''>
-          <h2>Rate Your Experience (1 - 5)</h2>
-          <input
-            type="number"
-            min="1"
-            max="5"
-            value={ratingVal}
-            onChange={handleRatingChange}
-          />
-        </div>
       </div>
-      <EmotionalStateTab />
     </div>
   );
 };
