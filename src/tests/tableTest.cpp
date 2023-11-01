@@ -354,23 +354,21 @@ namespace joinedTableTest{
         std::shared_ptr<Customer> B = std::make_shared<Customer>();
         std::shared_ptr<Customer> C = std::make_shared<Customer>();
         std::shared_ptr<Customer> D = std::make_shared<Customer>();
-
-        JT1->seatCustomer(A);
-        JT1->seatCustomer(B);
-        JT1->seatCustomer(C);
-        JT1->seatCustomer(D);
-
         std::shared_ptr<Customer> E = std::make_shared<Customer>();
         std::shared_ptr<Customer> F = std::make_shared<Customer>();
         std::shared_ptr<Customer> G = std::make_shared<Customer>();
         std::shared_ptr<Customer> H = std::make_shared<Customer>();
 
-        JT2->seatCustomer(E);
-        JT2->seatCustomer(F);
-        JT2->seatCustomer(G);
-        JT2->seatCustomer(H);
-
         JT1->joinTable(JT2);
+
+        JT1->seatCustomer(A);
+        JT1->seatCustomer(B);
+        JT1->seatCustomer(C);
+        JT1->seatCustomer(D);
+        JT1->seatCustomer(E);
+        JT1->seatCustomer(F);
+        JT1->seatCustomer(G);
+        JT1->seatCustomer(H);
 
         std::list<std::shared_ptr<Customer>> cust_list = JT1->getAllSeatedCustomers();
 
@@ -380,7 +378,7 @@ namespace joinedTableTest{
         EXPECT_EQ((std::find(cust_list.begin(), cust_list.end(), D) != cust_list.end()), true);
         EXPECT_EQ((std::find(cust_list.begin(), cust_list.end(), E) != cust_list.end()), true);
         EXPECT_EQ((std::find(cust_list.begin(), cust_list.end(), F) != cust_list.end()), true);
-        EXPECT_EQ((std::find(cust_list.begin(), cust_list.end(), G) != cust_list.end()), true);
-        EXPECT_EQ((std::find(cust_list.begin(), cust_list.end(), H) != cust_list.end()), true);
+        EXPECT_EQ((std::find(cust_list.begin(), cust_list.end(), G) != cust_list.end()), false);
+        EXPECT_EQ((std::find(cust_list.begin(), cust_list.end(), H) != cust_list.end()), false);
     }
 }
