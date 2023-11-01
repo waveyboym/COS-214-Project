@@ -1,6 +1,6 @@
 /**
-*@file main.js
-*@class main
+*@file App.tsx
+*@function App
 *@author Michael, Carey
 *@brief presents the frontend gui and communicates with the backend
 */
@@ -8,10 +8,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // Import your components
-import { Home, SplashPage } from './pages';
-import { Menu } from './pages';
-import CartSummary from './pages/CartSummary';
-import TrackingPage from './pages/TrackingPage';
+import { Home, SplashPage, CartSummary, TrackingPage, Menu } from './pages';
 import './fonts/fontawesome-webfont.ttf';
 import './fonts/fontawesome-webfont.woff';
 import './fonts/fontawesome-webfont.woff2';

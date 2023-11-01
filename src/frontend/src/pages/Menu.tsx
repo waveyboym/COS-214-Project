@@ -7,11 +7,16 @@ import { hero_bg } from '../assets';
 import { Footer, Navbar, FoodCard } from '../components';
 import { MenuItems } from '../content';
 import { AnimatePresence } from "framer-motion";
+import { useApiKeyStore, useSeatedStore } from '../stateStore';
+import { useSocket } from '../contexts';
 
 const Menu: React.FC = () => {
 
   const [filteredItems, setfilteredItems] = useState(MenuItems);
   const [filtered, setFiltered] = useState<string>("All");
+  const { seated, setSeated } = useSeatedStore((state) => { return { seated: state.seated, setSeated: state.setSeated }; });
+  const { apikey } = useApiKeyStore((state) => { return { apikey: state.apikey }; });
+  const socket: WebSocket | null = useSocket();
 
   const setFilterTo = (filter: string) => {
     if(filter === "All"){
@@ -30,13 +35,36 @@ const Menu: React.FC = () => {
     }
   }
 
+  socket!.onmessage = function(event){
+    //the backend responds with the needed data
+    const json = JSON.parse(event.data);
+    
+    //navigate to the tracking - page here
+    if(json.status === "success" && json.player === "customer" && json.command === "seat_request"){
+      if(json.message === "seated"){
+        setSeated(true);
+      }
+      else{
+        setSeated(false);
+      }
+    }
+    else{
+      console.log(json);
+    }
+  }
+
+  const requestSeat = function(setTo: boolean){
+    const json = { token: apikey, player: "customer", command: "seat_request", message: (setTo === true ? "seat" : "unseat")};
+    socket!.send(JSON.stringify(json));
+  }
+
   return (
     <div className="sub_page">
       <div className="hero_area">
         <div className="bg-box">
           <img src={hero_bg} alt="" />
         </div>
-        <Navbar route={"Menu"} />
+        <Navbar route={"Menu"} is_seated={seated} setIsSeated={requestSeat}/>
       </div>
       <section className="food_section layout_padding">
         <div className="container">

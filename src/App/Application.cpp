@@ -194,7 +194,7 @@ std::string Application::processCustomerRequest(json req_obj)
     //add their token
     if(req_obj["command"] == "add_token"){
         this->connected_customers.push_back(req_obj["token"]);
-        return "{\"status\":\"success\",\"player\":\"customer\",\"message\":\"successfully added customer token\"}";
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"add_token\",\"message\":\"successfully added customer token\"}";
     }
 
     //check that their token exists in customer list
@@ -203,9 +203,17 @@ std::string Application::processCustomerRequest(json req_obj)
         return "{\"status\":\"error\",\"player\":\"customer\",\"message\":\"token does not exist in connected customer tokens\"}";
     }
 
-    if(req_obj["command"] == "create_order"){
+    if(req_obj["command"] == "seat_request"){
         std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"success\",\"player\":\"customer\",\"message\":\"successfully created order\"}";
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
+    }
+    else if(req_obj["command"] == "create_order"){
+        std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"create_order\",\"message\":\"successfully created order\"}";
+    }
+    else if(req_obj["command"] == "checkout"){
+        std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"checkout\",\"message\":\"successfully checked out\"}";
     }
     else{
         std::cout << color::format_colour::make_colour(color::RED) << req_obj["command"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;

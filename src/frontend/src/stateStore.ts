@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { CartState, apikeyState, foodProcessingState, waiterState } from './types';
+import { CartState, apikeyState, foodProcessingState, seatedState, waiterState } from './types';
 
 export const useCartStore = create<CartState>()(
     devtools(
@@ -47,6 +47,18 @@ export const useApiKeyStore = create<apikeyState>()(
             setApiKey: (setTo) => set((state) => ({ apikey: setTo })),
         }),
         {name: 'apikey',}
+        )
+    )
+)
+
+export const useSeatedStore = create<seatedState>()(
+    devtools(
+        persist(
+        (set) => ({
+            seated: false,
+            setSeated: (setTo) => set((state) => ({ seated: setTo })),
+        }),
+        {name: 'seated-state',}
         )
     )
 )
