@@ -1,12 +1,12 @@
 #include "../includes/JoinedTable.hpp"
 
 JoinedTable::JoinedTable(){
-
+    seatLimit = 4;
 }
 
 JoinedTable::JoinedTable(int tableid){
     this->table_id = tableid;
-    seatLimit = 0;
+    seatLimit = 4;
 }
 
 void JoinedTable::seatCustomer(std::shared_ptr<Customer> customer){
@@ -56,20 +56,24 @@ std::list<std::shared_ptr<Customer>> JoinedTable::getAllSeatedCustomers(){
 }
 
 void JoinedTable::joinTable(std::shared_ptr<Table> table){
-    this->table_list.push_back(table);
-    int n = table_list.size();
-    int seatLimit = 4*n - 2*(n-1);
+    if(customer_list.size() == 0){
+        this->table_list.push_back(table);
+        int n = (table_list.size()+1);
+        int seatLimit = 4*n - 2*(n-1);
+    }
 }
 
 void JoinedTable::unjoinTable(std::shared_ptr<Table> table){
-    std::list<std::shared_ptr<Table>>::iterator it;
+    if(customer_list.size() == 0){
+        std::list<std::shared_ptr<Table>>::iterator it;
 
-    for (it = this->table_list.begin(); it != this->table_list.end() && *it != table; ++it);
+        for (it = this->table_list.begin(); it != this->table_list.end() && *it != table; ++it);
 
-    this->table_list.erase(it);
+        this->table_list.erase(it);
 
-    int n = table_list.size();
-    int seatLimit = 4*n - 2*(n-1);
+        int n = (table_list.size()+1);
+        int seatLimit = 4*n - 2*(n-1);
+    }    
 }
 
 bool JoinedTable::isThisTableJoined(std::shared_ptr<Table> table){
@@ -87,6 +91,10 @@ bool JoinedTable::isThisTableJoined(std::shared_ptr<Table> table){
 
 std::list<std::shared_ptr<Table>> JoinedTable::getAllJoinedTables(){
     return this->table_list;
+}
+
+int JoinedTable::getSeatLimit(){
+    return seatLimit;
 }
 
 bool JoinedTable::isTableAvailable(){
