@@ -27,3 +27,8 @@ export interface apikeyState{
     apikey: string;
     setApiKey: (setTo: string) => void;
 }
+
+export interface seatedState{
+    seated: boolean;
+    setSeated: (setTo: boolean) => void;
+}

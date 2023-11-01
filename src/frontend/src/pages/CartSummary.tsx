@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { CartObject, Footer } from '../components';
-import { useApiKeyStore, useCartStore, } from '../stateStore';
+import { useApiKeyStore, useCartStore, useSeatedStore, } from '../stateStore';
 import { Navbar } from '../components';
 import { hero_bg } from '../assets';
 import { useSocket } from '../contexts';
@@ -14,6 +14,7 @@ const CartSummary = () => {
   const { cartItems, deleteFromCart } = useCartStore((state) => { return { cartItems: state.cartItems, deleteFromCart: state.deleteFromCart }; });
   const [totalAmount, setTotalAmount] = useState(cartItems.reduce((acc, item) => acc + item.price, 0));
   const { apikey } = useApiKeyStore((state) => { return { apikey: state.apikey }; });
+  const { seated, setSeated } = useSeatedStore((state) => { return { seated: state.seated, setSeated: state.setSeated }; });
   const socket: WebSocket | null = useSocket();
   const navigate = useNavigate();
 
@@ -27,14 +28,21 @@ const CartSummary = () => {
     const json = JSON.parse(event.data);
     
     //navigate to the tracking - page here
-    if(json.status === "success" && json.player === "customer"){
+    if(json.status === "success" && json.player === "customer" && json.command === "seat_request"){
+      if(json.message === "seated"){
+        setSeated(true);
+      }
+      else{
+        setSeated(false);
+      }
+    }
+    else if(json.status === "success" && json.player === "customer" && json.command === "checkout"){
       navigate("/tracking");
     }
     else{
       console.log(json);
     }
   }
-  
 
   const openModal = () => { setIsModalOpen(true); };
 
@@ -47,7 +55,12 @@ const CartSummary = () => {
   const sendMessage = function() {
     const json = { token: apikey, player: "customer", command: "create_order", order: cartItems};
     socket!.send(JSON.stringify(json));
-}
+  }
+
+  const requestSeat = function(setTo: boolean){
+    const json = { token: apikey, player: "customer", command: "seat_request", message: (setTo === true ? "seat" : "unseat")};
+    socket!.send(JSON.stringify(json));
+  }
 
 
   // In your routing setup
@@ -73,7 +86,7 @@ const CartSummary = () => {
         <div className="bg-box">
           <img src={hero_bg} alt="" />
         </div>
-        <Navbar route={"CartSummary"} />
+        <Navbar route={"CartSummary"} is_seated={seated} setIsSeated={requestSeat}/>
       </div>
       <section className="food_section layout_padding">
         <div className="container">
