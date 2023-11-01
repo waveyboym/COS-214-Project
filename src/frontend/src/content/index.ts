@@ -1,6 +1,12 @@
-import { f1, f2, f3, f5, f9 } from "../assets";
+import { f1, f2, f3, f5, f9} from "../assets/";
+import steak from "../assets/steak.jpg";
+import chicken from "../assets/chicken.jpg";
+import lettuce from "../assets/lettuce.jpg";
+import tomatoe from "../assets/tomatoe.jpg";
+import sundae from "../assets/sundae.jpg";
+import salad from "../assets/salad.jpg";
 
-export const MenuItems = [
+const MenuItems = [
     {
         key: 0,
         image: f1,
@@ -35,5 +41,49 @@ export const MenuItems = [
         title: "Delicious Pasta",
         description: "Pasta lover? Just like us! Choose from Greek, Italian, or American pasta!",
         price: 10
+    },
+    {
+        key: 5,
+        image: steak,
+        title: "Steaks and Lettuce",
+        description: "Juicy steaks served with fresh lettuce, a perfect combo!",
+        price: 25
+    },
+    {
+        key: 6,
+        image: chicken,
+        title: "Chicken Strips",
+        description: "Delicious chicken strips served with your choice of dipping sauce!",
+        price: 12
+    },
+    {
+        key: 7,
+        image: lettuce,
+        title: "Extra Lettuce",
+        description: "Add some extra fresh lettuce to your meal for a healthy touch!",
+        price: 3
+    },
+    {
+        key: 8,
+        image: tomatoe,
+        title: "Tomatoes",
+        description: "Fresh, ripe tomatoes to add to your favorite dishes!",
+        price: 4
+    },
+    {
+        key: 9,
+        image: sundae,
+        title: "Sundae",
+        description: "Indulge in a delicious sundae with your choice of toppings!",
+        price: 8
+    },
+    {
+        key: 10,
+        image: salad,
+        title: "Salad",
+        description: "Fresh salad with your choice of dressing!",
+        price: 8
     }
-]
+];
+
+export default MenuItems;

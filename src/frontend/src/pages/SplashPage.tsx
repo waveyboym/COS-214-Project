@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useSocket } from '../contexts';
 import { useApiKeyStore } from '../stateStore';
 
+
 const SplashPage = () => {
 
     const socket: WebSocket | null = useSocket();
@@ -20,7 +21,7 @@ const SplashPage = () => {
           navigate("/home");
         }
         else if(message.status === "success" && message.player === "manager"){
-          navigate("/manager");
+          navigate("/admin");
         }
         else{
           console.log(message);
