@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 //import pictures
 import { hero_bg } from '../assets';
 import { Footer, Navbar, FoodCard } from '../components';
-import { MenuItems } from '../content';
+import  MenuItems from '../content';
 import { AnimatePresence } from "framer-motion";
 
 const Menu: React.FC = () => {

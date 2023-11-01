@@ -6,6 +6,8 @@ import { Home, SplashPage } from './pages';
 import { Menu } from './pages';
 import CartSummary from './pages/CartSummary';
 import TrackingPage from './pages/TrackingPage';
+import Booking from './pages/Booking';
+import BookingMenu from './pages/BookingMenu';
 import './fonts/fontawesome-webfont.ttf';
 import './fonts/fontawesome-webfont.woff';
 import './fonts/fontawesome-webfont.woff2';
@@ -24,6 +26,10 @@ const App: React.FC = () => {
             <Route path="/menu" element={<Menu />} />
             <Route path="/cart-summary" element={<CartSummary />} />
             <Route path="/tracking" element={<TrackingPage />} />
+            <Route path="/booking" element={<Booking />} />
+            <Route path="/bookingmenu" element={<BookingMenu />} />
+
+
             {/* Add the admin route here */}
             <Route path="/admin" element={<Dashboard />} />
           </Routes>
