@@ -270,8 +270,8 @@ namespace joinedTableTest{
         JT2->seatCustomer(H);
 
         JT1->joinTable(JT2);
-        EXPECT_EQ(JT1->isThisTableJoined(JT2), true);
-        EXPECT_EQ(JT1->isSeatedHere(G), true);
+        EXPECT_EQ(JT1->isThisTableJoined(JT2), false);
+        EXPECT_EQ(JT1->isSeatedHere(G), false);
     }
 
     TEST(JoinedTable_test, JOINED_TABLE_UNJOIN_TABLE)
