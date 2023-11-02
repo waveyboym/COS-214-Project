@@ -182,34 +182,42 @@ std::string Application::processCustomerRequest(json req_obj)
     //check if this client is connected to us
     if(!this->connected_clients.contains(req_obj["token"])){
         std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token does not exist in connected client tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"error\", \"message\":\"token does not exist in connected client tokens\"}";
+        return "{\"status\":\"error\",\"player\":\"customer\",\"message\":\"token does not exist in connected client tokens\"}";
     }
 
     //check if a manager is trying to play as a customer
     if(this->existingToken(this->connected_managers, req_obj["token"])){
         std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token is already a manager" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"error\", \"message\":\"token is already a manager\"}";
+        return "{\"status\":\"error\",\"player\":\"customer\",\"message\":\"token is already a manager\"}";
     }
 
     //add their token
     if(req_obj["command"] == "add_token"){
         this->connected_customers.push_back(req_obj["token"]);
-        return "{\"status\":\"success\", \"message\":\"successfully added customer token\"}";
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"add_token\",\"message\":\"successfully added customer token\"}";
     }
 
     //check that their token exists in customer list
     if(!this->existingToken(this->connected_customers, req_obj["token"])){
         std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token does not exist in connected customer tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"error\", \"message\":\"token does not exist in connected customer tokens\"}";
+        return "{\"status\":\"error\",\"player\":\"customer\",\"message\":\"token does not exist in connected customer tokens\"}";
     }
 
-    if(req_obj["command"] == "create_order"){
+    if(req_obj["command"] == "seat_request"){
         std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"success\", \"message\":\"successfully created order\"}";
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
+    }
+    else if(req_obj["command"] == "create_order"){
+        std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"create_order\",\"message\":\"successfully created order\"}";
+    }
+    else if(req_obj["command"] == "checkout"){
+        std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"checkout\",\"message\":\"successfully checked out\"}";
     }
     else{
         std::cout << color::format_colour::make_colour(color::RED) << req_obj["command"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"error\", \"message\":\"invalid command found\"}";
+        return "{\"status\":\"error\",\"player\":\"customer\",\"message\":\"invalid command found\"}";
     }
 }
 
@@ -221,25 +229,25 @@ std::string Application::processManagerRequest(json req_obj)
     //check if this client is connected to us
     if(!this->connected_clients.contains(req_obj["token"])){
         std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token does not exist in connected client tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"error\", \"message\":\"token does not exist in connected client tokens\"}";
+        return "{\"status\":\"error\",\"player\":\"manager\",\"message\":\"token does not exist in connected client tokens\"}";
     }
 
     //check if a customer is trying to play as a manager
     if(this->existingToken(this->connected_customers, req_obj["token"])){
         std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token is already a customer" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"error\", \"message\":\"token is already a customer\"}";
+        return "{\"status\":\"error\",\"player\":\"manager\",\"message\":\"token is already a customer\"}";
     }
 
     //add their token
     if(req_obj["command"] == "add_token"){
         this->connected_managers.push_back(req_obj["token"]);
-        return "{\"status\":\"success\", \"message\":\"successfully added manager token\"}";
+        return "{\"status\":\"success\",\"player\":\"manager\",\"message\":\"successfully added manager token\"}";
     }
 
     //check that their token exists in manager list
     if(!this->existingToken(this->connected_managers, req_obj["token"])){
         std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token does not exist in connected managers tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"error\", \"message\":\"token does not exist in connected managers tokens\"}";
+        return "{\"status\":\"error\",\"player\":\"manager\",\"message\":\"token does not exist in connected managers tokens\"}";
     }
     
     if(req_obj["command"] == "get_all"){

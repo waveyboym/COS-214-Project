@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useWaiterStore, usefoodProcessingTimeStore } from '../stateStore';
+import { useApiKeyStore, useSeatedStore, useWaiterStore, usefoodProcessingTimeStore } from '../stateStore';
 import { hero_bg } from '../assets';
-import { Navbar } from '../components';
+import { EmotionalStateTab, Navbar, TrackingComponent } from '../components';
+import { useSocket } from '../contexts';
 
-
-interface TrackingPageProps {
-  orderStatus: string;
-}
-
-const TrackingPage: React.FC<TrackingPageProps> = ({ orderStatus }) => {
+//when this page loads, it will make a socket request to the backend to get details about it's order(like all details)
+const TrackingPage = () => {
   const [ratingVal, setRatingVal] = useState<number>(0);
+  const [orderStatus, ] = useState<string>("");
 
   const {foodProcessingTime, setFoodProcessingTime } = usefoodProcessingTimeStore((state) => { return { foodProcessingTime: state.foodProcessingTime, setFoodProcessingTime: state.setFoodProcessingTime }; });
   const {waiterName, setWaiterName } = useWaiterStore((state) => { return { waiterName: state.waiterName, setWaiterName: state.setWaiterName }; });
+
+  const { seated, setSeated } = useSeatedStore((state) => { return { seated: state.seated, setSeated: state.setSeated }; });
+  const { apikey } = useApiKeyStore((state) => { return { apikey: state.apikey }; });
+  const socket: WebSocket | null = useSocket();
 
   useEffect(() => {
     if (foodProcessingTime > 0) {
@@ -33,16 +35,42 @@ const TrackingPage: React.FC<TrackingPageProps> = ({ orderStatus }) => {
     // Update the rating in your state or send it to the backend
   };
 
+  socket!.onmessage = function(event){
+    //the backend responds with the needed data
+    const json = JSON.parse(event.data);
+    
+    //navigate to the tracking - page here
+    if(json.status === "success" && json.player === "customer" && json.command === "seat_request"){
+      if(json.message === "seated"){
+        setSeated(true);
+      }
+      else{
+        setSeated(false);
+      }
+    }
+    else{
+      console.log(json);
+    }
+  }
+
+  const requestSeat = function(setTo: boolean){
+    const json = { token: apikey, player: "customer", command: "seat_request", message: (setTo === true ? "seat" : "unseat")};
+    socket!.send(JSON.stringify(json));
+  }
+
   return (
     <div className="sub_page">
         <div className="hero_area">
           <div className="bg-box">
             <img src={hero_bg} alt="" />
           </div>
-          <Navbar route={"Tracking"} />
+          <Navbar route={"Tracking"} is_seated={seated} setIsSeated={requestSeat}/>
         </div>
+        <h1 style={{textAlign: "center"}}>Order Tracking</h1>
+        
+        <TrackingComponent orderStatus={"Your order has been delivered"} date={new Date().toString()} />
+
       <div className="col-sm-6 col-lg-4 all fries">
-        <h1>Order Tracking</h1>
         {foodProcessingTime > 0 ? (
           <div>
             <h2>Assigned Waiter: {waiterName}</h2>
@@ -66,19 +94,9 @@ const TrackingPage: React.FC<TrackingPageProps> = ({ orderStatus }) => {
             </div>
           </div>
         ) : (
-          <h2>Your order is ready!</h2>
+          <h5 >Your order is ready!</h5>
         )}
 
-        <div>
-          <h2>Rate Your Experience (1 - 5)</h2>
-          <input
-            type="number"
-            min="1"
-            max="5"
-            value={ratingVal}
-            onChange={handleRatingChange}
-          />
-        </div>
       </div>
     </div>
   );

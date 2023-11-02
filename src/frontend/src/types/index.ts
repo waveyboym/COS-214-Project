@@ -14,11 +14,21 @@ export interface CartState {
 }
 
 export interface foodProcessingState {
-    foodProcessingTime: number
-    setFoodProcessingTime: (setTo: number) => void
+    foodProcessingTime: number;
+    setFoodProcessingTime: (setTo: number) => void;
 }
 
 export interface waiterState {
-    waiterName: string
-    setWaiterName: (setTo: string) => void
+    waiterName: string;
+    setWaiterName: (setTo: string) => void;
+}
+
+export interface apikeyState{
+    apikey: string;
+    setApiKey: (setTo: string) => void;
+}
+
+export interface seatedState{
+    seated: boolean;
+    setSeated: (setTo: boolean) => void;
 }

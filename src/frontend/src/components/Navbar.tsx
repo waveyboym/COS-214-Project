@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type NavbarProps = {
   route: string;
+  is_seated: boolean;
+  setIsSeated: (set_to: boolean) => void;
 }
 
 const Navbar = (props: NavbarProps) => {
@@ -55,7 +57,15 @@ const Navbar = (props: NavbarProps) => {
                       <FontAwesomeIcon icon={faSearch} />
                     </button>
                   </form>
-                  <Link className="order_online" to='/menu'><span>Order Online</span></Link>
+                  <button className="order_online" onClick={() => props.setIsSeated(!props.is_seated)}>
+                    <span>
+                      { props.is_seated ?
+                        "ask to be unseated"
+                        :
+                        "ask to be seated"
+                      }
+                    </span>
+                  </button>
                 </div>
               </div>
             </nav>
