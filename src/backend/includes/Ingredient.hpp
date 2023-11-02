@@ -4,8 +4,8 @@
 *@author Jaide
 *@brief Abstract class for all Ingredient types to inherit from
 */
-#ifndef BUN_HPP
-#define BUN_HPP
+#ifndef INGREDIENT_HPP
+#define INGREDIENT_HPP
 #include "Meal.hpp"
 
 class Ingredient: public Meal{
