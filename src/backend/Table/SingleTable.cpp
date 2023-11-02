@@ -22,8 +22,9 @@ bool SingleTable::isSeatedHere(std::shared_ptr<Customer> customer){
 }
 
 void SingleTable::seatCustomer(std::shared_ptr<Customer> customer){
-    if(this->customer_list.size() < seatLimit)
+    if(this->customer_list.size() < seatLimit){
         this->customer_list.push_back(customer);
+    }
 }
 
 void SingleTable::unseatCustomer(std::shared_ptr<Customer> customer){
