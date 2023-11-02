@@ -2,20 +2,17 @@
 #define ORDER_HPP
 
 #include "Customer.hpp"
+#include "Meal.hpp"
 
 class Order{
 
-private:
-std::shared_ptr<Customer> customer;
-//std::shared_ptr<Meal> meal;
+protected:
+// std::shared_ptr<Customer> customer;
+std::shared_ptr<Meal> meal;
+bool addedToList = false;
 
 public:
-std::shared_ptr<Customer> getCustomer();
-bool setCustomer(std::shared_ptr<Customer> c);
-//std::shared_ptr<Customer> getMeal();
-//bool setMeal(std::shared_ptr<Meal> m);
-
-virtual bool  executeOrder() = 0;
+virtual std::shared_ptr<Meal>  executeOrder(std::shared_ptr<Meal>  m) = 0;
 
 };
 

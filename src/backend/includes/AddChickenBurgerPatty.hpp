@@ -5,7 +5,7 @@
 
 class AddChickenBurgerPatty :public Order{
     public:
-    bool executeOrder();
+    std::shared_ptr<Meal> executeOrder(std::shared_ptr<Meal> m);
 };
 
 
