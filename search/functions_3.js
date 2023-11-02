@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['processfrontendrequest_0',['processFrontendRequest',['../classApplication.html#ad58a47be2ffb6d73fde0c80a19b6ff7d',1,'Application']]],
-  ['progressforward_1',['progressForward',['../classApplication.html#a6771d0683b56010300d0e0f50f00ff5f',1,'Application']]]
+  ['diff_0',['diff',['../classbasic__json.html#aff2204c04cd35b2cef35f44b2b93ffc7',1,'basic_json']]],
+  ['dump_1',['dump',['../classdetail_1_1serializer.html#ae73c1bac64bcc810923b9f1261af8b09',1,'detail::serializer::dump()'],['../classbasic__json.html#ac38b5f79c16205efb771e99be206b345',1,'basic_json::dump()']]]
 ];

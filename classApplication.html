@@ -123,9 +123,24 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:ad58a47be2ffb6d73fde0c80a19b6ff7d" id="r_ad58a47be2ffb6d73fde0c80a19b6ff7d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#ad58a47be2ffb6d73fde0c80a19b6ff7d">processFrontendRequest</a> (std::string req)</td></tr>
 <tr class="memdesc:ad58a47be2ffb6d73fde0c80a19b6ff7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">processes the incoming request from the frontend and sends back a response  <br /></td></tr>
 <tr class="separator:ad58a47be2ffb6d73fde0c80a19b6ff7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81c50e1f8d57175065d145b75c0b8937" id="r_a81c50e1f8d57175065d145b75c0b8937"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#a81c50e1f8d57175065d145b75c0b8937">doBackendTask</a> (std::string command, std::string value)</td></tr>
-<tr class="memdesc:a81c50e1f8d57175065d145b75c0b8937"><td class="mdescLeft">&#160;</td><td class="mdescRight">does a backend task and returns updated data  <br /></td></tr>
-<tr class="separator:a81c50e1f8d57175065d145b75c0b8937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f2248edbc4c3640b26aaaaba181abaa" id="r_a5f2248edbc4c3640b26aaaaba181abaa"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#a5f2248edbc4c3640b26aaaaba181abaa">processCustomerRequest</a> (json req_obj)</td></tr>
+<tr class="memdesc:a5f2248edbc4c3640b26aaaaba181abaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">processes the incoming request from the frontend customer and sends back a response  <br /></td></tr>
+<tr class="separator:a5f2248edbc4c3640b26aaaaba181abaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59ee77fb50342b257b8f84ed6f8491c1" id="r_a59ee77fb50342b257b8f84ed6f8491c1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#a59ee77fb50342b257b8f84ed6f8491c1">processManagerRequest</a> (json req_obj)</td></tr>
+<tr class="memdesc:a59ee77fb50342b257b8f84ed6f8491c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">processes the incoming request from the frontend manager and sends back a response  <br /></td></tr>
+<tr class="separator:a59ee77fb50342b257b8f84ed6f8491c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a643f03f347bc1ed0703a97ac589f8dec" id="r_a643f03f347bc1ed0703a97ac589f8dec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#a643f03f347bc1ed0703a97ac589f8dec">existingToken</a> (std::list&lt; std::string &gt; linked_list, std::string token)</td></tr>
+<tr class="memdesc:a643f03f347bc1ed0703a97ac589f8dec"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if the token exists in the passed in linked list. returns true on success and false on failure  <br /></td></tr>
+<tr class="separator:a643f03f347bc1ed0703a97ac589f8dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf06e276300b149bea1ee9479a07eae3" id="r_abf06e276300b149bea1ee9479a07eae3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#abf06e276300b149bea1ee9479a07eae3">generateUUID</a> ()</td></tr>
+<tr class="memdesc:abf06e276300b149bea1ee9479a07eae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">generates unique uid  <br /></td></tr>
+<tr class="separator:abf06e276300b149bea1ee9479a07eae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e409c2b06e62bc3d9a7ae5a497ee0cb" id="r_a8e409c2b06e62bc3d9a7ae5a497ee0cb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#a8e409c2b06e62bc3d9a7ae5a497ee0cb">insertClient</a> (crow::websocket::connection *client)</td></tr>
+<tr class="memdesc:a8e409c2b06e62bc3d9a7ae5a497ee0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">inserts this client into the map of clients and returns the uuid of that client as a string  <br /></td></tr>
+<tr class="separator:a8e409c2b06e62bc3d9a7ae5a497ee0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc230d53aabcb67cdef956dcbb227040" id="r_acc230d53aabcb67cdef956dcbb227040"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#acc230d53aabcb67cdef956dcbb227040">removeClient</a> (crow::websocket::connection *client)</td></tr>
+<tr class="memdesc:acc230d53aabcb67cdef956dcbb227040"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes this client from the map of clients and returns true on success else false  <br /></td></tr>
+<tr class="separator:acc230d53aabcb67cdef956dcbb227040"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -133,27 +148,35 @@ Private Attributes</h2></td></tr>
 crow::SimpleApp&#160;</td><td class="memItemRight" valign="bottom"><b>app</b></td></tr>
 <tr class="memdesc:a0012ec89c33d794c132b94983dea48c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">this holds the app variable that creates a websocket and intercepts incoming requests <br /></td></tr>
 <tr class="separator:a0012ec89c33d794c132b94983dea48c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf038d0a11411c06864a2967f5d0c850" id="r_aaf038d0a11411c06864a2967f5d0c850"><td class="memItemLeft" align="right" valign="top">std::unordered_set&lt; crow::websocket::connection * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#aaf038d0a11411c06864a2967f5d0c850">connected_clients</a></td></tr>
-<tr class="memdesc:aaf038d0a11411c06864a2967f5d0c850"><td class="mdescLeft">&#160;</td><td class="mdescRight">this holds all of the connected/subscribed clients that way if there is an update on the backend, we can send updated data to the client in json form.  <br /></td></tr>
-<tr class="separator:aaf038d0a11411c06864a2967f5d0c850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73f193fa1af6a32474c5043b6860f920" id="r_a73f193fa1af6a32474c5043b6860f920"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, crow::websocket::connection * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#a73f193fa1af6a32474c5043b6860f920">connected_clients</a></td></tr>
+<tr class="memdesc:a73f193fa1af6a32474c5043b6860f920"><td class="mdescLeft">&#160;</td><td class="mdescRight">this holds all of the connected/subscribed clients that way if there is an update on the backend, we can send updated data to the client in json form.  <br /></td></tr>
+<tr class="separator:a73f193fa1af6a32474c5043b6860f920"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90447f8d1015cbfc255961e5195e9f15" id="r_a90447f8d1015cbfc255961e5195e9f15"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#a90447f8d1015cbfc255961e5195e9f15">mtx</a></td></tr>
 <tr class="memdesc:a90447f8d1015cbfc255961e5195e9f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">thread locker.  <br /></td></tr>
 <tr class="separator:a90447f8d1015cbfc255961e5195e9f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3442db61d834d1ea666175ddaec7af22" id="r_a3442db61d834d1ea666175ddaec7af22"><td class="memItemLeft" align="right" valign="top"><a id="a3442db61d834d1ea666175ddaec7af22" name="a3442db61d834d1ea666175ddaec7af22"></a>
-volatile bool&#160;</td><td class="memItemRight" valign="bottom"><b>pauseAppExecution</b></td></tr>
-<tr class="memdesc:a3442db61d834d1ea666175ddaec7af22"><td class="mdescLeft">&#160;</td><td class="mdescRight">this has the ability to pause app execution when changed to true and unpause when changed to false <br /></td></tr>
-<tr class="separator:a3442db61d834d1ea666175ddaec7af22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b74822397e2558f5e993891a587d370" id="r_a2b74822397e2558f5e993891a587d370"><td class="memItemLeft" align="right" valign="top"><a id="a2b74822397e2558f5e993891a587d370" name="a2b74822397e2558f5e993891a587d370"></a>
-volatile bool&#160;</td><td class="memItemRight" valign="bottom"><b>quitApp</b></td></tr>
-<tr class="memdesc:a2b74822397e2558f5e993891a587d370"><td class="mdescLeft">&#160;</td><td class="mdescRight">this has the the ability to quit the app when changed to true and does not quit the app as long as it is false <br /></td></tr>
-<tr class="separator:a2b74822397e2558f5e993891a587d370"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adea76e7571f0eec60696046cca1527cc" id="r_adea76e7571f0eec60696046cca1527cc"><td class="memItemLeft" align="right" valign="top"><a id="adea76e7571f0eec60696046cca1527cc" name="adea76e7571f0eec60696046cca1527cc"></a>
+volatile bool&#160;</td><td class="memItemRight" valign="bottom"><b>pause_app_execution</b></td></tr>
+<tr class="memdesc:adea76e7571f0eec60696046cca1527cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">this has the ability to pause app execution when changed to true and unpause when changed to false <br /></td></tr>
+<tr class="separator:adea76e7571f0eec60696046cca1527cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34a9b31585640ed1ab6aa8389d103d02" id="r_a34a9b31585640ed1ab6aa8389d103d02"><td class="memItemLeft" align="right" valign="top"><a id="a34a9b31585640ed1ab6aa8389d103d02" name="a34a9b31585640ed1ab6aa8389d103d02"></a>
+volatile bool&#160;</td><td class="memItemRight" valign="bottom"><b>quit_app</b></td></tr>
+<tr class="memdesc:a34a9b31585640ed1ab6aa8389d103d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">this has the the ability to quit the app when changed to true and does not quit the app as long as it is false <br /></td></tr>
+<tr class="separator:a34a9b31585640ed1ab6aa8389d103d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32a1087b87aa3612eb480470cbc496dd" id="r_a32a1087b87aa3612eb480470cbc496dd"><td class="memItemLeft" align="right" valign="top"><a id="a32a1087b87aa3612eb480470cbc496dd" name="a32a1087b87aa3612eb480470cbc496dd"></a>
+std::list&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>connected_customers</b></td></tr>
+<tr class="memdesc:a32a1087b87aa3612eb480470cbc496dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">this stores the uuid of connected customers <br /></td></tr>
+<tr class="separator:a32a1087b87aa3612eb480470cbc496dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1de673ece1c27c586c5f1a014066888" id="r_af1de673ece1c27c586c5f1a014066888"><td class="memItemLeft" align="right" valign="top"><a id="af1de673ece1c27c586c5f1a014066888" name="af1de673ece1c27c586c5f1a014066888"></a>
+std::list&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>connected_managers</b></td></tr>
+<tr class="memdesc:af1de673ece1c27c586c5f1a014066888"><td class="mdescLeft">&#160;</td><td class="mdescRight">this stores the uuid of connected managers <br /></td></tr>
+<tr class="separator:af1de673ece1c27c586c5f1a014066888"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classApplication.html" title="Application class that runs the main application.">Application</a> class that runs the main application. </p>
 <dl class="section author"><dt>Author</dt><dd>Michael </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a81c50e1f8d57175065d145b75c0b8937" name="a81c50e1f8d57175065d145b75c0b8937"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81c50e1f8d57175065d145b75c0b8937">&#9670;&#160;</a></span>doBackendTask()</h2>
+<a id="a643f03f347bc1ed0703a97ac589f8dec" name="a643f03f347bc1ed0703a97ac589f8dec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a643f03f347bc1ed0703a97ac589f8dec">&#9670;&#160;</a></span>existingToken()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,16 +185,16 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><b>quitApp</b><
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string Application::doBackendTask </td>
+          <td class="memname">bool Application::existingToken </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>command</em>, </td>
+          <td class="paramtype">std::list&lt; std::string &gt;&#160;</td>
+          <td class="paramname"><em>linked_list</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
+          <td class="paramname"><em>token</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -186,11 +209,45 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><b>quitApp</b><
 </table>
 </div><div class="memdoc">
 
-<p>does a backend task and returns updated data </p>
+<p>checks if the token exists in the passed in linked list. returns true on success and false on failure </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">command</td><td>command to execute on the backend </td></tr>
-    <tr><td class="paramname">value</td><td>value to update to on the backend </td></tr>
+    <tr><td class="paramname">linked_list</td><td>list to find token in </td></tr>
+    <tr><td class="paramname">token</td><td>token to find in list </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
+</div>
+</div>
+<a id="abf06e276300b149bea1ee9479a07eae3" name="abf06e276300b149bea1ee9479a07eae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf06e276300b149bea1ee9479a07eae3">&#9670;&#160;</a></span>generateUUID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Application::generateUUID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>generates unique uid </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
   </table>
   </dd>
 </dl>
@@ -221,6 +278,76 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><b>quitApp</b><
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a8e409c2b06e62bc3d9a7ae5a497ee0cb" name="a8e409c2b06e62bc3d9a7ae5a497ee0cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e409c2b06e62bc3d9a7ae5a497ee0cb">&#9670;&#160;</a></span>insertClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Application::insertClient </td>
+          <td>(</td>
+          <td class="paramtype">crow::websocket::connection *&#160;</td>
+          <td class="paramname"><em>client</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>inserts this client into the map of clients and returns the uuid of that client as a string </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client</td><td>the client connection to insert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
+
+</div>
+</div>
+<a id="a5f2248edbc4c3640b26aaaaba181abaa" name="a5f2248edbc4c3640b26aaaaba181abaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f2248edbc4c3640b26aaaaba181abaa">&#9670;&#160;</a></span>processCustomerRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Application::processCustomerRequest </td>
+          <td>(</td>
+          <td class="paramtype">json&#160;</td>
+          <td class="paramname"><em>req_obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>processes the incoming request from the frontend customer and sends back a response </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">req</td><td>incoming json request from the frontend </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
 
 </div>
 </div>
@@ -259,6 +386,41 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><b>quitApp</b><
 
 </div>
 </div>
+<a id="a59ee77fb50342b257b8f84ed6f8491c1" name="a59ee77fb50342b257b8f84ed6f8491c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59ee77fb50342b257b8f84ed6f8491c1">&#9670;&#160;</a></span>processManagerRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Application::processManagerRequest </td>
+          <td>(</td>
+          <td class="paramtype">json&#160;</td>
+          <td class="paramname"><em>req_obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>processes the incoming request from the frontend manager and sends back a response </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">req</td><td>incoming json request from the frontend </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
+
+</div>
+</div>
 <a id="a6771d0683b56010300d0e0f50f00ff5f" name="a6771d0683b56010300d0e0f50f00ff5f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6771d0683b56010300d0e0f50f00ff5f">&#9670;&#160;</a></span>progressForward()</h2>
 
@@ -282,6 +444,41 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><b>quitApp</b><
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="acc230d53aabcb67cdef956dcbb227040" name="acc230d53aabcb67cdef956dcbb227040"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc230d53aabcb67cdef956dcbb227040">&#9670;&#160;</a></span>removeClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Application::removeClient </td>
+          <td>(</td>
+          <td class="paramtype">crow::websocket::connection *&#160;</td>
+          <td class="paramname"><em>client</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>removes this client from the map of clients and returns true on success else false </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client</td><td>the client connection to remove </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>
@@ -312,8 +509,8 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><b>quitApp</b><
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aaf038d0a11411c06864a2967f5d0c850" name="aaf038d0a11411c06864a2967f5d0c850"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf038d0a11411c06864a2967f5d0c850">&#9670;&#160;</a></span>connected_clients</h2>
+<a id="a73f193fa1af6a32474c5043b6860f920" name="a73f193fa1af6a32474c5043b6860f920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73f193fa1af6a32474c5043b6860f920">&#9670;&#160;</a></span>connected_clients</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -322,7 +519,7 @@ volatile bool&#160;</td><td class="memItemRight" valign="bottom"><b>quitApp</b><
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_set&lt;crow::websocket::connection*&gt; Application::connected_clients</td>
+          <td class="memname">std::map&lt;std::string, crow::websocket::connection*&gt; Application::connected_clients</td>
         </tr>
       </table>
   </td>

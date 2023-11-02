@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['color_2ehpp_0',['color.hpp',['../color_8hpp.html',1,'']]],
-  ['colortest_2ecpp_1',['colorTest.cpp',['../colorTest_8cpp.html',1,'']]]
+  ['bill_2ehpp_0',['Bill.hpp',['../Bill_8hpp.html',1,'']]],
+  ['billiterator_2ehpp_1',['BillIterator.hpp',['../BillIterator_8hpp.html',1,'']]],
+  ['billtest_2ecpp_2',['billTest.cpp',['../billTest_8cpp.html',1,'']]]
 ];
