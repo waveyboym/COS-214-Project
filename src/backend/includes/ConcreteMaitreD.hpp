@@ -73,7 +73,7 @@ class ConcreteMaitreD : public MaitreD{
         *@param none
         *@return void
         */
-        void reserveTable();
+        bool reserveTable(std::shared_ptr<Table> T,std::string C_uid);
 };
 
 #endif
