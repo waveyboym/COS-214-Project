@@ -18,11 +18,10 @@ import {
   MdOutlinePerson,
   MdOutlineCardTravel,
   MdOutlineLightbulb,
-  MdOutlineSettings,
 } from "react-icons/md";
 
 export default function Banner(props) {
-  const { ...rest } = props;
+  const { changeComplexTable } = props;
 
   const textColor = useColorModeValue("secondaryGray.500", "white");
   const textHover = useColorModeValue(
@@ -95,7 +94,7 @@ export default function Banner(props) {
           <Flex align='center'>
             <Icon as={MdOutlinePerson} h='16px' w='16px' me='8px' />
             <Text fontSize='sm' fontWeight='400'>
-              Panel 1
+              Show waiters
             </Text>
           </Flex>
         </MenuItem>
@@ -115,7 +114,7 @@ export default function Banner(props) {
           <Flex align='center'>
             <Icon as={MdOutlineCardTravel} h='16px' w='16px' me='8px' />
             <Text fontSize='sm' fontWeight='400'>
-              Panel 2
+              Show customers
             </Text>
           </Flex>
         </MenuItem>
@@ -135,26 +134,7 @@ export default function Banner(props) {
           <Flex align='center'>
             <Icon as={MdOutlineLightbulb} h='16px' w='16px' me='8px' />
             <Text fontSize='sm' fontWeight='400'>
-              Panel 3
-            </Text>
-          </Flex>
-        </MenuItem>
-        <MenuItem
-          transition='0.2s linear'
-          color={textColor}
-          _hover={textHover}
-          p='0px'
-          borderRadius='8px'
-          _active={{
-            bg: "transparent",
-          }}
-          _focus={{
-            bg: "transparent",
-          }}>
-          <Flex align='center'>
-            <Icon as={MdOutlineSettings} h='16px' w='16px' me='8px' />
-            <Text fontSize='sm' fontWeight='400'>
-              Panel 4
+              Show tables
             </Text>
           </Flex>
         </MenuItem>

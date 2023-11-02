@@ -22,38 +22,68 @@
 
 // Chakra imports
 import {
-    Avatar,
     Box,
-    Flex,
-    FormLabel,
     Icon,
-    Select,
     SimpleGrid,
     useColorModeValue,
   } from "@chakra-ui/react";
-  // Assets
-  // Custom components
-  import MiniCalendar from "../components/calendar/MiniCalendar";
   import MiniStatistics from "../components/card/MiniStatistics";
   import IconBox from "../components/icons/IconBox";
   import React from "react";
   import {
-    MdAddTask,
-    MdAttachMoney,
-    MdBarChart,
-    MdFileCopy,
+    MdOutlineVerified,
+    MdAssignmentInd,
+    MdDiversity3
   } from "react-icons/md";
   import ComplexTable from "../views/admin/default/components/ComplexTable";
-  import Tasks from "../views/admin/default/components/Tasks";
   import {
     columnsDataComplex,
   } from "../views/admin/default/variables/columnsData";
-  import tableDataComplex from "../views/admin/default/variables/tableDataComplex.json";
+  import { useSocket } from '../contexts';
+  import { useApiKeyStore, } from '../stateStore';
+  import { useEffect } from "react";
   
   export default function DashBoardUI() {
     // Chakra Color Mode
     const brandColor = useColorModeValue("brand.500", "white");
     const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
+    const socket = useSocket();
+    const { apikey } = useApiKeyStore((state) => { return { apikey: state.apikey }; });
+    const [allData, setAllData] = useState({});
+    const [tableData, setTableData] = useState({});
+
+    socket.onmessage = function(event){
+      //the backend responds with the needed data
+      const json = JSON.parse(event.data);
+      
+      //navigate to the tracking - page here
+      if(json.status === "success" && json.player === "manager" && json.command === "get_all"){
+        setAllData(json.message);
+        setTableData(json.table_data);
+      }
+      else if(json.status === "success" && json.player === "manager" && json.command === "update_table"){
+        setTableData(json.table_data);
+      }
+      else{
+        console.log(json);
+      }
+    }
+
+    const changeComplexTable = function(setTo){
+      const json = { token: apikey, player: "manager", command: "update_table", message: setTo};
+      socket.send(JSON.stringify(json));
+    }
+
+    useEffect(() => {
+      const loadData = function(){
+        const json = { token: apikey, player: "manager", command: "get_all"};
+        socket.send(JSON.stringify(json));
+      }
+    
+      loadData();
+    }, [])
+    
+
     return (
       <Box pt={{ base: "130px" }}>
         <SimpleGrid
@@ -67,48 +97,12 @@ import {
                 h='56px'
                 bg={boxBg}
                 icon={
-                  <Icon w='32px' h='32px' as={MdBarChart} color={brandColor} />
+                  <Icon w='32px' h='32px' as={MdDiversity3} color={brandColor} />
                 }
               />
             }
-            name='Earnings'
-            value='$350.4'
-          />
-          <MiniStatistics
-            startContent={
-              <IconBox
-                w='56px'
-                h='56px'
-                bg={boxBg}
-                icon={
-                  <Icon w='32px' h='32px' as={MdAttachMoney} color={brandColor} />
-                }
-              />
-            }
-            name='Spend this month'
-            value='$642.39'
-          />
-          <MiniStatistics growth='+23%' name='Sales' value='$574.34' />
-          <MiniStatistics
-            endContent={
-              <Flex me='-16px' mt='10px'>
-                <FormLabel htmlFor='balance'>
-                  <Avatar src={""} />
-                </FormLabel>
-                <Select
-                  id='balance'
-                  variant='mini'
-                  mt='5px'
-                  me='0px'
-                  defaultValue='usd'>
-                  <option value='usd'>USD</option>
-                  <option value='eur'>EUR</option>
-                  <option value='gba'>GBA</option>
-                </Select>
-              </Flex>
-            }
-            name='Your balance'
-            value='$1,000'
+            name='Customers in restaurant'
+            value={allData.customer_count}
           />
           <MiniStatistics
             startContent={
@@ -116,11 +110,11 @@ import {
                 w='56px'
                 h='56px'
                 bg='linear-gradient(90deg, #4481EB 0%, #04BEFE 100%)'
-                icon={<Icon w='28px' h='28px' as={MdAddTask} color='white' />}
+                icon={<Icon w='28px' h='28px' as={MdAssignmentInd} color='white' />}
               />
             }
-            name='New Tasks'
-            value='154'
+            name='Waiters in restaurant'
+            value={allData.waiter_count}
           />
           <MiniStatistics
             startContent={
@@ -129,23 +123,20 @@ import {
                 h='56px'
                 bg={boxBg}
                 icon={
-                  <Icon w='32px' h='32px' as={MdFileCopy} color={brandColor} />
+                  <Icon w='32px' h='32px' as={MdOutlineVerified} color={brandColor} />
                 }
               />
             }
-            name='Total Projects'
-            value='2935'
+            name='Restaurant rating'
+            value={allData.rating}
           />
         </SimpleGrid>
-        <SimpleGrid columns={{ base: 1, md: 1, xl: 2 }} gap='20px' mb='20px'>
+        <SimpleGrid  mb='20px'>
           <ComplexTable
             columnsData={columnsDataComplex}
-            tableData={tableDataComplex}
+            tableData={tableData}
+            changeComplexTable={changeComplexTable}
           />
-          <SimpleGrid columns={{ base: 1, md: 2, xl: 2 }} gap='20px'>
-            <Tasks />
-            <MiniCalendar h='100%' minW='100%' selectRange={false} />
-          </SimpleGrid>
         </SimpleGrid>
       </Box>
     );

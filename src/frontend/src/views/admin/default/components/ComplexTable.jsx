@@ -26,7 +26,7 @@ import Menu from "../../../../components/menu/MainMenu";
 // Assets
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
 export default function ColumnsTable(props) {
-  const { columnsData, tableData } = props;
+  const { columnsData, tableData, changeComplexTable } = props;
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
@@ -67,7 +67,7 @@ export default function ColumnsTable(props) {
           lineHeight='100%'>
           Complex Table
         </Text>
-        <Menu />
+        <Menu changeComplexTable={changeComplexTable}/>
       </Flex>
       <Table {...getTableProps()} variant='simple' color='gray.500' mb='24px'>
         <Thead>
