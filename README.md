@@ -38,7 +38,7 @@ npm install
 ```
 6. Run
 ```
-npm run dev
+npm start
 ```
 
 ### Building from the command line with a Linux based OS(Debian, Ubuntu and Fedora) manually
@@ -94,48 +94,74 @@ npm run dev
 16.  For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
 ### Building from the command line with windows OS
-1. Download and install <a href="https://cmake.org/download/#latest">cmake</a>
-2. Follow <a href="https://www.geeksforgeeks.org/how-to-install-c-boost-libraries-on-windows/">this guide</a> to download and install boost
-3. Clone this repo
-4. Open a new terminal where you cloned this repo to and run 
+1. Before we start, make sure you have a c++ compiler installed on your system. If not download and install one.
+2. Download and install <a href="https://cmake.org/download/#latest">cmake</a>
+3. Download <a href="https://www.boost.org/users/download/">boost for windows</a> zip file.
+4. Unzip the zip file
+5. Create a folder named ```Boost``` under ```C:\Program Files```
+6. In that folder, paste the contents from the unzipped file
+7. Navigate to ```boost_<version number>\boost_<version number>\tools\build``` and open a terminal there
+8. run 
+```
+.\bootstrap.bat gcc
+```
+9. run the command below or the command boost tells you to run
+```
+.\b2.exe install
+```
+10. run 
+```
+cd ../../
+```
+11. run 
+```
+.\bootstrap.bat gcc
+```
+12. run 
+```
+b2 --build-dir="C:\Program Files\Boost\boost_<version number>\boost_<version number>\build" --build-type=complete --prefix="C:\<location to where you want boost to be goes here>\boost" toolset=gcc install
+```
+13.  In your systems path variables, add ```C:\<location where you placed boost goes here>\boost\include\boost-1_80``` and ```C:\<location where you placed boost goes here>\boost\lib```
+14.  Clone this repo
+15.  Open a new terminal where you cloned this repo to and run 
 ```
 cd COS-214-PROJECT/src
 ```
-5. For Release(no unit tests, with gui), run
+16.  For Release(no unit tests, with gui), run
 ```
 cmake -DCMAKE_BUILD_TYPE=Release -S . -B build
 ```
-6. For Debug(google unit tests, with no gui), run
+17.  For Debug(google unit tests, with no gui), run
 ```
 cmake -DCMAKE_BUILD_TYPE=Debug -S . -B build
 ```
-7. Run 
+18.  Run 
 ```
 cmake --build build
 ```
-8. For Release(no unit tests, with gui), run
+19.  For Release(no unit tests, with gui), run
 ```
 cd build && ./main
 ```
-9. For Debug(google unit tests, with no gui), run
+21.  For Debug(google unit tests, with no gui), run
 ```
 cd build && ctest
 ```
-10. If you are in debug, skip steps 11 to 13
-11. Then open another terminal and from the root of this project run
+22.   If you are in debug, skip steps 11 to 13
+23.   Then open another terminal and from the root of this project run
 ```
 cd COS-214-PROJECT/src/frontend
 ```
-12.  Run
+24.    Run
 ```
 npm install
 ```
-13.  Run
+25.    Run
 ```
 npm run dev
 ```
-14. If any build files are generated on your local machine, please do not commit them. Rather create a ```.gitignore``` file in the build directory and add an asterik(*) to it.
-15. For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
+26.   If any build files are generated on your local machine, please do not commit them. Rather create a ```.gitignore``` file in the build directory and add an asterik(*) to it.
+27.   For a more detailed tutorial on cmake, follow this <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">link</a>
 
 ### Building with visual studio code
 1. Download and install C++ build tools by following this <a href="https://github.com/bycloudai/InstallVSBuildToolsWindows">tutorial</a>

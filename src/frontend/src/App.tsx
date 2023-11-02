@@ -1,25 +1,30 @@
 /**
 *@file main.js
 *@class main
-*@author Michael
+*@author Michael, Carey
 *@brief presents the frontend gui and communicates with the backend
 */
 
-import { useState } from 'react';
-import viteLogo from '/vite.svg';
-import './App.css';
 import { useSocket } from './contexts';
-import { reactsvg } from './assets';
-import { Button } from './components';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-function App() {
-    const [message, setMessage] = useState<string>("no message has been received yet");
+// Import your components
+import { Home, SplashPage } from './pages';
+import { Menu } from './pages';
+import CartSummary from './pages/CartSummary';
+import TrackingPage from './pages/TrackingPage';
+import './fonts/fontawesome-webfont.ttf';
+import './fonts/fontawesome-webfont.woff';
+import './fonts/fontawesome-webfont.woff2';
+
+const App: React.FC = () => {
     const socket: WebSocket | null = useSocket();
 
     socket!.onmessage = function(event){
         //this is a template for processing messages sent to the frontend from the backend
         const json : {message: string} = JSON.parse(event.data);
-        setMessage(json.message);
+        //setMessage(json.message);
     }
 
     const sendMessage = function() {
@@ -30,27 +35,16 @@ function App() {
     }
 
     return (
-        <div>
-            <div>
-                <a href="https://vitejs.dev" target="_blank">
-                <img src={viteLogo} className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://react.dev" target="_blank">
-                <img src={reactsvg} className="logo react" alt="React logo" />
-                </a>
-            </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <Button text={message}/>
-                <p>
-                Edit <code>src/App.tsx</code> and save to test HMR or click on the button above to send and receive a message from the backend
-                </p>
-            </div>
-            <p className="read-the-docs">
-                Click on the Vite and React logos to learn more
-            </p>
-        </div>
-    )
-}
-
-export default App
+        <Router>
+          <Routes>
+            <Route path="/" element={<SplashPage />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/cart-summary" element={<CartSummary/>} />
+            <Route path="/tracking" element={<TrackingPage orderStatus={""} />} />
+          </Routes>
+        </Router>
+      );
+    };
+    
+    export default App;
