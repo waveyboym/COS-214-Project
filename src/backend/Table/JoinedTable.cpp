@@ -10,8 +10,9 @@ JoinedTable::JoinedTable(int tableid){
 }
 
 void JoinedTable::seatCustomer(std::shared_ptr<Customer> customer){
-    if(customer_list.size() < seatLimit)
+    if(customer_list.size() < seatLimit){
         this->customer_list.push_back(customer);
+    }
 }
 
 void JoinedTable::unseatCustomer(std::shared_ptr<Customer> customer){
