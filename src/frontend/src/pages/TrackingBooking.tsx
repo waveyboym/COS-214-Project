@@ -1,7 +1,16 @@
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from 'react';
-import "../css/tracker.css";
+import {
+    Box,
+    Button,
+    Center,
+    Heading,
+    HStack,
+    Image,
+    Text,
+    VStack,
+} from '@chakra-ui/react';
 
 type TrackingComponentProps = {
     orderStatus: string;
@@ -10,7 +19,7 @@ type TrackingComponentProps = {
     cartName: string;
     cartImage: string;
     waiterName: string;
-}
+};
 
 const TrackingBooking = (props: TrackingComponentProps) => {
     const [animationClass, setAnimationClass] = useState<string>("pulse");
@@ -25,88 +34,133 @@ const TrackingBooking = (props: TrackingComponentProps) => {
     }, [props.emotionalState]);
 
     const toggleModal = () => {
-        console.log("Toggling modal"); // Add this for debugging
         setIsModalOpen(!isModalOpen);
     };
-    
+
+    function formatDate(inputDate: string) {
+        const dateParts = inputDate.split("-");
+        const year = dateParts[0];
+        const month = dateParts[1];
+        const day = dateParts[2];
+
+        const months = [
+            "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        ];
+
+        const formattedDate = `${day} ${months[Number(month) - 1]} ${year}`;
+        return formattedDate;
+    }
+
+
 
     return (
-        <section className='mt-4 mb-4'>
-            <div className="container h-100">
-                <div className="row d-flex justify-content-center align-items-center h-100">
-                    <div className="col">
-                        <div className="card card-stepper" style={{ borderRadius: "20px" }}>
-                            <div className="card-body p-4">
-                                <div className="d-flex justify-content-between align-items-center">
-                                    <div className="d-flex flex-column">
-                                        <span className="lead fw-normal">{props.orderStatus}</span>
-                                        <span className="text-muted small">by Everest on {props.date}</span>
-                                    </div>
-                                    <div>
-                                        <button className="btn btn-outline-primary" type="button" onClick={toggleModal}>
-                                            Track order details
-                                        </button>
-                                    </div>
-                                </div>
-                                <hr className="my-4" />
+        <Center>
+            <Box
+                borderRadius="20px"
+                boxShadow="lg"
+                p="4"
+                bgGradient="linear(to-b, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('https://static.vecteezy.com/system/resources/previews/003/025/533/original/fast-food-delivery-cartoon-character-design-vector.jpg')"
+                backgroundSize="cover"
+                backgroundRepeat="no-repeat"
+            >
+                <VStack spacing="4" align="stretch">
+                    <Heading as="h2" size="md">
+                       <Center><u> {props.orderStatus}</u></Center>
+                    </Heading>
+                    <Text fontSize="sm" color="gray.500">
+                        by Everest on <Text as="u" display="inline" fontSize="sm">{props.date}</Text>
+                    </Text>
+                    <HStack spacing="4" justifyContent="flex-end">
+                        <Button colorScheme="orange" onClick={toggleModal}>
+                            Track order details
+                        </Button>
+                    </HStack>
 
-                                <div className="d-flex flex-row justify-content-between align-items-center align-content-center">
-                                    <span className="dot"></span>
-                                    <hr className="flex-fill track-line" /><span className="dot"></span>
-                                    <hr className="flex-fill track-line" /><span className="dot"></span>
-                                    <hr className="flex-fill track-line" /><span className="dot"></span>
-                                    <hr className="flex-fill track-line" /><span
-                                        className={`d-flex justify-content-center align-items-center big-dot dot ${animationClass}`}
-                                    >
-                                        <FontAwesomeIcon icon={faCheck} />
-                                    </span>
-                                </div>
+                    <HStack spacing="4" alignItems="center">
+                        <Box w="10px" h="10px" borderRadius="50%" bg="orange.400" />
+                        <Box w="2px" h="2px" bg="yellow.400" flex="1" />
+                        <Box w="10px" h="10px" borderRadius="50%" bg="orange.400" />
+                        <Box w="2px" h="2px" bg="yellow.400" flex="1" />
+                        <Box w="10px" h="10px" borderRadius="50%" bg="orange.400" />
+                        <Box w="2px" h="2px" bg="yellow.400" flex="1" />
+                        <Box
+                            w="25px"
+                            h="25px"
+                            borderRadius="50%"
+                            bg="yellow.400"
+                            display="flex"
+                            alignItems="center"
+                            justifyContent="center"
+                        >
+                            <FontAwesomeIcon icon={faCheck} />
+                        </Box>
+                    </HStack>
+                    <HStack spacing="4">
+                        <VStack alignItems="start">
+                            <Text>{formatDate(props.date)}</Text>
+                            <Text><b><i>Order placed</i></b></Text>
+                        </VStack>
+                        <VStack>
+                            <Text>{formatDate(props.date)}</Text>
+                            <Text><b><i>Order in Kitchen</i></b></Text>
+                        </VStack>
+                        <VStack alignItems="center">
+                            <Text>{formatDate(props.date)}</Text>
+                            <Text><b><i>Order Dispatched</i></b></Text>
+                        </VStack>
+                        <VStack alignItems="center">
+                            <Text>{formatDate(props.date)}</Text>
+                            <Text><b><i>Out for delivery</i></b></Text>
+                        </VStack>
+                        <VStack alignItems="end">
+                            <Text>{formatDate(props.date)}</Text>
+                            <Text><b><i>Delivered</i></b></Text>
+                        </VStack>
+                    </HStack>
+                    <Center>
+                        <Text><b><i>Your emotional state: {props.emotionalState}</i></b></Text>
+                    </Center>
+                </VStack>
+            </Box>
 
-                                <div className="d-flex flex-row justify-content-between align-items-center">
-                                    <div className="d-flex flex-column align-items-start">
-                                        <span>15 Mar</span>
-                                        <span>Order placed</span>
-                                    </div>
-                                    <div className="d-flex flex-column justify-content-center">
-                                        <span>15 Mar</span>
-                                        <span>Order placed</span>
-                                    </div>
-                                    <div className="d-flex flex-column justify-content-center align-items-center">
-                                        <span>15 Mar</span>
-                                        <span>Order Dispatched</span>
-                                    </div>
-                                    <div className="d-flex flex-column align-items-center">
-                                        <span>15 Mar</span>
-                                        <span>Out for delivery</span>
-                                    </div>
-                                    <div className="d-flex flex-column align-items-end">
-                                        <span>15 Mar</span>
-                                        <span>Delivered</span>
-                                    </div>
-                                </div>
 
-                                <div className="emotional-state">
-                                    <p>Your emotional state: {props.emotionalState}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             {isModalOpen && (
-                
-                <div className="modal">
-                    <div className="modal-content">
-                        <h2>Order Details</h2>
-                        <p>Cart Name: {props.cartName}</p>
-                        <img src={props.cartImage} alt="Cart Image" />
-                        <p>Waiter Name: {props.waiterName}</p>
-                        <button onClick={toggleModal}>Close</button>
-                    </div>
-                </div>
+                <Box
+                    position="fixed"
+                    top="0"
+                    left="0"
+                    w="100%"
+                    h="100%"
+                    bg={`rgba(0, 0, 0, 0.5)`}
+                    zIndex="1"
+                    overflow="hidden"
+                >
+                    <Box
+                        bg="white"
+                        maxW="400px"
+                        m="10% auto"
+                        p="4"
+                        borderRadius="10px"
+                        position="relative"
+                    >
+                        <Heading as="h2" size="md">
+                            <Center>
+                                Order Details
+                            </Center>
+                        </Heading>
+                        <Text>Cart Name: {props.cartName}</Text>
+                        <Center>
+                            <img src={props.cartImage} alt="Cart Image" />
+                        </Center>
+                        <Text>Waiter Name:<i><b>{props.waiterName}</b></i> </Text>
+                        <Button onClick={toggleModal}>Close</Button>
+                    </Box>
+                </Box>
             )}
-        </section>
+
+        </Center>
     );
-}
+};
 
 export default TrackingBooking;
