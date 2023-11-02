@@ -252,10 +252,14 @@ std::string Application::processManagerRequest(json req_obj)
     
     if(req_obj["command"] == "get_all"){
         std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"success\",\"player\":\"manager\",\"message\":\"successfully got all\"}";
+        return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":23,\"waiter_count\":25,\"rating\":5},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Approved\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Disable\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Approved\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}";
+    }
+    else if(req_obj["command"] == "update_table"){
+        std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"update_table\",\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Disable\",\"date\":\"18 Apr 2023\",\"progress\":10},{\"name\":\"Horizon UI Free\",\"status\":\"Disable\",\"date\":\"18 Apr 2023\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Approved\",\"date\":\"20 May 2022\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Approved\",\"date\":\"12 Jul 2022\",\"progress\":50.5}]}";
     }
     else{
         std::cout << color::format_colour::make_colour(color::RED) << req_obj["player"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"error\",\"player\":\"manager\",\"message\":\"invalid command found\"}";
+        return "{\"status\":\"error\", \"message\":\"invalid command found\"}";
     }
 }
