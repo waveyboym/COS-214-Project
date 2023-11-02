@@ -27,6 +27,36 @@ std::string Application::generateUUID(){
     return id;
 }
 
+std::string Application::insertClient(crow::websocket::connection* client){
+    std::string id = "";
+    
+    while(true){
+        id = this->generateUUID();
+        if(!this->connected_clients.contains(id)){
+            this->connected_clients[id] = client;
+            break;
+        }
+    }
+
+    return id;
+}
+
+bool Application::removeClient(crow::websocket::connection* client){
+    std::map<std::string, crow::websocket::connection*>::iterator it = this->connected_clients.begin(); 
+
+    while (it != this->connected_clients.end() && it->second != client) { 
+        it++; 
+    } 
+
+    if(it != this->connected_clients.end()){
+        this->connected_clients.erase(it);
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 void Application::initApp()
 {
     //init important data here
@@ -214,40 +244,12 @@ std::string Application::processManagerRequest(json req_obj)
     
     if(req_obj["command"] == "get_all"){
         std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"success\", \"message\":\"successfully got all\"}";
+        return "{"
+                "\"status\":\"success\","
+                "}";
     }
     else{
         std::cout << color::format_colour::make_colour(color::RED) << req_obj["player"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\", \"message\":\"invalid command found\"}";
-    }
-}
-
-std::string Application::insertClient(crow::websocket::connection* client){
-    std::string id = "";
-    
-    while(true){
-        id = this->generateUUID();
-        if(!this->connected_clients.contains(id)){
-            this->connected_clients[id] = client;
-            break;
-        }
-    }
-
-    return id;
-}
-
-bool Application::removeClient(crow::websocket::connection* client){
-    std::map<std::string, crow::websocket::connection*>::iterator it = this->connected_clients.begin(); 
-
-    while (it != this->connected_clients.end() && it->second != client) { 
-        it++; 
-    } 
-
-    if(it != this->connected_clients.end()){
-        this->connected_clients.erase(it);
-        return true;
-    }
-    else{
-        return false;
     }
 }
