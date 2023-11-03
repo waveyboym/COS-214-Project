@@ -103,11 +103,11 @@ public:
 
     /**
      *@brief reserves the a table for a customer
-     *@param T Table to be reserved
-     *@param C_uid uid of customer reserving the table
+     *@param t Table to be reserved
+     *@param c_uid uid of customer reserving the table
      *@return bool
      */
-    bool reserveTable(std::shared_ptr<Table> T, std::string C_uid);
+    bool reserveTable(std::shared_ptr<Table> t, std::string c_uid);
 };
 
 #endif
