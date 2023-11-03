@@ -50,6 +50,9 @@ const CartSummary = () => {
 
   const handleCheckout = async () => {
     sendMessage();
+    // delete all items from cart
+    cartItems.forEach((item) => deleteFromCart(item.id));
+    navigate("/");
   };
 
   const sendMessage = function() {
@@ -114,27 +117,6 @@ const CartSummary = () => {
             <button className="btn my-2 my-sm-0 btn-warning" onClick={handleCheckout}>Yes, Checkout</button>
             <button className="btn my-2 my-sm-0 btn-secondary" onClick={closeModal}>Cancel</button>
           </Modal>
-
-          {/* Tracking info NOT WORKING WELL -- NEED TO FIX
-          maybe its waiting for backend idk :)
-
-
-          {foodProcessingTime > 0 && waiterName && (
-            <div className="tracking-info">
-              <h3>Food Processing Time: {foodProcessingTime} seconds</h3>
-              <h3>Assigned Waiter: {waiterName}</h3>
-              <p>Rate your experience (1 - 5):</p>
-              <input
-                type="number"
-                min="1"
-                max="5"
-                value={rating}
-                onChange={(e) => setRating(Number(e.target.value))}
-              />
-            </div>
-          )}
-          
-          */}
           
         </div>
       </section>
