@@ -125,9 +125,9 @@ bool ConcreteMaitreD::assignWaiterToTable(std::list<std::shared_ptr<SingleTable>
     return false;
 }
 
-bool ConcreteMaitreD::reserveTable(std::shared_ptr<Table> t,std::string c_uid){
-    if(t->getReserverUUID() == ""){
-        t->setReserverUUID(c_uid);
+bool ConcreteMaitreD::reserveTable(std::shared_ptr<Table> T,std::string C_uid){
+    if(T->getReserverUUID() ==""){
+        T->setReserverUUID(C_uid);
         return true;
     }
     else {
