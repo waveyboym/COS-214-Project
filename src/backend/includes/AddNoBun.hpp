@@ -1,20 +1,20 @@
 /**
- * @file AddFries.hpp
+ * @file AddNoBun.hpp
  * @author Lunga
- * @brief AddFries, a ConcreteCommand of the Command(Order Class)
+ * @brief AddNoBun, a ConcreteCommand of the Command(Order Class)
  * @version 0.1
  * @date 2023-11-03
  * 
  * @copyright Copyright (c) 2023
  * 
  */
-#ifndef ADDFRIES_HPP
-#define ADDFRIES_HPP
+#ifndef ADDNOBUN_HPP
+#define ADDNOBUN_HPP
 
 #include "Order.hpp"
 
-class AddFries : public Order {
-public:
+class AddNoBun: public Order{
+    public:
     std::shared_ptr<Meal> executeOrder(std::shared_ptr<Meal> m);
 };
 

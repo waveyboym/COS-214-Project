@@ -45,6 +45,8 @@
 #include "tests/billTest.cpp"
 #include "tests/maitreDTest.cpp"
 
+#include "tests/ordersTest.cpp"
+
 int main(int argc, char* argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);
