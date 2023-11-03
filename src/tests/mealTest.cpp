@@ -165,4 +165,51 @@ namespace mealTest{
         EXPECT_EQ(PB->getTotalCost(), 10);
         EXPECT_EQ(WB->getTotalCost(), 15.13);
     }
+
+    TEST(Meal_test, GET_TOTAL_COST_WITH_INGREDIENTS){
+        std::shared_ptr<Meal> PB = std::make_shared<PlainBun>();
+        PB = std::make_shared<BeefPatty>(PB);
+        PB = std::make_shared<Fries>(PB);
+        PB = std::make_shared<Tomato>(PB);
+        
+
+        ASSERT_NE(PB, nullptr);
+        EXPECT_EQ(PB->getTotalCost(), 32.82);
+    }
+
+    TEST(Meal_test, SET_TOTAL_COST_JUST_BUN){
+        std::shared_ptr<Meal> PB = std::make_shared<PlainBun>();
+        ASSERT_NE(PB, nullptr);
+
+        PB->setTotalCost(12);
+
+        EXPECT_EQ(PB->getTotalCost(), 22);
+    }
+
+    TEST(Meal_test, SET_TOTAL_COST_WITH_INGREDIENTS){
+        std::shared_ptr<Meal> PB = std::make_shared<PlainBun>();
+        PB = std::make_shared<BeefPatty>(PB);
+        PB = std::make_shared<Fries>(PB);
+        PB = std::make_shared<Tomato>(PB);
+        ASSERT_NE(PB, nullptr);
+
+        PB->setTotalCost(12);
+
+        EXPECT_EQ(PB->getTotalCost(), 44.82);
+    }
+
+    TEST(Meal_test, GET_ITEMISED_LIST_JUST_BUN){
+        std::shared_ptr<Meal> PB = std::make_shared<PlainBun>();
+        ASSERT_NE(PB, nullptr);
+        EXPECT_EQ(PB->getItemizedList(), "Plain bun  R10.00\n\nTotal: R10.00");
+    }
+
+    TEST(Meal_test, GET_ITEMISED_LIST_WITH_INGREDIENTS){
+        std::shared_ptr<Meal> PB = std::make_shared<PlainBun>();
+        PB = std::make_shared<BeefPatty>(PB);
+        PB = std::make_shared<Fries>(PB);
+        PB = std::make_shared<Tomato>(PB);
+        ASSERT_NE(PB, nullptr);
+        EXPECT_EQ(PB->getItemizedList(), "Plain bun  R10.00\nBeef Patty  R10.00nFries  R10.25\nTomato  R2.57\n\nTotal: R32.82");
+    }
 }
