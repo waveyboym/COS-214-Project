@@ -1,27 +1,27 @@
 /**
-*@file JoinedTable.hpp JoinedTable.cpp
-*@class JoinedTable
-*@author Michael
-*@implements Table
-*@brief a JoinedTable class which is a composite class of Table
-*/
+ *@file JoinedTable.hpp JoinedTable.cpp
+ *@class JoinedTable
+ *@author Michael
+ *@implements Table
+ *@brief a JoinedTable class which is a composite class of Table
+ */
 #ifndef JOINED_TABLE_HPP
 #define JOINED_TABLE_HPP
 #include "Table.hpp"
 
-/** 
-*@brief an JoinedTable class which is a composite class of Table
-*/ 
-class JoinedTable : public Table{
-    private:
-        /** 
-        *@brief a list of tables that are joined together to this joined table
-        */ 
-        std::list<std::shared_ptr<Table>> table_list;
-        /** 
-        *@brief a list containing all customers seated at this joined table
-        */ 
-        std::list<std::shared_ptr<Customer>> customer_list;
+/**
+ *@brief an JoinedTable class which is a composite class of Table
+ */
+class JoinedTable : public Table {
+private:
+    /**
+     *@brief a list of tables that are joined together to this joined table
+     */
+    std::list<std::shared_ptr<Table>> table_list;
+    /**
+     *@brief a list containing all customers seated at this joined table
+     */
+    std::list<std::shared_ptr<Customer>> customer_list;
 
     public:
         /** 

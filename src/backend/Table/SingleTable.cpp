@@ -47,3 +47,4 @@ bool SingleTable::isTableAvailable(){
         return false;
     }
 }
+
