@@ -14,6 +14,8 @@ const TrackingPage = () => {
 
   const { seated, setSeated } = useSeatedStore((state) => { return { seated: state.seated, setSeated: state.setSeated }; });
   const { apikey } = useApiKeyStore((state) => { return { apikey: state.apikey }; });
+  
+  const [emotionalState, setEmotionalState] = useState('neutral'); // Define and set emotionalState
   const socket: WebSocket | null = useSocket();
 
   useEffect(() => {
@@ -67,8 +69,9 @@ const TrackingPage = () => {
           <Navbar route={"Tracking"} is_seated={seated} setIsSeated={requestSeat}/>
         </div>
         <h1 style={{textAlign: "center"}}>Order Tracking</h1>
-        
-        <TrackingComponent orderStatus={"Your order has been delivered"} date={new Date().toString()} />
+          <TrackingComponent orderStatus={"Your order has been delivered"} date={new Date().toString()} />
+        <div style={{height: "20px"}}/>
+          <EmotionalStateTab setEmotionalState={setEmotionalState} />
 
       <div className="col-sm-6 col-lg-4 all fries">
         {foodProcessingTime > 0 ? (

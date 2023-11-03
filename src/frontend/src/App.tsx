@@ -12,14 +12,10 @@ import BookingMenu from './pages/BookingMenu';
 import './fonts/fontawesome-webfont.ttf';
 import './fonts/fontawesome-webfont.woff';
 import './fonts/fontawesome-webfont.woff2';
-import { ChakraProvider } from '@chakra-ui/react';
-// import theme from 'theme/theme';
-import { ThemeEditorProvider } from '@hypertheme-editor/chakra-ui';
+
 
 const App: React.FC = () => {
   return (
-    <ChakraProvider>
-      <ThemeEditorProvider>
         <Router>
           <Routes>
             <Route path="/" element={<SplashPage />} />
@@ -31,14 +27,10 @@ const App: React.FC = () => {
             <Route path="/bookingmenu" element={<BookingMenu />} />
             <Route path="/trackingbooking" element={<TrackingBooking orderStatus={''} date={''} emotionalState={''}/>} />
 
-
             {/* Add the admin route here */}
             <Route path="/admin" element={<DashboardContainer />} />
           </Routes>
         </Router>
-      </ThemeEditorProvider>
-
-    </ChakraProvider>
 
   );
 };

@@ -57,12 +57,9 @@ const SplashPage = () => {
                                     Run your own restaurant or play as a customer.
                                   </h1>
                                   <div className="row">
-                                    <button className="btn-box col-lg-6" onClick={() => sendMessage("customer")}>
-                                      <a >Play as Customer</a>
-                                    </button>
-                                    <button className="btn-box col-lg-6" onClick={() => sendMessage("manager")}>
-                                      <a >Play as Manager</a>
-                                    </button>
+                                      <a className="btn-box col-lg-5 mr-4" onClick={() => sendMessage("customer")}>Play as Customer</a>
+                                      <div className="col-lg-1"/>
+                                      <a className="btn-box col-lg-5" onClick={() => sendMessage("manager")}>Play as Manager</a>
                                   </div>
                                 </div>
                               </div>

@@ -65,7 +65,7 @@ export default function Banner(props) {
         lineHeight='100%'
         onClick={onOpen1}
         borderRadius='10px'
-        {...rest}>
+        >
         <Icon as={MdOutlineMoreHoriz} color={iconColor} w='24px' h='24px' />
       </MenuButton>
       <MenuList

@@ -41,7 +41,10 @@ import {
   } from "../views/admin/default/variables/columnsData";
   import { useSocket } from '../contexts';
   import { useApiKeyStore, } from '../stateStore';
-  import { useEffect } from "react";
+  import { useEffect, useState } from "react";
+
+  //only for debug
+  const expectedRes = JSON.parse("{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":23,\"waiter_count\":35,\"rating\":5},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Approved\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Disable\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Approved\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}");
   
   export default function DashBoardUI() {
     // Chakra Color Mode
@@ -49,8 +52,8 @@ import {
     const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
     const socket = useSocket();
     const { apikey } = useApiKeyStore((state) => { return { apikey: state.apikey }; });
-    const [allData, setAllData] = useState({});
-    const [tableData, setTableData] = useState({});
+    const [allData, setAllData] = useState(expectedRes.message);
+    const [tableData, setTableData] = useState(expectedRes.table_data);
 
     socket.onmessage = function(event){
       //the backend responds with the needed data
@@ -109,7 +112,7 @@ import {
               <IconBox
                 w='56px'
                 h='56px'
-                bg='linear-gradient(90deg, #4481EB 0%, #04BEFE 100%)'
+                bg={boxBg}
                 icon={<Icon w='28px' h='28px' as={MdAssignmentInd} color='white' />}
               />
             }
@@ -121,7 +124,7 @@ import {
               <IconBox
                 w='56px'
                 h='56px'
-                bg={boxBg}
+                bg='linear-gradient(90deg, #4481EB 0%, #04BEFE 100%)'
                 icon={
                   <Icon w='32px' h='32px' as={MdOutlineVerified} color={brandColor} />
                 }

@@ -42,7 +42,7 @@ export default function DashboardContainer(props) {
                                         onOpen={onOpen}
                                         logoText={'Horizon UI Dashboard PRO'}
                                         brandText={"Admin"/*getActiveRoute(routes)*/}
-                                        secondary={"manager"/*getActiveNavbar(routes)*/}
+                                        secondary={true/*getActiveNavbar(routes)*/}
                                         message={""/*getActiveNavbarText(routes)*/}
                                         fixed={fixed}
                                         {...rest}
