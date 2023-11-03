@@ -9,7 +9,6 @@ bool Application::existingToken(std::list<std::string> linked_list, std::string 
     else{
         return false;
     }
-    return false;
 }
 
 std::string Application::generateUUID(){
@@ -41,6 +40,31 @@ std::string Application::insertClient(crow::websocket::connection* client){
     return id;
 }
 
+bool Application::removeClientFromListAndRestaurant(bool is_a_manager, std::string client_uuid){
+    if(is_a_manager){
+        std::list<std::string>::iterator it = std::find(this->connected_managers.begin(), this->connected_managers.end(), client_uuid);
+
+        if(it != this->connected_managers.end()){
+            this->connected_managers.erase(it);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    else{
+        std::list<std::string>::iterator it = std::find(this->connected_customers.begin(), this->connected_customers.end(), client_uuid);
+
+        if(it != this->connected_customers.end()){
+            this->connected_customers.erase(it);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
 bool Application::removeClient(crow::websocket::connection* client){
     std::map<std::string, crow::websocket::connection*>::iterator it = this->connected_clients.begin(); 
 
@@ -49,11 +73,27 @@ bool Application::removeClient(crow::websocket::connection* client){
     } 
 
     if(it != this->connected_clients.end()){
+        if(this->existingToken(this->connected_managers, it->first)){
+            this->removeClientFromListAndRestaurant(true, it->first);
+        }
+        else{
+            this->removeClientFromListAndRestaurant(false, it->first);
+        }
         this->connected_clients.erase(it);
         return true;
     }
     else{
         return false;
+    }
+}
+
+void Application::messageManagers(){
+    //mutex locking here to prevent multiple threads from trying to do some deletions or insertions
+    std::lock_guard<std::mutex> lock(this->mtx);
+    for(std::list<std::string>::iterator it = this->connected_managers.begin(); it != this->connected_managers.end(); ++it){
+        if(this->connected_clients.contains((*it))){
+            this->connected_clients[(*it)]->send_text("{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":23,\"waiter_count\":25,\"rating\":5},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Assigned\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}");
+        }
     }
 }
 
@@ -72,7 +112,7 @@ void Application::runApp()
                 CROW_LOG_INFO << color::format_colour::make_colour(color::GREEN) << "new websocket connection" << color::format_colour::make_colour(color::DEFAULT);
                 
                 //mutex locking here to prevent multiple client connections from trying to add at the same time
-                std::lock_guard<std::mutex> _(this->mtx);
+                std::lock_guard<std::mutex> lock(this->mtx);
                 std::string id = this->insertClient(&conn);
                 conn.send_text("{\"status\":\"success\", \"message\":\"create_token\", \"token\":\"" + id + "\"}");
                 //release lock
@@ -81,7 +121,7 @@ void Application::runApp()
                 CROW_LOG_INFO << color::format_colour::make_colour(color::RED) << "websocket connection closed: " << reason << color::format_colour::make_colour(color::DEFAULT);
                 
                 //mutex locking here to prevent multiple client connections from trying to erase at the same time
-                std::lock_guard<std::mutex> _(this->mtx);
+                std::lock_guard<std::mutex> lock(this->mtx);
                 bool remove_status = this->removeClient(&conn);
 
                 if(remove_status){
@@ -93,24 +133,24 @@ void Application::runApp()
                 //release lock
                 })
         .onmessage([&](crow::websocket::connection& conn, const std::string& data, bool is_binary){
-                    std::cout << color::format_colour::make_colour(color::BLUE) << "Received message: " << color::format_colour::make_colour(color::DEFAULT) << data << "\n";
+                    std::cout << color::format_colour::make_colour(color::BLUE) << "✔ Received message" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
                     
                     this->pause_app_execution = true;
 
                     if (is_binary){
                         //mutex locking here to prevent multiple client connections from trying to erase at the same time
-                        std::lock_guard<std::mutex> _(this->mtx);
+                        std::lock_guard<std::mutex> lock(this->mtx);
                         //pause game execution
                         conn.send_binary(data);
                         //release lock
                     }
                     else{
-                        std::string res = this->processFrontendRequest(data);
                         //mutex locking here to prevent multiple client connections from trying to erase at the same time
-                        std::lock_guard<std::mutex> _(this->mtx);
+                        std::lock_guard<std::mutex> lock(this->mtx);
+                        std::string res = this->processFrontendRequest(data);
                         conn.send_text(res);
                         //release lock
-                        std::cout << color::format_colour::make_colour(color::BLUE) <<  "Sent back response: " << color::format_colour::make_colour(color::DEFAULT) << res << "\n";
+                        std::cout << color::format_colour::make_colour(color::BLUE) <<  "✔ Sent back response" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
                     }
 
                     this->pause_app_execution = false;
@@ -125,14 +165,11 @@ void Application::runApp()
 
 void Application::progressForward()
 {
-    //this can be removed if needed
     std::chrono::time_point<std::chrono::system_clock> start, end;
     end, start = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
-    //end of removable code
 
     while(!this->quit_app){
-        //this can be removed if needed
         while(elapsed_seconds.count() < 5){
             end = std::chrono::system_clock::now();
             elapsed_seconds = end - start;
@@ -140,12 +177,11 @@ void Application::progressForward()
 
         std::cout << "ticked forward once in progressForward " << std::endl;
         //do processing here
+        //send message out to all managers
+        this->messageManagers();
+        
         end, start = std::chrono::system_clock::now();
         elapsed_seconds = end - start;
-
-        //send message out to all managers
-
-        //end of removable code
 
         while (this->pause_app_execution) { 
             std::this_thread::yield(); //do not modify 
@@ -159,7 +195,7 @@ std::string Application::processFrontendRequest(std::string req)
     json req_obj = json::parse(req);
 
     if(!req_obj.contains("token") || !req_obj.contains("player") || !req_obj.contains("command")){
-        std::cout << color::format_colour::make_colour(color::RED) << " missing player, token or command request in json object " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        std::cout << color::format_colour::make_colour(color::RED) << "✗ missing player, token or command request in json object " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\", \"message\":\"missing player, token or command request in json object\"}";
     }
     else if(req_obj["player"] == "customer"){
@@ -169,7 +205,7 @@ std::string Application::processFrontendRequest(std::string req)
         return this->processManagerRequest(req_obj);
     }
     else{
-        std::cout << color::format_colour::make_colour(color::RED) << req_obj["player"] << " is not a valid player " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["player"] << " is not a valid player " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\", \"message\":\"invalid player found\"}";
     }
 }
@@ -181,13 +217,13 @@ std::string Application::processCustomerRequest(json req_obj)
 
     //check if this client is connected to us
     if(!this->connected_clients.contains(req_obj["token"])){
-        std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token does not exist in connected client tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["token"] << " token does not exist in connected client tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\",\"player\":\"customer\",\"message\":\"token does not exist in connected client tokens\"}";
     }
 
     //check if a manager is trying to play as a customer
     if(this->existingToken(this->connected_managers, req_obj["token"])){
-        std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token is already a manager" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["token"] << " token is already a manager" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\",\"player\":\"customer\",\"message\":\"token is already a manager\"}";
     }
 
@@ -199,24 +235,21 @@ std::string Application::processCustomerRequest(json req_obj)
 
     //check that their token exists in customer list
     if(!this->existingToken(this->connected_customers, req_obj["token"])){
-        std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token does not exist in connected customer tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["token"] << " token does not exist in connected customer tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\",\"player\":\"customer\",\"message\":\"token does not exist in connected customer tokens\"}";
     }
 
     if(req_obj["command"] == "seat_request"){
-        std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
     }
     else if(req_obj["command"] == "create_order"){
-        std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"create_order\",\"message\":\"successfully created order\"}";
     }
     else if(req_obj["command"] == "checkout"){
-        std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"checkout\",\"message\":\"successfully checked out\"}";
     }
     else{
-        std::cout << color::format_colour::make_colour(color::RED) << req_obj["command"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["command"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\",\"player\":\"customer\",\"message\":\"invalid command found\"}";
     }
 }
@@ -228,13 +261,13 @@ std::string Application::processManagerRequest(json req_obj)
     
     //check if this client is connected to us
     if(!this->connected_clients.contains(req_obj["token"])){
-        std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token does not exist in connected client tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["token"] << " token does not exist in connected client tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\",\"player\":\"manager\",\"message\":\"token does not exist in connected client tokens\"}";
     }
 
     //check if a customer is trying to play as a manager
     if(this->existingToken(this->connected_customers, req_obj["token"])){
-        std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token is already a customer" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["token"] << " token is already a customer" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\",\"player\":\"manager\",\"message\":\"token is already a customer\"}";
     }
 
@@ -246,20 +279,27 @@ std::string Application::processManagerRequest(json req_obj)
 
     //check that their token exists in manager list
     if(!this->existingToken(this->connected_managers, req_obj["token"])){
-        std::cout << color::format_colour::make_colour(color::RED) << req_obj["token"] << " token does not exist in connected managers tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["token"] << " token does not exist in connected managers tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\",\"player\":\"manager\",\"message\":\"token does not exist in connected managers tokens\"}";
     }
     
-    if(req_obj["command"] == "get_all"){
-        std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":23,\"waiter_count\":25,\"rating\":5},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Approved\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Disable\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Approved\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}";
+    if(req_obj["command"] == "get_all" && req_obj["table_type"] == "waiters"){
+        //pass table type onto manager
+        return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":12,\"waiter_count\":20,\"rating\":3},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Assigned\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}";
+    }
+    else if(req_obj["command"] == "get_all" && req_obj["table_type"] == "customers"){
+        //pass table type onto manager
+        return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":2523,\"waiter_count\":555,\"rating\":0},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Assigned\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}";
+    }
+    else if(req_obj["command"] == "get_all" && req_obj["table_type"] == "tables"){
+        //pass table type onto manager
+        return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":243,\"waiter_count\":15,\"rating\":15},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Assigned\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}";
     }
     else if(req_obj["command"] == "update_table"){
-        std::cout << color::format_colour::make_colour(color::GREEN) << " received request successfully " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-        return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"update_table\",\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Disable\",\"date\":\"18 Apr 2023\",\"progress\":10},{\"name\":\"Horizon UI Free\",\"status\":\"Disable\",\"date\":\"18 Apr 2023\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Approved\",\"date\":\"20 May 2022\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Approved\",\"date\":\"12 Jul 2022\",\"progress\":50.5}]}";
+        return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"update_table\",\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2023\",\"progress\":0},{\"name\":\"Horizon UI Free\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2023\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Assigned\",\"date\":\"20 May 2022\",\"progress\":0},{\"name\":\"Weekly Updates\",\"status\":\"Assigned\",\"date\":\"12 Jul 2022\",\"progress\":15}]}";
     }
     else{
-        std::cout << color::format_colour::make_colour(color::RED) << req_obj["player"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["player"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\", \"message\":\"invalid command found\"}";
     }
 }

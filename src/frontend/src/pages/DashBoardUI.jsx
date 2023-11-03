@@ -44,7 +44,7 @@ import {
   import { useEffect, useState } from "react";
 
   //only for debug
-  const expectedRes = JSON.parse("{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":23,\"waiter_count\":35,\"rating\":5},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Approved\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Disable\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Approved\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}");
+  const expectedRes = JSON.parse("{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":0,\"waiter_count\":0,\"rating\":0},\"table_data\":[]}");
   
   export default function DashBoardUI() {
     // Chakra Color Mode
@@ -54,6 +54,7 @@ import {
     const { apikey } = useApiKeyStore((state) => { return { apikey: state.apikey }; });
     const [allData, setAllData] = useState(expectedRes.message);
     const [tableData, setTableData] = useState(expectedRes.table_data);
+    const [tableType, settableType] = useState("waiters");
 
     socket.onmessage = function(event){
       //the backend responds with the needed data
@@ -73,13 +74,14 @@ import {
     }
 
     const changeComplexTable = function(setTo){
+      settableType(setTo);
       const json = { token: apikey, player: "manager", command: "update_table", message: setTo};
       socket.send(JSON.stringify(json));
     }
 
     useEffect(() => {
       const loadData = function(){
-        const json = { token: apikey, player: "manager", command: "get_all"};
+        const json = { token: apikey, player: "manager", command: "get_all", table_type: tableType};
         socket.send(JSON.stringify(json));
       }
     

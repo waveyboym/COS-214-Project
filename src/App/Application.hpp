@@ -133,6 +133,21 @@ class Application{
          * @return bool
         */
         bool removeClient(crow::websocket::connection* client);
+
+        /**
+         * @brief removes this client from the restaurant and returns true on success else false
+         * @param is_a_manager whether or not the uuid is a manager
+         * @param client_uuid the client uuid to remove
+         * @return bool
+        */
+        bool removeClientFromListAndRestaurant(bool is_a_manager, std::string client_uuid);
+
+        /**
+         * @brief sends out a get all update to all connected managers
+         * @param none
+         * @return void
+        */
+        void messageManagers();
 };
 
 #endif

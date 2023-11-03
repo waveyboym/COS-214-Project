@@ -90,7 +90,9 @@ export default function Banner(props) {
           _focus={{
             bg: "transparent",
           }}
-          mb='10px'>
+          mb='10px'
+          onClick={() => changeComplexTable("waiters")}
+          >
           <Flex align='center'>
             <Icon as={MdOutlinePerson} h='16px' w='16px' me='8px' />
             <Text fontSize='sm' fontWeight='400'>
@@ -110,7 +112,9 @@ export default function Banner(props) {
           _focus={{
             bg: "transparent",
           }}
-          mb='10px'>
+          mb='10px'
+          onClick={() => changeComplexTable("customers")}
+          >
           <Flex align='center'>
             <Icon as={MdOutlineCardTravel} h='16px' w='16px' me='8px' />
             <Text fontSize='sm' fontWeight='400'>
@@ -130,7 +134,9 @@ export default function Banner(props) {
           _focus={{
             bg: "transparent",
           }}
-          mb='10px'>
+          mb='10px'
+          onClick={() => changeComplexTable("tables")}
+          >
           <Flex align='center'>
             <Icon as={MdOutlineLightbulb} h='16px' w='16px' me='8px' />
             <Text fontSize='sm' fontWeight='400'>
