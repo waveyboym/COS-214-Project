@@ -9,19 +9,24 @@
 #define JOINED_TABLE_HPP
 #include "Table.hpp"
 
-/**
- *@brief an JoinedTable class which is a composite class of Table
- */
-class JoinedTable : public Table {
-private:
-    /**
-     *@brief a list of tables that are joined together to this joined table
-     */
-    std::list<std::shared_ptr<Table>> table_list;
-    /**
-     *@brief a list containing all customers seated at this joined table
-     */
-    std::list<std::shared_ptr<Customer>> customer_list;
+/** 
+*@brief a JoinedTable class which is a composite class of Table
+*/ 
+class JoinedTable : public Table{
+    private:
+        /**
+         * @brief max number of seats at table
+        */
+        int seat_limit;
+
+        /** 
+        *@brief a list of tables that are joined together to this joined table
+        */ 
+        std::list<std::shared_ptr<Table>> table_list;
+        /** 
+        *@brief a list containing all customers seated at this joined table
+        */ 
+        std::list<std::shared_ptr<Customer>> customer_list;
 
     public:
         /** 
@@ -88,6 +93,13 @@ private:
         *@return bool
         */ 
         bool isTableAvailable();
+
+        /**
+         * @brief gets seat limit
+         * @param none
+         * @return int
+        */
+        int getSeatLimit();
 };
 
 #endif

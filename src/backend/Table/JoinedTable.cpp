@@ -1,14 +1,18 @@
 #include "../includes/JoinedTable.hpp"
 
-JoinedTable::JoinedTable() {
+JoinedTable::JoinedTable(){
+    seat_limit = 4;
 }
 
 JoinedTable::JoinedTable(int tableid) {
     this->table_id = tableid;
+    seat_limit = 4;
 }
 
-void JoinedTable::seatCustomer(std::shared_ptr<Customer> customer) {
-    this->customer_list.push_back(customer);
+void JoinedTable::seatCustomer(std::shared_ptr<Customer> customer){
+    if(customer_list.size() < seat_limit){
+        this->customer_list.push_back(customer);
+    }
 }
 
 void JoinedTable::unseatCustomer(std::shared_ptr<Customer> customer) {
@@ -59,18 +63,25 @@ std::list<std::shared_ptr<Customer>> JoinedTable::getAllSeatedCustomers() {
     return cust_list;
 }
 
-void JoinedTable::joinTable(std::shared_ptr<Table> table) {
-    this->table_list.push_back(table);
+void JoinedTable::joinTable(std::shared_ptr<Table> table){
+    if(customer_list.size() == 0){
+        this->table_list.push_back(table);
+        int n = (table_list.size()+1);
+        this->seat_limit = 4*n - 2*(n-1);
+    }
 }
 
-void JoinedTable::unjoinTable(std::shared_ptr<Table> table) {
-    std::list<std::shared_ptr<Table>>::iterator it;
+void JoinedTable::unjoinTable(std::shared_ptr<Table> table){
+    if(customer_list.size() == 0){
+        std::list<std::shared_ptr<Table>>::iterator it;
 
-    for (it = this->table_list.begin();
-         it != this->table_list.end() && *it != table; ++it)
-        ;
+        for (it = this->table_list.begin(); it != this->table_list.end() && *it != table; ++it);
 
-    this->table_list.erase(it);
+        this->table_list.erase(it);
+
+        int n = (table_list.size()+1);
+        this->seat_limit = 4*n - 2*(n-1);
+    }    
 }
 
 bool JoinedTable::isThisTableJoined(std::shared_ptr<Table> table) {
@@ -91,9 +102,12 @@ std::list<std::shared_ptr<Table>> JoinedTable::getAllJoinedTables() {
     return this->table_list;
 }
 
-bool JoinedTable::isTableAvailable() {
-    std::list<std::shared_ptr<Customer>> cust_list =
-        this->getAllSeatedCustomers();
+int JoinedTable::getSeatLimit(){
+    return this->seat_limit;
+}
+
+bool JoinedTable::isTableAvailable(){
+    std::list<std::shared_ptr<Customer>> cust_list = this->getAllSeatedCustomers();
 
     if (cust_list.size() == 0) {
         return true;
@@ -101,4 +115,3 @@ bool JoinedTable::isTableAvailable() {
         return false;
     }
 }
-
