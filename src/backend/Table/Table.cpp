@@ -28,11 +28,3 @@ void Table::setWaiterID(std::string set_to) {
     this->waiter_uuid = set_to;
 }
 
-void Table::setReservedBy(std::shared_ptr<Customer> ReservedBy) {
-    this->ReservedBy = ReservedBy;
-}
-
- std::shared_ptr<Customer> Table::getReservedBy() {
-    return ReservedBy;
-}
-
