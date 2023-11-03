@@ -3,6 +3,7 @@ import { useApiKeyStore, useSeatedStore, useWaiterStore, usefoodProcessingTimeSt
 import { hero_bg } from '../assets';
 import { EmotionalStateTab, Navbar, TrackingComponent } from '../components';
 import { useSocket } from '../contexts';
+import PromptModal from './PromptModal';
 
 //when this page loads, it will make a socket request to the backend to get details about it's order(like all details)
 const TrackingPage = () => {
@@ -59,6 +60,14 @@ const TrackingPage = () => {
     const json = { token: apikey, player: "customer", command: "seat_request", message: (setTo === true ? "seat" : "unseat")};
     socket!.send(JSON.stringify(json));
   }
+  const [showSplashPrompt, setShowSplashPrompt] = useState(false);
+
+   // Define a function to handle the checkout action
+   const handleCheckoutClick = () => {
+    // Open the modal or set a state variable to show the prompt
+    setShowSplashPrompt(true);
+  };
+
 
   return (
     <div className="sub_page">
@@ -71,7 +80,7 @@ const TrackingPage = () => {
         <h1 style={{textAlign: "center"}}>Order Tracking</h1>
           <TrackingComponent orderStatus={"Your order has been delivered"} date={new Date().toString()} />
         <div style={{height: "20px"}}/>
-          <EmotionalStateTab setEmotionalState={setEmotionalState} />
+          
 
       <div className="col-sm-6 col-lg-4 all fries">
         {foodProcessingTime > 0 ? (
@@ -95,14 +104,30 @@ const TrackingPage = () => {
               </div>
               
             </div>
+            
           </div>
+          
         ) : (
-          <h5 >Your order is ready!</h5>
-        )}
+          <div>
+            <h2>Assigned Waiter: {waiterName}</h2>
+            <h2>Order Status: {orderStatus}</h2>
 
+            {/* Add conditional rendering for the checkout prompt */}
+            {orderStatus === 'Order Delivered' && (
+              <button onClick={handleCheckoutClick}>Proceed to Checkout</button>
+            )}
+          </div>
+        )}
       </div>
+      <EmotionalStateTab setEmotionalState={setEmotionalState} />
+    
+      {showSplashPrompt && (
+        // Render the modal or pop-up
+        <PromptModal onClose={() => setShowSplashPrompt(false)} />
+      )}
     </div>
   );
-};
+}
+
 
 export default TrackingPage;

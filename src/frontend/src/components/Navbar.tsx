@@ -39,6 +39,9 @@ const Navbar = (props: NavbarProps) => {
                   <li className={"nav-item " + (props.route === "Menu" ? "active" : "")}>
                     <Link className="nav-link" to="/menu"><span>Menu</span></Link>
                   </li>
+                  <li className={"nav-item " + (props.route === "Booking" ? "active" : "")}>
+                    <Link className="nav-link" to="/booking"><span>Booking</span></Link>
+                  </li>
                 </ul>
                 <div className="user_option">
                   <Link to="/tracking" className="user_link">
@@ -60,9 +63,9 @@ const Navbar = (props: NavbarProps) => {
                   <button className="order_online" onClick={() => props.setIsSeated(!props.is_seated)}>
                     <span>
                       { props.is_seated ?
-                        "ask to be unseated"
+                        "Ask to be unseated"
                         :
-                        "ask to be seated"
+                        "Ask to be seated"
                       }
                     </span>
                   </button>
