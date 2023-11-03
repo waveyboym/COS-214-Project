@@ -151,4 +151,18 @@ namespace mealTest{
 
         ASSERT_NE(M, nullptr);
     }
+
+    TEST(Meal_test, GET_TOTAL_COST_JUST_BUN){
+        std::shared_ptr<Meal> NB = std::make_shared<NoBun>();
+        std::shared_ptr<Meal> PB = std::make_shared<PlainBun>();
+        std::shared_ptr<Meal> WB = std::make_shared<WholewheatBun>();
+
+        ASSERT_NE(NB, nullptr);
+        ASSERT_NE(PB, nullptr);
+        ASSERT_NE(WB, nullptr);
+
+        EXPECT_EQ(NB->getTotalCost(), 0);
+        EXPECT_EQ(PB->getTotalCost(), 10);
+        EXPECT_EQ(WB->getTotalCost(), 15.13);
+    }
 }
