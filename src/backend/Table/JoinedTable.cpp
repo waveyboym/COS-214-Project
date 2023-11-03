@@ -67,7 +67,7 @@ void JoinedTable::joinTable(std::shared_ptr<Table> table){
     if(customer_list.size() == 0){
         this->table_list.push_back(table);
         int n = (table_list.size()+1);
-        seatLimit = 4*n - 2*(n-1);
+        this->seat_limit = 4*n - 2*(n-1);
     }
 }
 
@@ -80,7 +80,7 @@ void JoinedTable::unjoinTable(std::shared_ptr<Table> table){
         this->table_list.erase(it);
 
         int n = (table_list.size()+1);
-        seatLimit = 4*n - 2*(n-1);
+        this->seat_limit = 4*n - 2*(n-1);
     }    
 }
 
@@ -103,7 +103,7 @@ std::list<std::shared_ptr<Table>> JoinedTable::getAllJoinedTables() {
 }
 
 int JoinedTable::getSeatLimit(){
-    return this->seatLimit;
+    return this->seat_limit;
 }
 
 bool JoinedTable::isTableAvailable(){
