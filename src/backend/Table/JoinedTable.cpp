@@ -1,55 +1,62 @@
 #include "../includes/JoinedTable.hpp"
 
 JoinedTable::JoinedTable(){
-    seatLimit = 4;
+    seat_limit = 4;
 }
 
-JoinedTable::JoinedTable(int tableid){
+JoinedTable::JoinedTable(int tableid) {
     this->table_id = tableid;
-    seatLimit = 4;
+    seat_limit = 4;
 }
 
 void JoinedTable::seatCustomer(std::shared_ptr<Customer> customer){
-    if(customer_list.size() < seatLimit){
+    if(customer_list.size() < seat_limit){
         this->customer_list.push_back(customer);
     }
 }
 
-void JoinedTable::unseatCustomer(std::shared_ptr<Customer> customer){
+void JoinedTable::unseatCustomer(std::shared_ptr<Customer> customer) {
     std::list<std::shared_ptr<Customer>>::iterator it;
 
-    for(it = this->customer_list.begin(); it != this->customer_list.end() && *it != customer; ++it);
+    for (it = this->customer_list.begin();
+         it != this->customer_list.end() && *it != customer; ++it)
+        ;
 
-    if(*it == customer){
+    if (*it == customer) {
         this->customer_list.erase(it);
     }
 }
 
-bool JoinedTable::isSeatedHere(std::shared_ptr<Customer> customer){
+bool JoinedTable::isSeatedHere(std::shared_ptr<Customer> customer) {
     std::list<std::shared_ptr<Customer>> cust_list;
     cust_list.merge(this->customer_list);
 
-    for(std::list<std::shared_ptr<Table>>::iterator it = this->table_list.begin(); it != this->table_list.end(); ++it){
+    for (std::list<std::shared_ptr<Table>>::iterator it =
+             this->table_list.begin();
+         it != this->table_list.end(); ++it) {
         cust_list.merge((*it)->getAllSeatedCustomers());
     }
 
     std::list<std::shared_ptr<Customer>>::iterator iter;
 
-    for (iter = cust_list.begin(); iter != cust_list.end() && *iter != customer; ++iter);
+    for (iter = cust_list.begin(); iter != cust_list.end() && *iter != customer;
+         ++iter)
+        ;
 
-    if(*iter == customer){
+    if (*iter == customer) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
 
-std::list<std::shared_ptr<Customer>> JoinedTable::getAllSeatedCustomers(){
+std::list<std::shared_ptr<Customer>> JoinedTable::getAllSeatedCustomers() {
     std::list<std::shared_ptr<Customer>> cust_list;
     cust_list.merge(this->customer_list);
 
-    for(std::list<std::shared_ptr<Table>>::iterator it = this->table_list.begin(); it != this->table_list.end(); ++it){
+    for (std::list<std::shared_ptr<Table>>::iterator it =
+             this->table_list.begin();
+         it != this->table_list.end(); ++it) {
         cust_list.merge((*it)->getAllSeatedCustomers());
     }
 
@@ -77,34 +84,34 @@ void JoinedTable::unjoinTable(std::shared_ptr<Table> table){
     }    
 }
 
-bool JoinedTable::isThisTableJoined(std::shared_ptr<Table> table){
+bool JoinedTable::isThisTableJoined(std::shared_ptr<Table> table) {
     std::list<std::shared_ptr<Table>>::iterator it;
 
-    for(it = this->table_list.begin(); it != this->table_list.end() && *it != table; ++it);
+    for (it = this->table_list.begin();
+         it != this->table_list.end() && *it != table; ++it)
+        ;
 
-    if(*it == table){
+    if (*it == table) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }
 
-std::list<std::shared_ptr<Table>> JoinedTable::getAllJoinedTables(){
+std::list<std::shared_ptr<Table>> JoinedTable::getAllJoinedTables() {
     return this->table_list;
 }
 
 int JoinedTable::getSeatLimit(){
-    return seatLimit;
+    return this->seatLimit;
 }
 
 bool JoinedTable::isTableAvailable(){
     std::list<std::shared_ptr<Customer>> cust_list = this->getAllSeatedCustomers();
 
-    if(cust_list.size() == 0){
+    if (cust_list.size() == 0) {
         return true;
-    }
-    else{
+    } else {
         return false;
     }
 }

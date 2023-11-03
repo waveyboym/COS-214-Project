@@ -1,23 +1,23 @@
 /**
-*@file JoinedTable.hpp JoinedTable.cpp
-*@class JoinedTable
-*@author Michael
-*@implements Table
-*@brief a JoinedTable class which is a composite class of Table
-*/
+ *@file JoinedTable.hpp JoinedTable.cpp
+ *@class JoinedTable
+ *@author Michael
+ *@implements Table
+ *@brief a JoinedTable class which is a composite class of Table
+ */
 #ifndef JOINED_TABLE_HPP
 #define JOINED_TABLE_HPP
 #include "Table.hpp"
 
 /** 
-*@brief an JoinedTable class which is a composite class of Table
+*@brief a JoinedTable class which is a composite class of Table
 */ 
 class JoinedTable : public Table{
     private:
         /**
          * @brief max number of seats at table
         */
-        int seatLimit;
+        int seat_limit;
 
         /** 
         *@brief a list of tables that are joined together to this joined table

@@ -41,3 +41,21 @@ std::string Restaurant::processUpdateCheck(json req_obj){
     std::string data = req_obj["token"];
     return data;
 }
+
+std::string Restaurant::processManagerGetAll(json req_obj){
+    return "{}";
+}
+
+std::string Restaurant::processCheckOutCustomer(json req_obj){
+    return "{\"status\":\"success\",\"player\":\"customer\",\"bill\":2000}";
+}
+
+std::string Restaurant::processCustomerRating(json req_obj){
+    std::string data = req_obj["command"];
+    return data;
+}
+
+std::string Restaurant::processCustomerPayBill(json req_obj){
+    std::string data = req_obj["command"];
+    return data;
+}

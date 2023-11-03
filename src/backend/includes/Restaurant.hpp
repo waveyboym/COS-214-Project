@@ -77,6 +77,33 @@ class Restaurant{
         *@return std::string
         */
         std::string processUpdateCheck(json req_obj);
+                /**
+        *@brief returns all necessary data for a manager as a json object
+        *@param req_obj contains the incoming request
+        *@return std::string
+        */
+        std::string processManagerGetAll(json req_obj);
+
+        /**
+        *@brief checks out the customer by requesting a bill and returning that as a json object
+        *@param req_obj contains the incoming request
+        *@return std::string
+        */
+        std::string processCheckOutCustomer(json req_obj);
+
+        /**
+        *@brief processes the customers changing rating for the restaurant
+        *@param req_obj contains the incoming request
+        *@return std::string
+        */
+        std::string processCustomerRating(json req_obj);
+
+        /**
+        *@brief processes the customers request to pay a bill and leave the restaurant
+        *@param req_obj contains the incoming request
+        *@return std::string
+        */
+        std::string processCustomerPayBill(json req_obj);
 };
 
 #endif

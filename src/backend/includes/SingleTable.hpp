@@ -1,10 +1,10 @@
 /**
-*@file SingleTable.hpp SingleTable.cpp
-*@class SingleTable
-*@author Michael
-*@implements Table
-*@brief a SingleTable class which is a leaf class of Table
-*/
+ *@file SingleTable.hpp SingleTable.cpp
+ *@class SingleTable
+ *@author Michael
+ *@implements Table
+ *@brief a SingleTable class which is a leaf class of Table
+ */
 #ifndef SINGLE_TABLE_HPP
 #define SINGLE_TABLE_HPP
 #include "Table.hpp"
@@ -17,7 +17,7 @@ class SingleTable : public Table{
         /**
          * @brief max number of seats at table
         */
-        const int seatLimit = 4;
+        const int SEAT_LIMIT = 4;
         
         /** 
         *@brief a list containing all customers seated at this table
