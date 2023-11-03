@@ -10,6 +10,7 @@
 #include <list>
 #include <memory>
 #include <list>
+#include <memory>
 #include <string>
 
 #include "Collectable.hpp"
