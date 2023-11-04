@@ -11,7 +11,7 @@
 #include "../backend/includes/Meal.hpp"
 #include "../backend/includes/Ingredient.hpp"
 #include "../backend/includes/ConcreteIngredients.hpp"
-// #include "../backend/includes/Bun.hpp"
+#include "../backend/includes/Bun.hpp"
 #include "../backend/includes/ConcreteBuns.hpp"
 
 namespace mealTest{

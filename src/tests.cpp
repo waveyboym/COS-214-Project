@@ -56,6 +56,7 @@
 #include "tests/billTest.cpp"
 #include "tests/maitreDTest.cpp"
 #include "tests/mealTest.cpp"
+#include "tests/orderServiceTest.cpp"
 #include "tests/restaurantTest.cpp"
 
 
