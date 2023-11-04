@@ -2,8 +2,8 @@
 *@file restaurantTest.cpp
 *@namespace restaurantTest
 *@class none
-*@author Michael
-*@brief tests the restaurant classe
+*@author Michael, Nicholas
+*@brief tests the restaurant class
 */
 
 #include <gtest/gtest.h>
@@ -54,6 +54,18 @@ namespace restaurantTest{
 
         R->customersEnterRestaurant(9);
         R->seatAnyCustomer(9);
+    }
+
+    TEST(Restaurant_test, CUSTOMERS_GET_UNSEATED_WHEN_DONE)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+        R->DEBUG_setAllCustomers_hasCompletedMeal(true);
+        R->unseatFinishedCustomers();
     }
 
     TEST(Restaurant_test, RESTAURANT_PROCESS_CUSTOMER_ORDERS)
@@ -176,7 +188,7 @@ namespace restaurantTest{
         EXPECT_EQ(R->FRONTEND_processCustomerPayBill(req_obj), "pay_bill");
     }
 
-    TEST(Restaurant_test, RESTAURANT_ASSIGN_FREE_WAITER_TABLE)
+    TEST(Restaurant_test, RESTAURANT_ASSIGN_ONE_FREE_WAITER_TABLE)
     {
         std::shared_ptr<Restaurant> R = Restaurant::instance();
 
@@ -189,4 +201,17 @@ namespace restaurantTest{
         R->assignOneFreeWaiter();
         R->assignOneFreeWaiter();
     }
+
+    TEST(Restaurant_test, RESTAURANT_ASSIGN_ALL_FREE_WAITERS_TABLE)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+
+        R->assignAllFreeWaiters();
+    }
+
 }

@@ -98,6 +98,7 @@ void Restaurant::progressByOneStep(){
     }
     if(random_number % 10 >= 0 && random_number % 10 <= 7){
         //unseat customers who are done with their order and erase them from the customer map
+
     }
     if(random_number % 10 >= 0 && random_number % 10 <=10){
         //assign a free waiter to any table that has customers
@@ -140,6 +141,24 @@ void Restaurant::seatAnyCustomer(int random_number){
     }
 }
 
+void Restaurant::unseatFinishedCustomers(){
+    //find and unseats all finished customers
+    //make an iterator
+    std::shared_ptr<CustomerIterator> c_i = std::make_shared<CustomerIterator>(this->customers);
+    //find the customers who are finished and unseat them
+    while (!c_i->isDone())
+    {
+        std::shared_ptr<Customer> curCustomer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
+        if (curCustomer->getHasCompletedMeal())
+        {
+            this->maitre_d->unseatCustomer(this->single_tables, this->joined_tables, curCustomer, this->waiters);
+            std::cout << color::format_colour::make_colour(color::BLUE) <<"customer with uuid of: " << curCustomer->getUUID() << " has been unseated from the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+            this->customers.erase(curCustomer->getUUID());
+        }
+        c_i->next();
+    }
+}
+
 void Restaurant::assignOneFreeWaiter(){
     //assign first free waiter to any table that has customers seated
     //make iterator to check through waiters
@@ -157,6 +176,45 @@ void Restaurant::assignOneFreeWaiter(){
         w_i->next();
     }
 }
+
+void Restaurant::assignAllFreeWaiters(){
+    //assign first free waiter to any table that has customers seated
+    //make iterator to check through waiters
+    std::shared_ptr<WaiterIterator> w_i = std::make_shared<WaiterIterator>(this->waiters);
+    //select the first free waiter to assign the table
+    while(!w_i->isDone())
+    { 
+        std::shared_ptr<Waiter> curWaiter = std::dynamic_pointer_cast<Waiter>(w_i->currentItem());
+        if (curWaiter != nullptr && !curWaiter->isAssignedATable())
+        {
+            this->maitre_d->assignWaiterToTable(this->single_tables, this->joined_tables, curWaiter);
+            std::cout << color::format_colour::make_colour(color::GREEN) <<"waiter with uuid of: " << curWaiter->getUUID() << " has been assigned to the table with id of " << curWaiter->getAssignedTableID() << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        }
+        w_i->next();
+    }
+}
+
+
+/*****************************************************************************************************************************
+
+
+    DEBUG/TESTING METHODS
+
+
+*******************************************************************************************************************************/
+
+void Restaurant::DEBUG_setAllCustomers_hasCompletedMeal(bool inp){
+    std::shared_ptr<CustomerIterator> c_i = std::make_shared<CustomerIterator>(this->customers);
+    std::cout << color::format_colour::make_colour(color::GREEN) <<"Setting all customers' hasCompletedMeal variables to " << inp << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+    while (!c_i->isDone())
+    {
+        std::shared_ptr<Customer> curCustomer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
+        curCustomer->setHasCompletedMeal(inp);
+        c_i->next();
+    }
+}
+
+
 
 
 

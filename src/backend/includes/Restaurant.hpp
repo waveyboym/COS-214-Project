@@ -104,17 +104,41 @@ class Restaurant{
         */
         void seatAnyCustomer(int random_number);
 
-         /**
+        /**
+         * @brief all customers who have finished their orders will be unseated and removed from the map
+         * @param none
+         * @return void
+        */
+       void unseatFinishedCustomers();
+
+        /**
          * @brief the first free waiter will be assigned a table by the maitre'd in the restaurant
          * @param none
          * @return void
         */
         void assignOneFreeWaiter();
 
+        /**
+         * @brief all free waiters will be assigned to a table each by the maitre'd in the restaurant
+         * @param none
+         * @return void
+        */
+        void assignAllFreeWaiters();
+
+        
+        /*****************************************************************************************************************************
 
 
+        DEBUG/TESTING METHODS
 
 
+        *******************************************************************************************************************************/
+        /**
+         * @brief set all customers' hasCompletedMeal variables to the input value
+         * @param none
+         * @return void
+        */
+        void DEBUG_setAllCustomers_hasCompletedMeal(bool inp);
 
 
 
