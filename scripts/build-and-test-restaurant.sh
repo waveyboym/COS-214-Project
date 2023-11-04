@@ -1,6 +1,8 @@
 #!/bin/bash
 #if this script doesn't work, make sure it's set to LF mode
 
+set -e
+
 # cd up one directory
 cd ..
 

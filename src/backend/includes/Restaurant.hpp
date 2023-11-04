@@ -1,7 +1,7 @@
 /**
 *@file Restaurant.hpp Restaurant.cpp
 *@class Restaurant
-*@author Michael, Carey, Jaden, Linda, Nicholas
+*@author Michael, Carey, Jaden, Nicholas
 *@brief implements the facade pattern and uses various classes to run the restaurant
 *@note for any function that starts with FRONTEND, you are not allowed to edit it if you are not working on frontend
 */
@@ -14,6 +14,9 @@
 #include "JoinedTable.hpp"
 #include "Waiter.hpp"
 #include "CustomerIterator.hpp"
+#include "WaiterIterator.hpp"
+#include "SingleTableIterator.hpp"
+#include "JoinedTableIterator.hpp"
 #include "json.hpp"
 #include "uuid.h"
 #include "color.hpp"
@@ -113,7 +116,7 @@ class Restaurant{
          * @param none
          * @return void
         */
-       void unseatFinishedCustomers();
+        void unseatFinishedCustomers();
 
         /**
          * @brief the first free waiter will be assigned a table by the maitre'd in the restaurant
@@ -236,6 +239,12 @@ class Restaurant{
         *@return std::string
         */
         std::string FRONTEND_processCustomerRequestUnSeat(json req_obj);
-        };
+        /**
+        *@brief returns a json array of 10 customers, waiters or tables depending on the type
+        *@param type the type of json array to creat
+        *@return std::string
+        */
+        std::string FRONTEND_getTableObjects(std::string type);
+};
 
 #endif

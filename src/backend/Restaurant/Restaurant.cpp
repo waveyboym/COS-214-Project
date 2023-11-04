@@ -258,7 +258,93 @@ void Restaurant::DEBUG_setAllCustomers_hasCompletedMeal(bool inp){
 
 /*@note for any function that starts with FRONTEND, you are not allowed to edit it if you are not working on frontend*/
 
+std::string Restaurant::FRONTEND_getTableObjects(std::string type){
+    if(type == "waiters"){
+        std::shared_ptr<WaiterIterator> w_i = std::make_shared<WaiterIterator>(this->waiters);
+        std::string to_return = "[";
 
+        if(!w_i->isDone()){
+            std::shared_ptr<Waiter> curr_waiter = std::dynamic_pointer_cast<Waiter>(w_i->currentItem());
+            if(curr_waiter != nullptr)
+            {
+                to_return += "{\"name\":\""+ curr_waiter->getUUID() +"\",\"status\":\""+ (curr_waiter->isAssignedATable() == true ? "Assigned" : "Not Assigned") +"\",\"date\":\"07 November 2023\",\"progress\":0}";
+            }
+            w_i->next();
+        }
+
+        while(!w_i->isDone())
+        { 
+            std::shared_ptr<Waiter> curr_waiter = std::dynamic_pointer_cast<Waiter>(w_i->currentItem());
+            if (curr_waiter != nullptr)
+            {
+                to_return += ",{\"name\":\""+ curr_waiter->getUUID() +"\",\"status\":\""+ (curr_waiter->isAssignedATable() == true ? "Assigned" : "Not Assigned") +"\",\"date\":\"07 November 2023\",\"progress\":0}";
+            }
+            w_i->next();
+        }
+
+        to_return += "]";
+        return to_return;
+    }
+    else if(type == "customers"){
+        std::shared_ptr<CustomerIterator> c_i = std::make_shared<CustomerIterator>(this->customers);
+        std::string to_return = "[";
+
+        if(!c_i->isDone()){
+            std::shared_ptr<Customer> curr_customer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
+            if(curr_customer != nullptr)
+            {
+                to_return += "{\"name\":\""+ curr_customer->getUUID() +"\",\"status\":\""+ (curr_customer->getHasCompletedMeal() == true ? "Assigned" : "Not Assigned") +"\",\"date\":\"" + curr_customer->getCurrentEmotionalStateString() + "\",\"progress\":0}";
+            }
+            c_i->next();
+        }
+
+        while(!c_i->isDone())
+        { 
+            std::shared_ptr<Customer> curr_customer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
+            if (curr_customer != nullptr)
+            {
+                to_return += ",{\"name\":\""+ curr_customer->getUUID() +"\",\"status\":\""+ (curr_customer->getHasCompletedMeal() == true ? "Assigned" : "Not Assigned") +"\",\"date\":\"" + curr_customer->getCurrentEmotionalStateString() + "\",\"progress\":0}";
+            }
+            c_i->next();
+        }
+
+        to_return += "]";
+        return to_return;
+    }
+    else{
+        std::shared_ptr<SingleTableIterator> s_t_i = std::make_shared<SingleTableIterator>(this->single_tables);
+        std::shared_ptr<JoinedTableIterator> j_t_i = std::make_shared<JoinedTableIterator>(this->joined_tables);
+        std::string to_return = "[";
+
+        if(!s_t_i->isDone()){
+            std::shared_ptr<Table> table = std::dynamic_pointer_cast<Table>(s_t_i->currentItem());
+            if(table != nullptr)
+            {
+                to_return += "{\"name\":\""+ std::to_string(table->getTableID()) +"\",\"status\":\""+ (table->isTableAvailable() == false ? "Assigned" : "Not Assigned") +"\",\"date\":\"07 November 2023\",\"progress\":0}";
+            }
+            s_t_i->next();
+        }
+
+        while(!s_t_i->isDone()){
+            std::shared_ptr<Table> table = std::dynamic_pointer_cast<Table>(s_t_i->currentItem());
+            if(table != nullptr){
+                to_return += ",{\"name\":\""+ std::to_string(table->getTableID()) +"\",\"status\":\""+ (table->isTableAvailable() == false ? "Assigned" : "Not Assigned") +"\",\"date\":\"07 November 2023\",\"progress\":0}";
+            }
+            s_t_i->next();
+        }
+
+        while(!j_t_i->isDone()){
+            std::shared_ptr<Table> table = std::dynamic_pointer_cast<Table>(j_t_i->currentItem());
+            if(table != nullptr){
+                to_return += ",{\"name\":\""+ std::to_string(table->getTableID()) +"\",\"status\":\""+ (table->isTableAvailable() == false ? "Assigned" : "Not Assigned") +"\",\"date\":\"07 November 2023\",\"progress\":0}";
+            }
+            j_t_i->next();
+        }
+
+        to_return += "]";
+        return to_return;
+    }
+}
 
 std::string Restaurant::FRONTEND_processCustomerOrder(json req_obj){
     std::vector<std::string> orders_items;
@@ -278,18 +364,15 @@ std::string Restaurant::FRONTEND_processCustomerOrder(json req_obj){
     return data;
 }
 
-
 std::string Restaurant::FRONTEND_processCustomersEmotion(json req_obj){
     std::string data = req_obj["emotional_state"];
     return data;
 }
 
-
 std::string Restaurant::FRONTEND_processUpdateCheck(json req_obj){
     std::string data = req_obj["token"];
     return data;
 }
-
 
 std::string Restaurant::FRONTEND_processManagerGetAll(json req_obj){
     if(this->frontend_manager_table_type == "waiters"){
@@ -298,12 +381,12 @@ std::string Restaurant::FRONTEND_processManagerGetAll(json req_obj){
                     "\"player\":\"manager\","
                     "\"command\":\"get_all\","
                     "\"message\":{"
-                        "\"customer_count\":12,"
-                        "\"waiter_count\":20,"
-                        "\"rating\":3"
+                        "\"customer_count\":"+ std::to_string(this->customers.size()) +","
+                        "\"waiter_count\":"+ std::to_string(this->waiters.size()) +","
+                        "\"rating\":5"
                     "},"
                     "\"table_data\":["
-                        "{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5}"
+                        + this->FRONTEND_getTableObjects("waiters") +
                     "]"
                 "}";
     }
@@ -313,12 +396,12 @@ std::string Restaurant::FRONTEND_processManagerGetAll(json req_obj){
                     "\"player\":\"manager\","
                     "\"command\":\"get_all\","
                     "\"message\":{"
-                        "\"customer_count\":12,"
-                        "\"waiter_count\":20,"
-                        "\"rating\":3"
+                        "\"customer_count\":"+ std::to_string(this->customers.size()) +","
+                        "\"waiter_count\":"+ std::to_string(this->waiters.size()) +","
+                        "\"rating\":5"
                     "},"
                     "\"table_data\":["
-                        "{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5}"
+                        + this->FRONTEND_getTableObjects("customers") +
                     "]"
                 "}";
     }
@@ -328,12 +411,12 @@ std::string Restaurant::FRONTEND_processManagerGetAll(json req_obj){
                     "\"player\":\"manager\","
                     "\"command\":\"get_all\","
                     "\"message\":{"
-                        "\"customer_count\":12,"
-                        "\"waiter_count\":20,"
-                        "\"rating\":3"
+                        "\"customer_count\":"+ std::to_string(this->customers.size()) +","
+                        "\"waiter_count\":"+ std::to_string(this->waiters.size()) +","
+                        "\"rating\":5"
                     "},"
                     "\"table_data\":["
-                        "{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5}"
+                        + this->FRONTEND_getTableObjects("tables") +
                     "]"
                 "}";
     }
@@ -343,13 +426,11 @@ std::string Restaurant::FRONTEND_processManagerGetTable(json req_obj){
     std::string table_type_ = req_obj["table_type"];
     this->frontend_manager_table_type = table_type_;
     if(this->frontend_manager_table_type == "waiters"){
-       return "{"
+        return "{"
                 "\"status\":\"success\","
                 "\"player\":\"manager\","
                 "\"command\":\"update_table\","
-                "\"table_data\":["
-                    "{\"name\":\"Horizon UI PRO\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2023\",\"progress\":0}"
-                "]"
+                "\"table_data\":" + this->FRONTEND_getTableObjects("waiters") +
             "}";
     }
     else if(this->frontend_manager_table_type == "customers"){
@@ -357,9 +438,7 @@ std::string Restaurant::FRONTEND_processManagerGetTable(json req_obj){
                 "\"status\":\"success\","
                 "\"player\":\"manager\","
                 "\"command\":\"update_table\","
-                "\"table_data\":["
-                    "{\"name\":\"Horizon UI PRO\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2023\",\"progress\":0}"
-                "]"
+                "\"table_data\":" + this->FRONTEND_getTableObjects("customers") +
             "}";
     }
     else{
@@ -367,24 +446,19 @@ std::string Restaurant::FRONTEND_processManagerGetTable(json req_obj){
                 "\"status\":\"success\","
                 "\"player\":\"manager\","
                 "\"command\":\"update_table\","
-                "\"table_data\":["
-                    "{\"name\":\"Horizon UI PRO\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2023\",\"progress\":0}"
-                "]"
+                "\"table_data\":" + this->FRONTEND_getTableObjects("tables") +
             "}";
     }
 }
-
 
 std::string Restaurant::FRONTEND_processCheckOutCustomer(json req_obj){
     return "{\"status\":\"success\",\"player\":\"customer\",\"bill\":2000}";
 }
 
-
 std::string Restaurant::FRONTEND_processCustomerRating(json req_obj){
     std::string data = req_obj["command"];
     return data;
 }
-
 
 std::string Restaurant::FRONTEND_processCustomerPayBill(json req_obj){
     std::string data = req_obj["command"];
@@ -395,7 +469,7 @@ std::string Restaurant::FRONTEND_processCustomerRestaurantEntry(json req_obj){
     std::string id = req_obj["token"];
     this->customers[id] = std::make_shared<Customer>(id);
     std::cout << color::format_colour::make_colour(color::GREEN) <<"customer with uuid of: " << id << " has entered the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-    return "";
+    return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"add_token\",\"message\":\"successfully added customer token\"}";
 }
 
 std::string Restaurant::FRONTEND_processCustomerRestaurantExit(json req_obj){
@@ -403,8 +477,9 @@ std::string Restaurant::FRONTEND_processCustomerRestaurantExit(json req_obj){
     if(this->customers.contains(id)){
         this->customers.erase(id);
         std::cout << color::format_colour::make_colour(color::RED) <<"customer with uuid of: " << id << " has left the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"exit_restaurant\",\"message\":\"exited\"}";
     }
-    return "";
+    return "{\"status\":\"error\",\"message\":\"player does not exist\"}";
 }
 
 std::string Restaurant::FRONTEND_processCustomerRequestSeat(json req_obj){
@@ -412,8 +487,9 @@ std::string Restaurant::FRONTEND_processCustomerRequestSeat(json req_obj){
     if(this->customers.contains(id)){
         this->maitre_d->seatCustomer(this->single_tables, this->joined_tables, this->customers[id]);
         std::cout << color::format_colour::make_colour(color::BLUE) <<"customer with uuid of: " << id << " has been seated in the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
     }
-    return "";
+    return "{\"status\":\"error\",\"message\":\"player does not exist\"}";
 }
 
 std::string Restaurant::FRONTEND_processCustomerRequestUnSeat(json req_obj){
@@ -421,6 +497,7 @@ std::string Restaurant::FRONTEND_processCustomerRequestUnSeat(json req_obj){
     if(this->customers.contains(id)){
         this->maitre_d->unseatCustomer(this->single_tables, this->joined_tables, this->customers[id], this->waiters);
         std::cout << color::format_colour::make_colour(color::BLUE) <<"customer with uuid of: " << id << " has been unseated in the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"unseat_request\",\"message\":\"unseated\"}";
     }
-    return "";
+    return "{\"status\":\"error\",\"message\":\"player does not exist\"}";
 }
