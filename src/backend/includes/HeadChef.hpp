@@ -19,6 +19,8 @@ class HeadChef: public AbstractChef{
         std::shared_ptr<AbstractChef> next;
     
     public:
+
+    std::string type;
         /** 
         *@brief initialises a Chef
         *@param none

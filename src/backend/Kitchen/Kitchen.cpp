@@ -15,8 +15,12 @@ Kitchen::Kitchen(std::vector<std::shared_ptr<Waiter>> waiters){
 
 
 void Kitchen::createMeal(std::vector<std::shared_ptr<Order>> order, std::shared_ptr<Customer> customer){
-    std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>> meal = (*chain_of_chefs).makeOrder(order, customer, nullptr);
-    this->completed_meals.push_back(meal);
+    std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>> new_meal = (*chain_of_chefs).makeOrder(order, customer, nullptr);
+    this->completed_meals.push_back(new_meal);
+}
+
+std::vector<std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>>>  Kitchen::getCompletedMeals(){
+    return this->completed_meals;
 }
 
 
@@ -24,4 +28,5 @@ void Kitchen::notifyWaiters(){
     for(int i = 0; i < waiters.size(); i++){
         waiters.at(i).get()->getUpdate(completed_meals);
     }
+    this->completed_meals.clear();
 }

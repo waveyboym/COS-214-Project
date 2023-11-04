@@ -9,7 +9,7 @@
 #include <memory>
 #include <vector>
 #include "Order.hpp"
-//#include "POS.hpp"
+#include "Customer.hpp"
 
 /** 
 *@brief a AbstractChef object
@@ -26,7 +26,9 @@ class AbstractChef{
         *@brief initialises an AbstractChef
         *@param none
         */
-        AbstractChef(); 
+        AbstractChef(std::string type); 
+
+        std::string type;
 
         /** 
         *@brief handles the creation of a meal
@@ -41,6 +43,11 @@ class AbstractChef{
         *@param c the chef to add
         */
         void add(std::shared_ptr<AbstractChef> c);
+
+
+        std::shared_ptr<AbstractChef> getNext(){
+            return this->next;
+        }
 
         /** 
         *@brief receives an order to be created

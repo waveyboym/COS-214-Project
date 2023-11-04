@@ -54,6 +54,12 @@ class Kitchen{
         */
         void notifyWaiters();
 
+        /** 
+        *@brief returns the completed meals in the kitchen
+        *@param none
+        */
+        std::vector<std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>>> getCompletedMeals();
+
 };
 
 #endif
