@@ -37,6 +37,14 @@
 #include "backend/MaitreD/MaitreD.cpp"
 #include "backend/MaitreD/ConcreteMaitreD.cpp"
 
+#include "backend/Meal/Meal.cpp"
+#include "backend/Meal/Bun.cpp"
+#include "backend/Meal/ConcreteBuns.cpp"
+#include "backend/Meal/Ingredient.cpp"
+#include "backend/Meal/ConcreteIngredients.cpp"
+#include "backend/Orders/Order.cpp"
+
+
 #include "tests/colorTest.cpp"
 #include "tests/iteratorTest.cpp"
 #include "tests/stateTest.cpp"
