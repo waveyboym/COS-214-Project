@@ -50,6 +50,10 @@ class Restaurant{
         *@brief list of all joined tables in the restaurant
         */
         std::list<std::shared_ptr<JoinedTable>> joined_tables;
+        /**
+        *@brief the table type the admin on the frontend will view
+        */
+        std::string frontend_manager_table_type;
 
         /**
         *@brief constructor
@@ -174,12 +178,18 @@ class Restaurant{
         *@return std::string
         */
         std::string FRONTEND_processUpdateCheck(json req_obj);
-                /**
+        /**
         *@brief returns all necessary data for a manager as a json object
         *@param req_obj contains the incoming request
         *@return std::string
         */
         std::string FRONTEND_processManagerGetAll(json req_obj);
+        /**
+        *@brief returns all necessary table data for a manager as a json object
+        *@param req_obj contains the incoming request
+        *@return std::string
+        */
+        std::string FRONTEND_processManagerGetTable(json req_obj);
 
         /**
         *@brief checks out the customer by requesting a bill and returning that as a json object
