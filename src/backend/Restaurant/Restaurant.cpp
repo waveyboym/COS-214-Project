@@ -310,3 +310,37 @@ std::string Restaurant::FRONTEND_processCustomerPayBill(json req_obj){
     std::string data = req_obj["command"];
     return data;
 }
+
+std::string Restaurant::FRONTEND_processCustomerRestaurantEntry(json req_obj){
+    std::string id = req_obj["token"];
+    this->customers[id] = std::make_shared<Customer>(id);
+    std::cout << color::format_colour::make_colour(color::GREEN) <<"customer with uuid of: " << id << " has entered the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+    return "";
+}
+
+std::string Restaurant::FRONTEND_processCustomerRestaurantExit(json req_obj){
+    std::string id = req_obj["token"];
+    if(this->customers.contains(id)){
+        this->customers.erase(id);
+        std::cout << color::format_colour::make_colour(color::RED) <<"customer with uuid of: " << id << " has left the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+    }
+    return "";
+}
+
+std::string Restaurant::FRONTEND_processCustomerRequestSeat(json req_obj){
+    std::string id = req_obj["token"];
+    if(this->customers.contains(id)){
+        this->maitre_d->seatCustomer(this->single_tables, this->joined_tables, this->customers[id]);
+        std::cout << color::format_colour::make_colour(color::BLUE) <<"customer with uuid of: " << id << " has been seated in the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+    }
+    return "";
+}
+
+std::string Restaurant::FRONTEND_processCustomerRequestUnSeat(json req_obj){
+    std::string id = req_obj["token"];
+    if(this->customers.contains(id)){
+        this->maitre_d->unseatCustomer(this->single_tables, this->joined_tables, this->customers[id], this->waiters);
+        std::cout << color::format_colour::make_colour(color::BLUE) <<"customer with uuid of: " << id << " has been unseated in the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+    }
+    return "";
+}

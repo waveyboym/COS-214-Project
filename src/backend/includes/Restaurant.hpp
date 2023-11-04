@@ -202,6 +202,30 @@ class Restaurant{
         */
         std::string FRONTEND_processCustomerPayBill(json req_obj);
 
-};
+        /**
+        *@brief processes this customer entering the restaurant
+        *@param req_obj contains the incoming request
+        *@return std::string
+        */
+        std::string FRONTEND_processCustomerRestaurantEntry(json req_obj);
+        /**
+        *@brief processes this customer leaving the restaurant
+        *@param req_obj contains the incoming request
+        *@return std::string
+        */
+        std::string FRONTEND_processCustomerRestaurantExit(json req_obj);
+        /**
+        *@brief processes this customers requesting a seat
+        *@param req_obj contains the incoming request
+        *@return std::string
+        */
+        std::string FRONTEND_processCustomerRequestSeat(json req_obj);
+        /**
+        *@brief processes this customer requesting to be unseated
+        *@param req_obj contains the incoming request
+        *@return std::string
+        */
+        std::string FRONTEND_processCustomerRequestUnSeat(json req_obj);
+        };
 
 #endif
