@@ -210,6 +210,6 @@ namespace mealTest{
         PB = std::make_shared<Fries>(PB);
         PB = std::make_shared<Tomato>(PB);
         ASSERT_NE(PB, nullptr);
-        EXPECT_EQ(PB->getItemizedList(), "Plain bun  R10.00\nBeef Patty  R10.00nFries  R10.25\nTomato  R2.57\n\nTotal: R32.82");
+        EXPECT_EQ(PB->getItemizedList(), "Plain bun  R10.00\nBeef Patty  R10.00\nFries  R10.25\nTomato  R2.57\n\nTotal: R32.82");
     }
 }

@@ -9,6 +9,10 @@
 #define BUN_HPP
 #include "Meal.hpp"
 
+#include <iostream>
+#include <sstream>
+#include <iomanip>
+
 class Bun: public Meal{
     private:
         /** 

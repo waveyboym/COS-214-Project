@@ -21,7 +21,12 @@ void Ingredient::setTotalCost(double c){
 
 std::string Ingredient::getItemizedList(){
     if(meal){
-        std::string s = this->getName() + "  R" + std::to_string(this->getCost()) + "\n";
+        double value = this->getCost(); 
+        std::ostringstream stream;
+        stream << std::fixed << std::setprecision(2) << value;
+        std::string result = stream.str();
+
+        std::string s = this->getName() + "  R" + result + "\n";
         return meal->getItemizedList(s);
     }
     else{
@@ -31,7 +36,12 @@ std::string Ingredient::getItemizedList(){
 
 std::string Ingredient::getItemizedList(std::string tail){
     if(meal){
-        std::string mine = this->getName() + "  R" + std::to_string(this->getCost()) + "\n";
+        double value = this->getCost(); 
+        std::ostringstream stream;
+        stream << std::fixed << std::setprecision(2) << value;
+        std::string result = stream.str();
+
+        std::string mine = this->getName() + "  R" + result + "\n";
         return meal->getItemizedList(mine + tail);
     }
     else{
