@@ -5,15 +5,37 @@ Bun::Bun(std::string name, double cost): Meal(name, cost){
 }
 
 std::string Bun::getItemizedList(std::string tail){
-        std::string out = this->getName() + "  R" + std::to_string(this->getCost()) + "\n";
+        double value = this->getCost(); 
+        std::ostringstream stream;
+        stream << std::fixed << std::setprecision(2) << value;
+        std::string result = stream.str();
+
+        std::string out = this->getName() + "  R" + result + "\n";
         out += tail;
-        out += "\nTotal: R" + std::to_string(this->getTotalCost());
+
+        value = this->getTotalCost(); 
+        std::ostringstream stream2;
+        stream2 << std::fixed << std::setprecision(2) << value;
+        result = stream2.str();
+        
+        out += "\nTotal: R" + result;
         return out;
 }
 
 std::string Bun::getItemizedList(){
-        std::string out = this->getName() + "  R" + std::to_string(this->getCost()) + "\n";
-        out += "\nTotal: R" + std::to_string(this->getTotalCost());
+        double value = this->getCost(); 
+        std::ostringstream stream;
+        stream << std::fixed << std::setprecision(2) << value;
+        std::string result = stream.str();
+
+        std::string out = this->getName() + "  R" + result + "\n";
+
+        value = this->getTotalCost(); 
+        std::ostringstream stream2;
+        stream2 << std::fixed << std::setprecision(2) << value;
+        result = stream2.str();
+
+        out += "\nTotal: R" + result;
         return out;
 }
 

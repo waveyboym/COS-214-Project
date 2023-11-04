@@ -65,6 +65,7 @@
 #include "backend/Orders/AddWholeWheatBun.cpp"
 #include "backend/Orders/AddSalad.cpp"
 #include "backend/Orders/AddTomatoSauce.cpp"
+#include "backend/Restaurant/Restaurant.cpp"
 
 #include "tests/colorTest.cpp"
 #include "tests/iteratorTest.cpp"
@@ -73,8 +74,11 @@
 #include "tests/tableTest.cpp"
 #include "tests/billTest.cpp"
 #include "tests/maitreDTest.cpp"
-
+#include "tests/mealTest.cpp"
 #include "tests/ordersTest.cpp"
+#include "tests/orderServiceTest.cpp"
+#include "tests/restaurantTest.cpp"
+
 
 int main(int argc, char* argv[])
 {

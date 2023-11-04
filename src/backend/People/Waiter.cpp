@@ -8,6 +8,10 @@ Waiter::Waiter(std::string waiteruuid){
     this->person_uuid = waiteruuid;
 }
 
+void Waiter::joinTables(std::shared_ptr<JoinedTable> table_to_join_to, std::shared_ptr<Table> table_to_join){
+    table_to_join_to->joinTable(table_to_join);
+}
+
 bool Waiter::personAction(){
     return false;
 }
