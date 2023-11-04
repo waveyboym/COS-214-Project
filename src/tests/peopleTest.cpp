@@ -173,4 +173,17 @@ namespace waiterTest{
 
         EXPECT_EQ(table_to_join_to->isThisTableJoined(table_to_join), true);
     }
+
+    TEST(Waiter_test, WAITER_TAKE_ORDER){
+        std::shared_ptr<Waiter> W = std::make_shared<Waiter>();
+        std::shared_ptr<Customer> C = std::make_shared<Customer>();
+
+        ASSERT_NE(W, nullptr);
+        ASSERT_NE(C, nullptr);
+
+        C->setOrder();
+        W->takeOrder(C);
+
+        ASSERT_NE(W->getOrder().front(), nullptr);
+    }
 }
