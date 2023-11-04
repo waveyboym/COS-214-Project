@@ -40,5 +40,34 @@ void Customer::setEmotionalState(EMOTIONAL_STATE state){
 }
 
 void Customer::setOrder(){
+    int rNum = rand();
+
+    switch(rNum%3){
+        case 0:
+            order = std::make_shared<AddNoBun>();
+            order->executeOrder();
+            break;
+        case 1:
+            order = std::make_shared<AddPlainBun>();
+            order->executeOrder();
+            break;
+        case 2:
+            order = std::make_shared<AddWholeWheatBun>();
+            order->executeOrder();
+            break;
+    }
+
+    for (int i = 0; i < 10; i++)
+    {
+        switch(rand()%18){
+            case 0:
+                break;
+            case 1:
+                std::shared_ptr<Meal>
+                order = std::make_shared<AddBBQSauce>();
+                order->executeOrder(order->meal);
+                break;
+        }
+    }
     
 }

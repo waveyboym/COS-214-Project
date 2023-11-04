@@ -1,7 +1,7 @@
 /**
 *@file Customer.hpp Customer.cpp
 *@class Customer
-*@author Michael
+*@author Michael, Jaden
 *@implements People
 *@brief a customer object
 */
@@ -13,7 +13,31 @@
 #include "Neutral.hpp"
 #include "SlightlyHappy.hpp"
 #include "SlightlyAngry.hpp"
-#include "Order.hpp"
+#include "AbstractChef.hpp"
+
+#include "AddBBQSauce.hpp"
+#include "AddBeefBurgerPatty.hpp"
+#include "AddCaramelizedOnion.hpp"
+#include "AddCheese.hpp"
+#include "AddChickenBurgerPatty.hpp"
+#include "AddColdDrink.hpp"
+#include "AddFries.hpp"
+#include "AddJuice.hpp"
+#include "AddLettuce.hpp"
+#include "AddMayo.hpp"
+#include "AddNoBun.hpp"
+#include "AddNormalBun.hpp"
+#include "AddOnion.hpp"
+#include "AddPickles.hpp"
+#include "AddPineapple.hpp"
+#include "AddTomato.hpp"
+#include "AddVeggieBurgerPatty.hpp"
+#include "AddWater.hpp"
+#include "AddWholeWheatBun.hpp"
+
+#include "ConcreteIngredients.hpp"
+#include "ConcreteBuns.hpp"
+
 #include <memory>
 
 /** 
@@ -30,7 +54,7 @@ class Customer : public People{
         /**
         * @brief Customer's order
         */
-        Order* order;
+        std::shared_ptr<Order> order;
     public:
         /** 
         *@brief initialises a customer object
@@ -77,9 +101,9 @@ class Customer : public People{
         /**
         *@brief set Customer's order
         *@param none
-        *@return Order*
+        *@return std::shared_ptr<Order>
         */
-        Order* getOrder() const;
+        std::shared_ptr<Order> getOrder() const;
 };
 
 #endif
