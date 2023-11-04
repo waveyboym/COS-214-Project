@@ -13,6 +13,7 @@
 #include "Neutral.hpp"
 #include "SlightlyHappy.hpp"
 #include "SlightlyAngry.hpp"
+#include "Order.hpp"
 #include <memory>
 
 /** 
@@ -25,6 +26,11 @@ class Customer : public People{
         *@brief holds the emotional state of this customer
         */
         std::shared_ptr<EmotionalState> currentEmotionalState;
+
+        /**
+        * @brief Customer's order
+        */
+        Order* order;
     public:
         /** 
         *@brief initialises a customer object
@@ -60,6 +66,20 @@ class Customer : public People{
         *@return void
         */
         void setEmotionalState(EMOTIONAL_STATE state);
+
+        /**
+        *@brief set Customer's order
+        *@param none
+        *@return void 
+        */
+        void setOrder();
+
+        /**
+        *@brief set Customer's order
+        *@param none
+        *@return Order*
+        */
+        Order* getOrder() const;
 };
 
 #endif

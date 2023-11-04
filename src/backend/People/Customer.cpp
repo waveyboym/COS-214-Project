@@ -38,3 +38,7 @@ void Customer::setEmotionalState(EMOTIONAL_STATE state){
         this->currentEmotionalState = std::make_shared<SlightlyHappy>();
     }
 }
+
+void Customer::setOrder(){
+    
+}
