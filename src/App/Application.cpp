@@ -92,9 +92,21 @@ void Application::messageManagers(){
     std::lock_guard<std::mutex> lock(this->mtx);
     for(std::list<std::string>::iterator it = this->connected_managers.begin(); it != this->connected_managers.end(); ++it){
         if(this->connected_clients.contains((*it))){
+            //this->connected_clients[(*it)]->send_text(this->restaurant->FRONTEND_processManagerGetAll(req_obj));
             this->connected_clients[(*it)]->send_text("{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":23,\"waiter_count\":25,\"rating\":5},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Assigned\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}");
         }
     }
+}
+
+void Application::updateRestaurant(){
+    //mutex locking here to prevent multiple threads from trying to do some deletions or insertions
+    //std::lock_guard<std::mutex> lock(this->mtx);
+
+    //if(this->restaurant == nullptr){
+    //    this->restaurant = Restaurant::instance();
+    //}
+
+    //this->restaurant->progressByOneStep();
 }
 
 void Application::initApp()
@@ -102,6 +114,9 @@ void Application::initApp()
     //init important data here
     this->pause_app_execution = false;
     this->quit_app = false;
+    //if(this->restaurant == nullptr){
+    //    this->restaurant = Restaurant::instance();
+    //}
 }
 
 void Application::runApp()
@@ -165,6 +180,10 @@ void Application::runApp()
 
 void Application::progressForward()
 {
+    //if(this->restaurant == nullptr){
+    //    this->restaurant = Restaurant::instance();
+    //}
+
     std::chrono::time_point<std::chrono::system_clock> start, end;
     end, start = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
@@ -175,9 +194,10 @@ void Application::progressForward()
             elapsed_seconds = end - start;
         }
 
-        std::cout << "ticked forward once in progressForward " << std::endl;
+        std::cout << "[DEBUG] ticked forward once in progressForward " << std::endl;
         //do processing here
         //send message out to all managers
+        this->updateRestaurant();
         this->messageManagers();
         
         end, start = std::chrono::system_clock::now();
@@ -230,6 +250,7 @@ std::string Application::processCustomerRequest(json req_obj)
     //add their token
     if(req_obj["command"] == "add_token"){
         this->connected_customers.push_back(req_obj["token"]);
+        //return this->restaurant->FRONTEND_processCustomerRestaurantEntry(req_obj);
         return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"add_token\",\"message\":\"successfully added customer token\"}";
     }
 
@@ -240,12 +261,27 @@ std::string Application::processCustomerRequest(json req_obj)
     }
 
     if(req_obj["command"] == "seat_request"){
+        //return this->restaurant->FRONTEND_processCustomerRequestSeat(req_obj);
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
+    }
+    else if(req_obj["command"] == "unseat_request"){
+        //return this->restaurant->FRONTEND_processCustomerRequestUnSeat(req_obj);
         return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
     }
     else if(req_obj["command"] == "create_order"){
+        //return this->restaurant->FRONTEND_processCustomerRequestUnSeat(req_obj);
         return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"create_order\",\"message\":\"successfully created order\"}";
     }
+    else if(req_obj["command"] == "change_emotional_state"){
+        //return this->restaurant->FRONTEND_processCustomerRequestUnSeat(req_obj);
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
+    }
+    else if(req_obj["command"] == "get_food"){
+        //return this->restaurant->FRONTEND_processCustomerRequestUnSeat(req_obj);
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
+    }
     else if(req_obj["command"] == "checkout"){
+        //return this->restaurant->FRONTEND_processCustomerRequestUnSeat(req_obj);
         return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"checkout\",\"message\":\"successfully checked out\"}";
     }
     else{
@@ -283,19 +319,12 @@ std::string Application::processManagerRequest(json req_obj)
         return "{\"status\":\"error\",\"player\":\"manager\",\"message\":\"token does not exist in connected managers tokens\"}";
     }
     
-    if(req_obj["command"] == "get_all" && req_obj["table_type"] == "waiters"){
-        //pass table type onto manager
+    if(req_obj["command"] == "get_all"){
+        //return this->restaurant->FRONTEND_processManagerGetAll(req_obj);
         return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":12,\"waiter_count\":20,\"rating\":3},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Assigned\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}";
     }
-    else if(req_obj["command"] == "get_all" && req_obj["table_type"] == "customers"){
-        //pass table type onto manager
-        return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":2523,\"waiter_count\":555,\"rating\":0},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Assigned\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}";
-    }
-    else if(req_obj["command"] == "get_all" && req_obj["table_type"] == "tables"){
-        //pass table type onto manager
-        return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":243,\"waiter_count\":15,\"rating\":15},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Assigned\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}";
-    }
     else if(req_obj["command"] == "update_table"){
+        //return this->restaurant->FRONTEND_processManagerGetTable(req_obj);
         return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"update_table\",\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2023\",\"progress\":0},{\"name\":\"Horizon UI Free\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2023\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Assigned\",\"date\":\"20 May 2022\",\"progress\":0},{\"name\":\"Weekly Updates\",\"status\":\"Assigned\",\"date\":\"12 Jul 2022\",\"progress\":15}]}";
     }
     else{
