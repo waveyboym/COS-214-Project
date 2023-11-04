@@ -104,6 +104,14 @@ void Restaurant::progressByOneStep(){
         //assign a free waiter to any table that has customers
         this->assignOneFreeWaiter();
     }
+    if(random_number % 10 >= 0 && random_number % 10 <=1){
+        //assign all free waiters to any table that has customers
+        this->assignAllFreeWaiters();
+    }
+    if(random_number % 10 >= 0 && random_number % 10 <=5){
+        //assign a free waiter to any table that has customers
+        this->unseatFinishedCustomers();
+    }
 }
 
 void Restaurant::customersEnterRestaurant(int random_number){
