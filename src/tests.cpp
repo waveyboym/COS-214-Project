@@ -39,6 +39,13 @@
 #include "backend/MaitreD/MaitreD.cpp"
 #include "backend/MaitreD/ConcreteMaitreD.cpp"
 
+
+#include "backend/Meal/Meal.cpp"
+#include "backend/Meal/Ingredient.cpp"
+#include "backend/Meal/ConcreteIngredients.cpp"
+#include "backend/Meal/Bun.cpp"
+#include "backend/Meal/ConcreteBuns.cpp"
+
 #include "backend/Restaurant/Restaurant.cpp"
 
 #include "tests/colorTest.cpp"
@@ -48,7 +55,9 @@
 #include "tests/tableTest.cpp"
 #include "tests/billTest.cpp"
 #include "tests/maitreDTest.cpp"
+#include "tests/mealTest.cpp"
 #include "tests/restaurantTest.cpp"
+
 
 int main(int argc, char* argv[])
 {
