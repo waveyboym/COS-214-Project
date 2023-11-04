@@ -7,6 +7,7 @@
 #ifndef MEAL_HPP
 #define MEAL_HPP
 #include <memory>
+#include <iostream>
 
 /** 
 *@brief a meal object
