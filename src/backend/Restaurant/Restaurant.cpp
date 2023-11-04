@@ -136,6 +136,23 @@ void Restaurant::seatAnyCustomer(int random_number){
     }
 }
 
+void Restaurant::assignOneFreeWaiter(){
+    //assign first free waiter to any table that has customers seated
+    //make iterator to check through waiters
+    std::shared_ptr<WaiterIterator> w_i = std::make_shared<WaiterIterator>(this->waiters);
+    //select the first free waiter to assign the table
+    while(!w_i->isDone())
+    { 
+        std::shared_ptr<Waiter> curWaiter = std::dynamic_pointer_cast<Waiter>(w_i->currentItem());
+        if (curWaiter != nullptr && !curWaiter->isAssignedATable())
+        {
+            this->maitre_d->assignWaiterToTable(this->single_tables, this->joined_tables, curWaiter);
+            std::cout << color::format_colour::make_colour(color::GREEN) <<"waiter with uuid of: " << curWaiter->getUUID() << " has been assigned to the table with id of " << curWaiter->getAssignedTableID() << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+            break;
+        }
+        w_i->next();
+    }
+}
 
 
 

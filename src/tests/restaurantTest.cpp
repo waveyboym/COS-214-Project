@@ -175,4 +175,18 @@ namespace restaurantTest{
 
         EXPECT_EQ(R->FRONTEND_processCustomerPayBill(req_obj), "pay_bill");
     }
+
+    TEST(Restaurant_test, RESTAURANT_ASSIGN_FREE_WAITER_TABLE)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+
+        R->assignOneFreeWaiter();
+        R->assignOneFreeWaiter();
+        R->assignOneFreeWaiter();
+    }
 }

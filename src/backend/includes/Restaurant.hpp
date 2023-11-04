@@ -104,6 +104,13 @@ class Restaurant{
         */
         void seatAnyCustomer(int random_number);
 
+         /**
+         * @brief the first free waiter will be assigned a table by the maitre'd in the restaurant
+         * @param none
+         * @return void
+        */
+        void assignOneFreeWaiter();
+
 
 
 
