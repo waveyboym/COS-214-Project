@@ -3,6 +3,7 @@
 
 Restaurant::Restaurant(){
     this->maitre_d = std::make_shared<ConcreteMaitreD>();
+    this->frontend_manager_table_type = "waiters";
     //pre-determined number of waiters in the restaurant
     this->waiters["Dwain Barber"] = std::make_shared<Waiter>("Dwain Barber");
     this->waiters["Meredith Lin"] = std::make_shared<Waiter>("Meredith Lin");
@@ -291,7 +292,86 @@ std::string Restaurant::FRONTEND_processUpdateCheck(json req_obj){
 
 
 std::string Restaurant::FRONTEND_processManagerGetAll(json req_obj){
-    return "{}";
+    if(this->frontend_manager_table_type == "waiters"){
+        return "{"
+                    "\"status\":\"success\","
+                    "\"player\":\"manager\","
+                    "\"command\":\"get_all\","
+                    "\"message\":{"
+                        "\"customer_count\":12,"
+                        "\"waiter_count\":20,"
+                        "\"rating\":3"
+                    "},"
+                    "\"table_data\":["
+                        "{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5}"
+                    "]"
+                "}";
+    }
+    else if(this->frontend_manager_table_type == "customers"){
+        return "{"
+                    "\"status\":\"success\","
+                    "\"player\":\"manager\","
+                    "\"command\":\"get_all\","
+                    "\"message\":{"
+                        "\"customer_count\":12,"
+                        "\"waiter_count\":20,"
+                        "\"rating\":3"
+                    "},"
+                    "\"table_data\":["
+                        "{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5}"
+                    "]"
+                "}";
+    }
+    else{
+        return "{"
+                    "\"status\":\"success\","
+                    "\"player\":\"manager\","
+                    "\"command\":\"get_all\","
+                    "\"message\":{"
+                        "\"customer_count\":12,"
+                        "\"waiter_count\":20,"
+                        "\"rating\":3"
+                    "},"
+                    "\"table_data\":["
+                        "{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5}"
+                    "]"
+                "}";
+    }
+}
+
+std::string Restaurant::FRONTEND_processManagerGetTable(json req_obj){
+    std::string table_type_ = req_obj["table_type"];
+    this->frontend_manager_table_type = table_type_;
+    if(this->frontend_manager_table_type == "waiters"){
+       return "{"
+                "\"status\":\"success\","
+                "\"player\":\"manager\","
+                "\"command\":\"update_table\","
+                "\"table_data\":["
+                    "{\"name\":\"Horizon UI PRO\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2023\",\"progress\":0}"
+                "]"
+            "}";
+    }
+    else if(this->frontend_manager_table_type == "customers"){
+        return "{"
+                "\"status\":\"success\","
+                "\"player\":\"manager\","
+                "\"command\":\"update_table\","
+                "\"table_data\":["
+                    "{\"name\":\"Horizon UI PRO\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2023\",\"progress\":0}"
+                "]"
+            "}";
+    }
+    else{
+        return "{"
+                "\"status\":\"success\","
+                "\"player\":\"manager\","
+                "\"command\":\"update_table\","
+                "\"table_data\":["
+                    "{\"name\":\"Horizon UI PRO\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2023\",\"progress\":0}"
+                "]"
+            "}";
+    }
 }
 
 
