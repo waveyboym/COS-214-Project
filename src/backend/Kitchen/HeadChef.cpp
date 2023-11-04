@@ -3,11 +3,9 @@
 
 HeadChef::HeadChef(){}
 
-void HeadChef::makeOrder(std::vector<std::shared_ptr<Order>> order, std::string waiterUUID, std::shared_ptr<Meal> meal){
-    if(pos_ptr != nullptr){
-       pos_ptr->sendMealToPOS(meal, waiterUUID);
+std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>> HeadChef::makeOrder(std::vector<std::shared_ptr<Order>> order, std::shared_ptr<Customer> customer, std::shared_ptr<Meal> meal){
+    if(order.size() != 0){
+        std::cout << "Missed an order" << std::endl;    
     }
-    else{
-        std::cout << "No POS attached" << std::endl;
-    }
+    return (std::make_pair(meal, customer));
 }
