@@ -99,6 +99,10 @@ void Restaurant::progressByOneStep(){
     if(random_number % 10 >= 0 && random_number % 10 <= 7){
         //unseat customers who are done with their order and erase them from the customer map
     }
+    if(random_number % 10 >= 0 && random_number % 10 <=10){
+        //assign a free waiter to any table that has customers
+        this->assignOneFreeWaiter();
+    }
 }
 
 void Restaurant::customersEnterRestaurant(int random_number){
