@@ -57,6 +57,11 @@ bool Application::removeClientFromListAndRestaurant(bool is_a_manager, std::stri
 
         if(it != this->connected_customers.end()){
             this->connected_customers.erase(it);
+            //json req_obj = json::parse(
+            //"{"
+             //   "\"token\":\""+ client_uuid +"\""
+            //"}");
+            //this->restaurant->FRONTEND_processCustomerRestaurantExit(req_obj);
             return true;
         }
         else{
@@ -232,9 +237,6 @@ std::string Application::processFrontendRequest(std::string req)
 
 std::string Application::processCustomerRequest(json req_obj)
 {
-    //TODO: add more code
-    //ISSUE ID: 2 If you decide to take this issue, please indicate this on the issues tab on github for ISSUE ID: 2
-
     //check if this client is connected to us
     if(!this->connected_clients.contains(req_obj["token"])){
         std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["token"] << " token does not exist in connected client tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
@@ -269,19 +271,19 @@ std::string Application::processCustomerRequest(json req_obj)
         return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
     }
     else if(req_obj["command"] == "create_order"){
-        //return this->restaurant->FRONTEND_processCustomerRequestUnSeat(req_obj);
+        //return this->restaurant->FRONTEND_processCustomerOrder(req_obj);
         return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"create_order\",\"message\":\"successfully created order\"}";
     }
     else if(req_obj["command"] == "change_emotional_state"){
-        //return this->restaurant->FRONTEND_processCustomerRequestUnSeat(req_obj);
+        //return this->restaurant->FRONTEND_processCustomersEmotion(req_obj);
         return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
     }
     else if(req_obj["command"] == "get_food"){
-        //return this->restaurant->FRONTEND_processCustomerRequestUnSeat(req_obj);
+        //return this->restaurant->FRONTEND_processUpdateCheck(req_obj);
         return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
     }
     else if(req_obj["command"] == "checkout"){
-        //return this->restaurant->FRONTEND_processCustomerRequestUnSeat(req_obj);
+        //return this->restaurant->FRONTEND_processCheckOutCustomer(req_obj);
         return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"checkout\",\"message\":\"successfully checked out\"}";
     }
     else{
@@ -292,9 +294,6 @@ std::string Application::processCustomerRequest(json req_obj)
 
 std::string Application::processManagerRequest(json req_obj)
 {
-    //TODO: add more code
-    //ISSUE ID: 3 If you decide to take this issue, please indicate this on the issues tab on github for ISSUE ID: 3
-    
     //check if this client is connected to us
     if(!this->connected_clients.contains(req_obj["token"])){
         std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["token"] << " token does not exist in connected client tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
