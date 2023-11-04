@@ -346,33 +346,115 @@ std::string Restaurant::FRONTEND_getTableObjects(std::string type){
     }
 }
 
-std::string Restaurant::FRONTEND_processCustomerOrder(json req_obj){
-    std::vector<std::string> orders_items;
-    for (auto& elem : req_obj["order"]){
-        orders_items.push_back(elem["name"]);
-    }
+//okay so i dont know how to do this, i think its missing a few function calls
+std::string Restaurant::FRONTEND_processCustomerOrder(json req_obj) {
+    if (req_obj.find("token") != req_obj.end()) {
+        std::string id = req_obj["token"];
+        if (this->customers.contains(id)) {
+            // Extract the order items from the request
+            if (req_obj.find("order") != req_obj.end()) {
+                json orderItems = req_obj["order"];
 
-    std::string data = "";
-    for(int i = 0; i < orders_items.size(); ++i){
-        if(i == orders_items.size() - 1){
-            data += orders_items[i];
+                // Process the order items and generate a response
+                std::string response = "Order received: ";
+                bool firstItem = true;
+                for (const auto& item : orderItems) {
+                    if (item.find("name") != item.end()) {
+                        std::string itemName = item["name"];
+                        if (!firstItem) {
+                            response += ", ";
+                        }
+                        response += itemName;
+                        firstItem = false;
+                    }
+                }
+ 
+                return "{\"status\":\"success\",\"message\":\"" + response + "\"}";
+            } else {
+                return "{\"status\":\"error\",\"message\":\"Order is missing\"}";
+            }
+        } else {
+            return "{\"status\":\"error\",\"message\":\"Customer not found\"}";
         }
-        else{
-            data += orders_items[i] + ",";
-        }
+    } else {
+        return "{\"status\":\"error\",\"message\":\"Token is missing\"}";
     }
-    return data;
 }
 
-std::string Restaurant::FRONTEND_processCustomersEmotion(json req_obj){
-    std::string data = req_obj["emotional_state"];
-    return data;
+//not sure if this is how you use customer iterator
+std::string Restaurant::FRONTEND_processCustomersEmotion(json req_obj) {
+    if (req_obj.find("emotional_state") != req_obj.end()) {
+        std::string emotionalState = req_obj["emotional_state"];
+        std::string response;
+
+        // Set the customer's emotion based on the provided emotional state
+        if (emotionalState == "happy") {
+            // Set the customer's emotion to "happy"
+            const std::shared_ptr<CustomerIterator> c_i = std::make_shared<CustomerIterator>(this->customers);
+            while (!c_i->isDone())
+            {
+                std::shared_ptr<Customer> curCustomer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
+                curCustomer->setEmotionalState(EMOTIONAL_STATE::HAPPY);
+                c_i->next();
+            }
+            response = "Customer's emotional state has been set to 'happy'.";
+        } else if (emotionalState == "angry") {
+            // Set the customer's emotion to "angry"
+            const std::shared_ptr<CustomerIterator> c_i = std::make_shared<CustomerIterator>(this->customers);
+            while (!c_i->isDone())
+            {
+                std::shared_ptr<Customer> curCustomer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
+                curCustomer->setEmotionalState(EMOTIONAL_STATE::ANGRY);
+                c_i->next();
+            }
+            response = "Customer's emotional state has been set to 'angry'.";
+        } else if (emotionalState == "slightly angry") {
+            // Set the customer's emotion to "slightly angry"
+            const std::shared_ptr<CustomerIterator> c_i = std::make_shared<CustomerIterator>(this->customers);
+            while (!c_i->isDone())
+            {
+                std::shared_ptr<Customer> curCustomer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
+                curCustomer->setEmotionalState(EMOTIONAL_STATE::SLIGHTLY_ANGRY);
+                c_i->next();
+            }   
+            response = "Customer's emotional state has been set to 'slightly angry'.";
+        } else if (emotionalState == "neutral") {
+        
+            // Set the customer's emotion to "neutral"
+            const std::shared_ptr<CustomerIterator> c_i = std::make_shared<CustomerIterator>(this->customers);
+            while (!c_i->isDone())
+            {
+                std::shared_ptr<Customer> curCustomer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
+                curCustomer->setEmotionalState(EMOTIONAL_STATE::NEUTRAL);
+                c_i->next();
+            }
+            response = "Customer's emotional state has been set to 'neutral'.";
+        } else {
+            // Invalid emotional state
+            return "{\"status\":\"error\",\"message\":\"Invalid emotional state\"}";
+        }
+
+        return "{\"status\":\"success\",\"message\":\"" + response + "\"}";
+    } else {
+        return "{\"status\":\"error\",\"message\":\"Emotional state is missing\"}";
+    }
 }
 
-std::string Restaurant::FRONTEND_processUpdateCheck(json req_obj){
-    std::string data = req_obj["token"];
-    return data;
+std::string Restaurant::FRONTEND_processUpdateCheck(json req_obj) {
+    if (req_obj.find("token") != req_obj.end()) {
+        std::string id = req_obj["token"];
+        if (this->customers.contains(id)) {
+            // Update the customer's check, dont know how to do this
+
+            return "{\"status\":\"success\",\"message\":\"Update check successful\"}";
+        } else {
+            return "{\"status\":\"error\",\"message\":\"Customer not found\"}";
+        }
+    } else {
+        return "{\"status\":\"error\",\"message\":\"Token is missing\"}";
+    }
 }
+
 
 std::string Restaurant::FRONTEND_processManagerGetAll(json req_obj){
     if(this->frontend_manager_table_type == "waiters"){
@@ -451,19 +533,71 @@ std::string Restaurant::FRONTEND_processManagerGetTable(json req_obj){
     }
 }
 
-std::string Restaurant::FRONTEND_processCheckOutCustomer(json req_obj){
-    return "{\"status\":\"success\",\"player\":\"customer\",\"bill\":2000}";
+std::string Restaurant::FRONTEND_processCheckOutCustomer(json req_obj) {
+    if (req_obj.find("token") != req_obj.end()) {
+        std::string id = req_obj["token"];
+        if (this->customers.contains(id)) {
+            this->customers.erase(id);
+            std::cout << color::format_colour::make_colour(color::RED) << "customer with uuid of: " << id << " has checked out" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+                return "{\"status\":\"success\",\"player\":\"customer\",\"bill\":2000}";
+        } else {
+            return "{\"status\":\"error\",\"message\":\"Customer not found\"}";
+        }
+    } else {
+        return "{\"status\":\"error\",\"message\":\"Token is missing\"}";
+    }
 }
 
-std::string Restaurant::FRONTEND_processCustomerRating(json req_obj){
-    std::string data = req_obj["command"];
-    return data;
+
+std::string Restaurant::FRONTEND_processCustomerRating(json req_obj) {
+    if (req_obj.find("rating") != req_obj.end()) {
+        int customerRating = req_obj["rating"];
+        return "{\"status\":\"success\",\"message\":\"Thank you for your rating of " + std::to_string(customerRating) + "!\"}";
+    } else if (req_obj.find("command") != req_obj.end()) {
+        std::string data = req_obj["command"];
+        return data;
+    } else {
+        return "{\"status\":\"error\",\"message\":\"Rating is missing\"}";
+    }
 }
 
-std::string Restaurant::FRONTEND_processCustomerPayBill(json req_obj){
-    std::string data = req_obj["command"];
-    return data;
+std::string Restaurant::FRONTEND_processCustomerPayBill(json req_obj) {
+    if (req_obj.find("token") != req_obj.end()) {
+        if (req_obj.find("command") != req_obj.end()) {
+            std::string command = req_obj["command"];
+            return command;
+        }
+
+        std::string id = req_obj["token"];
+        
+        if (this->customers.contains(id)) {
+            std::shared_ptr<Customer> customer = this->customers[id];
+            bool isJoinedTable = customer->getIsSeated(); //please change this to the correct function call
+            
+            if (isJoinedTable) {
+                // Handle bill payment for a joined table and whether split bill or full bill payment here
+
+                this->customers.erase(id);
+
+                std::cout << color::format_colour::make_colour(color::RED) << "Customer with uuid of: " << id << " has paid the bill and left the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+                
+                return "{\"status\":\"success\",\"message\":\"Customer with uuid " + id + " has paid the bill and left the restaurant\"}";
+            } else {
+                // Handle bill payment for a single table only single table bill payment here
+                
+                this->customers.erase(id);
+                std::cout << color::format_colour::make_colour(color::RED) << "Customer with uuid of: " << id << " has paid the bill and left the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+                
+                return "{\"status\":\"success\",\"message\":\"Customer with uuid " + id + " has paid the bill and left the restaurant\"}";
+            }
+        } else {
+            return "{\"status\":\"error\",\"message\":\"Customer not found\"}";
+        }
+    } else {
+        return "{\"status\":\"error\",\"message\":\"Token is missing\"}";
+    }
 }
+
 
 std::string Restaurant::FRONTEND_processCustomerRestaurantEntry(json req_obj){
     std::string id = req_obj["token"];
