@@ -31,3 +31,11 @@ int Waiter::getAssignedTableID(){
 void Waiter::assignID(int set_to){
     this->assigned_table_id = set_to;
 }
+
+void Waiter::takeOrder(std::shared_ptr<Customer> customer){
+    this->order = customer->getOrder();
+}
+
+std::vector<std::shared_ptr<Order>>  Waiter::getOrder(){
+    return order;
+}

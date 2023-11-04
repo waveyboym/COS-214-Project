@@ -29,7 +29,7 @@ class Waiter : public People{
         /** 
         *@brief order for this waiter to fulfill
         */
-        std::shared_ptr<Order> order;
+        std::vector<std::shared_ptr<Order>> order;
     public:
         /** 
         *@brief constructor
@@ -78,6 +78,18 @@ class Waiter : public People{
         *@return void
         */ 
         void assignID(int set_to);
+        /**
+        *@brief take customer's order
+        *@param std::shared_ptr<Customer> customer
+        *@return none
+        */
+        void takeOrder(std::shared_ptr<Customer> customer);
+        /**
+        *@brief getter for order
+        *@param none
+        *@return  std::vector<std::shared_ptr<Order>>
+        */
+        std::vector<std::shared_ptr<Order>> getOrder();
 };
 
 #endif
