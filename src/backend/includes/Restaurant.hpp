@@ -1,17 +1,26 @@
 /**
 *@file Restaurant.hpp Restaurant.cpp
 *@class Restaurant
-*@author Michael
+*@author Michael, Carey, Jaden, Linda, Nicholas
 *@brief implements the facade pattern and uses various classes to run the restaurant
+*@note for any function that starts with FRONTEND, you are not allowed to edit it if you are not working on frontend
 */
 #ifndef RESTAURANT_HPP
 #define RESTAURANT_HPP
 #include "ConcreteMaitreD.hpp"
 #include "Waiter.hpp"
 #include "Customer.hpp"
-#include "../includes/json.hpp"
+#include "SingleTable.hpp"
+#include "JoinedTable.hpp"
+#include "Waiter.hpp"
+#include "CustomerIterator.hpp"
+#include "json.hpp"
+#include "uuid.h"
+#include "color.hpp"
 #include <memory>
 #include <vector>
+#include <cstdlib>
+#include <iostream>
 
 using json = nlohmann::json;
 
@@ -34,10 +43,25 @@ class Restaurant{
         */
         std::shared_ptr<ConcreteMaitreD> maitre_d;
         /**
+        *@brief list of all single tables in the restaurant
+        */
+        std::list<std::shared_ptr<SingleTable>> single_tables;
+        /**
+        *@brief list of all joined tables in the restaurant
+        */
+        std::list<std::shared_ptr<JoinedTable>> joined_tables;
+
+        /**
         *@brief constructor
         *@param none
         */
         Restaurant();
+        /**
+         * @brief generates unique uid
+         * @param none
+         * @return std::string
+        */
+        std::string generateUUID();
 
     public:
         /**
@@ -60,50 +84,93 @@ class Restaurant{
         */
         static std::shared_ptr<Restaurant> instance();
         /**
+        *@brief progresses the simulation by one step. Each mini-step in this function has a certain chance of occurring
+        *@param none
+        *@return void
+        */
+        void progressByOneStep();
+
+        /**
+         * @brief a random amount of customers between 0 and 10 will enter the restaurant
+         * @param random_number number which will be modded to determine how many customers between 0 and 10 will enter
+         * @return void
+        */
+        void customersEnterRestaurant(int random_number);
+
+        /**
+         * @brief a random amount of customers between 0 and 10 will be seated in the restaurant
+         * @param random_number number which will be modded to determine how many customers between 0 and 10 will be seated
+         * @return void
+        */
+        void seatAnyCustomer(int random_number);
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*****************************************************************************************************************************
+
+
+        FRONT END CODE, ONLY EDIT BELOW THIS SECTION IF YOU ARE WORKING ON FRONTEND
+
+
+
+        *******************************************************************************************************************************/
+
+        /**
         *@brief processes this customers order and returns a response
         *@param req_obj contains the incoming request
         *@return std::string
         */
-        std::string processCustomerOrder(json req_obj);
+        std::string FRONTEND_processCustomerOrder(json req_obj);
         /**
         *@brief processes this customers emotions and returns a response
         *@param req_obj contains the incoming request
         *@return std::string
         */
-        std::string processCustomersEmotion(json req_obj);
+        std::string FRONTEND_processCustomersEmotion(json req_obj);
         /**
         *@brief processes this customers update check and returns a response
         *@param req_obj contains the incoming request
         *@return std::string
         */
-        std::string processUpdateCheck(json req_obj);
+        std::string FRONTEND_processUpdateCheck(json req_obj);
                 /**
         *@brief returns all necessary data for a manager as a json object
         *@param req_obj contains the incoming request
         *@return std::string
         */
-        std::string processManagerGetAll(json req_obj);
+        std::string FRONTEND_processManagerGetAll(json req_obj);
 
         /**
         *@brief checks out the customer by requesting a bill and returning that as a json object
         *@param req_obj contains the incoming request
         *@return std::string
         */
-        std::string processCheckOutCustomer(json req_obj);
+        std::string FRONTEND_processCheckOutCustomer(json req_obj);
 
         /**
         *@brief processes the customers changing rating for the restaurant
         *@param req_obj contains the incoming request
         *@return std::string
         */
-        std::string processCustomerRating(json req_obj);
+        std::string FRONTEND_processCustomerRating(json req_obj);
 
         /**
         *@brief processes the customers request to pay a bill and leave the restaurant
         *@param req_obj contains the incoming request
         *@return std::string
         */
-        std::string processCustomerPayBill(json req_obj);
+        std::string FRONTEND_processCustomerPayBill(json req_obj);
+
 };
 
 #endif

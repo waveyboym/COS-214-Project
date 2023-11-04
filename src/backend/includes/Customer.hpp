@@ -19,12 +19,19 @@
 *@brief a customer object
 */
 class Customer : public People{
-    //TODO: implement
     private:
         /** 
         *@brief holds the emotional state of this customer
         */
         std::shared_ptr<EmotionalState> currentEmotionalState;
+        /**
+        * @brief whether or not this customer is seated
+        */
+        bool is_seated = false;
+        /**
+        * @brief whether or not this customer has completed their meal
+        */
+        bool has_completed_meal = false;
     public:
         /** 
         *@brief initialises a customer object
@@ -60,6 +67,32 @@ class Customer : public People{
         *@return void
         */
         void setEmotionalState(EMOTIONAL_STATE state);
+
+        /** 
+        *@brief whether or not this customer is seated
+        *@param none
+        *@return bool
+        */
+        bool getIsSeated();
+        /** 
+        *@brief sets whether or not this customer is seated
+        *@param set_to the value to change this to
+        *@return void
+        */
+        void setIsSeated(bool set_to);
+
+        /** 
+        *@brief whether or not this customer has finished their meal
+        *@param none
+        *@return bool
+        */
+        bool getHasCompletedMeal();
+        /** 
+        *@brief sets whether or not this customer has finished their meal
+        *@param set_to the value to change this to
+        *@return void
+        */
+        void setHasCompletedMeal(bool set_to);
 };
 
 #endif

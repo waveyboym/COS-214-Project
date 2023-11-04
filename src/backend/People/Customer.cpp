@@ -38,3 +38,19 @@ void Customer::setEmotionalState(EMOTIONAL_STATE state){
         this->currentEmotionalState = std::make_shared<SlightlyHappy>();
     }
 }
+
+bool Customer::getIsSeated(){
+    return this->is_seated;
+}
+
+void Customer::setIsSeated(bool set_to){
+    this->is_seated = set_to;
+}
+
+bool Customer::getHasCompletedMeal(){
+    return this->has_completed_meal;
+}
+
+void Customer::setHasCompletedMeal(bool set_to){
+    this->has_completed_meal = set_to;
+}

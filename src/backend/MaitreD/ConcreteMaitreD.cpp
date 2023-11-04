@@ -15,6 +15,7 @@ bool ConcreteMaitreD::unseatCustomer(std::list<std::shared_ptr<SingleTable>>& re
         std::shared_ptr<Table> table = std::dynamic_pointer_cast<Table>(s_t_i->currentItem());
         if(table != nullptr && table->isSeatedHere(customer_to_unseat)){
             table->unseatCustomer(customer_to_unseat);
+            customer_to_unseat->setIsSeated(false);
             if(table->isTableAvailable() && waiters.size() > 0 && waiters.find(table->getAssignedWaiterID()) != waiters.end()){
                 table->setIsAssignedAWaiter(false);
                 waiters[table->getAssignedWaiterID()]->setIsAssignedATable(false);
@@ -48,6 +49,7 @@ bool ConcreteMaitreD::seatCustomer(std::list<std::shared_ptr<SingleTable>>& rest
         std::shared_ptr<Table> table = std::dynamic_pointer_cast<Table>(s_t_i->currentItem());
         if(table != nullptr && table->isTableAvailable()){
             table->seatCustomer(customer_to_seat);
+            customer_to_seat->setIsSeated(true);
             return true;
         }
         s_t_i->next();

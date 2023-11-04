@@ -18,6 +18,44 @@ namespace restaurantTest{
         ASSERT_NE(R, nullptr);
     }
 
+    TEST(Restaurant_test, CUSTOMER_ENTERS_RESTAURANT)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(1);
+    }
+
+    TEST(Restaurant_test, CUSTOMERS_ENTER_RESTAURANT)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+    }
+
+    TEST(Restaurant_test, CUSTOMER_GETS_SEATED_RESTAURANT)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(1);
+        R->seatAnyCustomer(1);
+    }
+
+    TEST(Restaurant_test, CUSTOMERS_GET_SEATED_RESTAURANT)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+    }
+
     TEST(Restaurant_test, RESTAURANT_PROCESS_CUSTOMER_ORDERS)
     {
         std::shared_ptr<Restaurant> R = Restaurant::instance();
@@ -36,7 +74,7 @@ namespace restaurantTest{
                 "]"
             "}");
 
-        EXPECT_EQ(R->processCustomerOrder(req_obj), "burger,fries,pizza");
+        EXPECT_EQ(R->FRONTEND_processCustomerOrder(req_obj), "burger,fries,pizza");
     }
 
     TEST(Restaurant_test, RESTAURANT_PROCESS_CUSTOMER_EMOTION)
@@ -53,7 +91,7 @@ namespace restaurantTest{
                 "\"emotional_state\":\"happy\""
             "}");
 
-        EXPECT_EQ(R->processCustomersEmotion(req_obj), "happy");
+        EXPECT_EQ(R->FRONTEND_processCustomersEmotion(req_obj), "happy");
     }
 
     TEST(Restaurant_test, RESTAURANT_PROCESS_CUSTOMER_UPDATE_CHECK)
@@ -69,7 +107,7 @@ namespace restaurantTest{
                 "\"command\":\"update_check\""
             "}");
 
-        EXPECT_EQ(R->processUpdateCheck(req_obj), "e8t38hohe8wotohq903");
+        EXPECT_EQ(R->FRONTEND_processUpdateCheck(req_obj), "e8t38hohe8wotohq903");
     }
 
     TEST(Restaurant_test, RESTAURANT_PROCESS_MANAGER_GET_ALL)
@@ -85,7 +123,7 @@ namespace restaurantTest{
                 "\"command\":\"get_all\""
             "}");
 
-        EXPECT_EQ(R->processManagerGetAll(req_obj), "{}");
+        EXPECT_EQ(R->FRONTEND_processManagerGetAll(req_obj), "{}");
     }
 
     TEST(Restaurant_test, RESTAURANT_PROCESS_CUSTOMER_CHECKOUT)
@@ -101,7 +139,7 @@ namespace restaurantTest{
                 "\"command\":\"checkout_customer\""
             "}");
 
-        EXPECT_EQ(R->processCheckOutCustomer(req_obj), "{\"status\":\"success\",\"player\":\"customer\",\"bill\":2000}");
+        EXPECT_EQ(R->FRONTEND_processCheckOutCustomer(req_obj), "{\"status\":\"success\",\"player\":\"customer\",\"bill\":2000}");
     }
 
     TEST(Restaurant_test, RESTAURANT_PROCESS_CUSTOMER_RATING)
@@ -118,7 +156,7 @@ namespace restaurantTest{
                 "\"rating\":5"
             "}");
 
-        EXPECT_EQ(R->processCustomerRating(req_obj), "rate");
+        EXPECT_EQ(R->FRONTEND_processCustomerRating(req_obj), "rate");
     }
 
     TEST(Restaurant_test, RESTAURANT_PROCESS_CUSTOMER_PAYING_BILL)
@@ -135,6 +173,6 @@ namespace restaurantTest{
                 "\"amount\":2000"
             "}");
 
-        EXPECT_EQ(R->processCustomerPayBill(req_obj), "pay_bill");
+        EXPECT_EQ(R->FRONTEND_processCustomerPayBill(req_obj), "pay_bill");
     }
 }
