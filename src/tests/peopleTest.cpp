@@ -10,6 +10,26 @@
 #include "../backend/includes/Waiter.hpp"
 #include "../backend/includes/Customer.hpp"
 
+#include "../backend/Orders/AddBBQSauce.cpp"
+#include "../backend/Orders/AddBeefBurgerPatty.cpp"
+#include "../backend/Orders/AddCaramelizedOnion.cpp"
+#include "../backend/Orders/AddCheese.cpp"
+#include "../backend/Orders/AddChickenBurgerPatty.cpp"
+#include "../backend/Orders/AddColdDrink.cpp"
+#include "../backend/Orders/AddFries.cpp"
+#include "../backend/Orders/AddJuice.cpp"
+#include "../backend/Orders/AddLettuce.cpp"
+#include "../backend/Orders/AddMayo.cpp"
+#include "../backend/Orders/AddNoBun.cpp"
+#include "../backend/Orders/AddNormalBun.cpp"
+#include "../backend/Orders/AddOnion.cpp"
+#include "../backend/Orders/AddPickles.cpp"
+#include "../backend/Orders/AddPineapple.cpp"
+#include "../backend/Orders/AddTomato.cpp"
+#include "../backend/Orders/AddVeggieBurgerPatty.cpp"
+#include "../backend/Orders/AddWater.cpp"
+#include "../backend/Orders/AddWholeWheatBun.cpp"
+
 namespace customerTest{
 
     TEST(Customer_test, INIT_CUSTOMER)
@@ -82,6 +102,19 @@ namespace customerTest{
         C->setUUID("customer");
 
         EXPECT_EQ(C->getUUID(), "customer");
+    }
+
+    TEST(Customer_test, SET_AND_GET_ORDER){
+        std::shared_ptr<Customer> C = std::make_shared<Customer>();
+
+        ASSERT_NE(C, nullptr);
+
+        C->setOrder();
+        std::shared_ptr<Order> F = C->getOrder().front();
+        std::shared_ptr<Order> B = C->getOrder().back();
+
+        ASSERT_NE(F, nullptr);
+        ASSERT_NE(B, nullptr);
     }
 }
 
