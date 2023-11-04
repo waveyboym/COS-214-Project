@@ -48,7 +48,7 @@ void Customer::setOrder(){
             order->executeOrder();
             break;
         case 1:
-            order = std::make_shared<AddPlainBun>();
+            order = std::make_shared<AddNormalBun>();
             order->executeOrder();
             break;
         case 2:
@@ -59,15 +59,80 @@ void Customer::setOrder(){
 
     for (int i = 0; i < 10; i++)
     {
-        switch(rand()%18){
+        std::shared_ptr<Meal> m = order->meal;
+
+        switch(rand()%17){
             case 0:
                 break;
             case 1:
-                std::shared_ptr<Meal>
                 order = std::make_shared<AddBBQSauce>();
-                order->executeOrder(order->meal);
+                order->executeOrder(m);
+                break;
+            case 2:
+                order = std::make_shared<AddBeefBurgerPatty>();
+                order->executeOrder(m);
+                break;
+            case 3:
+                order = std::make_shared<AddCaramelizedOnion>();
+                order->executeOrder(m);
+                break;
+            case 4:
+                order = std::make_shared<AddCheese>();
+                order->executeOrder(m);
+                break;
+            case 5:
+                order = std::make_shared<AddChickenBurgerPatty>();
+                order->executeOrder(m);
+                break;
+            case 6:
+                order = std::make_shared<AddColdDrink>();
+                order->executeOrder(m);
+                break;
+            case 7:
+                order = std::make_shared<AddFries>();
+                order->executeOrder(m);
+                break;
+            case 8:
+                order = std::make_shared<AddJuice>();
+                order->executeOrder(m);
+                break;
+            case 9:
+                order = std::make_shared<AddLettuce>();
+                order->executeOrder(m);
+                break;
+            case 10:
+                order = std::make_shared<AddMayo>();
+                order->executeOrder(m);
+                break;
+            case 11:
+                order = std::make_shared<AddOnion>();
+                order->executeOrder(m);
+                break;
+            case 12:
+                order = std::make_shared<AddPickles>();
+                order->executeOrder(m);
+                break;
+            case 13:
+                order = std::make_shared<AddPineApple>();
+                order->executeOrder(m);
+                break;
+            case 14:
+                order = std::make_shared<AddTomato>();
+                order->executeOrder(m);
+                break;
+            case 15:
+                order = std::make_shared<AddVeggieBurgerPatty>();
+                order->executeOrder(m);
+                break;
+            case 16:
+                order = std::make_shared<AddWater>();
+                order->executeOrder(m);
                 break;
         }
     }
     
+}
+
+std::shared_ptr<Order> Customer::getOrder() const{
+    return order;
 }
