@@ -19,5 +19,9 @@
 #include "../backend/includes/ConcreteBuns.hpp"
 
 namespace orderServiceTest{
+    TEST(ordering_test, SIMPLE_ORDER){
 
+    }
+
+    
 }
