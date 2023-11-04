@@ -41,98 +41,78 @@ void Customer::setEmotionalState(EMOTIONAL_STATE state){
 
 void Customer::setOrder(){
     int rNum = rand();
+    std::shared_ptr<Order> o;
 
     switch(rNum%3){
         case 0:
-            order = std::make_shared<AddNoBun>();
-            order->executeOrder();
+            order.push_back(std::make_shared<AddNoBun>());
             break;
         case 1:
-            order = std::make_shared<AddNormalBun>();
-            order->executeOrder();
+            order.push_back(std::make_shared<AddNormalBun>());
             break;
         case 2:
-            order = std::make_shared<AddWholeWheatBun>();
-            order->executeOrder();
+            order.push_back(std::make_shared<AddWholeWheatBun>());
             break;
     }
 
     for (int i = 0; i < 10; i++)
     {
-        std::shared_ptr<Meal> m = order->meal;
-
         switch(rand()%17){
             case 0:
                 break;
             case 1:
-                order = std::make_shared<AddBBQSauce>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddBBQSauce>());
                 break;
             case 2:
-                order = std::make_shared<AddBeefBurgerPatty>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddBeefBurgerPatty>());
                 break;
             case 3:
-                order = std::make_shared<AddCaramelizedOnion>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddCaramelizedOnion>());
                 break;
             case 4:
-                order = std::make_shared<AddCheese>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddCheese>());
                 break;
             case 5:
-                order = std::make_shared<AddChickenBurgerPatty>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddChickenBurgerPatty>());
                 break;
             case 6:
-                order = std::make_shared<AddColdDrink>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddColdDrink>());
                 break;
             case 7:
-                order = std::make_shared<AddFries>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddFries>());
                 break;
             case 8:
-                order = std::make_shared<AddJuice>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddJuice>());
                 break;
             case 9:
-                order = std::make_shared<AddLettuce>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddLettuce>());
                 break;
             case 10:
-                order = std::make_shared<AddMayo>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddMayo>());
                 break;
             case 11:
-                order = std::make_shared<AddOnion>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddOnion>());
                 break;
             case 12:
-                order = std::make_shared<AddPickles>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddPickles>());
                 break;
             case 13:
-                order = std::make_shared<AddPineApple>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddPineApple>());
                 break;
             case 14:
-                order = std::make_shared<AddTomato>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddTomato>());
                 break;
             case 15:
-                order = std::make_shared<AddVeggieBurgerPatty>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddVeggieBurgerPatty>());
                 break;
             case 16:
-                order = std::make_shared<AddWater>();
-                order->executeOrder(m);
+                order.push_back(std::make_shared<AddWater>());
                 break;
         }
     }
     
 }
 
-std::shared_ptr<Order> Customer::getOrder() const{
+std::vector<std::shared_ptr<Order>> Customer::getOrder() const{
     return order;
 }

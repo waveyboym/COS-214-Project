@@ -54,7 +54,7 @@ class Customer : public People{
         /**
         * @brief Customer's order
         */
-        std::shared_ptr<Order> order;
+        std::vector<std::shared_ptr<Order>> order;
     public:
         /** 
         *@brief initialises a customer object
@@ -103,7 +103,7 @@ class Customer : public People{
         *@param none
         *@return std::shared_ptr<Order>
         */
-        std::shared_ptr<Order> getOrder() const;
+        std::vector<std::shared_ptr<Order>> getOrder() const;
 };
 
 #endif
