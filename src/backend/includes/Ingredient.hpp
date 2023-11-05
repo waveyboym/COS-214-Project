@@ -8,10 +8,6 @@
 #define INGREDIENT_HPP
 #include "Meal.hpp"
 
-#include <iostream>
-#include <sstream>
-#include <iomanip>
-
 class Ingredient: public Meal{
     private:
         std::shared_ptr<Meal> meal;
@@ -21,7 +17,7 @@ class Ingredient: public Meal{
         *@brief initialises an Ingredient object
         *@param meal the Meal object to add this ingredient to
         */
-        Ingredient(std::string name, double cost, double prepTime, std::shared_ptr<Meal> meal);
+        Ingredient(std::string name, double cost, std::shared_ptr<Meal> meal);
 
         /** 
         *@brief adds this Ingredient to an already existing Meal object
@@ -35,10 +31,6 @@ class Ingredient: public Meal{
         *@return double
         */
         double getTotalCost();
-
-        void setTotalPrepTime(double t);
-
-        double getTotalPrepTime();
 
         /** 
         *@brief adds this Ingredient to an already existing Meal object

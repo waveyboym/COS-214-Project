@@ -23,15 +23,13 @@ class Meal{
         */
         std::string name;
 
-        double prepTime;
-
 
     public:
         /** 
         *@brief initialises a Meal object
         *@param none
         */
-        Meal(std::string name, double cost, double prepTime); 
+        Meal(std::string name, double cost); 
 
         /** 
         *@brief returns the cost of this Meal Object
@@ -39,8 +37,6 @@ class Meal{
         *@return double
         */
         double getCost();
-
-        double getPrepTime();
 
         /** 
         *@brief adds to total cost of the meal
@@ -54,10 +50,6 @@ class Meal{
         *@return double
         */
         virtual double getTotalCost() = 0;
-
-        virtual void setTotalPrepTime(double p) = 0;
-
-        virtual double getTotalPrepTime() = 0;       
 
         /** 
         *@brief returns the name of this Meal Object

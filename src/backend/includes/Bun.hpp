@@ -9,10 +9,6 @@
 #define BUN_HPP
 #include "Meal.hpp"
 
-#include <iostream>
-#include <sstream>
-#include <iomanip>
-
 class Bun: public Meal{
     private:
         /** 
@@ -20,15 +16,13 @@ class Bun: public Meal{
         */
         double total_cost;
 
-        double totalPrepTime;
-
     public:
 
         /** 
         *@brief initialises a Bun object
         *@param none
         */
-        Bun(std::string name, double cost, double prepTime);
+        Bun(std::string name, double cost);
 
         /** 
         *@brief adds this Ingredient to an already existing Meal object
@@ -55,10 +49,6 @@ class Bun: public Meal{
         *@param c value to add to total
         */
         void setTotalCost(double c);
-
-        double getTotalPrepTime();
-
-        void setTotalPrepTime(double t);
 
 };
 

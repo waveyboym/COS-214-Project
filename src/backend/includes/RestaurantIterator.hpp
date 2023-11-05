@@ -1,7 +1,7 @@
 /**
 *@file RestaurantIterator.hpp RestaurantIterator.cpp
 *@class RestaurantIterator
-*@implements Collectable
+*@uses Collectable
 *@author Michael
 *@brief an interator interface that all concrete iterators must inherit from
 */

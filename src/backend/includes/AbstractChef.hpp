@@ -9,7 +9,6 @@
 #include <memory>
 #include <vector>
 #include "Order.hpp"
-
 #include "Customer.hpp"
 
 /** 
@@ -56,6 +55,7 @@ class AbstractChef{
         *@param customer the customer the order is from
         */
         void receiveOrder(std::vector<std::shared_ptr<Order>> order, std::shared_ptr<Customer> customer);
+
 };
 
 #endif

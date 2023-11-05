@@ -1,9 +1,8 @@
 #include "../includes/Ingredient.hpp"
 #include <sstream>
 
-Ingredient::Ingredient(std::string name, double cost, double prepTime, std::shared_ptr<Meal> m): Meal(name, cost, prepTime), meal(m){
+Ingredient::Ingredient(std::string name, double cost, std::shared_ptr<Meal> m): Meal(name, cost), meal(m){
     this->meal->setTotalCost(cost);
-    this->meal->setTotalPrepTime(prepTime);
 }
 
 double Ingredient::getTotalCost(){
@@ -21,21 +20,6 @@ void Ingredient::setTotalCost(double c){
     }
 }
 
-double Ingredient::getTotalPrepTime(){
-    if(meal){
-        return meal->getTotalPrepTime();
-    }
-    else{
-        return 0;
-    }
-}
-
-void Ingredient::setTotalPrepTime(double t){
-    if(meal){
-        meal->setTotalPrepTime(t);
-    }
-}
-
 std::string Ingredient::getItemizedList(){
     
     std::ostringstream out;
@@ -45,7 +29,6 @@ std::string Ingredient::getItemizedList(){
 
     if(meal){
         std::string s = this->getName() + "  R" + price + "\n";
-
         return meal->getItemizedList(s);
     }
     else{
@@ -62,7 +45,6 @@ std::string Ingredient::getItemizedList(std::string tail){
     
     if(meal){
         std::string mine = this->getName() + "  R" + price + "\n";
-
         return meal->getItemizedList(mine + tail);
     }
     else{

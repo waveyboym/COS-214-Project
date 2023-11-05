@@ -17,12 +17,10 @@ class HeadChef: public AbstractChef{
         *@brief stores the next chef in the chain
         */
         std::shared_ptr<AbstractChef> next;
-
     
     public:
 
     std::string type;
-
         /** 
         *@brief initialises a Chef
         *@param none
