@@ -1,8 +1,7 @@
 #include "../includes/Ingredient.hpp"
 
-Ingredient::Ingredient(std::string name, double cost, double prepTime, std::shared_ptr<Meal> m): Meal(name, cost, prepTime), meal(m){
+Ingredient::Ingredient(std::string name, double cost, std::shared_ptr<Meal> m): Meal(name, cost), meal(m){
     this->meal->setTotalCost(cost);
-    this->meal->setTotalPrepTime(prepTime);
 }
 
 double Ingredient::getTotalCost(){
@@ -17,21 +16,6 @@ double Ingredient::getTotalCost(){
 void Ingredient::setTotalCost(double c){
     if(meal){
         meal->setTotalCost(c);
-    }
-}
-
-double Ingredient::getTotalPrepTime(){
-    if(meal){
-        return meal->getTotalPrepTime();
-    }
-    else{
-        return 0;
-    }
-}
-
-void Ingredient::setTotalPrepTime(double t){
-    if(meal){
-        meal->setTotalPrepTime(t);
     }
 }
 

@@ -1,8 +1,7 @@
 #include "../includes/Bun.hpp"
 
-Bun::Bun(std::string name, double cost, double prepTime): Meal(name, cost, prepTime){
+Bun::Bun(std::string name, double cost): Meal(name, cost){
         this->setTotalCost(cost);
-        this->setTotalPrepTime(prepTime);
 }
 
 std::string Bun::getItemizedList(std::string tail){
@@ -46,12 +45,4 @@ double Bun::getTotalCost(){
 
 void Bun::setTotalCost(double c){
         this->totalCost += c;
-}
-
-double Bun::getTotalPrepTime(){
-        return this->totalPrepTime;
-}
-
-void Bun::setTotalPrepTime(double t){
-        this->totalPrepTime += t;
 }
