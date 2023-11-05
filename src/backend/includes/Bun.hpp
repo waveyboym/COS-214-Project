@@ -9,16 +9,12 @@
 #define BUN_HPP
 #include "Meal.hpp"
 
-#include <iostream>
-#include <sstream>
-#include <iomanip>
-
 class Bun: public Meal{
     private:
         /** 
         *@brief total cost of the meal
         */
-        double totalCost;
+        double total_cost;
 
     public:
 

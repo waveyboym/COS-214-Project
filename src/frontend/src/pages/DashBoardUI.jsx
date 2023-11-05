@@ -59,8 +59,6 @@ import {
     socket.onmessage = function(event){
       //the backend responds with the needed data
       const json = JSON.parse(event.data);
-      
-      //navigate to the tracking - page here
       if(json.status === "success" && json.player === "manager" && json.command === "get_all"){
         setAllData(json.message);
         setTableData(json.table_data);
@@ -75,7 +73,7 @@ import {
 
     const changeComplexTable = function(setTo){
       settableType(setTo);
-      const json = { token: apikey, player: "manager", command: "update_table", message: setTo};
+      const json = { token: apikey, player: "manager", command: "update_table", table_type: setTo};
       socket.send(JSON.stringify(json));
     }
 

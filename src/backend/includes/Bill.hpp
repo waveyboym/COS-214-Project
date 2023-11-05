@@ -9,6 +9,7 @@
 #define BILL_HPP
 #include "Collectable.hpp"
 #include <string>
+#include <cmath>
 
 /** 
 *@brief an Bill class which is a concrete iterator class of Collectable
@@ -30,9 +31,9 @@ class Bill : public Collectable{
         /** 
         *@brief returns the bill total
         *@param none
-        *@return int
+        *@return double
         */
-        virtual int getTotal() = 0;
+        virtual double getTotal() = 0;
 };
 
 #endif

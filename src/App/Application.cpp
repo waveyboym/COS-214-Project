@@ -46,6 +46,9 @@ bool Application::removeClientFromListAndRestaurant(bool is_a_manager, std::stri
 
         if(it != this->connected_managers.end()){
             this->connected_managers.erase(it);
+            if(this->connected_managers_table.contains((*it))){
+                this->connected_managers_table.erase((*it));
+            }
             return true;
         }
         else{
@@ -57,11 +60,11 @@ bool Application::removeClientFromListAndRestaurant(bool is_a_manager, std::stri
 
         if(it != this->connected_customers.end()){
             this->connected_customers.erase(it);
-            //json req_obj = json::parse(
-            //"{"
-             //   "\"token\":\""+ client_uuid +"\""
-            //"}");
-            //this->restaurant->FRONTEND_processCustomerRestaurantExit(req_obj);
+            json req_obj = json::parse(
+            "{"
+                "\"token\":\""+ client_uuid +"\""
+            "}");
+            this->restaurant->FRONTEND_processCustomerRestaurantExit(req_obj);
             return true;
         }
         else{
@@ -96,22 +99,25 @@ void Application::messageManagers(){
     //mutex locking here to prevent multiple threads from trying to do some deletions or insertions
     std::lock_guard<std::mutex> lock(this->mtx);
     for(std::list<std::string>::iterator it = this->connected_managers.begin(); it != this->connected_managers.end(); ++it){
-        if(this->connected_clients.contains((*it))){
-            //this->connected_clients[(*it)]->send_text(this->restaurant->FRONTEND_processManagerGetAll(req_obj));
-            this->connected_clients[(*it)]->send_text("{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":23,\"waiter_count\":25,\"rating\":5},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Assigned\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}");
+        if(this->connected_clients.contains((*it)) && this->connected_managers_table.contains((*it))){
+            json req_obj = json::parse(
+            "{"
+                "\"table_type\":\""+ this->connected_managers_table[(*it)] +"\""
+            "}");
+            this->connected_clients[(*it)]->send_text(this->restaurant->FRONTEND_processManagerGetAll(req_obj));
         }
     }
 }
 
 void Application::updateRestaurant(){
     //mutex locking here to prevent multiple threads from trying to do some deletions or insertions
-    //std::lock_guard<std::mutex> lock(this->mtx);
+    std::lock_guard<std::mutex> lock(this->mtx);
 
-    //if(this->restaurant == nullptr){
-    //    this->restaurant = Restaurant::instance();
-    //}
+    if(this->restaurant == nullptr){
+        this->restaurant = Restaurant::instance();
+    }
 
-    //this->restaurant->progressByOneStep();
+    this->restaurant->progressByOneStep();
 }
 
 void Application::initApp()
@@ -119,9 +125,9 @@ void Application::initApp()
     //init important data here
     this->pause_app_execution = false;
     this->quit_app = false;
-    //if(this->restaurant == nullptr){
-    //    this->restaurant = Restaurant::instance();
-    //}
+    if(this->restaurant == nullptr){
+        this->restaurant = Restaurant::instance();
+    }
 }
 
 void Application::runApp()
@@ -185,9 +191,9 @@ void Application::runApp()
 
 void Application::progressForward()
 {
-    //if(this->restaurant == nullptr){
-    //    this->restaurant = Restaurant::instance();
-    //}
+    if(this->restaurant == nullptr){
+        this->restaurant = Restaurant::instance();
+    }
 
     std::chrono::time_point<std::chrono::system_clock> start, end;
     end, start = std::chrono::system_clock::now();
@@ -199,6 +205,10 @@ void Application::progressForward()
             elapsed_seconds = end - start;
         }
 
+        while(this->pause_app_execution){ 
+            std::this_thread::yield(); //do not modify 
+        }
+
         std::cout << "[DEBUG] ticked forward once in progressForward " << std::endl;
         //do processing here
         //send message out to all managers
@@ -208,7 +218,7 @@ void Application::progressForward()
         end, start = std::chrono::system_clock::now();
         elapsed_seconds = end - start;
 
-        while (this->pause_app_execution) { 
+        while(this->pause_app_execution){ 
             std::this_thread::yield(); //do not modify 
         }
     }
@@ -252,8 +262,7 @@ std::string Application::processCustomerRequest(json req_obj)
     //add their token
     if(req_obj["command"] == "add_token"){
         this->connected_customers.push_back(req_obj["token"]);
-        //return this->restaurant->FRONTEND_processCustomerRestaurantEntry(req_obj);
-        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"add_token\",\"message\":\"successfully added customer token\"}";
+        return this->restaurant->FRONTEND_processCustomerRestaurantEntry(req_obj);
     }
 
     //check that their token exists in customer list
@@ -262,29 +271,23 @@ std::string Application::processCustomerRequest(json req_obj)
         return "{\"status\":\"error\",\"player\":\"customer\",\"message\":\"token does not exist in connected customer tokens\"}";
     }
 
-    if(req_obj["command"] == "seat_request"){
-        //return this->restaurant->FRONTEND_processCustomerRequestSeat(req_obj);
-        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
+    if(req_obj["command"] == "seat_request" && req_obj.contains("message") && req_obj["message"] == "seat"){
+        return this->restaurant->FRONTEND_processCustomerRequestSeat(req_obj);
     }
-    else if(req_obj["command"] == "unseat_request"){
-        //return this->restaurant->FRONTEND_processCustomerRequestUnSeat(req_obj);
-        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
+    else if(req_obj["command"] == "seat_request" && req_obj.contains("message") && req_obj["message"] == "unseat"){
+        return this->restaurant->FRONTEND_processCustomerRequestUnSeat(req_obj);
     }
     else if(req_obj["command"] == "create_order"){
-        //return this->restaurant->FRONTEND_processCustomerOrder(req_obj);
-        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"create_order\",\"message\":\"successfully created order\"}";
+        return this->restaurant->FRONTEND_processCustomerOrder(req_obj);
     }
-    else if(req_obj["command"] == "change_emotional_state"){
-        //return this->restaurant->FRONTEND_processCustomersEmotion(req_obj);
-        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
+    else if(req_obj["command"] == "change_emotional_state" && req_obj.contains("emotional_state")){
+        return this->restaurant->FRONTEND_processCustomersEmotion(req_obj);
     }
     else if(req_obj["command"] == "get_food"){
-        //return this->restaurant->FRONTEND_processUpdateCheck(req_obj);
-        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}";
+        return this->restaurant->FRONTEND_processUpdateCheck(req_obj);
     }
     else if(req_obj["command"] == "checkout"){
-        //return this->restaurant->FRONTEND_processCheckOutCustomer(req_obj);
-        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"checkout\",\"message\":\"successfully checked out\"}";
+        return this->restaurant->FRONTEND_processCheckOutCustomer(req_obj);
     }
     else{
         std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["command"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
@@ -309,25 +312,28 @@ std::string Application::processManagerRequest(json req_obj)
     //add their token
     if(req_obj["command"] == "add_token"){
         this->connected_managers.push_back(req_obj["token"]);
+        std::string id = req_obj["token"];
+        this->connected_managers_table[id] = "waiters";
         return "{\"status\":\"success\",\"player\":\"manager\",\"message\":\"successfully added manager token\"}";
     }
 
     //check that their token exists in manager list
-    if(!this->existingToken(this->connected_managers, req_obj["token"])){
+    std::string id = req_obj["token"];
+    if(!this->existingToken(this->connected_managers, req_obj["token"]) && !this->connected_managers_table.contains((id))){
         std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["token"] << " token does not exist in connected managers tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\",\"player\":\"manager\",\"message\":\"token does not exist in connected managers tokens\"}";
     }
     
-    if(req_obj["command"] == "get_all"){
-        //return this->restaurant->FRONTEND_processManagerGetAll(req_obj);
-        return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"get_all\",\"message\":{\"customer_count\":12,\"waiter_count\":20,\"rating\":3},\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Assigned\",\"date\":\"18 Apr 2022\",\"progress\":75.5},{\"name\":\"Horizon UI Free\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2022\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Error\",\"date\":\"20 May 2021\",\"progress\":90},{\"name\":\"Weekly Updates\",\"status\":\"Assigned\",\"date\":\"12 Jul 2021\",\"progress\":50.5}]}";
+    if(req_obj["command"] == "get_all" && req_obj.contains("table_type")){
+        return this->restaurant->FRONTEND_processManagerGetAll(req_obj);
     }
-    else if(req_obj["command"] == "update_table"){
-        //return this->restaurant->FRONTEND_processManagerGetTable(req_obj);
-        return "{\"status\":\"success\",\"player\":\"manager\",\"command\":\"update_table\",\"table_data\":[{\"name\":\"Horizon UI PRO\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2023\",\"progress\":0},{\"name\":\"Horizon UI Free\",\"status\":\"Not Assigned\",\"date\":\"18 Apr 2023\",\"progress\":25.5},{\"name\":\"Marketplace\",\"status\":\"Assigned\",\"date\":\"20 May 2022\",\"progress\":0},{\"name\":\"Weekly Updates\",\"status\":\"Assigned\",\"date\":\"12 Jul 2022\",\"progress\":15}]}";
+    else if(req_obj["command"] == "update_table" && req_obj.contains("table_type")){
+        std::string table_type = req_obj["table_type"];
+        this->connected_managers_table[id] = table_type;
+        return this->restaurant->FRONTEND_processManagerGetTable(req_obj);
     }
     else{
-        std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["player"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["command"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\", \"message\":\"invalid command found\"}";
     }
 }
