@@ -390,7 +390,7 @@ std::string Restaurant::FRONTEND_processCustomersEmotion(json req_obj) {
     while (!c_i->isDone())
     {
         std::shared_ptr<Customer> curCustomer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
-        if(curr_customer != nullptr && curCustomer->getUUID() == id){
+        if(curCustomer != nullptr && curCustomer->getUUID() == id){
             if(emotionalState == "happy"){
                 curCustomer->setEmotionalState(EMOTIONAL_STATE::HAPPY);
             }
@@ -409,11 +409,11 @@ std::string Restaurant::FRONTEND_processCustomersEmotion(json req_obj) {
             else{
                 return "{\"status\":\"error\",\"message\":\"no such emotional state exists\"}";
             }
-            return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"change_emotional_state\",\"message\":\"emotionalState\"}";
+            return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"change_emotional_state\",\"message\":\"" + emotionalState + "\"}";
         }
         c_i->next();
     }
-
+        // std::string id = req_obj["token"].get<std::string>();
     return "{\"status\":\"error\",\"message\":\"no customer with this uuid exists\"}";
 }
 
@@ -517,7 +517,7 @@ std::string Restaurant::FRONTEND_processCheckOutCustomer(json req_obj) {
             this->maitre_d->unseatCustomer(this->single_tables, this->joined_tables, this->customers[id], this->waiters);
             this->customers.erase(id);
             std::cout << color::format_colour::make_colour(color::RED) << "customer with uuid of: " << id << " has checked out" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-                "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"checkout\",\"message\":\"successfully checked out\"}";
+           return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"checkout\",\"message\":\"successfully checked out\"}";
         } else {
             return "{\"status\":\"error\",\"message\":\"Customer not found\"}";
         }
