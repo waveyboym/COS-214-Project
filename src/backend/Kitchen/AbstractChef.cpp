@@ -1,8 +1,9 @@
 #include "../includes/AbstractChef.hpp"
 
-AbstractChef::AbstractChef(){
+
+AbstractChef::AbstractChef(std::string type){
     this->next = nullptr;
-    this->pos_ptr = nullptr;
+    this->type = type;
 }
 
 void AbstractChef::add(std::shared_ptr<AbstractChef> c){
@@ -14,15 +15,7 @@ void AbstractChef::add(std::shared_ptr<AbstractChef> c){
     }
 }
 
-void AbstractChef::receiveOrder(std::vector<std::shared_ptr<Order>> order, std::string waiterUUID){
-    this->makeOrder(order, waiterUUID, nullptr);
-}
-
-void AbstractChef::setPOS(std::shared_ptr<POS> pos){
-    this->pos_ptr = pos;
-}
-
-std::shared_ptr<POS> AbstractChef::getPOS(){
-    return this->pos_ptr;
+void AbstractChef::receiveOrder(std::vector<std::shared_ptr<Order>> order, std::shared_ptr<Customer> c){
+    this->makeOrder(order, c, nullptr);
 }
 

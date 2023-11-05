@@ -1,7 +1,7 @@
 #include "../includes/Waiter.hpp"
 
 Waiter::Waiter(){
-    
+
 }
 
 Waiter::Waiter(std::string waiteruuid){
@@ -32,10 +32,33 @@ void Waiter::assignID(int set_to){
     this->assigned_table_id = set_to;
 }
 
+
+void Waiter::assignTable(std::shared_ptr<Table> set_to){
+    this->my_table = set_to;
+}
+
+void Waiter::getUpdate(std::vector<std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>>> new_meals){
+
+    std::list<std::shared_ptr<Customer>> my_customers = this->my_table.get()->getAllSeatedCustomers();
+
+    for(int i = 0; i < new_meals.size(); i++){
+
+        std::shared_ptr<Customer> customer = new_meals.at(i).second;
+        
+        for (auto current_my_customer : my_customers) {
+            if(current_my_customer == customer){
+                std::cout << "Waiter " << this->getUUID() << " delivered Meal to customer " << customer.get()->getUUID() << std::endl;
+            }
+        }
+        
+    }
+
+
 void Waiter::takeOrder(std::shared_ptr<Customer> customer){
     this->order = customer->getOrder();
 }
 
 std::vector<std::shared_ptr<Order>>  Waiter::getOrder(){
     return order;
+
 }
