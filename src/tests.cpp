@@ -82,8 +82,8 @@
 #include "tests/billTest.cpp"
 #include "tests/maitreDTest.cpp"
 #include "tests/kitchenTest.cpp"
-
 #include "tests/ordersTest.cpp"
+#include "tests/restaurantTest.cpp"
 
 int main(int argc, char* argv[])
 {
