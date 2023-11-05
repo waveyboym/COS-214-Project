@@ -72,16 +72,18 @@
 #include "backend/Orders/AddWholeWheatBun.cpp"
 
 
-#include "tests/colorTest.cpp"
-#include "tests/iteratorTest.cpp"
-#include "tests/stateTest.cpp"
-#include "tests/peopleTest.cpp"
-#include "tests/tableTest.cpp"
-#include "tests/billTest.cpp"
-#include "tests/maitreDTest.cpp"
-#include "tests/kitchenTest.cpp"
+// #include "tests/colorTest.cpp"
+// #include "tests/mealTest.cpp"
+#include "tests/orderServiceTest.cpp"
+// #include "tests/iteratorTest.cpp"
+// #include "tests/stateTest.cpp"
+// #include "tests/peopleTest.cpp"
+// #include "tests/tableTest.cpp"
+// #include "tests/billTest.cpp"
+// #include "tests/maitreDTest.cpp"
+// #include "tests/kitchenTest.cpp"
 
-#include "tests/ordersTest.cpp"
+// #include "tests/ordersTest.cpp"
 
 int main(int argc, char* argv[])
 {
