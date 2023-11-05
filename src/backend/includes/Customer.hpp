@@ -40,6 +40,7 @@
 
 #include <vector>
 #include <memory>
+#include <vector>
 
 /** 
 *@brief a customer object
