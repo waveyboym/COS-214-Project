@@ -53,3 +53,8 @@ void Waiter::getUpdate(std::vector<std::pair<std::shared_ptr<Meal>, std::shared_
 void Waiter::takeOrder(std::shared_ptr<Customer> customer){
     this->order = customer->getOrder();
 }
+
+
+std::vector<std::shared_ptr<Order>> Waiter::getOrder(){
+    return order;
+}
