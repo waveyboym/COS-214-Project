@@ -11,7 +11,7 @@
 #include "../backend/includes/json.hpp"
 #include "../backend/includes/uuid.h"
 #include "../backend/includes/color.hpp"
-//#include "../backend/includes/Restaurant.hpp"
+#include "../backend/includes/Restaurant.hpp"
 #include <map>
 #include <mutex>
 #include <chrono>
@@ -56,7 +56,7 @@ class Application{
         /**
          * @brief this holds the app variable that creates a websocket and intercepts incoming requests
         */
-        //std::shared_ptr<Restaurant> restaurant;
+        std::shared_ptr<Restaurant> restaurant;
 
         /**
          * @brief this holds all of the connected/subscribed clients that way if there is an update on the backend, we can send updated data to the client in json form.
