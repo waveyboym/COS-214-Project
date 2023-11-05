@@ -7,17 +7,16 @@
 */
 #ifndef CONCRETE_MAITRE_D_HPP
 #define CONCRETE_MAITRE_D_HPP
+#include "MaitreD.hpp"
+#include "Table.hpp"
+#include "SingleTableIterator.hpp"
+#include "JoinedTableIterator.hpp"
+#include "Customer.hpp"
+#include "Waiter.hpp"
+#include "WaiterIterator.hpp"
 #include <list>
 #include <map>
 #include <string>
-
-#include "Customer.hpp"
-#include "JoinedTableIterator.hpp"
-#include "MaitreD.hpp"
-#include "SingleTableIterator.hpp"
-#include "Table.hpp"
-#include "Waiter.hpp"
-#include "WaiterIterator.hpp"
 
 /**
 *@brief defines a Concrete MaitreD which is responsible for observing a customer, seating a customer and assigning tables to a waiter

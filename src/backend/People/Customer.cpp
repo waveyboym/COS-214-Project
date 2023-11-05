@@ -68,3 +68,81 @@ bool Customer::getHasCompletedMeal(){
 void Customer::setHasCompletedMeal(bool set_to){
     this->has_completed_meal = set_to;
 }
+
+void Customer::setOrder(){
+    int rNum = rand();
+    std::shared_ptr<Order> o;
+
+    switch(rNum%3){
+        case 0:
+            order.push_back(std::make_shared<AddNoBun>());
+            break;
+        case 1:
+            order.push_back(std::make_shared<AddNormalBun>());
+            break;
+        case 2:
+            order.push_back(std::make_shared<AddWholeWheatBun>());
+            break;
+    }
+
+    for (int i = 0; i < 10; i++)
+    {
+        switch(rand()%17){
+            case 0:
+                break;
+            case 1:
+                order.push_back(std::make_shared<AddBBQSauce>());
+                break;
+            case 2:
+                order.push_back(std::make_shared<AddBeefBurgerPatty>());
+                break;
+            case 3:
+                order.push_back(std::make_shared<AddCaramelizedOnion>());
+                break;
+            case 4:
+                order.push_back(std::make_shared<AddCheese>());
+                break;
+            case 5:
+                order.push_back(std::make_shared<AddChickenBurgerPatty>());
+                break;
+            case 6:
+                order.push_back(std::make_shared<AddColdDrink>());
+                break;
+            case 7:
+                order.push_back(std::make_shared<AddFries>());
+                break;
+            case 8:
+                order.push_back(std::make_shared<AddJuice>());
+                break;
+            case 9:
+                order.push_back(std::make_shared<AddLettuce>());
+                break;
+            case 10:
+                order.push_back(std::make_shared<AddMayo>());
+                break;
+            case 11:
+                order.push_back(std::make_shared<AddOnion>());
+                break;
+            case 12:
+                order.push_back(std::make_shared<AddPickles>());
+                break;
+            case 13:
+                order.push_back(std::make_shared<AddPineApple>());
+                break;
+            case 14:
+                order.push_back(std::make_shared<AddTomato>());
+                break;
+            case 15:
+                order.push_back(std::make_shared<AddVeggieBurgerPatty>());
+                break;
+            case 16:
+                order.push_back(std::make_shared<AddWater>());
+                break;
+        }
+    }
+    
+}
+
+std::vector<std::shared_ptr<Order>> Customer::getOrder() const{
+    return order;
+}

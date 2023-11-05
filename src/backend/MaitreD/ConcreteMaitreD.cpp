@@ -101,6 +101,7 @@ bool ConcreteMaitreD::assignWaiterToTable(std::list<std::shared_ptr<SingleTable>
         if(table != nullptr && !table->isAssignedAWaiter() && !waiter->isAssignedATable() && !table->isTableAvailable()){
             //assign the waiter the table
             waiter->assignID(table->getTableID());
+            waiter->assignTable(table);
             waiter->setIsAssignedATable(true);
             
             table->setWaiterID(waiter->getUUID());
@@ -115,6 +116,7 @@ bool ConcreteMaitreD::assignWaiterToTable(std::list<std::shared_ptr<SingleTable>
         if(table != nullptr && !table->isAssignedAWaiter() && !waiter->isAssignedATable() && !table->isTableAvailable()){
             //assign the waiter the table
             waiter->assignID(table->getTableID());
+            waiter->assignTable(table);
             waiter->setIsAssignedATable(true);
 
             table->setWaiterID(waiter->getUUID());
@@ -125,14 +127,4 @@ bool ConcreteMaitreD::assignWaiterToTable(std::list<std::shared_ptr<SingleTable>
     }
 
     return false;
-}
-
-bool ConcreteMaitreD::reserveTable(std::shared_ptr<Table> t,std::string c_uid){
-    if(t->getReserverUUID() == ""){
-        t->setReserverUUID(c_uid);
-        return true;
-    }
-    else {
-        return false;
-    }
 }
