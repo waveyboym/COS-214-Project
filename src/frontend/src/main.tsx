@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.js';
+import App from './App';
 import './index.css';
 import "./css/style.css";
 import "./css/style.scss";
@@ -18,9 +18,9 @@ import "./js/jquery-3.4.1.min.js";
 import {SocketProvider} from './contexts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <SocketProvider>
-      <App />
-    </SocketProvider>
-  </React.StrictMode>
+    <React.StrictMode>
+      <SocketProvider>
+        <App />
+      </SocketProvider>
+    </React.StrictMode>
 )
