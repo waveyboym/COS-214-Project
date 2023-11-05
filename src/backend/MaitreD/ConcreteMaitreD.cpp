@@ -99,7 +99,6 @@ bool ConcreteMaitreD::assignWaiterToTable(std::list<std::shared_ptr<SingleTable>
         if(table != nullptr && !table->isAssignedAWaiter() && !waiter->isAssignedATable()){
             //assign the waiter the table
             waiter->assignID(table->getTableID());
-            waiter->assignTable(table);
             waiter->setIsAssignedATable(true);
             
             table->setWaiterID(waiter->getUUID());
@@ -114,7 +113,6 @@ bool ConcreteMaitreD::assignWaiterToTable(std::list<std::shared_ptr<SingleTable>
         if(table != nullptr && !table->isAssignedAWaiter() && !waiter->isAssignedATable()){
             //assign the waiter the table
             waiter->assignID(table->getTableID());
-            waiter->assignTable(table);
             waiter->setIsAssignedATable(true);
 
             table->setWaiterID(waiter->getUUID());

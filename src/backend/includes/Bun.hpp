@@ -18,7 +18,7 @@ class Bun: public Meal{
         /** 
         *@brief total cost of the meal
         */
-        double total_cost;
+        double totalCost;
 
         double totalPrepTime;
 

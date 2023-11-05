@@ -8,13 +8,10 @@
 #ifndef WAITER_HPP
 #define WAITER_HPP
 #include "People.hpp"
-#include "Table.hpp"
-#include "Meal.hpp"
-
+#include "Order.hpp"
+#include "JoinedTable.hpp"
 #include <memory>
 #include <string>
-#include <vector>
-
 
 /** 
 *@brief a waiter object
@@ -30,10 +27,9 @@ class Waiter : public People{
         */
         int assigned_table_id = -1;
         /** 
-        *@brief the table that this waiter is assigned to
+        *@brief order for this waiter to fulfill
         */
-        std::shared_ptr<Table> my_table = nullptr;
-
+        std::vector<std::shared_ptr<Order>> order;
     public:
         /** 
         *@brief constructor
@@ -82,18 +78,18 @@ class Waiter : public People{
         *@return void
         */ 
         void assignID(int set_to);
-        /** 
-        *@brief assigns this waiter a table for them to serve
-        *@param set_to table to set to
-        *@return void
-        */ 
-        void assignTable(std::shared_ptr<Table> set_to);
-        /** 
-        *@brief alerts this waiter to check the kitchen for new food. Given a list of new_meals it will deliver any meals that belong to one of the customers it is serving.
-        *@param new_meals the meals that have been recently prepared
-        *@return void
-        */ 
-        void getUpdate(std::vector<std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>>> new_meals);
+        /**
+        *@brief take customer's order
+        *@param std::shared_ptr<Customer> customer
+        *@return none
+        */
+        void takeOrder(std::shared_ptr<Customer> customer);
+        /**
+        *@brief getter for order
+        *@param none
+        *@return  std::vector<std::shared_ptr<Order>>
+        */
+        std::vector<std::shared_ptr<Order>> getOrder();
 };
 
 #endif

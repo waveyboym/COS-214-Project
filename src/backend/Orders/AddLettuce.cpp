@@ -1,6 +1,3 @@
-#ifndef ADD_LETTUCE_CPP
-#define ADD_LETTUCE_CPP
-
 #include "../includes/AddLettuce.hpp"
 
 std::shared_ptr<Meal> AddLettuce::executeOrder(std::shared_ptr<Meal> m) {
@@ -11,5 +8,3 @@ std::shared_ptr<Meal> AddLettuce::executeOrder(std::shared_ptr<Meal> m) {
         return std::make_shared<Lettuce>(m);
     }
 }
-
-#endif

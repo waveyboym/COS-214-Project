@@ -1,6 +1,3 @@
-#ifndef ADD_BEEF_PATTY_CPP
-#define ADD_BEEF_PATTY_CPP
-
 #include "../includes/AddBeefBurgerPatty.hpp"
 
 std::shared_ptr<Meal> AddBeefBurgerPatty::executeOrder(std::shared_ptr<Meal> m){
@@ -11,5 +8,3 @@ std::shared_ptr<Meal> AddBeefBurgerPatty::executeOrder(std::shared_ptr<Meal> m){
         return std::make_shared<BeefPatty>(m);
     }
 }
-
-#endif

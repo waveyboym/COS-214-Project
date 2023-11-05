@@ -1,6 +1,3 @@
-#ifndef ADD_WHOLEWHEAT_CPP
-#define ADD_WHOLEWHEAT_CPP
-
 #include "../includes/AddWholeWheatBun.hpp"
 
 std::shared_ptr<Meal> AddWholeWheatBun::executeOrder(std::shared_ptr<Meal> m){
@@ -11,5 +8,3 @@ std::shared_ptr<Meal> AddWholeWheatBun::executeOrder(std::shared_ptr<Meal> m){
         return std::make_shared<WholewheatBun>();
     }
 }
-
-#endif
