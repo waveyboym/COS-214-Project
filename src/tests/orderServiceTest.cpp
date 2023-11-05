@@ -26,7 +26,9 @@
 
 namespace orderServiceTest{
     TEST(Order_Service_Test, CUSTOMER_TO_WAITER_TO_KITCHEN_TO_CUSTOMER){
-        std::shared_ptr<Customer> C = std::make_shared<Customer>();
+        std::shared_ptr<Customer> C = std::make_shared<Customer>("012");
+        std::shared_ptr<Customer> C1 = std::make_shared<Customer>();
+        std::shared_ptr<Customer> C2 = std::make_shared<Customer>();
 
         std::shared_ptr<Waiter> W1 = std::make_shared<Waiter>("0000");
         std::shared_ptr<Waiter> W2 = std::make_shared<Waiter>("0001");
@@ -43,10 +45,19 @@ namespace orderServiceTest{
         ASSERT_NE(C, nullptr);
 
         C->setOrder();
+        C1->setOrder();
+        C2->setOrder();
+
         W1->takeOrder(C);
+        W2->takeOrder(C1);
+        W3->takeOrder(C2);
 
-        K->createMeal(W1->getOrder(), C);
+        K->createMeal(W3->getOrder(), C);
+        K->createMeal(W2->getOrder(), C1);
+        // K->createMeal(W3->getOrder(), C2);
 
-        EXPECT_EQ(K->getCompletedMeals().front().first->getItemizedList(),"a");
+
+
+        EXPECT_EQ(K->getCompletedMeals().begin()->first->getItemizedList(), "Chicken Patty  R10.99\nTomato  R2.57\nChicken Patty  R10.99\nJuice  R14.36\nCheese  R4.38\nTomato  R2.57\nFresh Red Onion  R3.12\nChicken Patty  R8.52\nMayonnaise  R2.18\n\nTotal: R59.68");
     }
 }
