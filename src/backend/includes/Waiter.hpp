@@ -32,6 +32,10 @@ class Waiter : public People{
         *@brief the table that this waiter is assigned to
         */
         std::shared_ptr<Table> my_table = nullptr;
+        /** 
+        *@brief order for this waiter to fulfill
+        */
+        std::vector<std::shared_ptr<Order>> order;
     public:
         /** 
         *@brief constructor
@@ -85,6 +89,13 @@ class Waiter : public People{
         *@return void
         */ 
         void getUpdate(std::vector<std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>>> new_meals);
+        void takeOrder(std::shared_ptr<Customer> customer);
+        /**
+        *@brief getter for order
+        *@param none
+        *@return  std::vector<std::shared_ptr<Order>>
+        */
+        std::vector<std::shared_ptr<Order>> getOrder();
 };
 
 #endif

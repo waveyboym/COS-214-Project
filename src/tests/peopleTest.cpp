@@ -83,6 +83,19 @@ namespace customerTest{
 
         EXPECT_EQ(C->getUUID(), "customer");
     }
+
+    TEST(Customer_test, SET_AND_GET_ORDER){
+        std::shared_ptr<Customer> C = std::make_shared<Customer>();
+
+        ASSERT_NE(C, nullptr);
+
+        C->setOrder();
+        std::shared_ptr<Order> F = C->getOrder().front();
+        std::shared_ptr<Order> B = C->getOrder().back();
+
+        ASSERT_NE(F, nullptr);
+        ASSERT_NE(B, nullptr);
+    }
 }
 
 namespace waiterTest{
@@ -124,5 +137,18 @@ namespace waiterTest{
         W->setUUID("waiter");
 
         EXPECT_EQ(W->getUUID(), "waiter");
+    }
+
+    TEST(Waiter_test, WAITER_TAKE_ORDER){
+        std::shared_ptr<Waiter> W = std::make_shared<Waiter>();
+        std::shared_ptr<Customer> C = std::make_shared<Customer>();
+
+        ASSERT_NE(W, nullptr);
+        ASSERT_NE(C, nullptr);
+
+        C->setOrder();
+        W->takeOrder(C);
+
+        ASSERT_NE(W->getOrder().front(), nullptr);
     }
 }
