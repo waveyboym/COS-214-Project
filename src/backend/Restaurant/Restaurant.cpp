@@ -3,7 +3,6 @@
 
 Restaurant::Restaurant(){
     this->maitre_d = std::make_shared<ConcreteMaitreD>();
-    this->frontend_manager_table_type = "waiters";
     //pre-determined number of waiters in the restaurant
     this->waiters["Dwain Barber"] = std::make_shared<Waiter>("Dwain Barber");
     this->waiters["Meredith Lin"] = std::make_shared<Waiter>("Meredith Lin");
@@ -430,7 +429,8 @@ std::string Restaurant::FRONTEND_processUpdateCheck(json req_obj) {
 
 
 std::string Restaurant::FRONTEND_processManagerGetAll(json req_obj){
-    if(this->frontend_manager_table_type == "waiters"){
+    std::string table_type_ = req_obj["table_type"];
+    if(table_type_ == "waiters"){
         return "{"
                     "\"status\":\"success\","
                     "\"player\":\"manager\","
@@ -440,12 +440,10 @@ std::string Restaurant::FRONTEND_processManagerGetAll(json req_obj){
                         "\"waiter_count\":"+ std::to_string(this->waiters.size()) +","
                         "\"rating\":5"
                     "},"
-                    "\"table_data\":["
-                        + this->FRONTEND_getTableObjects("waiters") +
-                    "]"
+                    "\"table_data\":" + this->FRONTEND_getTableObjects("waiters") +
                 "}";
     }
-    else if(this->frontend_manager_table_type == "customers"){
+    else if(table_type_ == "customers"){
         return "{"
                     "\"status\":\"success\","
                     "\"player\":\"manager\","
@@ -455,9 +453,7 @@ std::string Restaurant::FRONTEND_processManagerGetAll(json req_obj){
                         "\"waiter_count\":"+ std::to_string(this->waiters.size()) +","
                         "\"rating\":5"
                     "},"
-                    "\"table_data\":["
-                        + this->FRONTEND_getTableObjects("customers") +
-                    "]"
+                    "\"table_data\":" + this->FRONTEND_getTableObjects("customers") +
                 "}";
     }
     else{
@@ -470,17 +466,14 @@ std::string Restaurant::FRONTEND_processManagerGetAll(json req_obj){
                         "\"waiter_count\":"+ std::to_string(this->waiters.size()) +","
                         "\"rating\":5"
                     "},"
-                    "\"table_data\":["
-                        + this->FRONTEND_getTableObjects("tables") +
-                    "]"
+                    "\"table_data\":" + this->FRONTEND_getTableObjects("tables") +
                 "}";
     }
 }
 
 std::string Restaurant::FRONTEND_processManagerGetTable(json req_obj){
     std::string table_type_ = req_obj["table_type"];
-    this->frontend_manager_table_type = table_type_;
-    if(this->frontend_manager_table_type == "waiters"){
+    if(table_type_ == "waiters"){
         return "{"
                 "\"status\":\"success\","
                 "\"player\":\"manager\","
@@ -488,7 +481,7 @@ std::string Restaurant::FRONTEND_processManagerGetTable(json req_obj){
                 "\"table_data\":" + this->FRONTEND_getTableObjects("waiters") +
             "}";
     }
-    else if(this->frontend_manager_table_type == "customers"){
+    else if(table_type_ == "customers"){
         return "{"
                 "\"status\":\"success\","
                 "\"player\":\"manager\","

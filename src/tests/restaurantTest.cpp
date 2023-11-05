@@ -151,7 +151,7 @@ namespace restaurantFrontEndTest{
 
         json req_obj = json::parse(
             "{"
-                "\"table_type\":\"waiters\""
+                "\"update_table\":\"waiters\""
             "}");
 
         std::cout << R->FRONTEND_processManagerGetTable(req_obj) << std::endl;
@@ -165,7 +165,7 @@ namespace restaurantFrontEndTest{
 
         json req_obj = json::parse(
             "{"
-                "\"table_type\":\"customers\""
+                "\"update_table\":\"customers\""
             "}");
 
         std::cout << R->FRONTEND_processManagerGetTable(req_obj) << std::endl;
@@ -179,7 +179,7 @@ namespace restaurantFrontEndTest{
 
         json req_obj = json::parse(
             "{"
-                "\"table_type\":\"table\""
+                "\"update_table\":\"table\""
             "}");
 
         std::cout << R->FRONTEND_processManagerGetTable(req_obj) << std::endl;

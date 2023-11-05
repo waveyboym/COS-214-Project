@@ -46,6 +46,9 @@ bool Application::removeClientFromListAndRestaurant(bool is_a_manager, std::stri
 
         if(it != this->connected_managers.end()){
             this->connected_managers.erase(it);
+            if(this->connected_managers_table.contains((*it))){
+                this->connected_managers_table.erase((*it));
+            }
             return true;
         }
         else{
@@ -96,8 +99,11 @@ void Application::messageManagers(){
     //mutex locking here to prevent multiple threads from trying to do some deletions or insertions
     std::lock_guard<std::mutex> lock(this->mtx);
     for(std::list<std::string>::iterator it = this->connected_managers.begin(); it != this->connected_managers.end(); ++it){
-        if(this->connected_clients.contains((*it))){
-            json req_obj = json::parse("{}");
+        if(this->connected_clients.contains((*it)) && this->connected_managers_table.contains((*it))){
+            json req_obj = json::parse(
+            "{"
+                "\"table_type\":\""+ this->connected_managers_table[(*it)] +"\""
+            "}");
             this->connected_clients[(*it)]->send_text(this->restaurant->FRONTEND_processManagerGetAll(req_obj));
         }
     }
@@ -306,23 +312,28 @@ std::string Application::processManagerRequest(json req_obj)
     //add their token
     if(req_obj["command"] == "add_token"){
         this->connected_managers.push_back(req_obj["token"]);
+        std::string id = req_obj["token"];
+        this->connected_managers_table[id] = "waiters";
         return "{\"status\":\"success\",\"player\":\"manager\",\"message\":\"successfully added manager token\"}";
     }
 
     //check that their token exists in manager list
-    if(!this->existingToken(this->connected_managers, req_obj["token"])){
+    std::string id = req_obj["token"];
+    if(!this->existingToken(this->connected_managers, req_obj["token"]) && !this->connected_managers_table.contains((id))){
         std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["token"] << " token does not exist in connected managers tokens" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\",\"player\":\"manager\",\"message\":\"token does not exist in connected managers tokens\"}";
     }
     
-    if(req_obj["command"] == "get_all"){
+    if(req_obj["command"] == "get_all" && req_obj.contains("table_type")){
         return this->restaurant->FRONTEND_processManagerGetAll(req_obj);
     }
-    else if(req_obj["command"] == "update_table"){
+    else if(req_obj["command"] == "update_table" && req_obj.contains("table_type")){
+        std::string table_type = req_obj["table_type"];
+        this->connected_managers_table[id] = table_type;
         return this->restaurant->FRONTEND_processManagerGetTable(req_obj);
     }
     else{
-        std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["player"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        std::cout << color::format_colour::make_colour(color::RED) << "✗ " << req_obj["command"] << " is not a valid command " << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         return "{\"status\":\"error\", \"message\":\"invalid command found\"}";
     }
 }

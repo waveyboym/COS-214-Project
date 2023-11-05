@@ -53,10 +53,6 @@ class Restaurant{
         *@brief list of all joined tables in the restaurant
         */
         std::list<std::shared_ptr<JoinedTable>> joined_tables;
-        /**
-        *@brief the table type the admin on the frontend will view
-        */
-        std::string frontend_manager_table_type;
 
         /**
         *@brief constructor

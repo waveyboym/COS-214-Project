@@ -91,6 +91,11 @@ class Application{
         std::list<std::string> connected_managers;
 
         /**
+         * @brief this stores the table data requested by a manager and their uuid
+        */
+        std::map<std::string, std::string> connected_managers_table;
+
+        /**
          * @brief processes the incoming request from the frontend and sends back a response
          * @param req incoming json request from the frontend
          * @return std::string
