@@ -248,6 +248,53 @@ namespace  kitchenTest{
     
     }
 
+    TEST(SingleTable_test, KITCHEN_CREATES_MULTIPLE_MEAL_CHECK_PREP_TIMES)
+    {
+        
+        std::shared_ptr<ConcreteMaitreD> CMD = std::make_shared<ConcreteMaitreD>();
+
+        std::shared_ptr<Customer> C = std::make_shared<Customer>("1");
+
+        std::list<std::shared_ptr<SingleTable>> single_tables;
+        std::list<std::shared_ptr<JoinedTable>> joined_tables;
+        
+        single_tables.push_back(std::make_shared<SingleTable>(0));
+        joined_tables.push_back(std::make_shared<JoinedTable>(1));
+        
+        std::vector<std::shared_ptr<Waiter>> waiters;
+        std::shared_ptr<Waiter> W1 = std::make_shared<Waiter>("0000");
+        waiters.push_back(W1);
+
+        CMD->seatCustomer(single_tables, joined_tables, C);
+        CMD->assignWaiterToTable(single_tables, joined_tables, W1);
+
+        std::shared_ptr<Kitchen> K = std::make_shared<Kitchen>(waiters);
+
+        ASSERT_NE(K, nullptr);
+
+        std::shared_ptr<Order> O1 = std::make_shared<AddWholeWheatBun>();
+        std::shared_ptr<Order> O2 = std::make_shared<AddBBQSauce>();
+        std::shared_ptr<Order> O3 = std::make_shared<AddBBQSauce>();
+        
+        std::vector<std::shared_ptr<Order>> order_list = {O1, O2, O3};
+
+        std::shared_ptr<Order> O4 = std::make_shared<AddNormalBun>();
+        std::shared_ptr<Order> O5 = std::make_shared<AddPineApple>();
+        std::shared_ptr<Order> O6 = std::make_shared<AddBeefBurgerPatty>();
+        
+        std::vector<std::shared_ptr<Order>> order_list2 = {O4, O5, O6};
+
+        K.get()->createMeal(order_list, C);
+        K.get()->createMeal(order_list2, C);
+        std::vector<std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>>> results = K.get()->getCompletedMeals();
+        EXPECT_EQ(results.at(0).first.get()->getItemizedList(), "Wholewheat Bun  R15.13\nBarbecue Sauce  R2.14\nBarbecue Sauce  R2.14\n\nTotal: R19.41");
+        EXPECT_EQ(results.at(1).first.get()->getItemizedList(), "Plain bun  R10.00\nPineapple  R12.99\nBeef Patty  R10.00\n\nTotal: R32.99");
+        
+        EXPECT_EQ(results.at(0).first.get()->getTotalPrepTime(), (6.4 + (2.6 + 2.6)));
+        EXPECT_EQ(results.at(1).first.get()->getTotalPrepTime(), (3.2 + (4.7 + 6.4)));
+    
+    }
+
     TEST(SingleTable_test, KITCHEN_NOTIFIES_WAITERS)
     {
         

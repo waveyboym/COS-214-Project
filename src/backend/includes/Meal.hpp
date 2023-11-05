@@ -22,6 +22,10 @@ class Meal{
         *@brief name of the ingredient
         */
         std::string name;
+        /** 
+        *@brief the prep time of the ingredient
+        */
+        double prep_time;
 
 
     public:
@@ -29,7 +33,7 @@ class Meal{
         *@brief initialises a Meal object
         *@param none
         */
-        Meal(std::string name, double cost); 
+        Meal(std::string name, double cost, double prep); 
 
         /** 
         *@brief returns the cost of this Meal Object
@@ -37,6 +41,13 @@ class Meal{
         *@return double
         */
         double getCost();
+
+        /** 
+        *@brief returns the the prep_time of this Meal Object
+        *@param none
+        *@return double
+        */
+        double getPrepTime();
 
         // /** 
         // *@brief adds to total cost of the meal
@@ -57,6 +68,20 @@ class Meal{
         *@return double
         */
         virtual double getTotalCost(double prev) = 0;
+
+         /** 
+        *@brief returns the total prep time of the meal
+        *@param none
+        *@return double
+        */
+        virtual double getTotalPrepTime() = 0;
+
+        /** 
+        *@brief returns the total prep time of the meal
+        *@param prev the total of previous ingredients in the meal
+        *@return double
+        */
+        virtual double getTotalPrepTime(double prev) = 0;
 
         /** 
         *@brief returns the name of this Meal Object

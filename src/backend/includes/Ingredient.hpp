@@ -17,7 +17,7 @@ class Ingredient: public Meal{
         *@brief initialises an Ingredient object
         *@param meal the Meal object to add this ingredient to
         */
-        Ingredient(std::string name, double cost, std::shared_ptr<Meal> meal);
+        Ingredient(std::string name, double cost, double prep, std::shared_ptr<Meal> meal);
 
         // /** 
         // *@brief adds this Ingredient to an already existing Meal object
@@ -38,6 +38,20 @@ class Ingredient: public Meal{
         *@return double
         */
         virtual double getTotalCost(double prev);
+
+         /** 
+        *@brief returns the total prep time of the meal
+        *@param none
+        *@return double
+        */
+        virtual double getTotalPrepTime();
+
+        /** 
+        *@brief returns the total prep time of the meal
+        *@param prev the total of previous ingredients in the meal
+        *@return double
+        */
+        virtual double getTotalPrepTime(double prev);
 
         /** 
         *@brief adds this Ingredient to an already existing Meal object

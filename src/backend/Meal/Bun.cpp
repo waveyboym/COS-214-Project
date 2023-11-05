@@ -1,8 +1,7 @@
 #include "../includes/Bun.hpp"
 #include <sstream>
 
-Bun::Bun(std::string name, double cost): Meal(name, cost){
-        //this->setTotalCost(cost);
+Bun::Bun(std::string name, double cost, double prep): Meal(name, cost, prep){
 }
 
 std::string Bun::getItemizedList(std::string tail, std::shared_ptr<Meal> start){
@@ -48,6 +47,10 @@ double Bun::getTotalCost(double prev){
         return (this->getCost() + prev);
 }
 
-// void Bun::setTotalCost(double c){
-//         this->total_cost += c;
-// }
+double Bun::getTotalPrepTime(){
+        return this->getPrepTime();
+}
+
+double Bun::getTotalPrepTime(double prev){
+        return (this->getPrepTime() + prev);
+}

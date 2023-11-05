@@ -22,7 +22,7 @@ class Bun: public Meal{
         *@brief initialises a Bun object
         *@param none
         */
-        Bun(std::string name, double cost);
+        Bun(std::string name, double cost, double prep);
 
         /** 
         *@brief adds this Ingredient to an already existing Meal object
@@ -50,6 +50,20 @@ class Bun: public Meal{
         *@return double
         */
         virtual double getTotalCost(double prev);
+
+        /** 
+        *@brief returns the total prep time of the meal
+        *@param none
+        *@return double
+        */
+        virtual double getTotalPrepTime();
+
+        /** 
+        *@brief returns the total prep time of the meal
+        *@param prev the total of previous ingredients in the meal
+        *@return double
+        */
+        virtual double getTotalPrepTime(double prev);
 
         // /** 
         // *@brief adds the input value to the total cost of the meal
