@@ -17,6 +17,7 @@
 #include "WaiterIterator.hpp"
 #include "SingleTableIterator.hpp"
 #include "JoinedTableIterator.hpp"
+#include "SimulationInterface.hpp"
 #include "json.hpp"
 #include "uuid.h"
 #include "color.hpp"
@@ -30,7 +31,7 @@ using json = nlohmann::json;
 /**
 *@brief implements the facade pattern and uses various classes to run the restaurant
 */
-class Restaurant{
+class Restaurant : public SimulationInterface{
     private:
         /**
         *@brief stores a map of all waiters in this restaurant along with their uuid's
@@ -158,6 +159,13 @@ class Restaurant{
 
 
         *******************************************************************************************************************************/
+        
+        /**
+         * @brief processes the incoming request from the frontend and sends back a response
+         * @param req incoming json request from the frontend
+         * @return std::string
+        */
+        std::string processFrontendRequest(std::string req);
 
         /**
         *@brief processes this customers order and returns a response

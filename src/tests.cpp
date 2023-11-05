@@ -50,7 +50,6 @@
 #include "backend/Kitchen/Chef.cpp"
 #include "backend/Kitchen/HeadChef.cpp"
 
-
 #include "backend/Orders/AddBBQSauce.cpp"
 #include "backend/Orders/AddBeefBurgerPatty.cpp"
 #include "backend/Orders/AddCaramelizedOnion.cpp"
@@ -71,8 +70,8 @@
 #include "backend/Orders/AddWater.cpp"
 #include "backend/Orders/AddWholeWheatBun.cpp"
 
+#include "backend/SimulationInterface/SimulationInterface.cpp"
 #include "backend/Restaurant/Restaurant.cpp"
-
 
 #include "tests/colorTest.cpp"
 #include "tests/mealTest.cpp"

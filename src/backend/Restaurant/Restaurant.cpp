@@ -45,20 +45,20 @@ Restaurant::Restaurant(){
     this->single_tables.push_back(std::make_shared<SingleTable>(29));
     this->single_tables.push_back(std::make_shared<SingleTable>(30));
 
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(1));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(2));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(3));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(4));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(5));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(6));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(7));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(8));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(9));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(10));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(11));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(12));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(14));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(15));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(31));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(32));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(33));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(34));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(35));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(36));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(37));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(38));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(39));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(40));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(41));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(42));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(44));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(45));
 }
 
 Restaurant::~Restaurant(){
@@ -304,6 +304,10 @@ std::string Restaurant::FRONTEND_processCustomerOrder(json req_obj) {
 }
 
 
+
+std::string Restaurant::processFrontendRequest(std::string req){
+    return "";
+}
 
 std::string Restaurant::FRONTEND_processCustomersEmotion(json req_obj) {
     std::string emotionalState = req_obj["emotional_state"];
