@@ -138,7 +138,10 @@ namespace restaurantFrontEndTest{
 
         ASSERT_NE(R, nullptr);
 
-        json req_obj = json::parse("{}");
+        json req_obj = json::parse(
+            "{"
+                "\"table_type\":\"waiters\""
+            "}");
 
         std::cout << R->FRONTEND_processManagerGetAll(req_obj) << std::endl;
     }
@@ -151,7 +154,7 @@ namespace restaurantFrontEndTest{
 
         json req_obj = json::parse(
             "{"
-                "\"update_table\":\"waiters\""
+                "\"table_type\":\"waiters\""
             "}");
 
         std::cout << R->FRONTEND_processManagerGetTable(req_obj) << std::endl;
@@ -165,7 +168,7 @@ namespace restaurantFrontEndTest{
 
         json req_obj = json::parse(
             "{"
-                "\"update_table\":\"customers\""
+                "\"table_type\":\"customers\""
             "}");
 
         std::cout << R->FRONTEND_processManagerGetTable(req_obj) << std::endl;
@@ -179,7 +182,7 @@ namespace restaurantFrontEndTest{
 
         json req_obj = json::parse(
             "{"
-                "\"update_table\":\"table\""
+                "\"table_type\":\"table\""
             "}");
 
         std::cout << R->FRONTEND_processManagerGetTable(req_obj) << std::endl;

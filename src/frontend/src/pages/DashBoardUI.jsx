@@ -59,7 +59,6 @@ import {
     socket.onmessage = function(event){
       //the backend responds with the needed data
       const json = JSON.parse(event.data);
-      //console.log(json);
       if(json.status === "success" && json.player === "manager" && json.command === "get_all"){
         setAllData(json.message);
         setTableData(json.table_data);
