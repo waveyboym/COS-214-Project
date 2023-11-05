@@ -271,16 +271,16 @@ std::string Application::processCustomerRequest(json req_obj)
         return "{\"status\":\"error\",\"player\":\"customer\",\"message\":\"token does not exist in connected customer tokens\"}";
     }
 
-    if(req_obj["command"] == "seat_request"){
+    if(req_obj["command"] == "seat_request" && req_obj.contains("message") && req_obj["message"] == "seat"){
         return this->restaurant->FRONTEND_processCustomerRequestSeat(req_obj);
     }
-    else if(req_obj["command"] == "unseat_request"){
+    else if(req_obj["command"] == "seat_request" && req_obj.contains("message") && req_obj["message"] == "unseat"){
         return this->restaurant->FRONTEND_processCustomerRequestUnSeat(req_obj);
     }
     else if(req_obj["command"] == "create_order"){
         return this->restaurant->FRONTEND_processCustomerOrder(req_obj);
     }
-    else if(req_obj["command"] == "change_emotional_state"){
+    else if(req_obj["command"] == "change_emotional_state" && req_obj.contains("emotional_state")){
         return this->restaurant->FRONTEND_processCustomersEmotion(req_obj);
     }
     else if(req_obj["command"] == "get_food"){

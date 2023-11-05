@@ -245,7 +245,7 @@ namespace restaurantFrontEndTest{
 
         EXPECT_EQ(R->FRONTEND_processCustomerRestaurantEntry(req_obj), "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"add_token\",\"message\":\"successfully added customer token\"}");
         EXPECT_EQ(R->FRONTEND_processCustomerRequestSeat(req_obj), "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"seated\"}");
-        EXPECT_EQ(R->FRONTEND_processCustomerRequestUnSeat(req_obj), "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"unseat_request\",\"message\":\"unseated\"}");
+        EXPECT_EQ(R->FRONTEND_processCustomerRequestUnSeat(req_obj), "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"seat_request\",\"message\":\"unseated\"}");
     }
     
 }
