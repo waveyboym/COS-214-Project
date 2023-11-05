@@ -15,28 +15,6 @@
 #include "backend/States/SlightlyAngry.cpp"
 #include "backend/States/SlightlyHappy.cpp"
 
-#include "backend/Table/Table.cpp"
-#include "backend/Table/SingleTable.cpp"
-#include "backend/Table/JoinedTable.cpp"
-
-#include "backend/Bill/Bill.cpp"
-#include "backend/Bill/MainBill.cpp"
-#include "backend/Bill/SubBill.cpp"
-
-#include "backend/People/People.cpp"
-#include "backend/People/Customer.cpp"
-#include "backend/People/Waiter.cpp"
-
-#include "backend/Iterators/RestaurantIterator.cpp"
-#include "backend/Iterators/BillIterator.cpp"
-#include "backend/Iterators/JoinedTableIterator.cpp"
-#include "backend/Iterators/SingleTableIterator.cpp"
-#include "backend/Iterators/CustomerIterator.cpp"
-#include "backend/Iterators/WaiterIterator.cpp"
-
-#include "backend/MaitreD/MaitreD.cpp"
-#include "backend/MaitreD/ConcreteMaitreD.cpp"
-
 #include "backend/Meal/Meal.cpp"
 #include "backend/Meal/Bun.cpp"
 #include "backend/Meal/ConcreteBuns.cpp"
@@ -69,6 +47,28 @@
 #include "backend/Orders/AddVeggieBurgerPatty.cpp"
 #include "backend/Orders/AddWater.cpp"
 #include "backend/Orders/AddWholeWheatBun.cpp"
+
+#include "backend/Table/Table.cpp"
+#include "backend/Table/SingleTable.cpp"
+#include "backend/Table/JoinedTable.cpp"
+
+#include "backend/Bill/Bill.cpp"
+#include "backend/Bill/MainBill.cpp"
+#include "backend/Bill/SubBill.cpp"
+
+#include "backend/People/People.cpp"
+#include "backend/People/Customer.cpp"
+#include "backend/People/Waiter.cpp"
+
+#include "backend/Iterators/RestaurantIterator.cpp"
+#include "backend/Iterators/BillIterator.cpp"
+#include "backend/Iterators/JoinedTableIterator.cpp"
+#include "backend/Iterators/SingleTableIterator.cpp"
+#include "backend/Iterators/CustomerIterator.cpp"
+#include "backend/Iterators/WaiterIterator.cpp"
+
+#include "backend/MaitreD/MaitreD.cpp"
+#include "backend/MaitreD/ConcreteMaitreD.cpp"
 
 #include "backend/SimulationInterface/SimulationInterface.cpp"
 #include "backend/Restaurant/Restaurant.cpp"
