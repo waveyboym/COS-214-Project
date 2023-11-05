@@ -14,6 +14,7 @@
 #include "SlightlyHappy.hpp"
 #include "SlightlyAngry.hpp"
 #include <memory>
+#include <chrono>
 
 /** 
 *@brief a customer object
@@ -32,6 +33,14 @@ class Customer : public People{
         * @brief whether or not this customer has completed their meal
         */
         bool has_completed_meal = false;
+        /**
+        * @brief the time at which a customer started eating their food
+        */
+        std::chrono::time_point<std::chrono::system_clock> start;
+        /**
+        * @brief the current time which is used to check against the time a customer started eating their food
+        */
+        std::chrono::time_point<std::chrono::system_clock> current;
     public:
         /** 
         *@brief initialises a customer object
@@ -87,6 +96,14 @@ class Customer : public People{
         *@return bool
         */
         bool getHasCompletedMeal();
+
+        /** 
+        *@brief this customer will start eating their meal when this function is called
+        *@param none
+        *@return bool
+        */
+        bool startEatingMeal();
+
         /** 
         *@brief sets whether or not this customer has finished their meal
         *@param set_to the value to change this to
