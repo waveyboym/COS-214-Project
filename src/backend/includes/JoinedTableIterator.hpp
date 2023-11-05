@@ -71,7 +71,8 @@ class JoinedTableIterator : public RestaurantIterator{
         *@param none
         *@return std::shared_ptr<Collectable>
         */
-        std::shared_ptr<Collectable> currentItem(); 
+        std::shared_ptr<Collectable> currentItem();
+         
 };
 
 #endif

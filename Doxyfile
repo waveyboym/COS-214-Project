@@ -1049,7 +1049,9 @@ RECURSIVE              = YES
 EXCLUDE                = "src/frontend/node_modules" \
                          "src/frontend/public" \
                          "src/build" \
-                         "src/backend/includes/crow_all.h"
+                         "src/backend/includes/crow_all.h" \
+                         "src/backend/includes/json.hpp" \
+                         "src/backend/includes/uuid.h"
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded

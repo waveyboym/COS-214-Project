@@ -18,6 +18,7 @@ std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>> BunChef::makeOrder(s
         }
     }
     
+
     if(meal.get() == nullptr){
         meal = std::make_shared<AddNoBun>().get()->executeOrder(meal);
     }
@@ -29,5 +30,4 @@ std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>> BunChef::makeOrder(s
     else{
         return std::make_pair(meal, customer);
     }
-    
 }

@@ -1,11 +1,13 @@
 #include "../includes/Bun.hpp"
 #include <sstream>
 
-Bun::Bun(std::string name, double cost): Meal(name, cost){
+Bun::Bun(std::string name, double cost, double prepTime): Meal(name, cost, prepTime){
         this->setTotalCost(cost);
+        this->setTotalPrepTime(prepTime);
 }
 
 std::string Bun::getItemizedList(std::string tail){
+
         
         std::ostringstream o;
         o.precision(2);
@@ -25,6 +27,7 @@ std::string Bun::getItemizedList(std::string tail){
 }
 
 std::string Bun::getItemizedList(){
+
         std::ostringstream o;
         o.precision(2);
         o << std::fixed << this->getCost();
@@ -37,6 +40,7 @@ std::string Bun::getItemizedList(){
 
         std::string out = this->getName() + "  R" + price + "\n";
         out += "\nTotal: R" + price_t;
+
         return out;
 }
 

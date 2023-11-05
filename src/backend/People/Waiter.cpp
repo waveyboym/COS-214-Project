@@ -8,6 +8,10 @@ Waiter::Waiter(std::string waiteruuid){
     this->person_uuid = waiteruuid;
 }
 
+void Waiter::joinTables(std::shared_ptr<JoinedTable> table_to_join_to, std::shared_ptr<Table> table_to_join){
+    table_to_join_to->joinTable(table_to_join);
+}
+
 bool Waiter::personAction(){
     return false;
 }
@@ -28,6 +32,7 @@ void Waiter::assignID(int set_to){
     this->assigned_table_id = set_to;
 }
 
+
 void Waiter::assignTable(std::shared_ptr<Table> set_to){
     this->my_table = set_to;
 }
@@ -47,5 +52,13 @@ void Waiter::getUpdate(std::vector<std::pair<std::shared_ptr<Meal>, std::shared_
         }
         
     }
+
+
+void Waiter::takeOrder(std::shared_ptr<Customer> customer){
+    this->order = customer->getOrder();
+}
+
+std::vector<std::shared_ptr<Order>>  Waiter::getOrder(){
+    return order;
 
 }

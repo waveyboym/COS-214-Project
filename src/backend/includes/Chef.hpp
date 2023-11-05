@@ -18,14 +18,17 @@ class Chef: public AbstractChef{
         */
         std::shared_ptr<AbstractChef> next;
 
+
     public:
 
     std::string type;
+
         /** 
         *@brief initialises a Chef
         *@param none
         */
         Chef(); 
+
 
          /** 
         *@brief handles the creation of a meal
@@ -34,7 +37,6 @@ class Chef: public AbstractChef{
         *@param meal the meal on which to build
         */
         virtual std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>> makeOrder(std::vector<std::shared_ptr<Order>> order, std::shared_ptr<Customer> customer, std::shared_ptr<Meal> meal);
-
 };
 
 #endif
