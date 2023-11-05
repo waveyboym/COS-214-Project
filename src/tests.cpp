@@ -71,6 +71,8 @@
 #include "backend/Orders/AddWater.cpp"
 #include "backend/Orders/AddWholeWheatBun.cpp"
 
+#include "backend/Restaurant/Restaurant.cpp"
+
 
 #include "tests/colorTest.cpp"
 #include "tests/mealTest.cpp"
