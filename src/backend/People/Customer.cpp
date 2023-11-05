@@ -150,3 +150,7 @@ void Customer::setOrder(){
 std::vector<std::shared_ptr<Order>> Customer::getOrder() const{
     return order;
 }
+
+bool Customer::getHasDecided(){
+    return has_decided;
+}

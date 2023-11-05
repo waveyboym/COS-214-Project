@@ -65,6 +65,10 @@ class Customer : public People{
         */
         bool has_started_eating_meal = false;
         /**
+        *@brief whether or not this customer has decided what to order 
+        */
+        bool has_decided = false;
+        /**
         * @brief the time at which a customer started eating their food
         */
         std::chrono::time_point<std::chrono::system_clock> start;
@@ -118,6 +122,12 @@ class Customer : public People{
         *@return bool
         */
         bool getIsSeated();
+        /** 
+        *@brief whether or not this customer has decided what to order 
+        *@param none
+        *@return bool
+        */
+        bool getHasDecided();
         /** 
         *@brief sets whether or not this customer is seated
         *@param set_to the value to change this to
