@@ -38,11 +38,11 @@ class Meal{
         */
         double getCost();
 
-        /** 
-        *@brief adds to total cost of the meal
-        *@param c the cost to add to the total
-        */
-        virtual void setTotalCost(double c) = 0;
+        // /** 
+        // *@brief adds to total cost of the meal
+        // *@param c the cost to add to the total
+        // */
+        // virtual void setTotalCost(double c) = 0;
 
         /** 
         *@brief returns the total cost of the meal
@@ -50,6 +50,13 @@ class Meal{
         *@return double
         */
         virtual double getTotalCost() = 0;
+
+        /** 
+        *@brief returns the total cost of the meal
+        *@param none
+        *@return double
+        */
+        virtual double getTotalCost(double prev) = 0;
 
         /** 
         *@brief returns the name of this Meal Object
@@ -63,7 +70,7 @@ class Meal{
         *@param s a string containing all previous ingredients' information
         *@return std::string
         */
-        virtual std::string getItemizedList(std::string s) = 0;
+        virtual std::string getItemizedList(std::string s, std::shared_ptr<Meal> start) = 0;
 
         /** 
         *@brief returns a string containing all ingredients and prices of the meal

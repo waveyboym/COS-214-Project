@@ -75,6 +75,76 @@ namespace chainTest{
 
     }
 
+    TEST(Chain_test, CHAIN_MAKE_TWO_DIFFERENT_MEAL)
+    {
+        std::shared_ptr<AbstractChef> chain = std::make_shared<BunChef>();
+        (*chain).add(std::make_shared<Chef>());
+        (*chain).add(std::make_shared<HeadChef>());
+
+        ASSERT_NE(chain, nullptr);
+        std::shared_ptr<Customer> C = std::make_shared<Customer>("1");
+
+        std::shared_ptr<Order> O1 = std::make_shared<AddWholeWheatBun>();
+        std::shared_ptr<Order> O2 = std::make_shared<AddBBQSauce>();
+        std::shared_ptr<Order> O3 = std::make_shared<AddBBQSauce>();
+
+        std::shared_ptr<Order> O4 = std::make_shared<AddNormalBun>();
+        std::shared_ptr<Order> O5 = std::make_shared<AddPineApple>();
+        std::shared_ptr<Order> O6 = std::make_shared<AddCheese>();
+        
+        std::vector<std::shared_ptr<Order>> order_list = {O1, O2, O3};
+         std::vector<std::shared_ptr<Order>> order_list2 = {O4, O5, O6};
+
+
+        std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>> output = (*chain).makeOrder(order_list, C,nullptr);
+        std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>> output2 = (*chain).makeOrder(order_list2, C,nullptr);
+        
+        ASSERT_NE(output.first, nullptr);
+        ASSERT_NE(output.second, nullptr);
+        EXPECT_EQ(output.first.get()->getItemizedList(), "Wholewheat Bun  R15.13\nBarbecue Sauce  R2.14\nBarbecue Sauce  R2.14\n\nTotal: R19.41");
+        EXPECT_EQ(output.second, C);
+
+        ASSERT_NE(output2.first, nullptr);
+        ASSERT_NE(output2.second, nullptr);
+        EXPECT_EQ(output2.first.get()->getItemizedList(), "Plain bun  R10.00\nPineapple  R12.99\nCheese  R4.38\n\nTotal: R27.37");
+        EXPECT_EQ(output2.second, C);
+    }
+
+    TEST(Chain_test, CHAIN_MAKE_TWO_SAME_MEAL)
+    {
+        std::shared_ptr<AbstractChef> chain = std::make_shared<BunChef>();
+        (*chain).add(std::make_shared<Chef>());
+        (*chain).add(std::make_shared<HeadChef>());
+
+        ASSERT_NE(chain, nullptr);
+        std::shared_ptr<Customer> C = std::make_shared<Customer>("1");
+
+        std::shared_ptr<Order> O1 = std::make_shared<AddWholeWheatBun>();
+        std::shared_ptr<Order> O2 = std::make_shared<AddBBQSauce>();
+        std::shared_ptr<Order> O3 = std::make_shared<AddBBQSauce>();
+
+        std::shared_ptr<Order> O4 = std::make_shared<AddWholeWheatBun>();
+        std::shared_ptr<Order> O5 = std::make_shared<AddBBQSauce>();
+        std::shared_ptr<Order> O6 = std::make_shared<AddBBQSauce>();
+        
+        std::vector<std::shared_ptr<Order>> order_list = {O1, O2, O3};
+         std::vector<std::shared_ptr<Order>> order_list2 = {O4, O5, O6};
+
+
+        std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>> output = (*chain).makeOrder(order_list, C,nullptr);
+        std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>> output2 = (*chain).makeOrder(order_list2, C,nullptr);
+        
+        ASSERT_NE(output.first, nullptr);
+        ASSERT_NE(output.second, nullptr);
+        EXPECT_EQ(output.first.get()->getItemizedList(), "Wholewheat Bun  R15.13\nBarbecue Sauce  R2.14\nBarbecue Sauce  R2.14\n\nTotal: R19.41");
+        EXPECT_EQ(output.second, C);
+
+        ASSERT_NE(output2.first, nullptr);
+        ASSERT_NE(output2.second, nullptr);
+        EXPECT_EQ(output2.first.get()->getItemizedList(), "Wholewheat Bun  R15.13\nBarbecue Sauce  R2.14\nBarbecue Sauce  R2.14\n\nTotal: R19.41");
+        EXPECT_EQ(output2.second, C);
+    }
+
 }
 
 

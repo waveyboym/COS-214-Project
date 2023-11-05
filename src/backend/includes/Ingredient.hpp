@@ -19,11 +19,11 @@ class Ingredient: public Meal{
         */
         Ingredient(std::string name, double cost, std::shared_ptr<Meal> meal);
 
-        /** 
-        *@brief adds this Ingredient to an already existing Meal object
-        *@param meal the meal for this ingredient to be added to
-        */
-        void setTotalCost(double c);
+        // /** 
+        // *@brief adds this Ingredient to an already existing Meal object
+        // *@param meal the meal for this ingredient to be added to
+        // */
+        // void setTotalCost(double c);
 
         /** 
         *@brief returns the total cost of the meal
@@ -33,10 +33,17 @@ class Ingredient: public Meal{
         double getTotalCost();
 
         /** 
+        *@brief returns the total cost of the meal
+        *@param none
+        *@return double
+        */
+        virtual double getTotalCost(double prev);
+
+        /** 
         *@brief adds this Ingredient to an already existing Meal object
         *@param meal the meal for this ingredient to be added to
         */
-        std::string getItemizedList(std::string s);
+        std::string getItemizedList(std::string s, std::shared_ptr<Meal> start);
 
         /** 
         *@brief returns a string containing all ingredients and prices of the meal
