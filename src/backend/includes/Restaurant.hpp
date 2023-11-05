@@ -55,6 +55,11 @@ class Restaurant{
         std::list<std::shared_ptr<JoinedTable>> joined_tables;
 
         /**
+        *@brief number of customers seated
+        */
+        int num_seated_customers;
+
+        /**
         *@brief constructor
         *@param none
         */
@@ -127,6 +132,13 @@ class Restaurant{
          * @return void
         */
         void assignAllFreeWaiters();
+
+        /**
+        *@brief a random amount of customers between 0 and 10 will be seated in the restaurant
+        *@param random_number
+        *@return void
+        */
+        void setAnyCustomerOrder(int random_number);
 
         
         /*****************************************************************************************************************************

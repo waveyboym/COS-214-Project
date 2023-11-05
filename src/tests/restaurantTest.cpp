@@ -94,6 +94,13 @@ namespace restaurantTest{
         R->assignAllFreeWaiters();
     }
 
+    TEST(Restaurant_test, SET_ANY_CUSTOMER_ORDER)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+        ASSERT_NE(R, nullptr);
+
+        R->setAnyCustomerOrder(2);
+    }
 }
 
 namespace restaurantFrontEndTest{

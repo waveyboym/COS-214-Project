@@ -2,6 +2,7 @@
 /*@note for any function that starts with FRONTEND, you are not allowed to edit it if you are not working on frontend*/
 
 Restaurant::Restaurant(){
+    num_seated_customers = 0;
     this->maitre_d = std::make_shared<ConcreteMaitreD>();
     //pre-determined number of waiters in the restaurant
     this->waiters["Dwain Barber"] = std::make_shared<Waiter>("Dwain Barber");
@@ -142,6 +143,7 @@ void Restaurant::seatAnyCustomer(int random_number){
         }
         c_i->next();
         ++i;
+        num_seated_customers++;
     }
 }
 
@@ -160,6 +162,7 @@ void Restaurant::unseatFinishedCustomers(){
             this->customers.erase(curCustomer->getUUID());
         }
         c_i->next();
+        num_seated_customers--;
     }
 }
 
@@ -195,6 +198,27 @@ void Restaurant::assignAllFreeWaiters(){
             std::cout << color::format_colour::make_colour(color::GREEN) <<"waiter with uuid of: " << curWaiter->getUUID() << " has been assigned to the table with id of " << curWaiter->getAssignedTableID() << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         }
         w_i->next();
+    }
+}
+
+void Restaurant::setAnyCustomerOrder(int random_number){
+    int num_orders_to_set = random_number % num_seated_customers;
+    int num_orders_set = 0;
+
+    std::cout << color::format_colour::make_colour(color::YELLOW) << "customers are deciding what to order" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+
+    std::shared_ptr<CustomerIterator> c_i = std::make_shared<CustomerIterator>(this->customers);
+    int i = 0;
+
+    while(!c_i->isDone() && i < num_orders_to_set){
+        std::shared_ptr<Customer> customer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
+        if(customer->getIsSeated() && !customer->getHasDecided()){
+            customer->setOrder();
+            std::cout << color::format_colour::make_colour(color::BLUE) <<"customer with uuid of: " << customer->getUUID() << " has decided what to order" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+            num_orders_set++;
+        }
+        c_i->next();
+        ++i;
     }
 }
 
