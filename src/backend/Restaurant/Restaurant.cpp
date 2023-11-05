@@ -383,61 +383,38 @@ std::string Restaurant::FRONTEND_processCustomerOrder(json req_obj) {
 
 //not sure if this is how you use customer iterator
 std::string Restaurant::FRONTEND_processCustomersEmotion(json req_obj) {
-    if (req_obj.find("emotional_state") != req_obj.end()) {
-        std::string emotionalState = req_obj["emotional_state"];
-        std::string response;
+    std::string emotionalState = req_obj["emotional_state"];
+    std::string id = req_obj["token"];
 
-        // Set the customer's emotion based on the provided emotional state
-        if (emotionalState == "happy") {
-            // Set the customer's emotion to "happy"
-            const std::shared_ptr<CustomerIterator> c_i = std::make_shared<CustomerIterator>(this->customers);
-            while (!c_i->isDone())
-            {
-                std::shared_ptr<Customer> curCustomer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
+    std::shared_ptr<CustomerIterator> c_i = std::make_shared<CustomerIterator>(this->customers);
+    while (!c_i->isDone())
+    {
+        std::shared_ptr<Customer> curCustomer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
+        if(curr_customer != nullptr && curCustomer->getUUID() == id){
+            if(emotionalState == "happy"){
                 curCustomer->setEmotionalState(EMOTIONAL_STATE::HAPPY);
-                c_i->next();
             }
-            response = "Customer's emotional state has been set to 'happy'.";
-        } else if (emotionalState == "angry") {
-            // Set the customer's emotion to "angry"
-            const std::shared_ptr<CustomerIterator> c_i = std::make_shared<CustomerIterator>(this->customers);
-            while (!c_i->isDone())
-            {
-                std::shared_ptr<Customer> curCustomer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
+            else if(emotionalState == "angry"){
                 curCustomer->setEmotionalState(EMOTIONAL_STATE::ANGRY);
-                c_i->next();
             }
-            response = "Customer's emotional state has been set to 'angry'.";
-        } else if (emotionalState == "slightly angry") {
-            // Set the customer's emotion to "slightly angry"
-            const std::shared_ptr<CustomerIterator> c_i = std::make_shared<CustomerIterator>(this->customers);
-            while (!c_i->isDone())
-            {
-                std::shared_ptr<Customer> curCustomer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
+            else if(emotionalState == "slightlyhappy"){
+                curCustomer->setEmotionalState(EMOTIONAL_STATE::SLIGHTLY_HAPPY);
+            }
+            else if(emotionalState == "slightlyangry"){
                 curCustomer->setEmotionalState(EMOTIONAL_STATE::SLIGHTLY_ANGRY);
-                c_i->next();
-            }   
-            response = "Customer's emotional state has been set to 'slightly angry'.";
-        } else if (emotionalState == "neutral") {
-        
-            // Set the customer's emotion to "neutral"
-            const std::shared_ptr<CustomerIterator> c_i = std::make_shared<CustomerIterator>(this->customers);
-            while (!c_i->isDone())
-            {
-                std::shared_ptr<Customer> curCustomer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
-                curCustomer->setEmotionalState(EMOTIONAL_STATE::NEUTRAL);
-                c_i->next();
             }
-            response = "Customer's emotional state has been set to 'neutral'.";
-        } else {
-            // Invalid emotional state
-            return "{\"status\":\"error\",\"message\":\"Invalid emotional state\"}";
+            else if(emotionalState == "neutral"){
+                curCustomer->setEmotionalState(EMOTIONAL_STATE::NEUTRAL);
+            }
+            else{
+                return "{\"status\":\"error\",\"message\":\"no such emotional state exists\"}";
+            }
+            return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"change_emotional_state\",\"message\":\"emotionalState\"}";
         }
-
-        return "{\"status\":\"success\",\"message\":\"" + response + "\"}";
-    } else {
-        return "{\"status\":\"error\",\"message\":\"Emotional state is missing\"}";
+        c_i->next();
     }
+
+    return "{\"status\":\"error\",\"message\":\"no customer with this uuid exists\"}";
 }
 
 std::string Restaurant::FRONTEND_processUpdateCheck(json req_obj) {
@@ -537,9 +514,10 @@ std::string Restaurant::FRONTEND_processCheckOutCustomer(json req_obj) {
     if (req_obj.find("token") != req_obj.end()) {
         std::string id = req_obj["token"];
         if (this->customers.contains(id)) {
+            this->maitre_d->unseatCustomer(this->single_tables, this->joined_tables, this->customers[id], this->waiters);
             this->customers.erase(id);
             std::cout << color::format_colour::make_colour(color::RED) << "customer with uuid of: " << id << " has checked out" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
-                return "{\"status\":\"success\",\"player\":\"customer\",\"bill\":2000}";
+                "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"checkout\",\"message\":\"successfully checked out\"}";
         } else {
             return "{\"status\":\"error\",\"message\":\"Customer not found\"}";
         }
