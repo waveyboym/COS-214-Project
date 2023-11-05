@@ -1,24 +1,21 @@
-/**
-*@file Bun.hpp Bun.cpp
+/**Bun.hpp Bun.cpp
 *@class Bun
 *@author Jaide
 *@brief Abstract Bun from the Meal class
-        acts as the concrete component - therefore all meals must have a bun
+*        acts as the concrete component - therefore all meals must have a bun
 */
 #ifndef BUN_HPP
 #define BUN_HPP
 #include "Meal.hpp"
-
-#include <iostream>
-#include <sstream>
-#include <iomanip>
 
 class Bun: public Meal{
     private:
         /** 
         *@brief total cost of the meal
         */
-        double totalCost;
+        double total_cost;
+
+        double totalPrepTime;
 
     public:
 

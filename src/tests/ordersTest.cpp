@@ -5,6 +5,26 @@
 
 
 // class AddBBQSauce;
+#include "../backend/Orders/AddBBQSauce.cpp"
+#include "../backend/Orders/AddBeefBurgerPatty.cpp"
+#include "../backend/Orders/AddCaramelizedOnion.cpp"
+#include "../backend/Orders/AddCheese.cpp"
+#include "../backend/Orders/AddChickenBurgerPatty.cpp"
+#include "../backend/Orders/AddColdDrink.cpp"
+#include "../backend/Orders/AddFries.cpp"
+#include "../backend/Orders/AddJuice.cpp"
+#include "../backend/Orders/AddLettuce.cpp"
+#include "../backend/Orders/AddMayo.cpp"
+#include "../backend/Orders/AddNoBun.cpp"
+#include "../backend/Orders/AddNormalBun.cpp"
+#include "../backend/Orders/AddOnion.cpp"
+#include "../backend/Orders/AddPickles.cpp"
+#include "../backend/Orders/AddPineapple.cpp"
+#include "../backend/Orders/AddTomato.cpp"
+#include "../backend/Orders/AddVeggieBurgerPatty.cpp"
+#include "../backend/Orders/AddWater.cpp"
+#include "../backend/Orders/AddWholeWheatBun.cpp"
+
 
 namespace orderTests{
 TEST(Order_Test, INIT_BasicOrder) 

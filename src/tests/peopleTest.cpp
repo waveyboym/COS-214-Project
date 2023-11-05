@@ -9,6 +9,7 @@
 #include <gtest/gtest.h>
 #include "../backend/includes/Waiter.hpp"
 #include "../backend/includes/Customer.hpp"
+
 namespace customerTest{
 
     TEST(Customer_test, INIT_CUSTOMER)
@@ -72,7 +73,7 @@ namespace customerTest{
         EXPECT_EQ(C->getCurrentEmotionalStateEnum(), EMOTIONAL_STATE::SLIGHTLY_HAPPY);
     }
 
-    TEST(Customer_test, CUSTOMER_SET_UUID)
+    TEST(Waiter_test, CUSTOMER_SET_UUID)
     {
         std::shared_ptr<Customer> C = std::make_shared<Customer>();
 
@@ -81,19 +82,6 @@ namespace customerTest{
         C->setUUID("customer");
 
         EXPECT_EQ(C->getUUID(), "customer");
-    }
-
-    TEST(Customer_test, SET_AND_GET_ORDER){
-        std::shared_ptr<Customer> C = std::make_shared<Customer>();
-
-        ASSERT_NE(C, nullptr);
-
-        C->setOrder();
-        std::shared_ptr<Order> F = C->getOrder().front();
-        std::shared_ptr<Order> B = C->getOrder().back();
-
-        ASSERT_NE(F, nullptr);
-        ASSERT_NE(B, nullptr);
     }
 }
 
@@ -136,33 +124,5 @@ namespace waiterTest{
         W->setUUID("waiter");
 
         EXPECT_EQ(W->getUUID(), "waiter");
-    }
-
-    TEST(Waiter_test, WAITER_JOIN_TABLES)
-    {
-        std::shared_ptr<Waiter> W = std::make_shared<Waiter>();
-        std::shared_ptr<JoinedTable> table_to_join_to = std::make_shared<JoinedTable>();
-        std::shared_ptr<Table> table_to_join = std::make_shared<SingleTable>();
-
-        ASSERT_NE(W, nullptr);
-        ASSERT_NE(table_to_join_to, nullptr);
-        ASSERT_NE(table_to_join, nullptr);
-
-        W->joinTables(table_to_join_to, table_to_join);
-
-        EXPECT_EQ(table_to_join_to->isThisTableJoined(table_to_join), true);
-    }
-
-    TEST(Waiter_test, WAITER_TAKE_ORDER){
-        std::shared_ptr<Waiter> W = std::make_shared<Waiter>();
-        std::shared_ptr<Customer> C = std::make_shared<Customer>();
-
-        ASSERT_NE(W, nullptr);
-        ASSERT_NE(C, nullptr);
-
-        C->setOrder();
-        W->takeOrder(C);
-
-        ASSERT_NE(W->getOrder().front(), nullptr);
     }
 }

@@ -18,12 +18,9 @@ class Chef: public AbstractChef{
         */
         std::shared_ptr<AbstractChef> next;
 
-        /** 
-        *@brief stores the pos this chef is attached to
-        */
-        std::shared_ptr<POS> pos_ptr;
-    
     public:
+
+    std::string type;
         /** 
         *@brief initialises a Chef
         *@param none
@@ -36,7 +33,8 @@ class Chef: public AbstractChef{
         *@param meal the meal on which to build
         *@param waiterUUID the waiter the order came from
         */
-        virtual void makeOrder(std::vector<std::shared_ptr<Order>> order, std::string waiterUUID, std::shared_ptr<Meal> meal);
+        virtual std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>> makeOrder(std::vector<std::shared_ptr<Order>> order, std::shared_ptr<Customer> customer, std::shared_ptr<Meal> meal);
+
 };
 
 #endif

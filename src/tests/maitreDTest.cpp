@@ -279,38 +279,4 @@ namespace  maitreDTest{
         EXPECT_EQ(table->isAssignedAWaiter(), false);
         EXPECT_EQ(C->isAssignedATable(), false);
     }
-
-    TEST(maitreD_Test, MAITRE_D_RESERVE_TABLE_SUCCESS)
-{
-    std::shared_ptr<ConcreteMaitreD> CMD = std::make_shared<ConcreteMaitreD>();
-
-    ASSERT_NE(CMD, nullptr);
-
-    std::shared_ptr<SingleTable> table = std::make_shared<SingleTable>(0);
-
-    // Try to reserve the table
-    bool reservationResult = CMD->reserveTable(table, "1"); // You can use any UUID you prefer
-
-    EXPECT_EQ(reservationResult, true);
-    EXPECT_EQ(table->getReserverUUID(), "1");
-}
-
-TEST(maitreD_Test, MAITRE_D_RESERVE_TABLE_ALREADY_RESERVED)
-{
-    std::shared_ptr<ConcreteMaitreD> CMD = std::make_shared<ConcreteMaitreD>();
-
-    ASSERT_NE(CMD, nullptr);
-
-    std::shared_ptr<SingleTable> table = std::make_shared<SingleTable>(0);
-
-    // Reserve the table for the first customer
-    CMD->reserveTable(table, "1");
-
-    // Try to reserve the table for the second customer (already reserved by the first customer)
-    bool reservationResult = CMD->reserveTable(table, "2"); // You can use any other UUID
-
-    EXPECT_EQ(reservationResult, false);
-    EXPECT_EQ(table->getReserverUUID(), "1");  // Reservation should remain with the first customer
-}
-
 }

@@ -8,10 +8,6 @@
 #define INGREDIENT_HPP
 #include "Meal.hpp"
 
-#include <iostream>
-#include <sstream>
-#include <iomanip>
-
 class Ingredient: public Meal{
     private:
         std::shared_ptr<Meal> meal;
