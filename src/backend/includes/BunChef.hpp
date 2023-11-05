@@ -17,10 +17,12 @@ class BunChef : public AbstractChef{
         */
         std::shared_ptr<AbstractChef> next;
 
+        /** 
+        *@brief stores the pos this chef is attached to
+        */
+        std::shared_ptr<POS> pos_ptr;
+
     public:
-
-        std::string type;
-
         /** 
         *@brief initialises a BunChef
         *@param none

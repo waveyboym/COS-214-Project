@@ -1,5 +1,4 @@
 #include "../includes/Ingredient.hpp"
-#include <sstream>
 
 Ingredient::Ingredient(std::string name, double cost, std::shared_ptr<Meal> m): Meal(name, cost), meal(m){
     this->meal->setTotalCost(cost);
@@ -21,14 +20,13 @@ void Ingredient::setTotalCost(double c){
 }
 
 std::string Ingredient::getItemizedList(){
-    
-    std::ostringstream out;
-    out.precision(2);
-    out << std::fixed << this->getCost();
-    std::string price = std::move(out).str();
-
     if(meal){
-        std::string s = this->getName() + "  R" + price + "\n";
+        double value = this->getCost(); 
+        std::ostringstream stream;
+        stream << std::fixed << std::setprecision(2) << value;
+        std::string result = stream.str();
+
+        std::string s = this->getName() + "  R" + result + "\n";
         return meal->getItemizedList(s);
     }
     else{
@@ -37,14 +35,13 @@ std::string Ingredient::getItemizedList(){
 }
 
 std::string Ingredient::getItemizedList(std::string tail){
-    
-    std::ostringstream out;
-    out.precision(2);
-    out << std::fixed << this->getCost();
-    std::string price = std::move(out).str();
-    
     if(meal){
-        std::string mine = this->getName() + "  R" + price + "\n";
+        double value = this->getCost(); 
+        std::ostringstream stream;
+        stream << std::fixed << std::setprecision(2) << value;
+        std::string result = stream.str();
+
+        std::string mine = this->getName() + "  R" + result + "\n";
         return meal->getItemizedList(mine + tail);
     }
     else{

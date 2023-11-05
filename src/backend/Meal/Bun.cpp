@@ -1,49 +1,48 @@
 #include "../includes/Bun.hpp"
-#include <sstream>
 
 Bun::Bun(std::string name, double cost): Meal(name, cost){
         this->setTotalCost(cost);
 }
 
 std::string Bun::getItemizedList(std::string tail){
-        
-        std::ostringstream o;
-        o.precision(2);
-        o << std::fixed << this->getCost();
-        std::string price = std::move(o).str();
+        double value = this->getCost(); 
+        std::ostringstream stream;
+        stream << std::fixed << std::setprecision(2) << value;
+        std::string result = stream.str();
 
-        std::ostringstream o2;
-        o2.precision(2);
-        o2 << std::fixed << this->getTotalCost();
-        std::string price_t = std::move(o2).str();
-        
-        std::string out = this->getName() + "  R" + price + "\n";
+        std::string out = this->getName() + "  R" + result + "\n";
         out += tail;
-        out += "\nTotal: R" + price_t;
-        return out;
+
+        value = this->getTotalCost(); 
+        std::ostringstream stream2;
+        stream2 << std::fixed << std::setprecision(2) << value;
+        result = stream2.str();
         
+        out += "\nTotal: R" + result;
+        return out;
 }
 
 std::string Bun::getItemizedList(){
-        std::ostringstream o;
-        o.precision(2);
-        o << std::fixed << this->getCost();
-        std::string price = std::move(o).str();
+        double value = this->getCost(); 
+        std::ostringstream stream;
+        stream << std::fixed << std::setprecision(2) << value;
+        std::string result = stream.str();
 
-        std::ostringstream o2;
-        o2.precision(2);
-        o2 << std::fixed << this->getTotalCost();
-        std::string price_t = std::move(o2).str();
+        std::string out = this->getName() + "  R" + result + "\n";
 
-        std::string out = this->getName() + "  R" + price + "\n";
-        out += "\nTotal: R" + price_t;
+        value = this->getTotalCost(); 
+        std::ostringstream stream2;
+        stream2 << std::fixed << std::setprecision(2) << value;
+        result = stream2.str();
+
+        out += "\nTotal: R" + result;
         return out;
 }
 
 double Bun::getTotalCost(){
-        return this->total_cost;
+        return this->totalCost;
 }
 
 void Bun::setTotalCost(double c){
-        this->total_cost += c;
+        this->totalCost += c;
 }

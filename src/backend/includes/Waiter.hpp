@@ -1,15 +1,13 @@
 /**
-*@file Waiter.hpp Waiter.cpp
-*@class Waiter
-*@author Michael
-*@implements People
-*@brief a waiter object
-*/
+ * @file Waiter.hpp Waiter.cpp
+ * @class Waiter
+ * @author Michael
+ * @implements People
+ * @brief A waiter object.
+ */
 #ifndef WAITER_HPP
 #define WAITER_HPP
 #include "People.hpp"
-#include "Table.hpp"
-#include "Meal.hpp"
 #include "Order.hpp"
 #include "JoinedTable.hpp"
 #include <memory>
@@ -31,7 +29,6 @@ class Waiter : public People{
         /** 
         *@brief order for this waiter to fulfill
         */
-        std::shared_ptr<Table> my_table = nullptr;
         std::vector<std::shared_ptr<Order>> order;
     public:
         /** 
@@ -44,6 +41,13 @@ class Waiter : public People{
         *@param waiteruuid the uuid of this waiter
         */
         Waiter(std::string waiteruuid);
+        /** 
+        *@brief joins two tables together regardless of them being a single table or a joined table
+        *@param table_to_join_to table that will have another table be joined to it
+        *@param table_to_join table that will be joined to another table
+        *@return void
+        */
+        void joinTables(std::shared_ptr<JoinedTable> table_to_join_to, std::shared_ptr<Table> table_to_join);
         /** 
         *@brief 
         *@param none
