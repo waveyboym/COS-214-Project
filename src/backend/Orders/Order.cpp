@@ -1,5 +1,3 @@
 #include "../includes/Order.hpp"
 
-Order::Order(){
-    
-}
+Order::~Order(){}
