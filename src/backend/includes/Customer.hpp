@@ -37,6 +37,8 @@
 
 #include "ConcreteIngredients.hpp"
 #include "ConcreteBuns.hpp"
+
+#include <vector>
 #include <memory>
 
 /** 
