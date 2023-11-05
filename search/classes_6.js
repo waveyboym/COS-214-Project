@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['gen_0',['Gen',['../structdetail_1_1utility__internal_1_1Gen.html',1,'detail::utility_internal']]],
-  ['gen_3c_20t_2c_200_20_3e_1',['Gen&lt; T, 0 &gt;',['../structdetail_1_1utility__internal_1_1Gen_3_01T_00_010_01_4.html',1,'detail::utility_internal']]]
+  ['ingredient_0',['Ingredient',['../classIngredient.html',1,'']]]
 ];

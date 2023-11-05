@@ -134,8 +134,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a40dd77bfb6a08d98c01c572aa11ee313" id="r_a40dd77bfb6a08d98c01c572aa11ee313"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConcreteMaitreD.html#a40dd77bfb6a08d98c01c572aa11ee313">assignWaiterToTable</a> (std::list&lt; std::shared_ptr&lt; <a class="el" href="classSingleTable.html">SingleTable</a> &gt; &gt; &amp;restaurant_single_tables, std::list&lt; std::shared_ptr&lt; <a class="el" href="classJoinedTable.html">JoinedTable</a> &gt; &gt; &amp;restaurant_joined_tables, std::shared_ptr&lt; <a class="el" href="classWaiter.html">Waiter</a> &gt; waiter)</td></tr>
 <tr class="memdesc:a40dd77bfb6a08d98c01c572aa11ee313"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns a waiter to a table and returns true on success and false on failure  <br /></td></tr>
 <tr class="separator:a40dd77bfb6a08d98c01c572aa11ee313"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01ee61dd0da8dc0f253f3185948ed5f4" id="r_a01ee61dd0da8dc0f253f3185948ed5f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConcreteMaitreD.html#a01ee61dd0da8dc0f253f3185948ed5f4">reserveTable</a> (std::shared_ptr&lt; <a class="el" href="classTable.html">Table</a> &gt; T, std::string C_uid)</td></tr>
-<tr class="separator:a01ee61dd0da8dc0f253f3185948ed5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acef9371e518bf607479b1bf55d78736b" id="r_acef9371e518bf607479b1bf55d78736b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConcreteMaitreD.html#acef9371e518bf607479b1bf55d78736b">reserveTable</a> (std::shared_ptr&lt; <a class="el" href="classTable.html">Table</a> &gt; t, std::string c_uid)</td></tr>
+<tr class="memdesc:acef9371e518bf607479b1bf55d78736b"><td class="mdescLeft">&#160;</td><td class="mdescRight">reserves the a table for a customer  <br /></td></tr>
+<tr class="separator:acef9371e518bf607479b1bf55d78736b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>defines a Concrete <a class="el" href="classMaitreD.html" title="defines an abstract MaitreD class">MaitreD</a> which is responsible for observing a customer, seating a customer and assigning tables to a waiter </p>
@@ -288,8 +289,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a01ee61dd0da8dc0f253f3185948ed5f4" name="a01ee61dd0da8dc0f253f3185948ed5f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01ee61dd0da8dc0f253f3185948ed5f4">&#9670;&#160;</a></span>reserveTable()</h2>
+<a id="acef9371e518bf607479b1bf55d78736b" name="acef9371e518bf607479b1bf55d78736b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acef9371e518bf607479b1bf55d78736b">&#9670;&#160;</a></span>reserveTable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -298,13 +299,13 @@ Public Member Functions</h2></td></tr>
           <td class="memname">bool ConcreteMaitreD::reserveTable </td>
           <td>(</td>
           <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classTable.html">Table</a> &gt;&#160;</td>
-          <td class="paramname"><em>T</em>, </td>
+          <td class="paramname"><em>t</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>C_uid</em>&#160;</td>
+          <td class="paramname"><em>c_uid</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -313,6 +314,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>reserves the a table for a customer </p>
 <dl class="section note"><dt>Note</dt><dd>TODO: more detail is needed about this function. ISSUE ID: 16 </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -321,6 +324,14 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td><a class="el" href="classTable.html" title="a Table class which is a component class of Collectable">Table</a> to be reserved </td></tr>
+    <tr><td class="paramname">c_uid</td><td>uid of customer reserving the table </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
 </div>
 </div>

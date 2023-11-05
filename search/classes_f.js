@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['restaurant_0',['Restaurant',['../classRestaurant.html',1,'']]],
-  ['restaurantiterator_1',['RestaurantIterator',['../classRestaurantIterator.html',1,'']]]
+  ['table_0',['Table',['../classTable.html',1,'']]],
+  ['tomato_1',['Tomato',['../classTomato.html',1,'']]],
+  ['tomatosauce_2',['TomatoSauce',['../classTomatoSauce.html',1,'']]]
 ];

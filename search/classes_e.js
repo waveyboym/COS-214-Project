@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['parse_5ferror_0',['parse_error',['../classdetail_1_1parse__error.html',1,'detail']]],
-  ['parser_1',['parser',['../classdetail_1_1parser.html',1,'detail']]],
-  ['people_2',['People',['../classPeople.html',1,'']]],
-  ['position_5ft_3',['position_t',['../structdetail_1_1position__t.html',1,'detail']]],
-  ['primitive_5fiterator_5ft_4',['primitive_iterator_t',['../classdetail_1_1primitive__iterator__t.html',1,'detail']]],
-  ['priority_5ftag_5',['priority_tag',['../structdetail_1_1priority__tag.html',1,'detail']]],
-  ['priority_5ftag_3c_200_20_3e_6',['priority_tag&lt; 0 &gt;',['../structdetail_1_1priority__tag_3_010_01_4.html',1,'detail']]]
+  ['salad_0',['Salad',['../classSalad.html',1,'']]],
+  ['singletable_1',['SingleTable',['../classSingleTable.html',1,'']]],
+  ['singletableiterator_2',['SingleTableIterator',['../classSingleTableIterator.html',1,'']]],
+  ['slightlyangry_3',['SlightlyAngry',['../classSlightlyAngry.html',1,'']]],
+  ['slightlyhappy_4',['SlightlyHappy',['../classSlightlyHappy.html',1,'']]],
+  ['subbill_5',['SubBill',['../classSubBill.html',1,'']]]
 ];

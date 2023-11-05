@@ -141,6 +141,15 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:acc230d53aabcb67cdef956dcbb227040" id="r_acc230d53aabcb67cdef956dcbb227040"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#acc230d53aabcb67cdef956dcbb227040">removeClient</a> (crow::websocket::connection *client)</td></tr>
 <tr class="memdesc:acc230d53aabcb67cdef956dcbb227040"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes this client from the map of clients and returns true on success else false  <br /></td></tr>
 <tr class="separator:acc230d53aabcb67cdef956dcbb227040"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8b5919a1d429039c50472ce4f490984" id="r_aa8b5919a1d429039c50472ce4f490984"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#aa8b5919a1d429039c50472ce4f490984">removeClientFromListAndRestaurant</a> (bool is_a_manager, std::string client_uuid)</td></tr>
+<tr class="memdesc:aa8b5919a1d429039c50472ce4f490984"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes this client from the restaurant and returns true on success else false  <br /></td></tr>
+<tr class="separator:aa8b5919a1d429039c50472ce4f490984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac46e2bbc78da8fae64e978c8c6d5f038" id="r_ac46e2bbc78da8fae64e978c8c6d5f038"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#ac46e2bbc78da8fae64e978c8c6d5f038">messageManagers</a> ()</td></tr>
+<tr class="memdesc:ac46e2bbc78da8fae64e978c8c6d5f038"><td class="mdescLeft">&#160;</td><td class="mdescRight">sends out a get all update to all connected managers  <br /></td></tr>
+<tr class="separator:ac46e2bbc78da8fae64e978c8c6d5f038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a781efb6740bb664043df603630a1421c" id="r_a781efb6740bb664043df603630a1421c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#a781efb6740bb664043df603630a1421c">updateRestaurant</a> ()</td></tr>
+<tr class="memdesc:a781efb6740bb664043df603630a1421c"><td class="mdescLeft">&#160;</td><td class="mdescRight">progresses the restaurant forward by one step  <br /></td></tr>
+<tr class="separator:a781efb6740bb664043df603630a1421c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -149,7 +158,7 @@ crow::SimpleApp&#160;</td><td class="memItemRight" valign="bottom"><b>app</b></t
 <tr class="memdesc:a0012ec89c33d794c132b94983dea48c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">this holds the app variable that creates a websocket and intercepts incoming requests <br /></td></tr>
 <tr class="separator:a0012ec89c33d794c132b94983dea48c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73f193fa1af6a32474c5043b6860f920" id="r_a73f193fa1af6a32474c5043b6860f920"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, crow::websocket::connection * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#a73f193fa1af6a32474c5043b6860f920">connected_clients</a></td></tr>
-<tr class="memdesc:a73f193fa1af6a32474c5043b6860f920"><td class="mdescLeft">&#160;</td><td class="mdescRight">this holds all of the connected/subscribed clients that way if there is an update on the backend, we can send updated data to the client in json form.  <br /></td></tr>
+<tr class="memdesc:a73f193fa1af6a32474c5043b6860f920"><td class="mdescLeft">&#160;</td><td class="mdescRight">this holds the app variable that creates a websocket and intercepts incoming requests  <br /></td></tr>
 <tr class="separator:a73f193fa1af6a32474c5043b6860f920"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90447f8d1015cbfc255961e5195e9f15" id="r_a90447f8d1015cbfc255961e5195e9f15"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#a90447f8d1015cbfc255961e5195e9f15">mtx</a></td></tr>
 <tr class="memdesc:a90447f8d1015cbfc255961e5195e9f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">thread locker.  <br /></td></tr>
@@ -313,6 +322,40 @@ std::list&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
+
+</div>
+</div>
+<a id="ac46e2bbc78da8fae64e978c8c6d5f038" name="ac46e2bbc78da8fae64e978c8c6d5f038"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac46e2bbc78da8fae64e978c8c6d5f038">&#9670;&#160;</a></span>messageManagers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Application::messageManagers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>sends out a get all update to all connected managers </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>
@@ -482,6 +525,52 @@ std::list&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom
 
 </div>
 </div>
+<a id="aa8b5919a1d429039c50472ce4f490984" name="aa8b5919a1d429039c50472ce4f490984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8b5919a1d429039c50472ce4f490984">&#9670;&#160;</a></span>removeClientFromListAndRestaurant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Application::removeClientFromListAndRestaurant </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>is_a_manager</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>client_uuid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>removes this client from the restaurant and returns true on success else false </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is_a_manager</td><td>whether or not the uuid is a manager </td></tr>
+    <tr><td class="paramname">client_uuid</td><td>the client uuid to remove </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
+</div>
+</div>
 <a id="a2cf00501c668d5f9e53328607fc6c9e6" name="a2cf00501c668d5f9e53328607fc6c9e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2cf00501c668d5f9e53328607fc6c9e6">&#9670;&#160;</a></span>runApp()</h2>
 
@@ -498,6 +587,40 @@ std::list&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom
 </div><div class="memdoc">
 
 <p>runs the application class until the user quits the program </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a781efb6740bb664043df603630a1421c" name="a781efb6740bb664043df603630a1421c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a781efb6740bb664043df603630a1421c">&#9670;&#160;</a></span>updateRestaurant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Application::updateRestaurant </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>progresses the restaurant forward by one step </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">none</td><td></td></tr>
@@ -529,8 +652,8 @@ std::list&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom
 </table>
 </div><div class="memdoc">
 
-<p>this holds all of the connected/subscribed clients that way if there is an update on the backend, we can send updated data to the client in json form. </p>
-<dl class="section note"><dt>Note</dt><dd>Note that when a client closes their connection, they become unsubscribed and will no longer receive any messages from the backend. </dd></dl>
+<p>this holds the app variable that creates a websocket and intercepts incoming requests </p>
+<p>this holds all of the connected/subscribed clients that way if there is an update on the backend, we can send updated data to the client in json form. </p><dl class="section note"><dt>Note</dt><dd>Note that when a client closes their connection, they become unsubscribed and will no longer receive any messages from the backend. </dd></dl>
 
 </div>
 </div>

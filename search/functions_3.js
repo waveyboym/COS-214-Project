@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['diff_0',['diff',['../classbasic__json.html#aff2204c04cd35b2cef35f44b2b93ffc7',1,'basic_json']]],
-  ['dump_1',['dump',['../classdetail_1_1serializer.html#ae73c1bac64bcc810923b9f1261af8b09',1,'detail::serializer::dump()'],['../classbasic__json.html#ac38b5f79c16205efb771e99be206b345',1,'basic_json::dump()']]]
+  ['existingtoken_0',['existingToken',['../classApplication.html#a643f03f347bc1ed0703a97ac589f8dec',1,'Application']]]
 ];

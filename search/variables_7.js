@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['last_5ftoken_0',['last_token',['../classdetail_1_1parser.html#a654297c0dc3afa4674f41d729d97bcc8',1,'detail::parser']]],
-  ['lines_5fread_1',['lines_read',['../structdetail_1_1position__t.html#a9ec1ac6600d1364f4d1c9f67de6a670b',1,'detail::position_t']]],
-  ['loc_2',['loc',['../classdetail_1_1serializer.html#a80ca90565eec446d377ab65a023297ab',1,'detail::serializer']]]
+  ['pause_5fapp_5fexecution_0',['pause_app_execution',['../classApplication.html#adea76e7571f0eec60696046cca1527cc',1,'Application']]],
+  ['person_5fuuid_1',['person_uuid',['../classPeople.html#a69ca950013358bafd70b832e056c75df',1,'People']]],
+  ['pos_5fptr_2',['pos_ptr',['../classAbstractChef.html#a362c25746d2aa08378b6e832d53dcd31',1,'AbstractChef::pos_ptr'],['../classBunChef.html#aff3db10feb1a1eefe1a913e93e63e006',1,'BunChef::pos_ptr'],['../classChef.html#a37f5dd1300de87d4dbae14af2cb0309a',1,'Chef::pos_ptr'],['../classHeadChef.html#a258df36c9129211072b3259fae299e93',1,'HeadChef::pos_ptr']]]
 ];

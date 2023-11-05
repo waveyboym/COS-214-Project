@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quit_5fapp_0',['quit_app',['../classApplication.html#a34a9b31585640ed1ab6aa8389d103d02',1,'Application']]]
+  ['waiter_5fuuid_0',['waiter_uuid',['../classTable.html#a1e19b88607292c43f4f40a299093953b',1,'Table']]],
+  ['waiters_1',['waiters',['../classRestaurant.html#a5a7fdae596c29db28bdc992b4bdb0063',1,'Restaurant']]]
 ];

@@ -7,5 +7,6 @@ var classSingleTable =
     [ "isTableAvailable", "classSingleTable.html#a67e3ef411c00b6a94f21812b2d5e53cc", null ],
     [ "seatCustomer", "classSingleTable.html#a74fe16336fb01c3f70758fcf4cfb088a", null ],
     [ "unseatCustomer", "classSingleTable.html#a70e04f564a4220db0cdfae8c6627c78f", null ],
-    [ "customer_list", "classSingleTable.html#a2ceebe25abb1dc93d94b0227f603a48e", null ]
+    [ "customer_list", "classSingleTable.html#a2ceebe25abb1dc93d94b0227f603a48e", null ],
+    [ "SEAT_LIMIT", "classSingleTable.html#a61529dbec2eabf3b54468e0dc84c82ea", null ]
 ];
