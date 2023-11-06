@@ -84,6 +84,10 @@ class Customer : public People{
         * @brief Customer's order
         */
         std::vector<std::shared_ptr<Order>> order;
+        /**
+        *@brief whether or not this customer is a frontend customer
+        */
+        bool is_a_frontend_customer = false;
     public:
         /** 
         *@brief initialises a customer object
@@ -192,6 +196,20 @@ class Customer : public People{
         *@return void 
         */
         void setFrontendOrder(std::vector<std::string> order_list);
+
+        /**
+        *@brief sets this customer as a frontend customer
+        *@param set_to
+        *@return void 
+        */
+        void setIsAFrontendCustomer(bool set_to);
+
+        /**
+        *@brief returns whether or not this is a frontend customer
+        *@param none
+        *@return void 
+        */
+        bool isAFrontendCustomer();
 };
 
 #endif

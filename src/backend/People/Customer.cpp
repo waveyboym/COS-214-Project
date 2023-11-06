@@ -63,7 +63,7 @@ bool Customer::getHasCompletedMeal(){
     }
     this->current = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = this->current - this->start;
-    if(elapsed_seconds.count() >= 5.0){//customer takes 5 seconds to eat
+    if(elapsed_seconds.count() >= 7.0){//customer takes 10 seconds to eat
         this->has_completed_meal = true;
     }
     return this->has_completed_meal;
@@ -201,4 +201,12 @@ bool Customer::getHasOrdered(){
 
 void Customer::Ordered(){
     has_ordered = true;
+}
+
+void Customer::setIsAFrontendCustomer(bool set_to){
+    this->is_a_frontend_customer = true;
+}
+
+bool Customer::isAFrontendCustomer(){
+    return this->is_a_frontend_customer;
 }

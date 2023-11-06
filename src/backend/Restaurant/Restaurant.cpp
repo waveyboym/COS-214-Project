@@ -14,18 +14,7 @@ Restaurant::Restaurant(){
     this->waiters["Georgette Rocha"] = std::make_shared<Waiter>("Georgette Rocha");
     this->waiters["Laurence Herman"] = std::make_shared<Waiter>("Laurence Herman");
 
-    //Initialising kitchen
-    std::vector<std::shared_ptr<Waiter>> tempWaiters;
-    tempWaiters.push_back(this->waiters["Dwain Barber"]);
-    tempWaiters.push_back(this->waiters["Meredith Lin"]);
-    tempWaiters.push_back(this->waiters["Gracie Mcpherson"]);
-    tempWaiters.push_back(this->waiters["Carson Welch"]);
-    tempWaiters.push_back(this->waiters["Kristi Cantrell"]);
-    tempWaiters.push_back(this->waiters["Jana Robertson"]);
-    tempWaiters.push_back(this->waiters["Georgette Rocha"]);
-    tempWaiters.push_back(this->waiters["Laurence Herman"]);
-
-    kitchen = std::make_shared<Kitchen>(tempWaiters);
+    kitchen = std::make_shared<Kitchen>(this->waiters);
 
     //pre-determined number of tables in the restaurant
     this->single_tables.push_back(std::make_shared<SingleTable>(1));
@@ -138,7 +127,7 @@ void Restaurant::progressByOneStep(){
         //kitchen will tell waiters to take completed meals to customers
         deliverMeals();
     }
-    if(random_number % 10 >= 0 && random_number % 10 <=5){
+    if(random_number % 10 >= 0 && random_number % 10 <= 10){
         //assign a free waiter to any table that has customers
         this->unseatFinishedCustomers();
     }
@@ -188,7 +177,7 @@ void Restaurant::unseatFinishedCustomers(){
     while (!c_i->isDone())
     {
         std::shared_ptr<Customer> curCustomer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
-        if (curCustomer != nullptr && curCustomer->getHasCompletedMeal())
+        if (curCustomer != nullptr && curCustomer->getHasCompletedMeal() && !curCustomer->isAFrontendCustomer())
         {
             this->maitre_d->unseatCustomer(this->single_tables, this->joined_tables, curCustomer, this->waiters);
             std::cout << color::format_colour::make_colour(color::MAGENTA) <<"customer with uuid of: " << curCustomer->getUUID() << " has been unseated from the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
@@ -372,8 +361,10 @@ std::string Restaurant::FRONTEND_processUpdateCheck(json req_obj) {
     if (req_obj.find("token") != req_obj.end()) {
         std::string id = req_obj["token"];
         if (this->customers.contains(id)) {
-            // Update the customer's check, dont know how to do this, we are still waiting on backend stuff for this.
-            return "{\"status\":\"success\",\"message\":\"Update check successful\"}";
+            //Update the customer's check, dont know how to do this, we are still waiting on backend stuff for this.
+            //bro I can't even access the expected meal cooking time :sob
+            std::string status_of_food = (this->customers[id]->getHasCompletedMeal() == true ? "completed" : "not completed");
+            return "{\"status\":\"success\",\"command\":\"update_check\",\"orderStatus\":\""+ status_of_food +"\",\"message\":\"Update check successful\"}";
         } else {
             return "{\"status\":\"error\",\"message\":\"Customer not found\"}";
         }
@@ -399,9 +390,6 @@ std::string Restaurant::FRONTEND_processCustomerOrder(json req_obj) {
     this->customers[id]->setFrontendOrder(orders_items);
     return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"create_order\",\"message\":\"""\"}";
 }
-
-
-
 
 std::string Restaurant::processFrontendRequest(std::string req){
     return "";
@@ -461,6 +449,7 @@ std::string Restaurant::FRONTEND_processCheckOutCustomer(json req_obj) {
 std::string Restaurant::FRONTEND_processCustomerRestaurantEntry(json req_obj){
     std::string id = req_obj["token"];
     this->customers[id] = std::make_shared<Customer>(id);
+    this->customers[id]->setIsAFrontendCustomer(true);
     std::cout << color::format_colour::make_colour(color::GREEN) <<"customer with uuid of: " << id << " has entered the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
     return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"add_token\",\"message\":\"successfully added customer token\"}";
 }
@@ -616,7 +605,7 @@ std::string Restaurant::FRONTEND_getTableObjects(std::string type){
             std::shared_ptr<Customer> curr_customer = std::dynamic_pointer_cast<Customer>(c_i->currentItem());
             if(curr_customer != nullptr)
             {
-                to_return += "{\"name\":\""+ curr_customer->getUUID() +"\",\"status\":\""+ (curr_customer->getHasCompletedMeal() == true ? "Assigned" : "Not Assigned") +"\",\"date\":\"" + curr_customer->getCurrentEmotionalStateString() + "\",\"progress\":0}";
+                to_return += "{\"name\":\""+ curr_customer->getUUID() +"\",\"status\":\""+ (curr_customer->getIsSeated() == true ? "Assigned" : "Not Assigned") +"\",\"date\":\"" + curr_customer->getCurrentEmotionalStateString() + "\",\"progress\":0}";
             }
             c_i->next();
         }

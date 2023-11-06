@@ -211,6 +211,7 @@ void Application::progressForward()
             std::this_thread::yield(); //do not modify 
         }
 
+        std::cout << std::endl << std::endl << std::endl;
         std::cout << "[DEBUG] ticked forward once in progressForward " << std::endl;
         //do processing here
         //send message out to all managers
@@ -262,8 +263,11 @@ std::string Application::processCustomerRequest(json req_obj)
     }
 
     //add their token
-    if(req_obj["command"] == "add_token"){
+    if(req_obj["command"] == "add_token" && !this->existingToken(this->connected_customers, req_obj["token"])){
         this->connected_customers.push_back(req_obj["token"]);
+        return this->restaurant->FRONTEND_processCustomerRestaurantEntry(req_obj);
+    }
+    else if(req_obj["command"] == "add_token" && this->existingToken(this->connected_customers, req_obj["token"])){
         return this->restaurant->FRONTEND_processCustomerRestaurantEntry(req_obj);
     }
 
