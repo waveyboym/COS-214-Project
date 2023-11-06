@@ -184,7 +184,7 @@ void Customer::setFrontendOrder(std::vector<std::string> order_list){
     }
 
     this->has_decided = true;
-    this->has_ordered = true;
+    this->has_ordered = false;
 }
 
 std::vector<std::shared_ptr<Order>> Customer::getOrder() const{
