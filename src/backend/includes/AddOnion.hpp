@@ -15,7 +15,7 @@
 class AddOnion : public Order {
 public:
 /**
- * @brief creates a Onion Ingredient and Passes a std::share_pte<Meal> as the "next" of the "ingredient" of the Meal
+ * @brief creates a Onion Ingredient and Passes a std::shared_ptr<Meal> as the "next" of the "ingredient" of the Meal
  * @param m 
  * @return std::shared_ptr<Meal> 
  */
