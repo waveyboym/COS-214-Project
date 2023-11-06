@@ -134,11 +134,16 @@ class Restaurant{
         void assignAllFreeWaiters();
 
         /**
-        *@brief a random amount of customers between 0 and 10 will be seated in the restaurant
+        *@brief a random amount of seated customers will decide what to order
         *@param random_number
         *@return void
         */
         void setAnyCustomerOrder(int random_number);
+
+        /**
+        *@brief waiter takes orders of customers at their assigned table 
+        */
+        void waiterTakesOrder();
 
         
         /*****************************************************************************************************************************

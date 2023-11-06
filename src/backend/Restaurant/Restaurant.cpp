@@ -202,6 +202,10 @@ void Restaurant::assignAllFreeWaiters(){
 }
 
 void Restaurant::setAnyCustomerOrder(int random_number){
+    if(random_number == 0){
+        return;
+    }
+
     int num_orders_to_set = random_number % num_seated_customers;
     int num_orders_set = 0;
 
@@ -221,6 +225,8 @@ void Restaurant::setAnyCustomerOrder(int random_number){
         ++i;
     }
 }
+
+
 
 
 /*****************************************************************************************************************************
