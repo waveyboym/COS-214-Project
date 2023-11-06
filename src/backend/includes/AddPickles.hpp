@@ -9,6 +9,7 @@
 #define ADDPICKLES_HPP
 
 #include "Order.hpp"
+
 /**
  * @brief AddPickles class, which inherits from the Order interface.A ConcreteCommand which aides in generating a new Pickles Ingredient.
  */
