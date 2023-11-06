@@ -19,6 +19,7 @@ class SingleTableIterator : public RestaurantIterator{
         *@brief the list to traverse through
         */
         std::list<std::shared_ptr<SingleTable>> m_tables;
+
         /** 
         *@brief the current item being pointed to in the list
         */
@@ -31,6 +32,7 @@ class SingleTableIterator : public RestaurantIterator{
         *@param tables the list to iterate through
         */
         SingleTableIterator(std::list<std::shared_ptr<SingleTable>>& tables);
+
         /** 
         *@brief iterates by one step to the next element
         *@note does nothing if the list is empty
@@ -38,6 +40,7 @@ class SingleTableIterator : public RestaurantIterator{
         *@return void
         */
         void next();
+
         /** 
         *@brief returns the first element
         *@note returns nullptr if the list is empty
@@ -45,6 +48,7 @@ class SingleTableIterator : public RestaurantIterator{
         *@return std::shared_ptr<Collectable>
         */
         std::shared_ptr<Collectable> first();
+
         /** 
         *@brief returns the last element
         *@note returns nullptr if the list is empty
@@ -52,6 +56,7 @@ class SingleTableIterator : public RestaurantIterator{
         *@return std::shared_ptr<Collectable>
         */
         std::shared_ptr<Collectable> last();
+
         /** 
         *@brief checks if the entire list has been traversed
         *@note returns true if the list is empty
@@ -59,12 +64,14 @@ class SingleTableIterator : public RestaurantIterator{
         *@return bool
         */
         bool isDone();
+
         /** 
         *@brief gets the size of the list
         *@param none
         *@return int
         */
         int size();
+        
         /** 
         *@brief returns the current item in the iterator list
         *@note returns nullptr if the list is empty

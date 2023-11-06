@@ -18,20 +18,23 @@ class Meal{
         *@brief cost of the ingredient
         */
         double cost;
+
         /** 
         *@brief name of the ingredient
         */
         std::string name;
+
         /** 
         *@brief the prep time of the ingredient
         */
         double prep_time;
 
-
     public:
         /** 
         *@brief initialises a Meal object
-        *@param none
+        *@param name name of the meal
+        *@param cost cost of the meal
+        *@param prep prep time of the meal
         */
         Meal(std::string name, double cost, double prep); 
 
@@ -64,7 +67,7 @@ class Meal{
 
         /** 
         *@brief returns the total cost of the meal
-        *@param none
+        *@param prev the cost of the previous ingredients in the meal
         *@return double
         */
         virtual double getTotalCost(double prev) = 0;
@@ -93,6 +96,7 @@ class Meal{
         /** 
         *@brief returns a string containing all ingredients and prices of the meal
         *@param s a string containing all previous ingredients' information
+        *@param start the meal whose ingredients must be returned
         *@return std::string
         */
         virtual std::string getItemizedList(std::string s, std::shared_ptr<Meal> start) = 0;

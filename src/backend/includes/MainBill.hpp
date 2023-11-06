@@ -29,33 +29,38 @@ class MainBill : public Bill{
         *@param none
         */
         MainBill();
+
         /** 
         *@brief parameterised constructor
         *@param meal meal object
         *@param split number of sub bills to split it into
         */
         MainBill(std::shared_ptr<Meal> meal, int split);
+
         /** 
         *@brief returns a string representation of the bill
         *@param none
         *@return std::string
         */
         std::string toString();
+
         /** 
         *@brief returns the bill total
         *@param none
         *@return double
         */
         double getTotal();
+
         /** 
         *@brief attaches the passed in bill to this bill
         *@param bill bill to attach to this bill
         *@return void
         */
         void attachBill(std::shared_ptr<Bill> bill);
+
         /** 
         *@brief gets all bills that are attached to this bill
-        *@note this excludes this bill though
+        *@note this excludes this bill itself
         *@param none
         *@return std::vector<std::shared_ptr<Bill>>
         */

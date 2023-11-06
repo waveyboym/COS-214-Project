@@ -19,24 +19,28 @@ class SubBill : public Bill{
         *@brief total amount for this bill
         */
         double total;
+
     public:
         /** 
         *@brief constructor
         *@param none
         */
         SubBill();
+
         /** 
         *@brief returns a string representation of the bill
         *@param none
         *@return std::string
         */
         std::string toString();
+
         /** 
         *@brief returns the bill total
         *@param none
         *@return double
         */
         double getTotal();
+        
         /** 
         *@brief sets bill total
         *@param total bill total to set

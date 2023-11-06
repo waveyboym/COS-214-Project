@@ -39,18 +39,22 @@ class Restaurant : public SimulationInterface{
         *@note this map should never be modified, that is creating new waiter objects after they have been initialised in the constructor
         */
         std::map<std::string, std::shared_ptr<Waiter>> waiters;
+
         /**
         *@brief stores a map of all customers in this restaurant along with their uuid's
         */
         std::map<std::string, std::shared_ptr<Customer>> customers;
+
         /**
         *@brief stores the singular instance of the maitre_d object
         */
         std::shared_ptr<ConcreteMaitreD> maitre_d;
+
         /**
         *@brief list of all single tables in the restaurant
         */
         std::list<std::shared_ptr<SingleTable>> single_tables;
+
         /**
         *@brief list of all joined tables in the restaurant
         */
@@ -71,6 +75,7 @@ class Restaurant : public SimulationInterface{
         *@param none
         */
         Restaurant();
+
         /**
          * @brief generates unique uid
          * @param none
@@ -83,11 +88,13 @@ class Restaurant : public SimulationInterface{
         *@brief destructor
         */
         ~Restaurant();
+
         /**
         *@brief constructor
         *@note this function is deleted so it can never be accessed. If you use this function and try to compile, your code will not compile
         */
         Restaurant(Restaurant const&) = delete;
+
         /**
         *@brief equals operator
         *@note this function is deleted so it can never be accessed. If you use this function and try to compile, your code will not compile
@@ -98,6 +105,7 @@ class Restaurant : public SimulationInterface{
         *@note if no restaurant instance exists, one is created and returned, otherwise the existing instance is returned
         */
         static std::shared_ptr<Restaurant> instance();
+        
         /**
         *@brief progresses the simulation by one step. Each mini-step in this function has a certain chance of occurring
         *@param none
