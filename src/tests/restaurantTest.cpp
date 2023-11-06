@@ -147,6 +147,64 @@ namespace restaurantTest{
         R->setAnyCustomerOrder(0);
         R->waiterTakesOrder();
     }
+
+    TEST(Restaurant_test, ORDERS_TAKEN_TO_KITCHEN)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+        R->assignAllFreeWaiters();
+        R->setAnyCustomerOrder(5);
+        R->waiterTakesOrder();
+
+        R->ordersTakenToKitchen();
+    }
+
+    TEST(Restaurant_test, ORDERS_TAKEN_TO_KITCHEN_NO_ORDERS)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+        R->assignAllFreeWaiters();
+        R->setAnyCustomerOrder(0);
+        R->waiterTakesOrder();
+
+        R->ordersTakenToKitchen();
+    }
+
+    TEST(Restaurant_test, ORDERS_DELVERED_FROM_KITCHEN)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+        R->assignAllFreeWaiters();
+        R->setAnyCustomerOrder(5);
+        R->waiterTakesOrder();
+
+        R->ordersTakenToKitchen();
+        R->deliverMeals();
+    }
+
+    TEST(Restaurant_test, ORDERS_DELVERED_FROM_KITCHEN_NO_ORDERS)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+        R->assignAllFreeWaiters();
+        R->setAnyCustomerOrder(0);
+        R->waiterTakesOrder();
+
+        R->ordersTakenToKitchen();
+        R->deliverMeals();
+    }
 }
 
 namespace restaurantFrontEndTest{

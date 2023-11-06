@@ -1,7 +1,7 @@
 #include "../includes/ConcreteBuns.hpp"
 #include <sstream>
 
-NoBun::NoBun(): Bun("no bun", 0, 0.0){};
+NoBun::NoBun(): Bun("No Bun", 0, 0.0){};
 std::string NoBun::getItemizedList(){
     std::ostringstream o;
         o.precision(2);

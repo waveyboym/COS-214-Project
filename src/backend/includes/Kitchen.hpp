@@ -30,6 +30,10 @@ class Kitchen{
         */
         std::vector<std::pair<std::shared_ptr<std::vector<Order>>, std::shared_ptr<Customer>>> requests;
         /** 
+        *@brief whether there are completed meals
+        */
+        bool has_completed_meals = false;
+        /** 
         *@brief stores pairs of Meals and the customer the meal's order came from
         */
         std::vector<std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>>> completed_meals; //vector of pairs
@@ -60,6 +64,12 @@ class Kitchen{
         */
         std::vector<std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>>> getCompletedMeals();
 
+        /** 
+        *@brief whether there are completed meals
+        *@param none
+        *@return bool
+        */
+        bool getHasCompletedMeals();
 };
 
 #endif

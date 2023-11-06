@@ -52,12 +52,12 @@ namespace orderServiceTest{
         W2->takeOrder(C1);
         W3->takeOrder(C2);
 
-        K->createMeal(W3->getOrder().first, C);
-        K->createMeal(W2->getOrder().first, C1);
+        K->createMeal(W3->sendOrder().first, C);
+        K->createMeal(W2->sendOrder().first, C1);
         // K->createMeal(W3->getOrder(), C2);
 
 
 
-        EXPECT_EQ(K->getCompletedMeals().begin()->first->getItemizedList(), "Chicken Patty  R10.99\nTomato  R2.57\nChicken Patty  R10.99\nJuice  R14.36\nCheese  R4.38\nTomato  R2.57\nFresh Red Onion  R3.12\nChicken Patty  R8.52\nMayonnaise  R2.18\n\nTotal: R59.68");
+        EXPECT_EQ(K->getCompletedMeals().begin()->first->getItemizedList(), "No Bun  R0.00\nChicken Patty  R10.99\nTomato  R2.57\nChicken Patty  R10.99\nJuice  R14.36\nCheese  R4.38\nTomato  R2.57\nFresh Red Onion  R3.12\nChicken Patty  R8.52\nMayonnaise  R2.18\n\nTotal: R59.68");
     }
 }

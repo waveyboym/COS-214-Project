@@ -13,6 +13,7 @@
 #include "SingleTable.hpp"
 #include "JoinedTable.hpp"
 #include "Waiter.hpp"
+#include "Kitchen.hpp"
 #include "CustomerIterator.hpp"
 #include "WaiterIterator.hpp"
 #include "SingleTableIterator.hpp"
@@ -54,6 +55,11 @@ class Restaurant : public SimulationInterface{
         *@brief list of all joined tables in the restaurant
         */
         std::list<std::shared_ptr<JoinedTable>> joined_tables;
+
+        /**
+        *@brief the kitchen object 
+        */
+        std::shared_ptr<Kitchen> kitchen;
 
         /**
         *@brief number of customers seated
@@ -142,9 +148,25 @@ class Restaurant : public SimulationInterface{
         void setAnyCustomerOrder(int random_number);
 
         /**
-        *@brief waiter takes orders of customers at their assigned table 
+        *@brief waiters takes orders of customers at their assigned table 
+        *@param none
+        *@return void
         */
         void waiterTakesOrder();
+
+        /**
+        *@brief waiters take orders to Kitchen
+        *@param none
+        *@return void
+        */
+        void ordersTakenToKitchen();
+
+        /**
+        *@brief Kitchen sends Meals to Waiters who take them to tables
+        *@param none
+        *@return void
+        */
+        void deliverMeals();
 
         
         /*****************************************************************************************************************************

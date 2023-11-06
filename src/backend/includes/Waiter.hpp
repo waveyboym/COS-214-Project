@@ -10,6 +10,7 @@
 #include "People.hpp"
 #include "Table.hpp"
 #include "Meal.hpp"
+#include "color.hpp"
 #include <memory>
 #include <string>
 #include <vector>
@@ -24,6 +25,10 @@ class Waiter : public People{
         *@brief whether or not this waiter is assigned a table
         */
         bool is_assigned_table = false;
+        /** 
+        *@brief whether or not this waiter has orders
+        */
+        bool has_orders = false;
         /** 
         *@brief the table id that this waiter is assigned to
         */
@@ -102,11 +107,17 @@ class Waiter : public People{
         */
         void takeOrder(std::shared_ptr<Customer> customer);
         /**
-        *@brief getter for order
+        *@brief pops and returns order from vector
         *@param none
         *@return  std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>>
         */
-        std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>> getOrder();
+        std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>> sendOrder();
+        /** 
+        *@brief returns a bool indicating whether this waiter has orders
+        *@param none
+        *@return bool
+        */
+        bool getHasOrders();
 };
 
 #endif
