@@ -127,9 +127,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aec8b34e903877d29ad4b7b9bed70d338" id="r_aec8b34e903877d29ad4b7b9bed70d338"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaiter.html#aec8b34e903877d29ad4b7b9bed70d338">Waiter</a> (std::string waiteruuid)</td></tr>
 <tr class="memdesc:aec8b34e903877d29ad4b7b9bed70d338"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <br /></td></tr>
 <tr class="separator:aec8b34e903877d29ad4b7b9bed70d338"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1776c63f65b7a1c688445a91b3ba49fd" id="r_a1776c63f65b7a1c688445a91b3ba49fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaiter.html#a1776c63f65b7a1c688445a91b3ba49fd">joinTables</a> (std::shared_ptr&lt; <a class="el" href="classJoinedTable.html">JoinedTable</a> &gt; table_to_join_to, std::shared_ptr&lt; <a class="el" href="classTable.html">Table</a> &gt; table_to_join)</td></tr>
-<tr class="memdesc:a1776c63f65b7a1c688445a91b3ba49fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">joins two tables together regardless of them being a single table or a joined table  <br /></td></tr>
-<tr class="separator:a1776c63f65b7a1c688445a91b3ba49fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0748e3bcbe55a8f467e6a5db0a756654" id="r_a0748e3bcbe55a8f467e6a5db0a756654"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaiter.html#a0748e3bcbe55a8f467e6a5db0a756654">personAction</a> ()</td></tr>
 <tr class="separator:a0748e3bcbe55a8f467e6a5db0a756654"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25fcce1f0d6eb3b1434a6b96c8e370db" id="r_a25fcce1f0d6eb3b1434a6b96c8e370db"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaiter.html#a25fcce1f0d6eb3b1434a6b96c8e370db">isAssignedATable</a> ()</td></tr>
@@ -144,6 +141,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aae7fe305e30a4e1c1dcc99a3978d0fc8" id="r_aae7fe305e30a4e1c1dcc99a3978d0fc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaiter.html#aae7fe305e30a4e1c1dcc99a3978d0fc8">assignID</a> (int set_to)</td></tr>
 <tr class="memdesc:aae7fe305e30a4e1c1dcc99a3978d0fc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns this waiter an id of a table for them to serve  <br /></td></tr>
 <tr class="separator:aae7fe305e30a4e1c1dcc99a3978d0fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af73fbcd2921144a4a1219ee5bf918001" id="r_af73fbcd2921144a4a1219ee5bf918001"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaiter.html#af73fbcd2921144a4a1219ee5bf918001">assignTable</a> (std::shared_ptr&lt; <a class="el" href="classTable.html">Table</a> &gt; set_to)</td></tr>
+<tr class="memdesc:af73fbcd2921144a4a1219ee5bf918001"><td class="mdescLeft">&#160;</td><td class="mdescRight">assigns this waiter a table for them to serve  <br /></td></tr>
+<tr class="separator:af73fbcd2921144a4a1219ee5bf918001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c325e3b3694780a81009c7055254c7a" id="r_a7c325e3b3694780a81009c7055254c7a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classTable.html">Table</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaiter.html#a7c325e3b3694780a81009c7055254c7a">getTable</a> ()</td></tr>
+<tr class="memdesc:a7c325e3b3694780a81009c7055254c7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">getAssignedTable  <br /></td></tr>
+<tr class="separator:a7c325e3b3694780a81009c7055254c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec07b6f40d3f82fec1e3f02d6df95007" id="r_aec07b6f40d3f82fec1e3f02d6df95007"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaiter.html#aec07b6f40d3f82fec1e3f02d6df95007">getUpdate</a> (std::vector&lt; std::pair&lt; std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;, std::shared_ptr&lt; <a class="el" href="classCustomer.html">Customer</a> &gt; &gt; &gt; new_meals)</td></tr>
+<tr class="memdesc:aec07b6f40d3f82fec1e3f02d6df95007"><td class="mdescLeft">&#160;</td><td class="mdescRight">alerts this waiter to check the kitchen for new food. Given a list of new_meals it will deliver any meals that belong to one of the customers it is serving.  <br /></td></tr>
+<tr class="separator:aec07b6f40d3f82fec1e3f02d6df95007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bc7befde2041767dadaaaba79c2a905" id="r_a1bc7befde2041767dadaaaba79c2a905"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaiter.html#a1bc7befde2041767dadaaaba79c2a905">takeOrder</a> (std::shared_ptr&lt; <a class="el" href="classCustomer.html">Customer</a> &gt; customer)</td></tr>
+<tr class="memdesc:a1bc7befde2041767dadaaaba79c2a905"><td class="mdescLeft">&#160;</td><td class="mdescRight">waiter takes customer's order  <br /></td></tr>
+<tr class="separator:a1bc7befde2041767dadaaaba79c2a905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83725468f7ec5dbe8b69766bf720e921" id="r_a83725468f7ec5dbe8b69766bf720e921"><td class="memItemLeft" align="right" valign="top">std::pair&lt; std::vector&lt; std::shared_ptr&lt; <a class="el" href="classOrder.html">Order</a> &gt; &gt;, std::shared_ptr&lt; <a class="el" href="classCustomer.html">Customer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaiter.html#a83725468f7ec5dbe8b69766bf720e921">sendOrder</a> ()</td></tr>
+<tr class="memdesc:a83725468f7ec5dbe8b69766bf720e921"><td class="mdescLeft">&#160;</td><td class="mdescRight">pops and returns order from vector  <br /></td></tr>
+<tr class="separator:a83725468f7ec5dbe8b69766bf720e921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7123b6532a44e318cd45153b6badea7f" id="r_a7123b6532a44e318cd45153b6badea7f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWaiter.html#a7123b6532a44e318cd45153b6badea7f">getHasOrders</a> ()</td></tr>
+<tr class="memdesc:a7123b6532a44e318cd45153b6badea7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a bool indicating whether this waiter has orders  <br /></td></tr>
+<tr class="separator:a7123b6532a44e318cd45153b6badea7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classPeople"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classPeople')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classPeople.html">People</a></td></tr>
 <tr class="memitem:a1fbff75d78325b18802b6309be85d75e inherit pub_methods_classPeople" id="r_a1fbff75d78325b18802b6309be85d75e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPeople.html#a1fbff75d78325b18802b6309be85d75e">nill</a> ()</td></tr>
 <tr class="memdesc:a1fbff75d78325b18802b6309be85d75e inherit pub_methods_classPeople"><td class="mdescLeft">&#160;</td><td class="mdescRight">a null function to allow for polymorphic features to be used  <br /></td></tr>
@@ -161,14 +176,22 @@ Private Attributes</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_assigned_table</b> = false</td></tr>
 <tr class="memdesc:a53e6a97eb9dcad36c783d794ef85e668"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether or not this waiter is assigned a table <br /></td></tr>
 <tr class="separator:a53e6a97eb9dcad36c783d794ef85e668"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a224e0850fed40abd94bb5c5ba2da3319" id="r_a224e0850fed40abd94bb5c5ba2da3319"><td class="memItemLeft" align="right" valign="top"><a id="a224e0850fed40abd94bb5c5ba2da3319" name="a224e0850fed40abd94bb5c5ba2da3319"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>has_orders</b> = false</td></tr>
+<tr class="memdesc:a224e0850fed40abd94bb5c5ba2da3319"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether or not this waiter has orders <br /></td></tr>
+<tr class="separator:a224e0850fed40abd94bb5c5ba2da3319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a410ddd5fa739f697f1b29d2d07ac069b" id="r_a410ddd5fa739f697f1b29d2d07ac069b"><td class="memItemLeft" align="right" valign="top"><a id="a410ddd5fa739f697f1b29d2d07ac069b" name="a410ddd5fa739f697f1b29d2d07ac069b"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>assigned_table_id</b> = -1</td></tr>
 <tr class="memdesc:a410ddd5fa739f697f1b29d2d07ac069b"><td class="mdescLeft">&#160;</td><td class="mdescRight">the table id that this waiter is assigned to <br /></td></tr>
 <tr class="separator:a410ddd5fa739f697f1b29d2d07ac069b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0298d3dec146e1e0c467f43251e227d3" id="r_a0298d3dec146e1e0c467f43251e227d3"><td class="memItemLeft" align="right" valign="top"><a id="a0298d3dec146e1e0c467f43251e227d3" name="a0298d3dec146e1e0c467f43251e227d3"></a>
-std::shared_ptr&lt; <a class="el" href="classOrder.html">Order</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>order</b></td></tr>
-<tr class="memdesc:a0298d3dec146e1e0c467f43251e227d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">order for this waiter to fulfill <br /></td></tr>
-<tr class="separator:a0298d3dec146e1e0c467f43251e227d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f4e6cb72c73dca4a367373c9d2f4108" id="r_a9f4e6cb72c73dca4a367373c9d2f4108"><td class="memItemLeft" align="right" valign="top"><a id="a9f4e6cb72c73dca4a367373c9d2f4108" name="a9f4e6cb72c73dca4a367373c9d2f4108"></a>
+std::shared_ptr&lt; <a class="el" href="classTable.html">Table</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>my_table</b> = nullptr</td></tr>
+<tr class="memdesc:a9f4e6cb72c73dca4a367373c9d2f4108"><td class="mdescLeft">&#160;</td><td class="mdescRight">the table that this waiter is assigned to <br /></td></tr>
+<tr class="separator:a9f4e6cb72c73dca4a367373c9d2f4108"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4499f3dda92173062dd0170d5c308340" id="r_a4499f3dda92173062dd0170d5c308340"><td class="memItemLeft" align="right" valign="top"><a id="a4499f3dda92173062dd0170d5c308340" name="a4499f3dda92173062dd0170d5c308340"></a>
+std::vector&lt; std::pair&lt; std::vector&lt; std::shared_ptr&lt; <a class="el" href="classOrder.html">Order</a> &gt; &gt;, std::shared_ptr&lt; <a class="el" href="classCustomer.html">Customer</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>order</b></td></tr>
+<tr class="memdesc:a4499f3dda92173062dd0170d5c308340"><td class="mdescLeft">&#160;</td><td class="mdescRight">orders for this waiter to fulfill <br /></td></tr>
+<tr class="separator:a4499f3dda92173062dd0170d5c308340"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -180,7 +203,6 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>person_uuid</b
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>a waiter object </p>
-<p>A waiter object.</p>
 <dl class="section author"><dt>Author</dt><dd>Michael </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab2de094297c57ac00eb4359cc4dd9ad8" name="ab2de094297c57ac00eb4359cc4dd9ad8"></a>
@@ -262,6 +284,33 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>person_uuid</b
 
 </div>
 </div>
+<a id="af73fbcd2921144a4a1219ee5bf918001" name="af73fbcd2921144a4a1219ee5bf918001"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af73fbcd2921144a4a1219ee5bf918001">&#9670;&#160;</a></span>assignTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Waiter::assignTable </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classTable.html">Table</a> &gt;&#160;</td>
+          <td class="paramname"><em>set_to</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>assigns this waiter a table for them to serve </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">set_to</td><td>table to set to </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
 <a id="a0812ff42dd28bf4572ce413a97511eed" name="a0812ff42dd28bf4572ce413a97511eed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0812ff42dd28bf4572ce413a97511eed">&#9670;&#160;</a></span>getAssignedTableID()</h2>
 
@@ -288,6 +337,85 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>person_uuid</b
 
 </div>
 </div>
+<a id="a7123b6532a44e318cd45153b6badea7f" name="a7123b6532a44e318cd45153b6badea7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7123b6532a44e318cd45153b6badea7f">&#9670;&#160;</a></span>getHasOrders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Waiter::getHasOrders </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns a bool indicating whether this waiter has orders </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
+</div>
+</div>
+<a id="a7c325e3b3694780a81009c7055254c7a" name="a7c325e3b3694780a81009c7055254c7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c325e3b3694780a81009c7055254c7a">&#9670;&#160;</a></span>getTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classTable.html">Table</a> &gt; Waiter::getTable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getAssignedTable </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::shared_ptr&lt;Table&gt; </dd></dl>
+
+</div>
+</div>
+<a id="aec07b6f40d3f82fec1e3f02d6df95007" name="aec07b6f40d3f82fec1e3f02d6df95007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec07b6f40d3f82fec1e3f02d6df95007">&#9670;&#160;</a></span>getUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Waiter::getUpdate </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::pair&lt; std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;, std::shared_ptr&lt; <a class="el" href="classCustomer.html">Customer</a> &gt; &gt; &gt;&#160;</td>
+          <td class="paramname"><em>new_meals</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>alerts this waiter to check the kitchen for new food. Given a list of new_meals it will deliver any meals that belong to one of the customers it is serving. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_meals</td><td>the meals that have been recently prepared </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
 <a id="a25fcce1f0d6eb3b1434a6b96c8e370db" name="a25fcce1f0d6eb3b1434a6b96c8e370db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a25fcce1f0d6eb3b1434a6b96c8e370db">&#9670;&#160;</a></span>isAssignedATable()</h2>
 
@@ -311,44 +439,6 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>person_uuid</b
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
-
-</div>
-</div>
-<a id="a1776c63f65b7a1c688445a91b3ba49fd" name="a1776c63f65b7a1c688445a91b3ba49fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1776c63f65b7a1c688445a91b3ba49fd">&#9670;&#160;</a></span>joinTables()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Waiter::joinTables </td>
-          <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classJoinedTable.html">JoinedTable</a> &gt;&#160;</td>
-          <td class="paramname"><em>table_to_join_to</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classTable.html">Table</a> &gt;&#160;</td>
-          <td class="paramname"><em>table_to_join</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>joins two tables together regardless of them being a single table or a joined table </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">table_to_join_to</td><td>table that will have another table be joined to it </td></tr>
-    <tr><td class="paramname">table_to_join</td><td>table that will be joined to another table </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>
@@ -386,6 +476,32 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>person_uuid</b
 
 </div>
 </div>
+<a id="a83725468f7ec5dbe8b69766bf720e921" name="a83725468f7ec5dbe8b69766bf720e921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83725468f7ec5dbe8b69766bf720e921">&#9670;&#160;</a></span>sendOrder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; std::vector&lt; std::shared_ptr&lt; <a class="el" href="classOrder.html">Order</a> &gt; &gt;, std::shared_ptr&lt; <a class="el" href="classCustomer.html">Customer</a> &gt; &gt; Waiter::sendOrder </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>pops and returns order from vector </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::pair&lt;std::vector&lt;std::shared_ptr&lt;Order&gt;&gt;, std::shared_ptr&lt;Customer&gt;&gt; </dd></dl>
+
+</div>
+</div>
 <a id="af11f7fa3de14ec6f9e9685f24bc21616" name="af11f7fa3de14ec6f9e9685f24bc21616"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af11f7fa3de14ec6f9e9685f24bc21616">&#9670;&#160;</a></span>setIsAssignedATable()</h2>
 
@@ -410,6 +526,33 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>person_uuid</b
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
+</div>
+</div>
+<a id="a1bc7befde2041767dadaaaba79c2a905" name="a1bc7befde2041767dadaaaba79c2a905"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bc7befde2041767dadaaaba79c2a905">&#9670;&#160;</a></span>takeOrder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Waiter::takeOrder </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classCustomer.html">Customer</a> &gt;&#160;</td>
+          <td class="paramname"><em>customer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>waiter takes customer's order </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">std::shared_ptr&lt;Customer&gt;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>

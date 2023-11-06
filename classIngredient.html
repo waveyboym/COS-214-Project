@@ -134,28 +134,37 @@ Inheritance diagram for Ingredient:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa8dd7ff6061ba78bbe3309abf3f4ca84" id="r_aa8dd7ff6061ba78bbe3309abf3f4ca84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIngredient.html#aa8dd7ff6061ba78bbe3309abf3f4ca84">Ingredient</a> (std::string <a class="el" href="classMeal.html#a350922f1e75481f3887dea8a32de4a4d">name</a>, double <a class="el" href="classMeal.html#a3fb5a160681f8ec0651bbcf37662e9fa">cost</a>, std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt; meal)</td></tr>
-<tr class="memdesc:aa8dd7ff6061ba78bbe3309abf3f4ca84"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialises an <a class="el" href="classIngredient.html" title="Abstract class for all Ingredient types to inherit from.">Ingredient</a> object  <br /></td></tr>
-<tr class="separator:aa8dd7ff6061ba78bbe3309abf3f4ca84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae31fd673ad61354e4fdbf5fce1b47c0a" id="r_ae31fd673ad61354e4fdbf5fce1b47c0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIngredient.html#ae31fd673ad61354e4fdbf5fce1b47c0a">setTotalCost</a> (double c)</td></tr>
-<tr class="memdesc:ae31fd673ad61354e4fdbf5fce1b47c0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds this <a class="el" href="classIngredient.html" title="Abstract class for all Ingredient types to inherit from.">Ingredient</a> to an already existing <a class="el" href="classMeal.html" title="a meal object">Meal</a> object  <br /></td></tr>
-<tr class="separator:ae31fd673ad61354e4fdbf5fce1b47c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a688fe6d7d4199cc3a57f387856456893" id="r_a688fe6d7d4199cc3a57f387856456893"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIngredient.html#a688fe6d7d4199cc3a57f387856456893">Ingredient</a> (std::string <a class="el" href="classMeal.html#a350922f1e75481f3887dea8a32de4a4d">name</a>, double <a class="el" href="classMeal.html#a3fb5a160681f8ec0651bbcf37662e9fa">cost</a>, double prep, std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt; <a class="el" href="classIngredient.html#a0f66f16f11d73f8c4c591cde41b9a5e1">meal</a>)</td></tr>
+<tr class="memdesc:a688fe6d7d4199cc3a57f387856456893"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialises an <a class="el" href="classIngredient.html" title="Abstract class for all Ingredient types to inherit from.">Ingredient</a> object  <br /></td></tr>
+<tr class="separator:a688fe6d7d4199cc3a57f387856456893"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2629da5f7c038f23d6985689bf7c610f" id="r_a2629da5f7c038f23d6985689bf7c610f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIngredient.html#a2629da5f7c038f23d6985689bf7c610f">getTotalCost</a> ()</td></tr>
 <tr class="memdesc:a2629da5f7c038f23d6985689bf7c610f"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the total cost of the meal  <br /></td></tr>
 <tr class="separator:a2629da5f7c038f23d6985689bf7c610f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22b94ea4bf8a33631555a4d137b099cd" id="r_a22b94ea4bf8a33631555a4d137b099cd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIngredient.html#a22b94ea4bf8a33631555a4d137b099cd">getItemizedList</a> (std::string s)</td></tr>
-<tr class="memdesc:a22b94ea4bf8a33631555a4d137b099cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">adds this <a class="el" href="classIngredient.html" title="Abstract class for all Ingredient types to inherit from.">Ingredient</a> to an already existing <a class="el" href="classMeal.html" title="a meal object">Meal</a> object  <br /></td></tr>
-<tr class="separator:a22b94ea4bf8a33631555a4d137b099cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a338db9f0eccc2c75ec7118396599ac10" id="r_a338db9f0eccc2c75ec7118396599ac10"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIngredient.html#a338db9f0eccc2c75ec7118396599ac10">getTotalCost</a> (double prev)</td></tr>
+<tr class="memdesc:a338db9f0eccc2c75ec7118396599ac10"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the total cost of the meal, calculated via recursive calls of this function  <br /></td></tr>
+<tr class="separator:a338db9f0eccc2c75ec7118396599ac10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a579ff65440054f631164769506c5e1b9" id="r_a579ff65440054f631164769506c5e1b9"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIngredient.html#a579ff65440054f631164769506c5e1b9">getTotalPrepTime</a> ()</td></tr>
+<tr class="memdesc:a579ff65440054f631164769506c5e1b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the total prep time of the meal  <br /></td></tr>
+<tr class="separator:a579ff65440054f631164769506c5e1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab183b9aa73135db9c29ffca5642abd5c" id="r_ab183b9aa73135db9c29ffca5642abd5c"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIngredient.html#ab183b9aa73135db9c29ffca5642abd5c">getTotalPrepTime</a> (double prev)</td></tr>
+<tr class="memdesc:ab183b9aa73135db9c29ffca5642abd5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the total prep time of the meal, calculated via recursive calls of this function  <br /></td></tr>
+<tr class="separator:ab183b9aa73135db9c29ffca5642abd5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a527c14041e33427c22a930d611ff4d4d" id="r_a527c14041e33427c22a930d611ff4d4d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIngredient.html#a527c14041e33427c22a930d611ff4d4d">getItemizedList</a> (std::string s, std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt; start)</td></tr>
+<tr class="memdesc:a527c14041e33427c22a930d611ff4d4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a list of all ingredients for the meal  <br /></td></tr>
+<tr class="separator:a527c14041e33427c22a930d611ff4d4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb920aca2dc86760f15ae605da2c9ca4" id="r_aeb920aca2dc86760f15ae605da2c9ca4"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIngredient.html#aeb920aca2dc86760f15ae605da2c9ca4">getItemizedList</a> ()</td></tr>
 <tr class="memdesc:aeb920aca2dc86760f15ae605da2c9ca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a string containing all ingredients and prices of the meal  <br /></td></tr>
 <tr class="separator:aeb920aca2dc86760f15ae605da2c9ca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classMeal"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classMeal')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classMeal.html">Meal</a></td></tr>
-<tr class="memitem:aebace8594a327821426a617661e31eed inherit pub_methods_classMeal" id="r_aebace8594a327821426a617661e31eed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMeal.html#aebace8594a327821426a617661e31eed">Meal</a> (std::string <a class="el" href="classMeal.html#a350922f1e75481f3887dea8a32de4a4d">name</a>, double <a class="el" href="classMeal.html#a3fb5a160681f8ec0651bbcf37662e9fa">cost</a>)</td></tr>
-<tr class="memdesc:aebace8594a327821426a617661e31eed inherit pub_methods_classMeal"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialises a <a class="el" href="classMeal.html" title="a meal object">Meal</a> object  <br /></td></tr>
-<tr class="separator:aebace8594a327821426a617661e31eed inherit pub_methods_classMeal"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12f1a253f99f2fd12914469429a5faba inherit pub_methods_classMeal" id="r_a12f1a253f99f2fd12914469429a5faba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMeal.html#a12f1a253f99f2fd12914469429a5faba">Meal</a> (std::string <a class="el" href="classMeal.html#a350922f1e75481f3887dea8a32de4a4d">name</a>, double <a class="el" href="classMeal.html#a3fb5a160681f8ec0651bbcf37662e9fa">cost</a>, double prep)</td></tr>
+<tr class="memdesc:a12f1a253f99f2fd12914469429a5faba inherit pub_methods_classMeal"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialises a <a class="el" href="classMeal.html" title="a meal object">Meal</a> object  <br /></td></tr>
+<tr class="separator:a12f1a253f99f2fd12914469429a5faba inherit pub_methods_classMeal"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accb1df3df7a41fc62a4ded97e6dcb81c inherit pub_methods_classMeal" id="r_accb1df3df7a41fc62a4ded97e6dcb81c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMeal.html#accb1df3df7a41fc62a4ded97e6dcb81c">getCost</a> ()</td></tr>
 <tr class="memdesc:accb1df3df7a41fc62a4ded97e6dcb81c inherit pub_methods_classMeal"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the cost of this <a class="el" href="classMeal.html" title="a meal object">Meal</a> Object  <br /></td></tr>
 <tr class="separator:accb1df3df7a41fc62a4ded97e6dcb81c inherit pub_methods_classMeal"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4e0723f1db7e3fa4117c50e51251f07 inherit pub_methods_classMeal" id="r_ad4e0723f1db7e3fa4117c50e51251f07"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMeal.html#ad4e0723f1db7e3fa4117c50e51251f07">getPrepTime</a> ()</td></tr>
+<tr class="memdesc:ad4e0723f1db7e3fa4117c50e51251f07 inherit pub_methods_classMeal"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the the prep_time of this <a class="el" href="classMeal.html" title="a meal object">Meal</a> Object  <br /></td></tr>
+<tr class="separator:ad4e0723f1db7e3fa4117c50e51251f07 inherit pub_methods_classMeal"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace5eea764f8a63794365bbc71dcf1629 inherit pub_methods_classMeal" id="r_ace5eea764f8a63794365bbc71dcf1629"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMeal.html#ace5eea764f8a63794365bbc71dcf1629">getName</a> ()</td></tr>
 <tr class="memdesc:ace5eea764f8a63794365bbc71dcf1629 inherit pub_methods_classMeal"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the name of this <a class="el" href="classMeal.html" title="a meal object">Meal</a> Object  <br /></td></tr>
 <tr class="separator:ace5eea764f8a63794365bbc71dcf1629 inherit pub_methods_classMeal"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,14 +173,15 @@ Public Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a0f66f16f11d73f8c4c591cde41b9a5e1" id="r_a0f66f16f11d73f8c4c591cde41b9a5e1"><td class="memItemLeft" align="right" valign="top"><a id="a0f66f16f11d73f8c4c591cde41b9a5e1" name="a0f66f16f11d73f8c4c591cde41b9a5e1"></a>
 std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>meal</b></td></tr>
+<tr class="memdesc:a0f66f16f11d73f8c4c591cde41b9a5e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">the meal to which this ingredient belongs <br /></td></tr>
 <tr class="separator:a0f66f16f11d73f8c4c591cde41b9a5e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract class for all <a class="el" href="classIngredient.html" title="Abstract class for all Ingredient types to inherit from.">Ingredient</a> types to inherit from. </p>
 <dl class="section author"><dt>Author</dt><dd>Jaide </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa8dd7ff6061ba78bbe3309abf3f4ca84" name="aa8dd7ff6061ba78bbe3309abf3f4ca84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8dd7ff6061ba78bbe3309abf3f4ca84">&#9670;&#160;</a></span>Ingredient()</h2>
+<a id="a688fe6d7d4199cc3a57f387856456893" name="a688fe6d7d4199cc3a57f387856456893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a688fe6d7d4199cc3a57f387856456893">&#9670;&#160;</a></span>Ingredient()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,6 +201,12 @@ std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>prep</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td>
           <td class="paramname"><em>meal</em>&#160;</td>
         </tr>
@@ -205,6 +221,9 @@ std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td>
 <p>initialises an <a class="el" href="classIngredient.html" title="Abstract class for all Ingredient types to inherit from.">Ingredient</a> object </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">name</td><td>the name of the ingredient </td></tr>
+    <tr><td class="paramname">cost</td><td>the price of the ingredient </td></tr>
+    <tr><td class="paramname">prep</td><td>the prep time of the ingredient </td></tr>
     <tr><td class="paramname">meal</td><td>the <a class="el" href="classMeal.html" title="a meal object">Meal</a> object to add this ingredient to </td></tr>
   </table>
   </dd>
@@ -249,8 +268,8 @@ std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td>
 
 </div>
 </div>
-<a id="a22b94ea4bf8a33631555a4d137b099cd" name="a22b94ea4bf8a33631555a4d137b099cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22b94ea4bf8a33631555a4d137b099cd">&#9670;&#160;</a></span>getItemizedList() <span class="overload">[2/2]</span></h2>
+<a id="a527c14041e33427c22a930d611ff4d4d" name="a527c14041e33427c22a930d611ff4d4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a527c14041e33427c22a930d611ff4d4d">&#9670;&#160;</a></span>getItemizedList() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,8 +281,18 @@ std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td>
           <td class="memname">std::string Ingredient::getItemizedList </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td>
+          <td class="paramname"><em>start</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -273,20 +302,22 @@ std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td>
 </table>
 </div><div class="memdoc">
 
-<p>adds this <a class="el" href="classIngredient.html" title="Abstract class for all Ingredient types to inherit from.">Ingredient</a> to an already existing <a class="el" href="classMeal.html" title="a meal object">Meal</a> object </p>
+<p>returns a list of all ingredients for the meal </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">meal</td><td>the meal for this ingredient to be added to </td></tr>
+    <tr><td class="paramname">s</td><td>the tail of the string </td></tr>
+    <tr><td class="paramname">start</td><td>the meal the ingredient is a part of </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
 
-<p>Implements <a class="el" href="classMeal.html#a402d39d5a2079145b2c7f0cab91f773d">Meal</a>.</p>
+<p>Implements <a class="el" href="classMeal.html#a586f24db8cd303cfe9af591064ab4e4d">Meal</a>.</p>
 
 </div>
 </div>
 <a id="a2629da5f7c038f23d6985689bf7c610f" name="a2629da5f7c038f23d6985689bf7c610f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2629da5f7c038f23d6985689bf7c610f">&#9670;&#160;</a></span>getTotalCost()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2629da5f7c038f23d6985689bf7c610f">&#9670;&#160;</a></span>getTotalCost() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -321,8 +352,8 @@ std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td>
 
 </div>
 </div>
-<a id="ae31fd673ad61354e4fdbf5fce1b47c0a" name="ae31fd673ad61354e4fdbf5fce1b47c0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae31fd673ad61354e4fdbf5fce1b47c0a">&#9670;&#160;</a></span>setTotalCost()</h2>
+<a id="a338db9f0eccc2c75ec7118396599ac10" name="a338db9f0eccc2c75ec7118396599ac10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a338db9f0eccc2c75ec7118396599ac10">&#9670;&#160;</a></span>getTotalCost() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -331,10 +362,10 @@ std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Ingredient::setTotalCost </td>
+          <td class="memname">double Ingredient::getTotalCost </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
+          <td class="paramname"><em>prev</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -345,15 +376,89 @@ std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td>
 </table>
 </div><div class="memdoc">
 
-<p>adds this <a class="el" href="classIngredient.html" title="Abstract class for all Ingredient types to inherit from.">Ingredient</a> to an already existing <a class="el" href="classMeal.html" title="a meal object">Meal</a> object </p>
+<p>returns the total cost of the meal, calculated via recursive calls of this function </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">meal</td><td>the meal for this ingredient to be added to </td></tr>
+    <tr><td class="paramname">prev</td><td>the total cost of the previous item in the list </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
-<p>Implements <a class="el" href="classMeal.html#a424296b6173038115a196fc1534caf0a">Meal</a>.</p>
+<p>Implements <a class="el" href="classMeal.html#a3b1ddcf4a60b36fba58e9f1bf8ec690c">Meal</a>.</p>
+
+</div>
+</div>
+<a id="a579ff65440054f631164769506c5e1b9" name="a579ff65440054f631164769506c5e1b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a579ff65440054f631164769506c5e1b9">&#9670;&#160;</a></span>getTotalPrepTime() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Ingredient::getTotalPrepTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>returns the total prep time of the meal </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+<p>Implements <a class="el" href="classMeal.html#a102862eff9613c6d10ae55a50e166a4d">Meal</a>.</p>
+
+</div>
+</div>
+<a id="ab183b9aa73135db9c29ffca5642abd5c" name="ab183b9aa73135db9c29ffca5642abd5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab183b9aa73135db9c29ffca5642abd5c">&#9670;&#160;</a></span>getTotalPrepTime() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Ingredient::getTotalPrepTime </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>prev</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>returns the total prep time of the meal, calculated via recursive calls of this function </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prev</td><td>the total prep time of previous item in the list </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+
+<p>Implements <a class="el" href="classMeal.html#a4925b149d6b7b9cafb837fa4e909c3b7">Meal</a>.</p>
 
 </div>
 </div>

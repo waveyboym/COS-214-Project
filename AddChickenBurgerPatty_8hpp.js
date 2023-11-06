@@ -1,4 +1,4 @@
 var AddChickenBurgerPatty_8hpp =
 [
-    [ "AddChickenBurgerPatty", "classAddChickenBurgerPatty.html", null ]
+    [ "AddChickenBurgerPatty", "classAddChickenBurgerPatty.html", "classAddChickenBurgerPatty" ]
 ];

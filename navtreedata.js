@@ -25,9 +25,16 @@
 var NAVTREE =
 [
   [ "COS 214 PROJECT", "index.html", [
+    [ "Deprecated List", "deprecated.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Typedefs", "namespacemembers_type.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -35,9 +42,11 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Enumerations", "functions_enum.html", null ]
+        [ "Typedefs", "functions_type.html", null ],
+        [ "Enumerations", "functions_enum.html", null ],
+        [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -53,9 +62,14 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"AbstractChef_8hpp.html",
-"classBunChef.html#aff3db10feb1a1eefe1a913e93e63e006",
-"dir_65ce8eb227eb3fbe68a41f36580d8fba.html"
+"AbstractChef_8cpp_source.html",
+"classApplication.html#a8e409c2b06e62bc3d9a7ae5a497ee0cb",
+"classRestaurant.html#ac5f80aad3eef98dffdccf9456d039dd4",
+"classbasic__json.html#a93872bc620a9bbe028be81a3eaae21f3",
+"classdetail_1_1binary__writer.html#accdf775201461343bd5a2c420b4d6db9",
+"classdetail_1_1lexer.html#a7182c4e7a87e32686cc06be2c31cbc5f",
+"functions_k.html",
+"structdetail_1_1is__constructible__string__type.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

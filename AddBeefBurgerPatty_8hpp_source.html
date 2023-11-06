@@ -101,22 +101,22 @@ $(document).ready(function(){initNavTree('AddBeefBurgerPatty_8hpp_source.html','
 </div><!--header-->
 <div class="contents">
 <a href="AddBeefBurgerPatty_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef ADDBEEFBURGERPATTY_HPP</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define ADDBEEFBURGERPATTY_HPP</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="Order_8hpp.html">Order.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classAddBeefBurgerPatty.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classAddBeefBurgerPatty.html">AddBeefBurgerPatty</a> : <span class="keyword">public</span> <a class="code hl_class" href="classOrder.html">Order</a> {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>std::shared_ptr&lt;Meal&gt; executeOrder(std::shared_ptr&lt;Meal&gt; m);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef ADDBEEFBURGERPATTY_HPP</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define ADDBEEFBURGERPATTY_HPP</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="Order_8hpp.html">Order.hpp</a>&quot;</span></div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classAddBeefBurgerPatty.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classAddBeefBurgerPatty.html">AddBeefBurgerPatty</a> : <span class="keyword">public</span> <a class="code hl_class" href="classOrder.html">Order</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>std::shared_ptr&lt;Meal&gt; <a class="code hl_function" href="classAddBeefBurgerPatty.html#ac847c5552bef69802c9ea18c15574b78">executeOrder</a>(std::shared_ptr&lt;Meal&gt; m);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
 </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aOrder_8hpp_html"><div class="ttname"><a href="Order_8hpp.html">Order.hpp</a></div><div class="ttdoc">Order(Command), Abstract Class. Interface in Command Pattern.</div></div>
-<div class="ttc" id="aclassAddBeefBurgerPatty_html"><div class="ttname"><a href="classAddBeefBurgerPatty.html">AddBeefBurgerPatty</a></div><div class="ttdef"><b>Definition</b> AddBeefBurgerPatty.hpp:16</div></div>
-<div class="ttc" id="aclassOrder_html"><div class="ttname"><a href="classOrder.html">Order</a></div><div class="ttdef"><b>Definition</b> Order.hpp:23</div></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aOrder_8hpp_html"><div class="ttname"><a href="Order_8hpp.html">Order.hpp</a></div></div>
+<div class="ttc" id="aclassAddBeefBurgerPatty_html"><div class="ttname"><a href="classAddBeefBurgerPatty.html">AddBeefBurgerPatty</a></div><div class="ttdoc">AddBeefBurgerPatty class, which inherits from the Order interface.A ConcreteCommand which aides in ge...</div><div class="ttdef"><b>Definition</b> AddBeefBurgerPatty.hpp:15</div></div>
+<div class="ttc" id="aclassAddBeefBurgerPatty_html_ac847c5552bef69802c9ea18c15574b78"><div class="ttname"><a href="classAddBeefBurgerPatty.html#ac847c5552bef69802c9ea18c15574b78">AddBeefBurgerPatty::executeOrder</a></div><div class="ttdeci">std::shared_ptr&lt; Meal &gt; executeOrder(std::shared_ptr&lt; Meal &gt; m)</div><div class="ttdoc">creates a BeefPatty Ingredient and Passes a std::share_pte&lt;Meal&gt; as the &quot;next&quot; of the &quot;ingredient&quot; of...</div><div class="ttdef"><b>Definition</b> AddBeefBurgerPatty.cpp:6</div></div>
+<div class="ttc" id="aclassOrder_html"><div class="ttname"><a href="classOrder.html">Order</a></div><div class="ttdoc">Order(Command), Abstract Class. Interface in Command Pattern.</div><div class="ttdef"><b>Definition</b> Order.hpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

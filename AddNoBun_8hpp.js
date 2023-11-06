@@ -1,4 +1,4 @@
 var AddNoBun_8hpp =
 [
-    [ "AddNoBun", "classAddNoBun.html", null ]
+    [ "AddNoBun", "classAddNoBun.html", "classAddNoBun" ]
 ];

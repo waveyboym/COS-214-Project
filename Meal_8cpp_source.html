@@ -103,29 +103,38 @@ $(document).ready(function(){initNavTree('Meal_8cpp_source.html',''); initResiza
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;../includes/Meal.hpp&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="foldopen" id="foldopen00003" data-start="{" data-end="}">
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="classMeal.html#aebace8594a327821426a617661e31eed">    3</a></span><a class="code hl_function" href="classMeal.html#aebace8594a327821426a617661e31eed">Meal::Meal</a>(std::string name, <span class="keywordtype">double</span> cost){</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="classMeal.html#a12f1a253f99f2fd12914469429a5faba">    3</a></span><a class="code hl_function" href="classMeal.html#a12f1a253f99f2fd12914469429a5faba">Meal::Meal</a>(std::string name, <span class="keywordtype">double</span> cost, <span class="keywordtype">double</span> prep){</div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>    this-&gt;name = <a class="code hl_variable" href="classMeal.html#a350922f1e75481f3887dea8a32de4a4d">name</a>;</div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    this-&gt;cost = <a class="code hl_variable" href="classMeal.html#a3fb5a160681f8ec0651bbcf37662e9fa">cost</a>;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>}</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    this-&gt;<a class="code hl_variable" href="classMeal.html#a83fe0498986a93e38bd3a2a44c26a167">prep_time</a> = prep;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>}</div>
 </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classMeal.html#ace5eea764f8a63794365bbc71dcf1629">    8</a></span>std::string <a class="code hl_function" href="classMeal.html#ace5eea764f8a63794365bbc71dcf1629">Meal::getName</a>(){</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classMeal.html#a350922f1e75481f3887dea8a32de4a4d">name</a>;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>}</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classMeal.html#ace5eea764f8a63794365bbc71dcf1629">    9</a></span>std::string <a class="code hl_function" href="classMeal.html#ace5eea764f8a63794365bbc71dcf1629">Meal::getName</a>(){</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classMeal.html#a350922f1e75481f3887dea8a32de4a4d">name</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>}</div>
 </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classMeal.html#accb1df3df7a41fc62a4ded97e6dcb81c">   12</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classMeal.html#accb1df3df7a41fc62a4ded97e6dcb81c">Meal::getCost</a>(){</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classMeal.html#a3fb5a160681f8ec0651bbcf37662e9fa">cost</a>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>}</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classMeal.html#accb1df3df7a41fc62a4ded97e6dcb81c">   13</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classMeal.html#accb1df3df7a41fc62a4ded97e6dcb81c">Meal::getCost</a>(){</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classMeal.html#a3fb5a160681f8ec0651bbcf37662e9fa">cost</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
 </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="ttc" id="aclassMeal_html_a350922f1e75481f3887dea8a32de4a4d"><div class="ttname"><a href="classMeal.html#a350922f1e75481f3887dea8a32de4a4d">Meal::name</a></div><div class="ttdeci">std::string name</div><div class="ttdoc">name of the ingredient</div><div class="ttdef"><b>Definition</b> Meal.hpp:24</div></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classMeal.html#ad4e0723f1db7e3fa4117c50e51251f07">   17</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classMeal.html#ad4e0723f1db7e3fa4117c50e51251f07">Meal::getPrepTime</a>(){</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">return</span> this-&gt;<a class="code hl_variable" href="classMeal.html#a83fe0498986a93e38bd3a2a44c26a167">prep_time</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>}</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="ttc" id="aclassMeal_html_a12f1a253f99f2fd12914469429a5faba"><div class="ttname"><a href="classMeal.html#a12f1a253f99f2fd12914469429a5faba">Meal::Meal</a></div><div class="ttdeci">Meal(std::string name, double cost, double prep)</div><div class="ttdoc">initialises a Meal object</div><div class="ttdef"><b>Definition</b> Meal.cpp:3</div></div>
+<div class="ttc" id="aclassMeal_html_a350922f1e75481f3887dea8a32de4a4d"><div class="ttname"><a href="classMeal.html#a350922f1e75481f3887dea8a32de4a4d">Meal::name</a></div><div class="ttdeci">std::string name</div><div class="ttdoc">name of the ingredient</div><div class="ttdef"><b>Definition</b> Meal.hpp:25</div></div>
 <div class="ttc" id="aclassMeal_html_a3fb5a160681f8ec0651bbcf37662e9fa"><div class="ttname"><a href="classMeal.html#a3fb5a160681f8ec0651bbcf37662e9fa">Meal::cost</a></div><div class="ttdeci">double cost</div><div class="ttdoc">cost of the ingredient</div><div class="ttdef"><b>Definition</b> Meal.hpp:20</div></div>
-<div class="ttc" id="aclassMeal_html_accb1df3df7a41fc62a4ded97e6dcb81c"><div class="ttname"><a href="classMeal.html#accb1df3df7a41fc62a4ded97e6dcb81c">Meal::getCost</a></div><div class="ttdeci">double getCost()</div><div class="ttdoc">returns the cost of this Meal Object</div><div class="ttdef"><b>Definition</b> Meal.cpp:12</div></div>
-<div class="ttc" id="aclassMeal_html_ace5eea764f8a63794365bbc71dcf1629"><div class="ttname"><a href="classMeal.html#ace5eea764f8a63794365bbc71dcf1629">Meal::getName</a></div><div class="ttdeci">std::string getName()</div><div class="ttdoc">returns the name of this Meal Object</div><div class="ttdef"><b>Definition</b> Meal.cpp:8</div></div>
-<div class="ttc" id="aclassMeal_html_aebace8594a327821426a617661e31eed"><div class="ttname"><a href="classMeal.html#aebace8594a327821426a617661e31eed">Meal::Meal</a></div><div class="ttdeci">Meal(std::string name, double cost)</div><div class="ttdoc">initialises a Meal object</div><div class="ttdef"><b>Definition</b> Meal.cpp:3</div></div>
+<div class="ttc" id="aclassMeal_html_a83fe0498986a93e38bd3a2a44c26a167"><div class="ttname"><a href="classMeal.html#a83fe0498986a93e38bd3a2a44c26a167">Meal::prep_time</a></div><div class="ttdeci">double prep_time</div><div class="ttdoc">the prep time of the ingredient</div><div class="ttdef"><b>Definition</b> Meal.hpp:30</div></div>
+<div class="ttc" id="aclassMeal_html_accb1df3df7a41fc62a4ded97e6dcb81c"><div class="ttname"><a href="classMeal.html#accb1df3df7a41fc62a4ded97e6dcb81c">Meal::getCost</a></div><div class="ttdeci">double getCost()</div><div class="ttdoc">returns the cost of this Meal Object</div><div class="ttdef"><b>Definition</b> Meal.cpp:13</div></div>
+<div class="ttc" id="aclassMeal_html_ace5eea764f8a63794365bbc71dcf1629"><div class="ttname"><a href="classMeal.html#ace5eea764f8a63794365bbc71dcf1629">Meal::getName</a></div><div class="ttdeci">std::string getName()</div><div class="ttdoc">returns the name of this Meal Object</div><div class="ttdef"><b>Definition</b> Meal.cpp:9</div></div>
+<div class="ttc" id="aclassMeal_html_ad4e0723f1db7e3fa4117c50e51251f07"><div class="ttname"><a href="classMeal.html#ad4e0723f1db7e3fa4117c50e51251f07">Meal::getPrepTime</a></div><div class="ttdeci">double getPrepTime()</div><div class="ttdoc">returns the the prep_time of this Meal Object</div><div class="ttdef"><b>Definition</b> Meal.cpp:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,4 +1,4 @@
 var AddFries_8hpp =
 [
-    [ "AddFries", "classAddFries.html", null ]
+    [ "AddFries", "classAddFries.html", "classAddFries" ]
 ];

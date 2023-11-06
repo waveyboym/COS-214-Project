@@ -1,4 +1,4 @@
 var AddOnion_8hpp =
 [
-    [ "AddOnion", "classAddOnion.html", null ]
+    [ "AddOnion", "classAddOnion.html", "classAddOnion" ]
 ];

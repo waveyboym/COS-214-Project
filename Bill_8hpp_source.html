@@ -105,22 +105,23 @@ $(document).ready(function(){initNavTree('Bill_8hpp_source.html',''); initResiza
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define BILL_HPP</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="Collectable_8hpp.html">Collectable.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classBill.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classBill.html">Bill</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCollectable.html">Collectable</a>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classBill.html#a4123fb24a15b5653b2829448474df566">nill</a>();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classBill.html#ab4a1336cb91006a0836ad7964cf8e170">   29</a></span>        <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classBill.html#ab4a1336cb91006a0836ad7964cf8e170">toString</a>() = 0;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classBill.html#aed03f9de9347cb8ec5b10f1e4a40807b">   35</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classBill.html#aed03f9de9347cb8ec5b10f1e4a40807b">getTotal</a>() = 0;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classBill.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="classBill.html">Bill</a> : <span class="keyword">public</span> <a class="code hl_class" href="classCollectable.html">Collectable</a>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classBill.html#a4123fb24a15b5653b2829448474df566">nill</a>();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classBill.html#ab4a1336cb91006a0836ad7964cf8e170">   30</a></span>        <span class="keyword">virtual</span> std::string <a class="code hl_function" href="classBill.html#ab4a1336cb91006a0836ad7964cf8e170">toString</a>() = 0;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classBill.html#ad043dbd2e1460bcb42d2494c95034cf8">   36</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classBill.html#ad043dbd2e1460bcb42d2494c95034cf8">getTotal</a>() = 0;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
 </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aCollectable_8hpp_html"><div class="ttname"><a href="Collectable_8hpp.html">Collectable.hpp</a></div></div>
-<div class="ttc" id="aclassBill_html"><div class="ttname"><a href="classBill.html">Bill</a></div><div class="ttdoc">an Bill class which is a concrete iterator class of Collectable</div><div class="ttdef"><b>Definition</b> Bill.hpp:16</div></div>
+<div class="ttc" id="aclassBill_html"><div class="ttname"><a href="classBill.html">Bill</a></div><div class="ttdoc">an Bill class which is a concrete iterator class of Collectable</div><div class="ttdef"><b>Definition</b> Bill.hpp:17</div></div>
 <div class="ttc" id="aclassBill_html_a4123fb24a15b5653b2829448474df566"><div class="ttname"><a href="classBill.html#a4123fb24a15b5653b2829448474df566">Bill::nill</a></div><div class="ttdeci">void nill()</div><div class="ttdoc">a null function to allow for polymorphic features to be used</div><div class="ttdef"><b>Definition</b> Bill.cpp:3</div></div>
 <div class="ttc" id="aclassBill_html_ab4a1336cb91006a0836ad7964cf8e170"><div class="ttname"><a href="classBill.html#ab4a1336cb91006a0836ad7964cf8e170">Bill::toString</a></div><div class="ttdeci">virtual std::string toString()=0</div><div class="ttdoc">returns a string representation of the bill</div></div>
-<div class="ttc" id="aclassBill_html_aed03f9de9347cb8ec5b10f1e4a40807b"><div class="ttname"><a href="classBill.html#aed03f9de9347cb8ec5b10f1e4a40807b">Bill::getTotal</a></div><div class="ttdeci">virtual int getTotal()=0</div><div class="ttdoc">returns the bill total</div></div>
+<div class="ttc" id="aclassBill_html_ad043dbd2e1460bcb42d2494c95034cf8"><div class="ttname"><a href="classBill.html#ad043dbd2e1460bcb42d2494c95034cf8">Bill::getTotal</a></div><div class="ttdeci">virtual double getTotal()=0</div><div class="ttdoc">returns the bill total</div></div>
 <div class="ttc" id="aclassCollectable_html"><div class="ttname"><a href="classCollectable.html">Collectable</a></div><div class="ttdoc">a Collectable class which all classes that make use of an interator must inherit from</div><div class="ttdef"><b>Definition</b> Collectable.hpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

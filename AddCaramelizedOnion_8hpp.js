@@ -1,4 +1,4 @@
 var AddCaramelizedOnion_8hpp =
 [
-    [ "AddCaramelizedOnion", "classAddCaramelizedOnion.html", null ]
+    [ "AddCaramelizedOnion", "classAddCaramelizedOnion.html", "classAddCaramelizedOnion" ]
 ];

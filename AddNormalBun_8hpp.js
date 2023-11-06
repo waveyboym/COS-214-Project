@@ -1,4 +1,4 @@
 var AddNormalBun_8hpp =
 [
-    [ "AddNormalBun", "classAddNormalBun.html", null ]
+    [ "AddNormalBun", "classAddNormalBun.html", "classAddNormalBun" ]
 ];

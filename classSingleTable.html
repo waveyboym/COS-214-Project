@@ -164,19 +164,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5aab456a5319bacc1fe490c32d730ac2 inherit pub_methods_classTable" id="r_a5aab456a5319bacc1fe490c32d730ac2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTable.html#a5aab456a5319bacc1fe490c32d730ac2">setWaiterID</a> (std::string set_to)</td></tr>
 <tr class="memdesc:a5aab456a5319bacc1fe490c32d730ac2 inherit pub_methods_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the id of the waiter who has been assigned to this table  <br /></td></tr>
 <tr class="separator:a5aab456a5319bacc1fe490c32d730ac2 inherit pub_methods_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb84af79232f19f01ef5027d87ab479b inherit pub_methods_classTable" id="r_aeb84af79232f19f01ef5027d87ab479b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTable.html#aeb84af79232f19f01ef5027d87ab479b">getReserverUUID</a> () const</td></tr>
-<tr class="memdesc:aeb84af79232f19f01ef5027d87ab479b inherit pub_methods_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ID of the customer that reserved this table.  <br /></td></tr>
-<tr class="separator:aeb84af79232f19f01ef5027d87ab479b inherit pub_methods_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46b926853e2a3338982e7af33d27034c inherit pub_methods_classTable" id="r_a46b926853e2a3338982e7af33d27034c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTable.html#a46b926853e2a3338982e7af33d27034c">setReserverUUID</a> (const std::string &amp;reserverID)</td></tr>
-<tr class="memdesc:a46b926853e2a3338982e7af33d27034c inherit pub_methods_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the ID of the customer that reserved this table.  <br /></td></tr>
-<tr class="separator:a46b926853e2a3338982e7af33d27034c inherit pub_methods_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a61529dbec2eabf3b54468e0dc84c82ea" id="r_a61529dbec2eabf3b54468e0dc84c82ea"><td class="memItemLeft" align="right" valign="top"><a id="a61529dbec2eabf3b54468e0dc84c82ea" name="a61529dbec2eabf3b54468e0dc84c82ea"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>SEAT_LIMIT</b> = 4</td></tr>
-<tr class="memdesc:a61529dbec2eabf3b54468e0dc84c82ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">max number of seats at table <br /></td></tr>
-<tr class="separator:a61529dbec2eabf3b54468e0dc84c82ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ceebe25abb1dc93d94b0227f603a48e" id="r_a2ceebe25abb1dc93d94b0227f603a48e"><td class="memItemLeft" align="right" valign="top"><a id="a2ceebe25abb1dc93d94b0227f603a48e" name="a2ceebe25abb1dc93d94b0227f603a48e"></a>
 std::list&lt; std::shared_ptr&lt; <a class="el" href="classCustomer.html">Customer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>customer_list</b></td></tr>
 <tr class="memdesc:a2ceebe25abb1dc93d94b0227f603a48e"><td class="mdescLeft">&#160;</td><td class="mdescRight">a list containing all customers seated at this table <br /></td></tr>
@@ -189,18 +179,13 @@ Additional Inherited Members</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>assigned_a_waiter</b> = false</td></tr>
 <tr class="memdesc:a7f0a0551f19594e814aa121f50989165 inherit pro_attribs_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether or not this table is currently assigned a waiter <br /></td></tr>
 <tr class="separator:a7f0a0551f19594e814aa121f50989165 inherit pro_attribs_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ba26ed1f19ff834616407a1290d0169 inherit pro_attribs_classTable" id="r_a0ba26ed1f19ff834616407a1290d0169"><td class="memItemLeft" align="right" valign="top">
-int&#160;</td><td class="memItemRight" valign="bottom"><b>table_id</b> = -1</td></tr>
-<tr class="memdesc:a0ba26ed1f19ff834616407a1290d0169 inherit pro_attribs_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of this table <br /></td></tr>
+<tr class="memitem:a0ba26ed1f19ff834616407a1290d0169 inherit pro_attribs_classTable" id="r_a0ba26ed1f19ff834616407a1290d0169"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTable.html#a0ba26ed1f19ff834616407a1290d0169">table_id</a> = -1</td></tr>
+<tr class="memdesc:a0ba26ed1f19ff834616407a1290d0169 inherit pro_attribs_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of this table  <br /></td></tr>
 <tr class="separator:a0ba26ed1f19ff834616407a1290d0169 inherit pro_attribs_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e19b88607292c43f4f40a299093953b inherit pro_attribs_classTable" id="r_a1e19b88607292c43f4f40a299093953b"><td class="memItemLeft" align="right" valign="top">
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>waiter_uuid</b> = &quot;&quot;</td></tr>
 <tr class="memdesc:a1e19b88607292c43f4f40a299093953b inherit pro_attribs_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of the waiter assigned to this table <br /></td></tr>
 <tr class="separator:a1e19b88607292c43f4f40a299093953b inherit pro_attribs_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95bb2ccaa0b1a13a42b917fd6e7c9b74 inherit pro_attribs_classTable" id="r_a95bb2ccaa0b1a13a42b917fd6e7c9b74"><td class="memItemLeft" align="right" valign="top">
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>reserver_uuid</b> = &quot;&quot;</td></tr>
-<tr class="memdesc:a95bb2ccaa0b1a13a42b917fd6e7c9b74 inherit pro_attribs_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of the customer that reserved this table <br /></td></tr>
-<tr class="separator:a95bb2ccaa0b1a13a42b917fd6e7c9b74 inherit pro_attribs_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>an <a class="el" href="classSingleTable.html" title="an SingleTable class which is a leaf class of Table">SingleTable</a> class which is a leaf class of <a class="el" href="classTable.html" title="a Table class which is a component class of Collectable">Table</a> </p>

@@ -17,7 +17,9 @@ var classApplication =
     [ "connected_clients", "classApplication.html#a73f193fa1af6a32474c5043b6860f920", null ],
     [ "connected_customers", "classApplication.html#a32a1087b87aa3612eb480470cbc496dd", null ],
     [ "connected_managers", "classApplication.html#af1de673ece1c27c586c5f1a014066888", null ],
+    [ "connected_managers_table", "classApplication.html#ab7be131aaa83e91e1219a05cf14cafb2", null ],
     [ "mtx", "classApplication.html#a90447f8d1015cbfc255961e5195e9f15", null ],
     [ "pause_app_execution", "classApplication.html#adea76e7571f0eec60696046cca1527cc", null ],
-    [ "quit_app", "classApplication.html#a34a9b31585640ed1ab6aa8389d103d02", null ]
+    [ "quit_app", "classApplication.html#a34a9b31585640ed1ab6aa8389d103d02", null ],
+    [ "restaurant", "classApplication.html#a3c9f6de587dcc1a52b1f6f2a04151ce0", null ]
 ];

@@ -100,16 +100,25 @@ $(document).ready(function(){initNavTree('AddNormalBun_8cpp_source.html',''); in
   <div class="headertitle"><div class="title">AddNormalBun.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;../includes/AddNormalBun.hpp&quot;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span>std::shared_ptr&lt;Meal&gt; AddNormalBun::executeOrder(std::shared_ptr&lt;Meal&gt; m) {</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>    <span class="keywordflow">if</span> (addedToList) {</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>        <span class="keywordflow">return</span> m;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>        addedToList = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>        <span class="keywordflow">return</span> std::make_shared&lt;PlainBun&gt;();</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    }</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>}</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef ADD_NORMAL_CPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ADD_NORMAL_CPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../includes/AddNormalBun.hpp&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="}">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classAddNormalBun.html#a06f085d919d8d4beae41051ef3424119">    6</a></span>std::shared_ptr&lt;Meal&gt; <a class="code hl_function" href="classAddNormalBun.html#a06f085d919d8d4beae41051ef3424119">AddNormalBun::executeOrder</a>(std::shared_ptr&lt;Meal&gt; m) {</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classOrder.html#a3a0615f461fb404ee8554d087739513d">addedToList</a>) {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>        <span class="keywordflow">return</span> m;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <a class="code hl_variable" href="classOrder.html#a3a0615f461fb404ee8554d087739513d">addedToList</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <span class="keywordflow">return</span> std::make_shared&lt;PlainBun&gt;();</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    }</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>}</div>
+</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassAddNormalBun_html_a06f085d919d8d4beae41051ef3424119"><div class="ttname"><a href="classAddNormalBun.html#a06f085d919d8d4beae41051ef3424119">AddNormalBun::executeOrder</a></div><div class="ttdeci">std::shared_ptr&lt; Meal &gt; executeOrder(std::shared_ptr&lt; Meal &gt; m)</div><div class="ttdoc">creates a NormalBun Ingredient and Passes a std::share_pte&lt;Meal&gt; as the &quot;next&quot; of the &quot;ingredient&quot; of...</div><div class="ttdef"><b>Definition</b> AddNormalBun.cpp:6</div></div>
+<div class="ttc" id="aclassOrder_html_a3a0615f461fb404ee8554d087739513d"><div class="ttname"><a href="classOrder.html#a3a0615f461fb404ee8554d087739513d">Order::addedToList</a></div><div class="ttdeci">bool addedToList</div><div class="ttdoc">addedToList is boolean which checks whether the Order has already been handled with in the Kitchen cl...</div><div class="ttdef"><b>Definition</b> Order.hpp:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,4 +1,4 @@
 var AddPickles_8hpp =
 [
-    [ "AddPickles", "classAddPickles.html", null ]
+    [ "AddPickles", "classAddPickles.html", "classAddPickles" ]
 ];

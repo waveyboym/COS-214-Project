@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('classJoinedTable.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 
-<p>a <a class="el" href="classJoinedTable.html" title="a JoinedTable class which is a composite class of Table">JoinedTable</a> class which is a composite class of <a class="el" href="classTable.html" title="a Table class which is a component class of Collectable">Table</a>  
+<p>an <a class="el" href="classJoinedTable.html" title="an JoinedTable class which is a composite class of Table">JoinedTable</a> class which is a composite class of <a class="el" href="classTable.html" title="a Table class which is a component class of Collectable">Table</a>  
  <a href="classJoinedTable.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="JoinedTable_8hpp_source.html">JoinedTable.hpp</a>&gt;</code></p>
@@ -143,7 +143,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:add2623a3915756267bf22ea6fb76c134"><td class="mdescLeft">&#160;</td><td class="mdescRight">join the passed in table to this table  <br /></td></tr>
 <tr class="separator:add2623a3915756267bf22ea6fb76c134"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a566edca57ba6371f33464d1a916d7d00" id="r_a566edca57ba6371f33464d1a916d7d00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJoinedTable.html#a566edca57ba6371f33464d1a916d7d00">unjoinTable</a> (std::shared_ptr&lt; <a class="el" href="classTable.html">Table</a> &gt; table)</td></tr>
-<tr class="memdesc:a566edca57ba6371f33464d1a916d7d00"><td class="mdescLeft">&#160;</td><td class="mdescRight">un-joins this the passed in table from this table  <br /></td></tr>
+<tr class="memdesc:a566edca57ba6371f33464d1a916d7d00"><td class="mdescLeft">&#160;</td><td class="mdescRight">unjoins the passed in table from this table  <br /></td></tr>
 <tr class="separator:a566edca57ba6371f33464d1a916d7d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4da12464875de757f0fa946b8cbbceda" id="r_a4da12464875de757f0fa946b8cbbceda"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJoinedTable.html#a4da12464875de757f0fa946b8cbbceda">isThisTableJoined</a> (std::shared_ptr&lt; <a class="el" href="classTable.html">Table</a> &gt; table)</td></tr>
 <tr class="memdesc:a4da12464875de757f0fa946b8cbbceda"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if the passed in table is joined to this table  <br /></td></tr>
@@ -154,9 +154,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af12bdd91aeb73e1ad3d12932e92803a0" id="r_af12bdd91aeb73e1ad3d12932e92803a0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJoinedTable.html#af12bdd91aeb73e1ad3d12932e92803a0">isTableAvailable</a> ()</td></tr>
 <tr class="memdesc:af12bdd91aeb73e1ad3d12932e92803a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if this table is occupied  <br /></td></tr>
 <tr class="separator:af12bdd91aeb73e1ad3d12932e92803a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada8805c68c25e1c56cd0dd926122dd1a" id="r_ada8805c68c25e1c56cd0dd926122dd1a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJoinedTable.html#ada8805c68c25e1c56cd0dd926122dd1a">getSeatLimit</a> ()</td></tr>
-<tr class="memdesc:ada8805c68c25e1c56cd0dd926122dd1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets seat limit  <br /></td></tr>
-<tr class="separator:ada8805c68c25e1c56cd0dd926122dd1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classTable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classTable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classTable.html">Table</a></td></tr>
 <tr class="memitem:a6e3504b428a36c69e4b09cba8844ee61 inherit pub_methods_classTable" id="r_a6e3504b428a36c69e4b09cba8844ee61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTable.html#a6e3504b428a36c69e4b09cba8844ee61">nill</a> ()</td></tr>
 <tr class="memdesc:a6e3504b428a36c69e4b09cba8844ee61 inherit pub_methods_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">a null function to allow for polymorphic features to be used  <br /></td></tr>
@@ -179,19 +176,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5aab456a5319bacc1fe490c32d730ac2 inherit pub_methods_classTable" id="r_a5aab456a5319bacc1fe490c32d730ac2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTable.html#a5aab456a5319bacc1fe490c32d730ac2">setWaiterID</a> (std::string set_to)</td></tr>
 <tr class="memdesc:a5aab456a5319bacc1fe490c32d730ac2 inherit pub_methods_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the id of the waiter who has been assigned to this table  <br /></td></tr>
 <tr class="separator:a5aab456a5319bacc1fe490c32d730ac2 inherit pub_methods_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb84af79232f19f01ef5027d87ab479b inherit pub_methods_classTable" id="r_aeb84af79232f19f01ef5027d87ab479b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTable.html#aeb84af79232f19f01ef5027d87ab479b">getReserverUUID</a> () const</td></tr>
-<tr class="memdesc:aeb84af79232f19f01ef5027d87ab479b inherit pub_methods_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ID of the customer that reserved this table.  <br /></td></tr>
-<tr class="separator:aeb84af79232f19f01ef5027d87ab479b inherit pub_methods_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46b926853e2a3338982e7af33d27034c inherit pub_methods_classTable" id="r_a46b926853e2a3338982e7af33d27034c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTable.html#a46b926853e2a3338982e7af33d27034c">setReserverUUID</a> (const std::string &amp;reserverID)</td></tr>
-<tr class="memdesc:a46b926853e2a3338982e7af33d27034c inherit pub_methods_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the ID of the customer that reserved this table.  <br /></td></tr>
-<tr class="separator:a46b926853e2a3338982e7af33d27034c inherit pub_methods_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:acb03390ee1bdc374ae25f8f9436a33ec" id="r_acb03390ee1bdc374ae25f8f9436a33ec"><td class="memItemLeft" align="right" valign="top"><a id="acb03390ee1bdc374ae25f8f9436a33ec" name="acb03390ee1bdc374ae25f8f9436a33ec"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>seat_limit</b></td></tr>
-<tr class="memdesc:acb03390ee1bdc374ae25f8f9436a33ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">max number of seats at table <br /></td></tr>
-<tr class="separator:acb03390ee1bdc374ae25f8f9436a33ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afed015961fc47031d72a7f6598e51225" id="r_afed015961fc47031d72a7f6598e51225"><td class="memItemLeft" align="right" valign="top"><a id="afed015961fc47031d72a7f6598e51225" name="afed015961fc47031d72a7f6598e51225"></a>
 std::list&lt; std::shared_ptr&lt; <a class="el" href="classTable.html">Table</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>table_list</b></td></tr>
 <tr class="memdesc:afed015961fc47031d72a7f6598e51225"><td class="mdescLeft">&#160;</td><td class="mdescRight">a list of tables that are joined together to this joined table <br /></td></tr>
@@ -208,21 +195,17 @@ Additional Inherited Members</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>assigned_a_waiter</b> = false</td></tr>
 <tr class="memdesc:a7f0a0551f19594e814aa121f50989165 inherit pro_attribs_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether or not this table is currently assigned a waiter <br /></td></tr>
 <tr class="separator:a7f0a0551f19594e814aa121f50989165 inherit pro_attribs_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ba26ed1f19ff834616407a1290d0169 inherit pro_attribs_classTable" id="r_a0ba26ed1f19ff834616407a1290d0169"><td class="memItemLeft" align="right" valign="top">
-int&#160;</td><td class="memItemRight" valign="bottom"><b>table_id</b> = -1</td></tr>
-<tr class="memdesc:a0ba26ed1f19ff834616407a1290d0169 inherit pro_attribs_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of this table <br /></td></tr>
+<tr class="memitem:a0ba26ed1f19ff834616407a1290d0169 inherit pro_attribs_classTable" id="r_a0ba26ed1f19ff834616407a1290d0169"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTable.html#a0ba26ed1f19ff834616407a1290d0169">table_id</a> = -1</td></tr>
+<tr class="memdesc:a0ba26ed1f19ff834616407a1290d0169 inherit pro_attribs_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of this table  <br /></td></tr>
 <tr class="separator:a0ba26ed1f19ff834616407a1290d0169 inherit pro_attribs_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e19b88607292c43f4f40a299093953b inherit pro_attribs_classTable" id="r_a1e19b88607292c43f4f40a299093953b"><td class="memItemLeft" align="right" valign="top">
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>waiter_uuid</b> = &quot;&quot;</td></tr>
 <tr class="memdesc:a1e19b88607292c43f4f40a299093953b inherit pro_attribs_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of the waiter assigned to this table <br /></td></tr>
 <tr class="separator:a1e19b88607292c43f4f40a299093953b inherit pro_attribs_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95bb2ccaa0b1a13a42b917fd6e7c9b74 inherit pro_attribs_classTable" id="r_a95bb2ccaa0b1a13a42b917fd6e7c9b74"><td class="memItemLeft" align="right" valign="top">
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>reserver_uuid</b> = &quot;&quot;</td></tr>
-<tr class="memdesc:a95bb2ccaa0b1a13a42b917fd6e7c9b74 inherit pro_attribs_classTable"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of the customer that reserved this table <br /></td></tr>
-<tr class="separator:a95bb2ccaa0b1a13a42b917fd6e7c9b74 inherit pro_attribs_classTable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>a <a class="el" href="classJoinedTable.html" title="a JoinedTable class which is a composite class of Table">JoinedTable</a> class which is a composite class of <a class="el" href="classTable.html" title="a Table class which is a component class of Collectable">Table</a> </p>
+<div class="textblock"><p>an <a class="el" href="classJoinedTable.html" title="an JoinedTable class which is a composite class of Table">JoinedTable</a> class which is a composite class of <a class="el" href="classTable.html" title="a Table class which is a component class of Collectable">Table</a> </p>
+<p>a <a class="el" href="classJoinedTable.html" title="an JoinedTable class which is a composite class of Table">JoinedTable</a> class which is a composite class of <a class="el" href="classTable.html" title="a Table class which is a component class of Collectable">Table</a></p>
 <dl class="section author"><dt>Author</dt><dd>Michael </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3ee0a3882d1a8214a279ba2de6045e7f" name="a3ee0a3882d1a8214a279ba2de6045e7f"></a>
@@ -339,32 +322,6 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>reserver_uuid<
 
 </div>
 </div>
-<a id="ada8805c68c25e1c56cd0dd926122dd1a" name="ada8805c68c25e1c56cd0dd926122dd1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada8805c68c25e1c56cd0dd926122dd1a">&#9670;&#160;</a></span>getSeatLimit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int JoinedTable::getSeatLimit </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>gets seat limit </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
-
-</div>
-</div>
 <a id="ae8c8bf720fb1162debde079f429fd962" name="ae8c8bf720fb1162debde079f429fd962"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8c8bf720fb1162debde079f429fd962">&#9670;&#160;</a></span>isSeatedHere()</h2>
 
@@ -457,7 +414,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>reserver_uuid<
 <p>checks if the passed in table is joined to this table </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">customer</td><td>a table to check if it is joined to this table </td></tr>
+    <tr><td class="paramname">table</td><td>a table to check if it is joined to this table </td></tr>
   </table>
   </dd>
 </dl>
@@ -545,7 +502,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>reserver_uuid<
       </table>
 </div><div class="memdoc">
 
-<p>un-joins this the passed in table from this table </p>
+<p>unjoins the passed in table from this table </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">table</td><td>a table to un-join from this table </td></tr>

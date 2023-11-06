@@ -110,23 +110,24 @@ $(document).ready(function(){initNavTree('Chef_8hpp_source.html',''); initResiza
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classChef.html#a86e54675bf58d3426f593ec1379f7197">   19</a></span>        std::shared_ptr&lt;AbstractChef&gt; <a class="code hl_variable" href="classChef.html#a86e54675bf58d3426f593ec1379f7197">next</a>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classChef.html#a37f5dd1300de87d4dbae14af2cb0309a">   24</a></span>        std::shared_ptr&lt;POS&gt; <a class="code hl_variable" href="classChef.html#a37f5dd1300de87d4dbae14af2cb0309a">pos_ptr</a>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classChef.html#a08e9a96356771688f58c0d44fb2c6c3a">   25</a></span>        std::string <a class="code hl_variable" href="classChef.html#a08e9a96356771688f58c0d44fb2c6c3a">type</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_function" href="classChef.html#ad0c323baebe44970f64d824aa7f20d35">Chef</a>(); </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classChef.html#ab0a482077602ffc75815a104cfe5fd63">makeOrder</a>(std::vector&lt;std::shared_ptr&lt;Order&gt;&gt; order, std::string waiterUUID, std::shared_ptr&lt;Meal&gt; meal);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keyword">virtual</span> std::pair&lt;std::shared_ptr&lt;Meal&gt;, std::shared_ptr&lt;Customer&gt;&gt; <a class="code hl_function" href="classChef.html#ae5ed664f57201d1a206fa45a56c18e3f">makeOrder</a>(std::vector&lt;std::shared_ptr&lt;Order&gt;&gt; order, std::shared_ptr&lt;Customer&gt; customer, std::shared_ptr&lt;Meal&gt; meal);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
 </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aAbstractChef_8hpp_html"><div class="ttname"><a href="AbstractChef_8hpp.html">AbstractChef.hpp</a></div></div>
-<div class="ttc" id="aclassAbstractChef_html"><div class="ttname"><a href="classAbstractChef.html">AbstractChef</a></div><div class="ttdoc">a AbstractChef object</div><div class="ttdef"><b>Definition</b> AbstractChef.hpp:17</div></div>
+<div class="ttc" id="aclassAbstractChef_html"><div class="ttname"><a href="classAbstractChef.html">AbstractChef</a></div><div class="ttdoc">an AbstractChef class that, when instantiated, is given a type to indicate specialisation</div><div class="ttdef"><b>Definition</b> AbstractChef.hpp:17</div></div>
 <div class="ttc" id="aclassChef_html"><div class="ttname"><a href="classChef.html">Chef</a></div><div class="ttdoc">a AbstractChef object</div><div class="ttdef"><b>Definition</b> Chef.hpp:14</div></div>
-<div class="ttc" id="aclassChef_html_a37f5dd1300de87d4dbae14af2cb0309a"><div class="ttname"><a href="classChef.html#a37f5dd1300de87d4dbae14af2cb0309a">Chef::pos_ptr</a></div><div class="ttdeci">std::shared_ptr&lt; POS &gt; pos_ptr</div><div class="ttdoc">stores the pos this chef is attached to</div><div class="ttdef"><b>Definition</b> Chef.hpp:24</div></div>
+<div class="ttc" id="aclassChef_html_a08e9a96356771688f58c0d44fb2c6c3a"><div class="ttname"><a href="classChef.html#a08e9a96356771688f58c0d44fb2c6c3a">Chef::type</a></div><div class="ttdeci">std::string type</div><div class="ttdoc">stores the AbstractChef's type</div><div class="ttdef"><b>Definition</b> Chef.hpp:25</div></div>
 <div class="ttc" id="aclassChef_html_a86e54675bf58d3426f593ec1379f7197"><div class="ttname"><a href="classChef.html#a86e54675bf58d3426f593ec1379f7197">Chef::next</a></div><div class="ttdeci">std::shared_ptr&lt; AbstractChef &gt; next</div><div class="ttdoc">stores the next chef in the chain</div><div class="ttdef"><b>Definition</b> Chef.hpp:19</div></div>
-<div class="ttc" id="aclassChef_html_ab0a482077602ffc75815a104cfe5fd63"><div class="ttname"><a href="classChef.html#ab0a482077602ffc75815a104cfe5fd63">Chef::makeOrder</a></div><div class="ttdeci">virtual void makeOrder(std::vector&lt; std::shared_ptr&lt; Order &gt; &gt; order, std::string waiterUUID, std::shared_ptr&lt; Meal &gt; meal)</div><div class="ttdoc">handles the creation of a meal</div><div class="ttdef"><b>Definition</b> Chef.cpp:5</div></div>
 <div class="ttc" id="aclassChef_html_ad0c323baebe44970f64d824aa7f20d35"><div class="ttname"><a href="classChef.html#ad0c323baebe44970f64d824aa7f20d35">Chef::Chef</a></div><div class="ttdeci">Chef()</div><div class="ttdoc">initialises a Chef</div><div class="ttdef"><b>Definition</b> Chef.cpp:3</div></div>
+<div class="ttc" id="aclassChef_html_ae5ed664f57201d1a206fa45a56c18e3f"><div class="ttname"><a href="classChef.html#ae5ed664f57201d1a206fa45a56c18e3f">Chef::makeOrder</a></div><div class="ttdeci">virtual std::pair&lt; std::shared_ptr&lt; Meal &gt;, std::shared_ptr&lt; Customer &gt; &gt; makeOrder(std::vector&lt; std::shared_ptr&lt; Order &gt; &gt; order, std::shared_ptr&lt; Customer &gt; customer, std::shared_ptr&lt; Meal &gt; meal)</div><div class="ttdoc">handles the creation of a meal</div><div class="ttdef"><b>Definition</b> Chef.cpp:5</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

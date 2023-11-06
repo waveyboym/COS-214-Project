@@ -1,4 +1,4 @@
 var AddWholeWheatBun_8hpp =
 [
-    [ "AddWholeWheatBun", "classAddWholeWheatBun.html", null ]
+    [ "AddWholeWheatBun", "classAddWholeWheatBun.html", "classAddWholeWheatBun" ]
 ];

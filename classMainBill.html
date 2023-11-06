@@ -122,14 +122,17 @@ Inheritance diagram for MainBill:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa673d206dfe716be76362cb57e4c09ad" id="r_aa673d206dfe716be76362cb57e4c09ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainBill.html#aa673d206dfe716be76362cb57e4c09ad">MainBill</a> ()</td></tr>
-<tr class="memdesc:aa673d206dfe716be76362cb57e4c09ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <br /></td></tr>
+<tr class="memdesc:aa673d206dfe716be76362cb57e4c09ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">default constructor  <br /></td></tr>
 <tr class="separator:aa673d206dfe716be76362cb57e4c09ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a064703e6bb492058a311f31a4c0984ae" id="r_a064703e6bb492058a311f31a4c0984ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainBill.html#a064703e6bb492058a311f31a4c0984ae">MainBill</a> (std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt; meal, int split)</td></tr>
+<tr class="memdesc:a064703e6bb492058a311f31a4c0984ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">parameterised constructor  <br /></td></tr>
+<tr class="separator:a064703e6bb492058a311f31a4c0984ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb64b9572346e2fcd107182da93accea" id="r_acb64b9572346e2fcd107182da93accea"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainBill.html#acb64b9572346e2fcd107182da93accea">toString</a> ()</td></tr>
 <tr class="memdesc:acb64b9572346e2fcd107182da93accea"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns a string representation of the bill  <br /></td></tr>
 <tr class="separator:acb64b9572346e2fcd107182da93accea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f169f18cf463858f11ab58a270c73c4" id="r_a6f169f18cf463858f11ab58a270c73c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainBill.html#a6f169f18cf463858f11ab58a270c73c4">getTotal</a> ()</td></tr>
-<tr class="memdesc:a6f169f18cf463858f11ab58a270c73c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the bill total  <br /></td></tr>
-<tr class="separator:a6f169f18cf463858f11ab58a270c73c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8fbaca2664557842b291b7e05a5cc73" id="r_ab8fbaca2664557842b291b7e05a5cc73"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainBill.html#ab8fbaca2664557842b291b7e05a5cc73">getTotal</a> ()</td></tr>
+<tr class="memdesc:ab8fbaca2664557842b291b7e05a5cc73"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the bill total  <br /></td></tr>
+<tr class="separator:ab8fbaca2664557842b291b7e05a5cc73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaaff460ef9659c95ed6a6106c45f105" id="r_aeaaff460ef9659c95ed6a6106c45f105"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMainBill.html#aeaaff460ef9659c95ed6a6106c45f105">attachBill</a> (std::shared_ptr&lt; <a class="el" href="classBill.html">Bill</a> &gt; bill)</td></tr>
 <tr class="memdesc:aeaaff460ef9659c95ed6a6106c45f105"><td class="mdescLeft">&#160;</td><td class="mdescRight">attaches the passed in bill to this bill  <br /></td></tr>
 <tr class="separator:aeaaff460ef9659c95ed6a6106c45f105"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,7 +156,7 @@ std::vector&lt; std::shared_ptr&lt; <a class="el" href="classBill.html">Bill</a>
 <dl class="section author"><dt>Author</dt><dd>Michael </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa673d206dfe716be76362cb57e4c09ad" name="aa673d206dfe716be76362cb57e4c09ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa673d206dfe716be76362cb57e4c09ad">&#9670;&#160;</a></span>MainBill()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa673d206dfe716be76362cb57e4c09ad">&#9670;&#160;</a></span>MainBill() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,10 +170,47 @@ std::vector&lt; std::shared_ptr&lt; <a class="el" href="classBill.html">Bill</a>
       </table>
 </div><div class="memdoc">
 
-<p>constructor </p>
+<p>default constructor </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a064703e6bb492058a311f31a4c0984ae" name="a064703e6bb492058a311f31a4c0984ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a064703e6bb492058a311f31a4c0984ae">&#9670;&#160;</a></span>MainBill() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MainBill::MainBill </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td>
+          <td class="paramname"><em>meal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>split</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>parameterised constructor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">meal</td><td>meal object </td></tr>
+    <tr><td class="paramname">split</td><td>number of sub bills to split it into </td></tr>
   </table>
   </dd>
 </dl>
@@ -221,7 +261,7 @@ std::vector&lt; std::shared_ptr&lt; <a class="el" href="classBill.html">Bill</a>
 </div><div class="memdoc">
 
 <p>gets all bills that are attached to this bill </p>
-<dl class="section note"><dt>Note</dt><dd>this excludes this bill though </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>this excludes this bill itself </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">none</td><td></td></tr>
@@ -232,8 +272,8 @@ std::vector&lt; std::shared_ptr&lt; <a class="el" href="classBill.html">Bill</a>
 
 </div>
 </div>
-<a id="a6f169f18cf463858f11ab58a270c73c4" name="a6f169f18cf463858f11ab58a270c73c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f169f18cf463858f11ab58a270c73c4">&#9670;&#160;</a></span>getTotal()</h2>
+<a id="ab8fbaca2664557842b291b7e05a5cc73" name="ab8fbaca2664557842b291b7e05a5cc73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8fbaca2664557842b291b7e05a5cc73">&#9670;&#160;</a></span>getTotal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,7 +282,7 @@ std::vector&lt; std::shared_ptr&lt; <a class="el" href="classBill.html">Bill</a>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int MainBill::getTotal </td>
+          <td class="memname">double MainBill::getTotal </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -262,9 +302,9 @@ std::vector&lt; std::shared_ptr&lt; <a class="el" href="classBill.html">Bill</a>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
-<p>Implements <a class="el" href="classBill.html#aed03f9de9347cb8ec5b10f1e4a40807b">Bill</a>.</p>
+<p>Implements <a class="el" href="classBill.html#ad043dbd2e1460bcb42d2494c95034cf8">Bill</a>.</p>
 
 </div>
 </div>

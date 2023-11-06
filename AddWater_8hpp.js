@@ -1,4 +1,4 @@
 var AddWater_8hpp =
 [
-    [ "AddWater", "classAddWater.html", null ]
+    [ "AddWater", "classAddWater.html", "classAddWater" ]
 ];

@@ -1,4 +1,4 @@
 var AddCheese_8hpp =
 [
-    [ "AddCheese", "classAddCheese.html", null ]
+    [ "AddCheese", "classAddCheese.html", "classAddCheese" ]
 ];

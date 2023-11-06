@@ -98,32 +98,50 @@ $(document).ready(function(){initNavTree('classAddBeefBurgerPatty.html',''); ini
   <div class="headertitle"><div class="title">AddBeefBurgerPatty Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="classAddBeefBurgerPatty.html" title="AddBeefBurgerPatty class, which inherits from the Order interface.A ConcreteCommand which aides in ge...">AddBeefBurgerPatty</a> class, which inherits from the <a class="el" href="classOrder.html" title="Order(Command), Abstract Class. Interface in Command Pattern.">Order</a> interface.A ConcreteCommand which aides in generating a new <a class="el" href="classBeefPatty.html" title="class BeefPatty in group Patties">BeefPatty</a> <a class="el" href="classIngredient.html" title="Abstract class for all Ingredient types to inherit from.">Ingredient</a>.  
+ <a href="classAddBeefBurgerPatty.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="AddBeefBurgerPatty_8hpp_source.html">AddBeefBurgerPatty.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for AddBeefBurgerPatty:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classAddBeefBurgerPatty.png" usemap="#AddBeefBurgerPatty_map" alt=""/>
   <map id="AddBeefBurgerPatty_map" name="AddBeefBurgerPatty_map">
-<area href="classOrder.html" alt="Order" shape="rect" coords="0,0,128,24"/>
+<area href="classOrder.html" title="Order(Command), Abstract Class. Interface in Command Pattern." alt="Order" shape="rect" coords="0,0,128,24"/>
+<area href="classOrder.html" title="Order(Command), Abstract Class. Interface in Command Pattern." alt="Order" shape="rect" coords="138,0,266,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac847c5552bef69802c9ea18c15574b78" id="r_ac847c5552bef69802c9ea18c15574b78"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAddBeefBurgerPatty.html#ac847c5552bef69802c9ea18c15574b78">executeOrder</a> (std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt; m)</td></tr>
+<tr class="memdesc:ac847c5552bef69802c9ea18c15574b78"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates a <a class="el" href="classBeefPatty.html" title="class BeefPatty in group Patties">BeefPatty</a> <a class="el" href="classIngredient.html" title="Abstract class for all Ingredient types to inherit from.">Ingredient</a> and Passes a std::share_pte&lt;Meal&gt; as the "next" of the "ingredient" of the <a class="el" href="classMeal.html" title="a meal object">Meal</a>  <br /></td></tr>
 <tr class="separator:ac847c5552bef69802c9ea18c15574b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classOrder"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classOrder')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classOrder.html">Order</a></td></tr>
+<tr class="memitem:a8fb25876ccbd534465f5f96ef9bb2212 inherit pub_methods_classOrder" id="r_a8fb25876ccbd534465f5f96ef9bb2212"><td class="memItemLeft" align="right" valign="top">
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Order</b> ()</td></tr>
+<tr class="memdesc:a8fb25876ccbd534465f5f96ef9bb2212 inherit pub_methods_classOrder"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="classOrder.html" title="Order(Command), Abstract Class. Interface in Command Pattern.">Order</a> object. <br /></td></tr>
+<tr class="separator:a8fb25876ccbd534465f5f96ef9bb2212 inherit pub_methods_classOrder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_attribs_classOrder"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classOrder')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classOrder.html">Order</a></td></tr>
 <tr class="memitem:a0e9c0fe659caffd67cad85810a5c36f1 inherit pub_attribs_classOrder" id="r_a0e9c0fe659caffd67cad85810a5c36f1"><td class="memItemLeft" align="right" valign="top">
 std::shared_ptr&lt; <a class="el" href="classMeal.html">Meal</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>meal</b></td></tr>
+<tr class="memdesc:a0e9c0fe659caffd67cad85810a5c36f1 inherit pub_attribs_classOrder"><td class="mdescLeft">&#160;</td><td class="mdescRight">std::shared&lt;ptr&gt; meal allows for an <a class="el" href="classOrder.html" title="Order(Command), Abstract Class. Interface in Command Pattern.">Order</a>'s associated <a class="el" href="classMeal.html" title="a meal object">Meal</a> to be set or specified. <br /></td></tr>
 <tr class="separator:a0e9c0fe659caffd67cad85810a5c36f1 inherit pub_attribs_classOrder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a0615f461fb404ee8554d087739513d inherit pub_attribs_classOrder" id="r_a3a0615f461fb404ee8554d087739513d"><td class="memItemLeft" align="right" valign="top">
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>addedToList</b> = false</td></tr>
+<tr class="memdesc:a3a0615f461fb404ee8554d087739513d inherit pub_attribs_classOrder"><td class="mdescLeft">&#160;</td><td class="mdescRight">addedToList is boolean which checks whether the <a class="el" href="classOrder.html" title="Order(Command), Abstract Class. Interface in Command Pattern.">Order</a> has already been handled with in the <a class="el" href="classKitchen.html" title="a Kitchen object">Kitchen</a> class <br /></td></tr>
 <tr class="separator:a3a0615f461fb404ee8554d087739513d inherit pub_attribs_classOrder"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classAddBeefBurgerPatty.html" title="AddBeefBurgerPatty class, which inherits from the Order interface.A ConcreteCommand which aides in ge...">AddBeefBurgerPatty</a> class, which inherits from the <a class="el" href="classOrder.html" title="Order(Command), Abstract Class. Interface in Command Pattern.">Order</a> interface.A ConcreteCommand which aides in generating a new <a class="el" href="classBeefPatty.html" title="class BeefPatty in group Patties">BeefPatty</a> <a class="el" href="classIngredient.html" title="Abstract class for all Ingredient types to inherit from.">Ingredient</a>. </p>
+<p>AddBeefBurger, a ConcreteCommand of the Command(Order Class)</p>
+<dl class="section author"><dt>Author</dt><dd>Lunga </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac847c5552bef69802c9ea18c15574b78" name="ac847c5552bef69802c9ea18c15574b78"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac847c5552bef69802c9ea18c15574b78">&#9670;&#160;</a></span>executeOrder()</h2>
 
@@ -148,7 +166,16 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>addedToList</b> = fal
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classOrder.html">Order</a>.</p>
+<p>creates a <a class="el" href="classBeefPatty.html" title="class BeefPatty in group Patties">BeefPatty</a> <a class="el" href="classIngredient.html" title="Abstract class for all Ingredient types to inherit from.">Ingredient</a> and Passes a std::share_pte&lt;Meal&gt; as the "next" of the "ingredient" of the <a class="el" href="classMeal.html" title="a meal object">Meal</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::shared_ptr&lt;Meal&gt; </dd></dl>
+
+<p>Implements <a class="el" href="classOrder.html#affdf7cf0eeb71f28bbaac37d3fb18a7f">Order</a>.</p>
 
 </div>
 </div>

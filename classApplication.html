@@ -105,6 +105,15 @@ $(document).ready(function(){initNavTree('classApplication.html',''); initResiza
  <a href="classApplication.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Application_8hpp_source.html">Application.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Application:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classApplication.png" usemap="#Application_map" alt=""/>
+  <map id="Application_map" name="Application_map">
+<area href="classSimulationInterface.html" title="provides an interface for proxy object and real object to inherit from" alt="SimulationInterface" shape="rect" coords="0,0,119,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -157,8 +166,12 @@ Private Attributes</h2></td></tr>
 crow::SimpleApp&#160;</td><td class="memItemRight" valign="bottom"><b>app</b></td></tr>
 <tr class="memdesc:a0012ec89c33d794c132b94983dea48c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">this holds the app variable that creates a websocket and intercepts incoming requests <br /></td></tr>
 <tr class="separator:a0012ec89c33d794c132b94983dea48c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c9f6de587dcc1a52b1f6f2a04151ce0" id="r_a3c9f6de587dcc1a52b1f6f2a04151ce0"><td class="memItemLeft" align="right" valign="top"><a id="a3c9f6de587dcc1a52b1f6f2a04151ce0" name="a3c9f6de587dcc1a52b1f6f2a04151ce0"></a>
+std::shared_ptr&lt; <a class="el" href="classRestaurant.html">Restaurant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>restaurant</b></td></tr>
+<tr class="memdesc:a3c9f6de587dcc1a52b1f6f2a04151ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">this holds the app variable that creates a websocket and intercepts incoming requests <br /></td></tr>
+<tr class="separator:a3c9f6de587dcc1a52b1f6f2a04151ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73f193fa1af6a32474c5043b6860f920" id="r_a73f193fa1af6a32474c5043b6860f920"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, crow::websocket::connection * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#a73f193fa1af6a32474c5043b6860f920">connected_clients</a></td></tr>
-<tr class="memdesc:a73f193fa1af6a32474c5043b6860f920"><td class="mdescLeft">&#160;</td><td class="mdescRight">this holds the app variable that creates a websocket and intercepts incoming requests  <br /></td></tr>
+<tr class="memdesc:a73f193fa1af6a32474c5043b6860f920"><td class="mdescLeft">&#160;</td><td class="mdescRight">this holds all of the connected/subscribed clients that way if there is an update on the backend, we can send updated data to the client in json form.  <br /></td></tr>
 <tr class="separator:a73f193fa1af6a32474c5043b6860f920"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90447f8d1015cbfc255961e5195e9f15" id="r_a90447f8d1015cbfc255961e5195e9f15"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classApplication.html#a90447f8d1015cbfc255961e5195e9f15">mtx</a></td></tr>
 <tr class="memdesc:a90447f8d1015cbfc255961e5195e9f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">thread locker.  <br /></td></tr>
@@ -179,6 +192,13 @@ std::list&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom
 std::list&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>connected_managers</b></td></tr>
 <tr class="memdesc:af1de673ece1c27c586c5f1a014066888"><td class="mdescLeft">&#160;</td><td class="mdescRight">this stores the uuid of connected managers <br /></td></tr>
 <tr class="separator:af1de673ece1c27c586c5f1a014066888"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7be131aaa83e91e1219a05cf14cafb2" id="r_ab7be131aaa83e91e1219a05cf14cafb2"><td class="memItemLeft" align="right" valign="top"><a id="ab7be131aaa83e91e1219a05cf14cafb2" name="ab7be131aaa83e91e1219a05cf14cafb2"></a>
+std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>connected_managers_table</b></td></tr>
+<tr class="memdesc:ab7be131aaa83e91e1219a05cf14cafb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">this stores the table data requested by a manager and their uuid <br /></td></tr>
+<tr class="separator:ab7be131aaa83e91e1219a05cf14cafb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classApplication.html" title="Application class that runs the main application.">Application</a> class that runs the main application. </p>
@@ -413,7 +433,7 @@ std::list&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -426,6 +446,8 @@ std::list&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
+
+<p>Implements <a class="el" href="classSimulationInterface.html#aa58bcad6972e4a8389386258435e2e41">SimulationInterface</a>.</p>
 
 </div>
 </div>
@@ -652,8 +674,8 @@ std::list&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom
 </table>
 </div><div class="memdoc">
 
-<p>this holds the app variable that creates a websocket and intercepts incoming requests </p>
-<p>this holds all of the connected/subscribed clients that way if there is an update on the backend, we can send updated data to the client in json form. </p><dl class="section note"><dt>Note</dt><dd>Note that when a client closes their connection, they become unsubscribed and will no longer receive any messages from the backend. </dd></dl>
+<p>this holds all of the connected/subscribed clients that way if there is an update on the backend, we can send updated data to the client in json form. </p>
+<dl class="section note"><dt>Note</dt><dd>Note that when a client closes their connection, they become unsubscribed and will no longer receive any messages from the backend. </dd></dl>
 
 </div>
 </div>

@@ -112,8 +112,8 @@ Inheritance diagram for Table:</div>
   <map id="Table_map" name="Table_map">
 <area href="classCollectable.html" title="a Collectable class which all classes that make use of an interator must inherit from" alt="Collectable" shape="rect" coords="91,0,172,24"/>
 <area href="classCollectable.html" title="a Collectable class which all classes that make use of an interator must inherit from" alt="Collectable" shape="rect" coords="182,0,263,24"/>
-<area href="classJoinedTable.html" title="a JoinedTable class which is a composite class of Table" alt="JoinedTable" shape="rect" coords="0,112,81,136"/>
-<area href="classJoinedTable.html" title="a JoinedTable class which is a composite class of Table" alt="JoinedTable" shape="rect" coords="91,112,172,136"/>
+<area href="classJoinedTable.html" title="an JoinedTable class which is a composite class of Table" alt="JoinedTable" shape="rect" coords="0,112,81,136"/>
+<area href="classJoinedTable.html" title="an JoinedTable class which is a composite class of Table" alt="JoinedTable" shape="rect" coords="91,112,172,136"/>
 <area href="classSingleTable.html" title="an SingleTable class which is a leaf class of Table" alt="SingleTable" shape="rect" coords="182,112,263,136"/>
 <area href="classSingleTable.html" title="an SingleTable class which is a leaf class of Table" alt="SingleTable" shape="rect" coords="273,112,354,136"/>
   </map>
@@ -157,12 +157,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5aab456a5319bacc1fe490c32d730ac2" id="r_a5aab456a5319bacc1fe490c32d730ac2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTable.html#a5aab456a5319bacc1fe490c32d730ac2">setWaiterID</a> (std::string set_to)</td></tr>
 <tr class="memdesc:a5aab456a5319bacc1fe490c32d730ac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the id of the waiter who has been assigned to this table  <br /></td></tr>
 <tr class="separator:a5aab456a5319bacc1fe490c32d730ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb84af79232f19f01ef5027d87ab479b" id="r_aeb84af79232f19f01ef5027d87ab479b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTable.html#aeb84af79232f19f01ef5027d87ab479b">getReserverUUID</a> () const</td></tr>
-<tr class="memdesc:aeb84af79232f19f01ef5027d87ab479b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the ID of the customer that reserved this table.  <br /></td></tr>
-<tr class="separator:aeb84af79232f19f01ef5027d87ab479b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46b926853e2a3338982e7af33d27034c" id="r_a46b926853e2a3338982e7af33d27034c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTable.html#a46b926853e2a3338982e7af33d27034c">setReserverUUID</a> (const std::string &amp;reserverID)</td></tr>
-<tr class="memdesc:a46b926853e2a3338982e7af33d27034c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the ID of the customer that reserved this table.  <br /></td></tr>
-<tr class="separator:a46b926853e2a3338982e7af33d27034c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -170,18 +164,13 @@ Protected Attributes</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>assigned_a_waiter</b> = false</td></tr>
 <tr class="memdesc:a7f0a0551f19594e814aa121f50989165"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether or not this table is currently assigned a waiter <br /></td></tr>
 <tr class="separator:a7f0a0551f19594e814aa121f50989165"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ba26ed1f19ff834616407a1290d0169" id="r_a0ba26ed1f19ff834616407a1290d0169"><td class="memItemLeft" align="right" valign="top"><a id="a0ba26ed1f19ff834616407a1290d0169" name="a0ba26ed1f19ff834616407a1290d0169"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>table_id</b> = -1</td></tr>
-<tr class="memdesc:a0ba26ed1f19ff834616407a1290d0169"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of this table <br /></td></tr>
+<tr class="memitem:a0ba26ed1f19ff834616407a1290d0169" id="r_a0ba26ed1f19ff834616407a1290d0169"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTable.html#a0ba26ed1f19ff834616407a1290d0169">table_id</a> = -1</td></tr>
+<tr class="memdesc:a0ba26ed1f19ff834616407a1290d0169"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of this table  <br /></td></tr>
 <tr class="separator:a0ba26ed1f19ff834616407a1290d0169"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e19b88607292c43f4f40a299093953b" id="r_a1e19b88607292c43f4f40a299093953b"><td class="memItemLeft" align="right" valign="top"><a id="a1e19b88607292c43f4f40a299093953b" name="a1e19b88607292c43f4f40a299093953b"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>waiter_uuid</b> = &quot;&quot;</td></tr>
 <tr class="memdesc:a1e19b88607292c43f4f40a299093953b"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of the waiter assigned to this table <br /></td></tr>
 <tr class="separator:a1e19b88607292c43f4f40a299093953b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95bb2ccaa0b1a13a42b917fd6e7c9b74" id="r_a95bb2ccaa0b1a13a42b917fd6e7c9b74"><td class="memItemLeft" align="right" valign="top"><a id="a95bb2ccaa0b1a13a42b917fd6e7c9b74" name="a95bb2ccaa0b1a13a42b917fd6e7c9b74"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>reserver_uuid</b> = &quot;&quot;</td></tr>
-<tr class="memdesc:a95bb2ccaa0b1a13a42b917fd6e7c9b74"><td class="mdescLeft">&#160;</td><td class="mdescRight">id of the customer that reserved this table <br /></td></tr>
-<tr class="separator:a95bb2ccaa0b1a13a42b917fd6e7c9b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>a <a class="el" href="classTable.html" title="a Table class which is a component class of Collectable">Table</a> class which is a component class of <a class="el" href="classCollectable.html" title="a Collectable class which all classes that make use of an interator must inherit from">Collectable</a> </p>
@@ -246,34 +235,6 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>reserver_uuid<
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
-
-</div>
-</div>
-<a id="aeb84af79232f19f01ef5027d87ab479b" name="aeb84af79232f19f01ef5027d87ab479b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb84af79232f19f01ef5027d87ab479b">&#9670;&#160;</a></span>getReserverUUID()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string Table::getReserverUUID </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the ID of the customer that reserved this table. </p>
-<dl class="section return"><dt>Returns</dt><dd>std::string The customer's ID. </dd></dl>
 
 </div>
 </div>
@@ -530,40 +491,6 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>reserver_uuid<
 
 </div>
 </div>
-<a id="a46b926853e2a3338982e7af33d27034c" name="a46b926853e2a3338982e7af33d27034c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46b926853e2a3338982e7af33d27034c">&#9670;&#160;</a></span>setReserverUUID()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Table::setReserverUUID </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>reserverID</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set the ID of the customer that reserved this table. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">reserverID</td><td>The customer's ID to set. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a5aab456a5319bacc1fe490c32d730ac2" name="a5aab456a5319bacc1fe490c32d730ac2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5aab456a5319bacc1fe490c32d730ac2">&#9670;&#160;</a></span>setWaiterID()</h2>
 
@@ -625,6 +552,32 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>reserver_uuid<
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 <p>Implemented in <a class="el" href="classJoinedTable.html#a27bd26b96033d67819fb9b672173bdcf">JoinedTable</a>, and <a class="el" href="classSingleTable.html#a70e04f564a4220db0cdfae8c6627c78f">SingleTable</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0ba26ed1f19ff834616407a1290d0169" name="a0ba26ed1f19ff834616407a1290d0169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ba26ed1f19ff834616407a1290d0169">&#9670;&#160;</a></span>table_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Table::table_id = -1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>id of this table </p>
+<dl class="section note"><dt>Note</dt><dd>id of -1 indicates that it has not been given an id yet </dd></dl>
 
 </div>
 </div>
