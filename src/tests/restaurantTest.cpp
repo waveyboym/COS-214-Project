@@ -94,12 +94,58 @@ namespace restaurantTest{
         R->assignAllFreeWaiters();
     }
 
-    TEST(Restaurant_test, SET_ANY_CUSTOMER_ORDER)
+    TEST(Restaurant_test, SET_ANY_CUSTOMER_ORDER_SMALLER_THAN_NUM_SEATED)
     {
         std::shared_ptr<Restaurant> R = Restaurant::instance();
         ASSERT_NE(R, nullptr);
 
-        R->setAnyCustomerOrder(2);
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+        R->setAnyCustomerOrder(3);
+    }
+
+    TEST(Restaurant_test, SET_ANY_CUSTOMER_ORDER_ZERO)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+        R->setAnyCustomerOrder(0);
+    }
+
+    TEST(Restaurant_test, SET_ANY_CUSTOMER_ORDER_LARGER_THAN_NUM_SEATED)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(4);
+        R->setAnyCustomerOrder(6);
+    }
+
+    TEST(Restaurant_test, TAKE_ORDER)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+        R->assignAllFreeWaiters();
+        R->setAnyCustomerOrder(4);
+        R->waiterTakesOrder();
+    }
+
+    TEST(Restaurant_test, TAKE_ORDER_NO_ORDERS)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+        R->assignAllFreeWaiters();
+        R->setAnyCustomerOrder(0);
+        R->waiterTakesOrder();
     }
 }
 

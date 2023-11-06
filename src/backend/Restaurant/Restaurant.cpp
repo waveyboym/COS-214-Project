@@ -202,10 +202,10 @@ void Restaurant::assignAllFreeWaiters(){
 }
 
 void Restaurant::setAnyCustomerOrder(int random_number){
-    if(num_seated_customers == 0){
-        std::cout << color::format_colour::make_colour(color::YELLOW) << "there are no customers who want to order since none are seated" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+    if(num_seated_customers == 0 || random_number == 0){
         return;
     }
+
     int num_orders_to_set = random_number % num_seated_customers;
     int num_orders_set = 0;
 
@@ -224,6 +224,40 @@ void Restaurant::setAnyCustomerOrder(int random_number){
         c_i->next();
         ++i;
     }
+}
+
+void Restaurant::waiterTakesOrder(){
+    std::cout << color::format_colour::make_colour(color::YELLOW) << "waiters are taking orders" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+    
+
+    for (auto i = waiters.begin(); i != waiters.end(); i++){
+        std::shared_ptr<Waiter> waiter = i->second;
+        int num_orders_taken = 0;
+        if(waiter){
+
+            std::cout << color::format_colour::make_colour(color::GREEN) << i->first << " is taking the orders at the table with id " << waiter->getAssignedTableID() << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+
+            std::list<std::shared_ptr<Customer>> customer_list = waiter->getTable()->getAllSeatedCustomers();
+
+            std::list<std::shared_ptr<Customer>>::iterator it;
+            for (it = customer_list.begin(); it != customer_list.end(); ++it){
+                std::shared_ptr<Customer> customer = *it;
+
+                if(!customer->getHasOrdered() && customer->getHasDecided()){
+                    waiter->takeOrder(*it);
+                    customer->Ordered();
+
+                    std::cout << color::format_colour::make_colour(color::BLUE) <<"customer with uuid of: " << customer->getUUID() << " has placed their order" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+
+                    num_orders_taken++;
+                }
+            }
+        }
+
+        if(num_orders_taken == 0){
+            std::cout << color::format_colour::make_colour(color::GREEN) << " there were no orders to take at " << i->first  << "'s table" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        }
+    } 
 }
 
 
