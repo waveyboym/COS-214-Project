@@ -181,6 +181,7 @@ void Restaurant::unseatFinishedCustomers(){
         {
             this->maitre_d->unseatCustomer(this->single_tables, this->joined_tables, curCustomer, this->waiters);
             std::cout << color::format_colour::make_colour(color::MAGENTA) <<"customer with uuid of: " << curCustomer->getUUID() << " has been unseated from the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+            std::cout << color::format_colour::make_colour(color::MAGENTA) <<"customer's bill': " << curCustomer->payBill() << color::format_colour::make_colour(color::DEFAULT) << std::endl;
             this->customers.erase(curCustomer->getUUID());
         }
         c_i->next();

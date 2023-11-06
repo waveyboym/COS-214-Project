@@ -41,6 +41,13 @@ void Waiter::getUpdate(std::vector<std::pair<std::shared_ptr<Meal>, std::shared_
         for (auto current_my_customer : my_customers) {
             if(current_my_customer == customer){
                 std::cout << color::format_colour::make_colour(color::GREEN) << "Waiter " << this->getUUID() << " delivered Meal to customer " << customer.get()->getUUID() << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+                if(rand() % 2 == 0){
+                    current_my_customer->getGivenABill(std::make_shared<SubBill>());
+                }
+                else{
+                    current_my_customer->getGivenABill(std::make_shared<MainBill>(new_meals.at(i).first, rand() % 10));
+
+                }
                 current_my_customer->startEatingMeal();
             }
         }

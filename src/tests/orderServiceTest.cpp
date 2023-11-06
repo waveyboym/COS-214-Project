@@ -34,7 +34,10 @@ namespace orderServiceTest{
         std::shared_ptr<Waiter> W2 = std::make_shared<Waiter>("0001");
         std::shared_ptr<Waiter> W3 = std::make_shared<Waiter>("0002");
 
-        std::vector<std::shared_ptr<Waiter>> AW = {W1, W2, W3};
+        std::map<std::string, std::shared_ptr<Waiter>> AW;
+        AW["0000"] = W1;
+        AW["0001"] = W1;
+        AW["0002"] = W1;
 
         std::shared_ptr<Kitchen> K = std::make_shared<Kitchen>(AW);
 

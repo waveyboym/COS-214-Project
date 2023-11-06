@@ -152,8 +152,8 @@ namespace  kitchenTest{
 
     TEST(Kitchen_test, INIT_KITCHEN)
     {
-        std::vector<std::shared_ptr<Waiter>> W = {nullptr};
-        std::shared_ptr<Kitchen> K = std::make_shared<Kitchen>(W);
+        std::map<std::string, std::shared_ptr<Waiter>> AW;
+        std::shared_ptr<Kitchen> K = std::make_shared<Kitchen>(AW);
         ASSERT_NE(K, nullptr);
     }
 
@@ -162,7 +162,10 @@ namespace  kitchenTest{
         std::shared_ptr<Waiter> W2 = std::make_shared<Waiter>("0001");
         std::shared_ptr<Waiter> W3 = std::make_shared<Waiter>("0002");
 
-        std::vector<std::shared_ptr<Waiter>> AW = {W1, W2, W3};
+        std::map<std::string, std::shared_ptr<Waiter>> AW;
+        AW["0000"] = W1;
+        AW["0001"] = W1;
+        AW["0002"] = W1;
 
         std::shared_ptr<Kitchen> K = std::make_shared<Kitchen>(AW);
 
@@ -182,14 +185,14 @@ namespace  kitchenTest{
         single_tables.push_back(std::make_shared<SingleTable>(0));
         joined_tables.push_back(std::make_shared<JoinedTable>(1));
         
-        std::vector<std::shared_ptr<Waiter>> waiters;
+        std::map<std::string, std::shared_ptr<Waiter>> AW;
         std::shared_ptr<Waiter> W1 = std::make_shared<Waiter>("0000");
-        waiters.push_back(W1);
+        AW["0000"] = W1;
 
         CMD->seatCustomer(single_tables, joined_tables, C);
         CMD->assignWaiterToTable(single_tables, joined_tables, W1);
 
-        std::shared_ptr<Kitchen> K = std::make_shared<Kitchen>(waiters);
+        std::shared_ptr<Kitchen> K = std::make_shared<Kitchen>(AW);
 
         ASSERT_NE(K, nullptr);
 
@@ -217,14 +220,14 @@ namespace  kitchenTest{
         single_tables.push_back(std::make_shared<SingleTable>(0));
         joined_tables.push_back(std::make_shared<JoinedTable>(1));
         
-        std::vector<std::shared_ptr<Waiter>> waiters;
+        std::map<std::string, std::shared_ptr<Waiter>> AW;
         std::shared_ptr<Waiter> W1 = std::make_shared<Waiter>("0000");
-        waiters.push_back(W1);
+        AW["0000"] = W1;
 
         CMD->seatCustomer(single_tables, joined_tables, C);
         CMD->assignWaiterToTable(single_tables, joined_tables, W1);
 
-        std::shared_ptr<Kitchen> K = std::make_shared<Kitchen>(waiters);
+        std::shared_ptr<Kitchen> K = std::make_shared<Kitchen>(AW);
 
         ASSERT_NE(K, nullptr);
 
@@ -261,14 +264,14 @@ namespace  kitchenTest{
         single_tables.push_back(std::make_shared<SingleTable>(0));
         joined_tables.push_back(std::make_shared<JoinedTable>(1));
         
-        std::vector<std::shared_ptr<Waiter>> waiters;
+        std::map<std::string, std::shared_ptr<Waiter>> AW;
         std::shared_ptr<Waiter> W1 = std::make_shared<Waiter>("0000");
-        waiters.push_back(W1);
+        AW["0000"] = W1;
 
         CMD->seatCustomer(single_tables, joined_tables, C);
         CMD->assignWaiterToTable(single_tables, joined_tables, W1);
 
-        std::shared_ptr<Kitchen> K = std::make_shared<Kitchen>(waiters);
+        std::shared_ptr<Kitchen> K = std::make_shared<Kitchen>(AW);
 
         ASSERT_NE(K, nullptr);
 
@@ -308,26 +311,26 @@ namespace  kitchenTest{
 
         std::list<std::shared_ptr<SingleTable>> single_tables;
         std::list<std::shared_ptr<JoinedTable>> joined_tables;
-        std::vector<std::shared_ptr<Waiter>> waiters;
-        waiters.push_back(C);
+        std::map<std::string, std::shared_ptr<Waiter>> AW;
+        AW["0000"] = C;
 
         single_tables.push_back(std::make_shared<SingleTable>(0));
         joined_tables.push_back(std::make_shared<JoinedTable>(1));
 
         EXPECT_EQ(CMD->seatCustomer(single_tables, joined_tables, A), true);
-        EXPECT_EQ(CMD->assignWaiterToTable(single_tables, joined_tables, waiters.at(0)), true);
+        EXPECT_EQ(CMD->assignWaiterToTable(single_tables, joined_tables, C), true);
         EXPECT_EQ(C->getAssignedTableID(), 0);
 
         std::shared_ptr<SingleTableIterator> s_t_i = std::make_shared<SingleTableIterator>(single_tables);
         std::shared_ptr<Table> table = std::dynamic_pointer_cast<Table>(s_t_i->currentItem());
         EXPECT_EQ(table->getAssignedWaiterID(), "0000");
 
-        std::shared_ptr<Kitchen> K = std::make_shared<Kitchen>(waiters);
+        std::shared_ptr<Kitchen> K = std::make_shared<Kitchen>(AW);
         std::vector<std::shared_ptr<Order>> order_list = {std::make_shared<AddWholeWheatBun>(), std::make_shared<AddBBQSauce>(), std::make_shared<AddBBQSauce>()};
 
         K.get()->createMeal(order_list, A);
         std::vector<std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>>> results = K.get()->getCompletedMeals();
- 
+
         K.get()->notifyWaiters();
 
     }

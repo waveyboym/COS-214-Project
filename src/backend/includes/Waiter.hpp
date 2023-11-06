@@ -16,7 +16,7 @@
 #include <memory>
 #include <string>
 #include <vector>
-
+#include <cstdlib>
 
 /** 
 *@brief a waiter object
