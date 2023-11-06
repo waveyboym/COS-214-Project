@@ -4,6 +4,7 @@ export interface CartItem {
     price: number;
     img: string;
     description: string;
+    category: string;
     // Add other properties as needed
 }
 
@@ -19,8 +20,8 @@ export interface foodProcessingState {
 }
 
 export interface waiterState {
-    waiterName: string;
-    setWaiterName: (setTo: string) => void;
+    waitTime: string;
+    setwaitTime: (setTo: string) => void;
 }
 
 export interface apikeyState{

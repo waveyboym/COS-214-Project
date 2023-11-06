@@ -6,11 +6,11 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { ThemeEditorProvider } from '@hypertheme-editor/chakra-ui';
 
 type EmotionalStateTabProps = {
+    emotionalState : string;
     setEmotionalState: (state: string) => void;
 }
 
-const EmotionalStateTab: React.FC<EmotionalStateTabProps> = ({ setEmotionalState }) => {
-    const [emotionalState, setEmotionalStateLocal] = useState('neutral');
+const EmotionalStateTab: React.FC<EmotionalStateTabProps> = ({emotionalState,  setEmotionalState }) => {
 
     const emotions = [
         { value: 'neutral', label: 'Neutral' },
@@ -19,11 +19,6 @@ const EmotionalStateTab: React.FC<EmotionalStateTabProps> = ({ setEmotionalState
         { value: 'slightly_angry', label: 'Slightly Angry' },
         { value: 'slightly_happy', label: 'Slightly Happy' },
     ];
-
-    const handleEmotionalStateChange = (selectedState: string) => {
-        setEmotionalState(selectedState);
-        setEmotionalStateLocal(selectedState);
-    };
 
     return (
         <ChakraProvider>
@@ -41,7 +36,7 @@ const EmotionalStateTab: React.FC<EmotionalStateTabProps> = ({ setEmotionalState
                                     size="md"
                                     variant={emotionalState === emotion.value ? 'solid' : 'outline'}
                                     colorScheme="teal"
-                                    onClick={() => handleEmotionalStateChange(emotion.value)}
+                                    onClick={() => setEmotionalState(emotion.value)}
                                 >
                                     {emotion.label}
                                 </Button>
