@@ -145,6 +145,7 @@ void Customer::setOrder(){
         }
     }
     
+    has_decided = true;
 }
 
 std::vector<std::shared_ptr<Order>> Customer::getOrder() const{
@@ -153,4 +154,12 @@ std::vector<std::shared_ptr<Order>> Customer::getOrder() const{
 
 bool Customer::getHasDecided(){
     return has_decided;
+}
+
+bool Customer::getHasOrdered(){
+    return has_ordered;
+}
+
+void Customer::Ordered(){
+    has_ordered = true;
 }

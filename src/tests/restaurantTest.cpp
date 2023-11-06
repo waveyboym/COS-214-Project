@@ -123,6 +123,30 @@ namespace restaurantTest{
         R->seatAnyCustomer(4);
         R->setAnyCustomerOrder(6);
     }
+
+    TEST(Restaurant_test, TAKE_ORDER)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+        R->assignAllFreeWaiters();
+        R->setAnyCustomerOrder(4);
+        R->waiterTakesOrder();
+    }
+
+    TEST(Restaurant_test, TAKE_ORDER_NO_ORDERS)
+    {
+        std::shared_ptr<Restaurant> R = Restaurant::instance();
+        ASSERT_NE(R, nullptr);
+
+        R->customersEnterRestaurant(9);
+        R->seatAnyCustomer(9);
+        R->assignAllFreeWaiters();
+        R->setAnyCustomerOrder(0);
+        R->waiterTakesOrder();
+    }
 }
 
 namespace restaurantFrontEndTest{
