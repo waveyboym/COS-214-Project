@@ -118,6 +118,26 @@ void Restaurant::progressByOneStep(){
         //assign all free waiters to any table that has customers
         this->assignAllFreeWaiters();
     }
+    if(random_number % 10 >= 0 && random_number % 10 < 7)
+    {
+        //0 to 6 customers will decide what to order
+        setAnyCustomerOrder(random_number);
+    }
+    if(random_number % 10 >= 0 && random_number % 10 < 6)
+    {
+        //waiter will take orders
+        waiterTakesOrder();
+    }
+    if(random_number % 10 >= 0 && random_number % 10 < 8)
+    {
+        //waiter will send orders to the kitchen to prepare
+        ordersTakenToKitchen();
+    }
+    if(random_number % 10 >= 0 && random_number % 10 < 6)
+    {
+        //kitchen will tell waiters to take completed meals to customers
+        deliverMeals();
+    }
     if(random_number % 10 >= 0 && random_number % 10 <=5){
         //assign a free waiter to any table that has customers
         this->unseatFinishedCustomers();
