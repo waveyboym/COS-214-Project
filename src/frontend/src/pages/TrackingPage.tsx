@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useApiKeyStore, useSeatedStore, useWaiterStore, usefoodProcessingTimeStore } from '../stateStore';
+import { useState, useEffect } from 'react';
+import { useApiKeyStore, useSeatedStore } from '../stateStore';
 import { hero_bg } from '../assets';
 import { EmotionalStateTab, Navbar, TrackingComponent } from '../components';
 import { useSocket } from '../contexts';
@@ -7,36 +7,14 @@ import PromptModal from './PromptModal';
 
 //when this page loads, it will make a socket request to the backend to get details about it's order(like all details)
 const TrackingPage = () => {
-  const [ratingVal, setRatingVal] = useState<number>(0);
-  const [orderStatus, ] = useState<string>("");
-
-  const {foodProcessingTime, setFoodProcessingTime } = usefoodProcessingTimeStore((state) => { return { foodProcessingTime: state.foodProcessingTime, setFoodProcessingTime: state.setFoodProcessingTime }; });
-  const {waiterName, setWaiterName } = useWaiterStore((state) => { return { waiterName: state.waiterName, setWaiterName: state.setWaiterName }; });
-
+  const [orderStatus, setOrderStatus] = useState<string>("not completed");
+  const [waitTime, setwaitTime] = useState(0.0);
   const { seated, setSeated } = useSeatedStore((state) => { return { seated: state.seated, setSeated: state.setSeated }; });
   const { apikey } = useApiKeyStore((state) => { return { apikey: state.apikey }; });
+  const [showSplashPrompt, setShowSplashPrompt] = useState(false);
   
   const [emotionalState, setEmotionalState] = useState('neutral'); // Define and set emotionalState
   const socket: WebSocket | null = useSocket();
-
-  useEffect(() => {
-    if (foodProcessingTime > 0) {
-      const interval = setInterval(() => {
-        if (foodProcessingTime > 0) {
-          setFoodProcessingTime(foodProcessingTime - 1);
-        }
-      }, 1000);
-
-      return () => clearInterval(interval);
-    }
-  }, [foodProcessingTime]);
-
-  const handleRatingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // Handle rating change logic here
-    const rating = Number(event.target.value);
-    //setRatingVal(rating);
-    // Update the rating in your state or send it to the backend
-  };
 
   socket!.onmessage = function(event){
     //the backend responds with the needed data
@@ -51,6 +29,17 @@ const TrackingPage = () => {
         setSeated(false);
       }
     }
+    else if(json.status === "success" && json.player === "customer" && json.command === "change_emotional_state"){
+      setEmotionalState(json.emotional_state);
+    }
+    else if(json.status === "success" && json.player === "customer" && json.command === "update_check"){
+      //setwaitTime(json.waitTime);
+      //setOrderStatus(json.orderStatus);
+      console.log(json);
+    }
+    else if(json.status === "success" && json.player === "customer" && json.command === "checkout"){
+      setSeated(false);
+    }
     else{
       console.log(json);
     }
@@ -60,13 +49,28 @@ const TrackingPage = () => {
     const json = { token: apikey, player: "customer", command: "seat_request", message: (setTo === true ? "seat" : "unseat")};
     socket!.send(JSON.stringify(json));
   }
-  const [showSplashPrompt, setShowSplashPrompt] = useState(false);
+  
+  const updateMe = function(){
+    const json = { token: apikey, player: "customer", command: "update_check"};
+    socket!.send(JSON.stringify(json));
+  }
 
-   // Define a function to handle the checkout action
-   const handleCheckoutClick = () => {
-    // Open the modal or set a state variable to show the prompt
-    setShowSplashPrompt(true);
-  };
+  const checkMeOut = function(){
+    const json = { token: apikey, player: "customer", command: "checkout"};
+    socket!.send(JSON.stringify(json));
+  }
+
+  const setCustomerEmotionalState = function(newstate: string){
+    const json = { token: apikey, player: "customer", command: "change_emotional_state", emotional_state: newstate};
+    socket!.send(JSON.stringify(json));
+  }
+
+  useEffect(() => {
+      const checkUpdate = function(){
+          updateMe();
+      }
+      checkUpdate();
+    }, []);
 
 
   return (
@@ -78,14 +82,26 @@ const TrackingPage = () => {
           <Navbar route={"Tracking"} is_seated={seated} setIsSeated={requestSeat}/>
         </div>
         <h1 style={{textAlign: "center"}}>Order Tracking</h1>
-          <TrackingComponent orderStatus={"Your order has been delivered"} date={new Date().toString()} />
+          <TrackingComponent checkMeOut={checkMeOut} waitTime={waitTime} orderStatus={orderStatus} date={new Date().toString()} checkUpdate={updateMe}/>
         <div style={{height: "20px"}}/>
           
+      <EmotionalStateTab emotionalState={emotionalState} setEmotionalState={setCustomerEmotionalState} />
+    
+      {showSplashPrompt && (
+        // Render the modal or pop-up
+        <PromptModal onClose={() => setShowSplashPrompt(false)} />
+      )}
+    </div>
+  );
+}
 
-      <div className="col-sm-6 col-lg-4 all fries">
+/*
+*
+ * 
+ * <div className="col-sm-6 col-lg-4 all fries">
         {foodProcessingTime > 0 ? (
           <div>
-            <h2>Assigned Waiter: {waiterName}</h2>
+            <h2>Assigned Waiter: {waitTime}</h2>
             <h2>Time Remaining: {foodProcessingTime} seconds</h2>
 
             <h2>Order Status:</h2>
@@ -109,25 +125,16 @@ const TrackingPage = () => {
           
         ) : (
           <div>
-            <h2>Assigned Waiter: {waiterName}</h2>
+            <h2>Waiter time: {waitTime} seconds</h2>
             <h2>Order Status: {orderStatus}</h2>
 
-            {/* Add conditional rendering for the checkout prompt */}
             {orderStatus === 'Order Delivered' && (
               <button onClick={handleCheckoutClick}>Proceed to Checkout</button>
             )}
           </div>
         )}
       </div>
-      <EmotionalStateTab setEmotionalState={setEmotionalState} />
-    
-      {showSplashPrompt && (
-        // Render the modal or pop-up
-        <PromptModal onClose={() => setShowSplashPrompt(false)} />
-      )}
-    </div>
-  );
-}
+ */
 
 
 export default TrackingPage;

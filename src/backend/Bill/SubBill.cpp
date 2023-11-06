@@ -5,13 +5,17 @@ SubBill::SubBill(){
 }
 
 std::string SubBill::toString(){
-    return std::to_string(this->total);
+    std::string str = std::to_string(this->total);
+    str.erase ( str.find_last_not_of('0') + 1, std::string::npos );
+    str.erase ( str.find_last_not_of('.') + 1, std::string::npos );
+    
+    return str;
 }
 
-int SubBill::getTotal(){
+double SubBill::getTotal(){
     return this->total;
 }
 
-void SubBill::setBillTotal(int total_){
-    this->total = total_;
+void SubBill::setBillTotal(double total_){
+    this->total = round((total_)*100)/100.0;
 }

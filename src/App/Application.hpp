@@ -11,7 +11,8 @@
 #include "../backend/includes/json.hpp"
 #include "../backend/includes/uuid.h"
 #include "../backend/includes/color.hpp"
-//#include "../backend/includes/Restaurant.hpp"
+#include "../backend/includes/SimulationInterface.hpp"
+#include "../backend/includes/Restaurant.hpp"
 #include <map>
 #include <mutex>
 #include <chrono>
@@ -24,7 +25,7 @@ using json = nlohmann::json;
 /**
  * @brief Application class that runs the main application
 */
-class Application{
+class Application : public SimulationInterface{
     public:
         /**
          * @brief initialises the application class
@@ -56,7 +57,7 @@ class Application{
         /**
          * @brief this holds the app variable that creates a websocket and intercepts incoming requests
         */
-        //std::shared_ptr<Restaurant> restaurant;
+        std::shared_ptr<Restaurant> restaurant;
 
         /**
          * @brief this holds all of the connected/subscribed clients that way if there is an update on the backend, we can send updated data to the client in json form.
@@ -89,6 +90,11 @@ class Application{
          * @brief this stores the uuid of connected managers
         */
         std::list<std::string> connected_managers;
+
+        /**
+         * @brief this stores the table data requested by a manager and their uuid
+        */
+        std::map<std::string, std::string> connected_managers_table;
 
         /**
          * @brief processes the incoming request from the frontend and sends back a response

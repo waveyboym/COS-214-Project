@@ -56,6 +56,23 @@ namespace mainBillTest{
         ASSERT_NE(MB, nullptr);
     }
 
+    TEST(MainBill_test, INIT_MAIN_BILL_FROM_MEAL)
+    {
+        std::shared_ptr<Meal> M = std::make_shared<PlainBun>();
+        M = std::make_shared<Water>(M);
+        M = std::make_shared<Lettuce>(M);
+        M = std::make_shared<BeefPatty>(M);
+        M = std::make_shared<Cheese>(M);
+        M = std::make_shared<Fries>(M);
+
+        ASSERT_NE(M, nullptr);
+
+        std::shared_ptr<MainBill> MB = std::make_shared<MainBill>(M, 4);
+
+        ASSERT_NE(MB, nullptr);
+        EXPECT_EQ(MB->toString(), "[8.96,8.96,8.96,8.96]");
+    }
+
     TEST(MainBill_test, MAIN_BILL_NO_BILL_TO_STRING)
     {
         std::shared_ptr<MainBill> MB = std::make_shared<MainBill>();

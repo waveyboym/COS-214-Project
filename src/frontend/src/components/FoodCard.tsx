@@ -11,6 +11,7 @@ type FoodCardProps = {
     title: string;
     description: string;
     price: number;
+    category: string;
 }
 
 const FoodCard: FunctionComponent<FoodCardProps> = (props: FoodCardProps) => {
@@ -44,7 +45,8 @@ const FoodCard: FunctionComponent<FoodCardProps> = (props: FoodCardProps) => {
                             name: props.title,
                             price: props.price,
                             img: props.image,
-                            description: props.description
+                            description: props.description,
+                            category: props.category
                         };
 
                         // Call the addToCart function to add the item to the cart

@@ -1,48 +1,56 @@
 #include "../includes/Bun.hpp"
+#include <sstream>
 
-Bun::Bun(std::string name, double cost): Meal(name, cost){
-        this->setTotalCost(cost);
+Bun::Bun(std::string name, double cost, double prep): Meal(name, cost, prep){
 }
 
-std::string Bun::getItemizedList(std::string tail){
-        double value = this->getCost(); 
-        std::ostringstream stream;
-        stream << std::fixed << std::setprecision(2) << value;
-        std::string result = stream.str();
-
-        std::string out = this->getName() + "  R" + result + "\n";
-        out += tail;
-
-        value = this->getTotalCost(); 
-        std::ostringstream stream2;
-        stream2 << std::fixed << std::setprecision(2) << value;
-        result = stream2.str();
+std::string Bun::getItemizedList(std::string tail, std::shared_ptr<Meal> start){
         
-        out += "\nTotal: R" + result;
+        std::ostringstream o;
+        o.precision(2);
+        o << std::fixed << this->getCost();
+        std::string price = std::move(o).str();
+
+        std::ostringstream o2;
+        o2.precision(2);
+        o2 << std::fixed << start->getTotalCost();
+        std::string price_t = std::move(o2).str();
+        
+        std::string out = this->getName() + "  R" + price + "\n";
+        out += tail;
+        out += "\nTotal: R" + price_t;
         return out;
+        
 }
 
 std::string Bun::getItemizedList(){
-        double value = this->getCost(); 
-        std::ostringstream stream;
-        stream << std::fixed << std::setprecision(2) << value;
-        std::string result = stream.str();
+        std::ostringstream o;
+        o.precision(2);
+        o << std::fixed << this->getCost();
+        std::string price = std::move(o).str();
 
-        std::string out = this->getName() + "  R" + result + "\n";
+        std::ostringstream o2;
+        o2.precision(2);
+        o2 << std::fixed << this->getTotalCost();
+        std::string price_t = std::move(o2).str();
 
-        value = this->getTotalCost(); 
-        std::ostringstream stream2;
-        stream2 << std::fixed << std::setprecision(2) << value;
-        result = stream2.str();
-
-        out += "\nTotal: R" + result;
+        std::string out = this->getName() + "  R" + price + "\n";
+        out += "\nTotal: R" + price_t;
         return out;
 }
 
 double Bun::getTotalCost(){
-        return this->totalCost;
+        return this->getCost();
 }
 
-void Bun::setTotalCost(double c){
-        this->totalCost += c;
+double Bun::getTotalCost(double prev){
+        return (this->getCost() + prev);
+}
+
+double Bun::getTotalPrepTime(){
+        return this->getPrepTime();
+}
+
+double Bun::getTotalPrepTime(double prev){
+        return (this->getPrepTime() + prev);
 }

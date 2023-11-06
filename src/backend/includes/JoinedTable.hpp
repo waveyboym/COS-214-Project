@@ -1,24 +1,19 @@
 /**
- *@file JoinedTable.hpp JoinedTable.cpp
- *@class JoinedTable
- *@author Michael
- *@implements Table
- *@brief a JoinedTable class which is a composite class of Table
- */
+*@file JoinedTable.hpp JoinedTable.cpp
+*@class JoinedTable
+*@author Michael
+*@implements Table
+*@brief a JoinedTable class which is a composite class of Table
+*/
 #ifndef JOINED_TABLE_HPP
 #define JOINED_TABLE_HPP
 #include "Table.hpp"
 
 /** 
-*@brief a JoinedTable class which is a composite class of Table
+*@brief an JoinedTable class which is a composite class of Table
 */ 
 class JoinedTable : public Table{
     private:
-        /**
-         * @brief max number of seats at table
-        */
-        int seat_limit;
-
         /** 
         *@brief a list of tables that are joined together to this joined table
         */ 
@@ -70,7 +65,7 @@ class JoinedTable : public Table{
         */ 
         void joinTable(std::shared_ptr<Table> table);
         /** 
-        *@brief un-joins this the passed in table from this table
+        *@brief unjoins this the passed in table from this table
         *@param table a table to un-join from this table
         *@return void
         */ 
@@ -93,13 +88,6 @@ class JoinedTable : public Table{
         *@return bool
         */ 
         bool isTableAvailable();
-
-        /**
-         * @brief gets seat limit
-         * @param none
-         * @return int
-        */
-        int getSeatLimit();
 };
 
 #endif
