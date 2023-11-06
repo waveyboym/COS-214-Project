@@ -20,7 +20,6 @@ class BunChef : public AbstractChef{
         std::shared_ptr<AbstractChef> next;
 
     public:
-
         /** 
         *@brief stores the type of chef
         */
