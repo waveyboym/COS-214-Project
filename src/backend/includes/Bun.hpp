@@ -14,7 +14,7 @@ class Bun: public Meal{
         /** 
         *@brief total cost of the meal
         */
-        double total_cost;
+        //double total_cost;
 
     public:
 
@@ -22,13 +22,13 @@ class Bun: public Meal{
         *@brief initialises a Bun object
         *@param none
         */
-        Bun(std::string name, double cost);
+        Bun(std::string name, double cost, double prep);
 
         /** 
         *@brief adds this Ingredient to an already existing Meal object
         *@param meal the meal for this ingredient to be added to
         */
-        virtual std::string getItemizedList(std::string s);
+        virtual std::string getItemizedList(std::string s, std::shared_ptr<Meal> start);
 
         /** 
         *@brief returns a string containing all ingredients and prices of the meal
@@ -45,10 +45,31 @@ class Bun: public Meal{
         virtual double getTotalCost();
 
         /** 
-        *@brief adds the input value to the total cost of the meal
-        *@param c value to add to total
+        *@brief returns the total cost of the meal
+        *@param none
+        *@return double
         */
-        void setTotalCost(double c);
+        virtual double getTotalCost(double prev);
+
+        /** 
+        *@brief returns the total prep time of the meal
+        *@param none
+        *@return double
+        */
+        virtual double getTotalPrepTime();
+
+        /** 
+        *@brief returns the total prep time of the meal
+        *@param prev the total of previous ingredients in the meal
+        *@return double
+        */
+        virtual double getTotalPrepTime(double prev);
+
+        // /** 
+        // *@brief adds the input value to the total cost of the meal
+        // *@param c value to add to total
+        // */
+        // void setTotalCost(double c);
 
 };
 
