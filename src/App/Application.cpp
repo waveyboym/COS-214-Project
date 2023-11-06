@@ -277,7 +277,7 @@ std::string Application::processCustomerRequest(json req_obj)
     else if(req_obj["command"] == "seat_request" && req_obj.contains("message") && req_obj["message"] == "unseat"){
         return this->restaurant->FRONTEND_processCustomerRequestUnSeat(req_obj);
     }
-    else if(req_obj["command"] == "create_order"){
+    else if(req_obj["command"] == "create_order" && req_obj.contains("order")){
         return this->restaurant->FRONTEND_processCustomerOrder(req_obj);
     }
     else if(req_obj["command"] == "change_emotional_state" && req_obj.contains("emotional_state")){

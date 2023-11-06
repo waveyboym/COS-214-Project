@@ -22,6 +22,10 @@ class Meal{
         *@brief name of the ingredient
         */
         std::string name;
+        /** 
+        *@brief the prep time of the ingredient
+        */
+        double prep_time;
 
 
     public:
@@ -29,7 +33,7 @@ class Meal{
         *@brief initialises a Meal object
         *@param none
         */
-        Meal(std::string name, double cost); 
+        Meal(std::string name, double cost, double prep); 
 
         /** 
         *@brief returns the cost of this Meal Object
@@ -39,10 +43,17 @@ class Meal{
         double getCost();
 
         /** 
-        *@brief adds to total cost of the meal
-        *@param c the cost to add to the total
+        *@brief returns the the prep_time of this Meal Object
+        *@param none
+        *@return double
         */
-        virtual void setTotalCost(double c) = 0;
+        double getPrepTime();
+
+        // /** 
+        // *@brief adds to total cost of the meal
+        // *@param c the cost to add to the total
+        // */
+        // virtual void setTotalCost(double c) = 0;
 
         /** 
         *@brief returns the total cost of the meal
@@ -50,6 +61,27 @@ class Meal{
         *@return double
         */
         virtual double getTotalCost() = 0;
+
+        /** 
+        *@brief returns the total cost of the meal
+        *@param none
+        *@return double
+        */
+        virtual double getTotalCost(double prev) = 0;
+
+         /** 
+        *@brief returns the total prep time of the meal
+        *@param none
+        *@return double
+        */
+        virtual double getTotalPrepTime() = 0;
+
+        /** 
+        *@brief returns the total prep time of the meal
+        *@param prev the total of previous ingredients in the meal
+        *@return double
+        */
+        virtual double getTotalPrepTime(double prev) = 0;
 
         /** 
         *@brief returns the name of this Meal Object
@@ -63,7 +95,7 @@ class Meal{
         *@param s a string containing all previous ingredients' information
         *@return std::string
         */
-        virtual std::string getItemizedList(std::string s) = 0;
+        virtual std::string getItemizedList(std::string s, std::shared_ptr<Meal> start) = 0;
 
         /** 
         *@brief returns a string containing all ingredients and prices of the meal

@@ -106,7 +106,7 @@ class Waiter : public People{
         */
         void takeOrder(std::shared_ptr<Customer> customer);
         /**
-        *@brief getter for order
+        *@brief pops and returns order from vector
         *@param none
         *@return  std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>>
         */

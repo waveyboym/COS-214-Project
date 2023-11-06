@@ -2,27 +2,32 @@
 *@file BunChef.hpp BunChef.cpp
 *@class BunChef
 *@author Jaide
-*@brief a BunChef object. Bun chef will create the initial meal object on which the order chefs can decorate
+*@brief a BunChef class, which will create the initial meal object on which the order chefs can decorate
 */
 #ifndef BUN_CHEF_HPP
 #define BUN_CHEF_HPP
 
 #include "../includes/AbstractChef.hpp"
 
+/** 
+*@brief a BunChef class, which will create the initial meal object on which the order chefs can decorate
+*/
 class BunChef : public AbstractChef{
-
     private:
         /** 
-        *@brief stores the next chef in the chain
+        *@brief stores the next chef in the chain of responsibility
         */
         std::shared_ptr<AbstractChef> next;
 
     public:
 
+        /** 
+        *@brief stores the type of chef
+        */
         std::string type;
 
         /** 
-        *@brief initialises a BunChef
+        *@brief initialises a BunChef object
         *@param none
         */
         BunChef();

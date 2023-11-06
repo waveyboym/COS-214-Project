@@ -58,6 +58,6 @@ namespace orderServiceTest{
 
 
 
-        EXPECT_EQ(K->getCompletedMeals().begin()->first->getItemizedList(), "Chicken Patty  R10.99\nTomato  R2.57\nChicken Patty  R10.99\nJuice  R14.36\nCheese  R4.38\nTomato  R2.57\nFresh Red Onion  R3.12\nChicken Patty  R8.52\nMayonnaise  R2.18\n\nTotal: R59.68");
+        EXPECT_EQ(K->getCompletedMeals().begin()->first->getItemizedList(), "No Bun  R0.00\nChicken Patty  R10.99\nTomato  R2.57\nChicken Patty  R10.99\nJuice  R14.36\nCheese  R4.38\nTomato  R2.57\nFresh Red Onion  R3.12\nChicken Patty  R8.52\nMayonnaise  R2.18\n\nTotal: R59.68");
     }
 }

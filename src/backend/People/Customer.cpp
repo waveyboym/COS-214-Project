@@ -148,6 +148,44 @@ void Customer::setOrder(){
     has_decided = true;
 }
 
+void Customer::setFrontendOrder(std::vector<std::string> order_list){
+    for(auto it = order_list.begin(); it != order_list.end(); ++it){
+        if(*it ==  "burger"){
+            order.push_back(std::make_shared<AddNormalBun>());
+            order.push_back(std::make_shared<AddBeefBurgerPatty>());
+            order.push_back(std::make_shared<AddCheese>());
+            order.push_back(std::make_shared<AddColdDrink>());
+            order.push_back(std::make_shared<AddLettuce>());
+            order.push_back(std::make_shared<AddPickles>());
+        }
+        else if(*it ==  "fries"){
+            order.push_back(std::make_shared<AddFries>());
+        }
+        else if(*it == "steak"){
+            order.push_back(std::make_shared<AddBeefBurgerPatty>());
+            order.push_back(std::make_shared<AddBBQSauce>());
+        }
+        else if(*it ==  "chicken"){
+            order.push_back(std::make_shared<AddChickenBurgerPatty>());
+        }
+        else if(*it ==  "lettuce"){
+            order.push_back(std::make_shared<AddLettuce>());
+        }
+        else if(*it ==  "tomatoe"){
+            order.push_back(std::make_shared<AddTomato>());
+        }
+        else if(*it ==  "salad"){
+            order.push_back(std::make_shared<AddLettuce>());
+            order.push_back(std::make_shared<AddMayo>());
+            order.push_back(std::make_shared<AddOnion>());
+            order.push_back(std::make_shared<AddTomato>());
+            order.push_back(std::make_shared<AddWater>());
+        }
+    }
+
+    this->has_decided = true;
+}
+
 std::vector<std::shared_ptr<Order>> Customer::getOrder() const{
     return order;
 }
