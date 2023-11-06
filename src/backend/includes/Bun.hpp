@@ -9,12 +9,12 @@
 #define BUN_HPP
 #include "Meal.hpp"
 
+/*
+*@brief Abstract Bun from the Meal class
+        acts as the concrete component - therefore all meals must have a bun
+*/
 class Bun: public Meal{
     private:
-        /** 
-        *@brief total cost of the meal
-        */
-        //double total_cost;
 
     public:
 
@@ -64,12 +64,6 @@ class Bun: public Meal{
         *@return double
         */
         virtual double getTotalPrepTime(double prev);
-
-        // /** 
-        // *@brief adds the input value to the total cost of the meal
-        // *@param c value to add to total
-        // */
-        // void setTotalCost(double c);
 
 };
 
