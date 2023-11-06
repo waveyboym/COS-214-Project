@@ -42,7 +42,7 @@ void Waiter::getUpdate(std::vector<std::pair<std::shared_ptr<Meal>, std::shared_
         
         for (auto current_my_customer : my_customers) {
             if(current_my_customer == customer){
-                std::cout << "Waiter " << this->getUUID() << " delivered Meal to customer " << customer.get()->getUUID() << std::endl;
+                std::cout << color::format_colour::make_colour(color::GREEN) << "Waiter " << this->getUUID() << " delivered Meal to customer " << customer.get()->getUUID() << color::format_colour::make_colour(color::DEFAULT) << std::endl;
             }
         }
         

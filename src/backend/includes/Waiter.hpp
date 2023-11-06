@@ -10,6 +10,7 @@
 #include "People.hpp"
 #include "Table.hpp"
 #include "Meal.hpp"
+#include "color.hpp"
 #include <memory>
 #include <string>
 #include <vector>

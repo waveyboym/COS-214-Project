@@ -161,6 +161,13 @@ class Restaurant : public SimulationInterface{
         */
         void ordersTakenToKitchen();
 
+        /**
+        *@brief Kitchen sends Meals to Waiters who take them to tables
+        *@param none
+        *@return void
+        */
+        void deliverMeals();
+
         
         /*****************************************************************************************************************************
 

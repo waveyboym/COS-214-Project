@@ -288,6 +288,12 @@ void Restaurant::ordersTakenToKitchen(){
     }
 }
 
+void Restaurant::deliverMeals(){
+    if(kitchen->getHasCompletedMeals()){
+        std::cout << color::format_colour::make_colour(color::CYAN) << "Orders are ready to be collected from the kitchen"  << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        kitchen->notifyWaiters();
+    }    
+}
 
 /*****************************************************************************************************************************
 
