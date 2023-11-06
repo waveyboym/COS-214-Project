@@ -10,7 +10,7 @@
 
 #include "Order.hpp"
 /**
- * @brief AddMayo Class,which inherits from the Order interface.A ConcreteCommand which aides in generating a new Mayo Ingredient.
+ * @brief AddMayo class, which inherits from the Order interface.A ConcreteCommand which aides in generating a new Mayo Ingredient.
  */
 class AddMayo : public Order {
 public:

@@ -10,7 +10,7 @@
 
 #include "Order.hpp"
 /**
- * @brief AddBeefBurgerPatty Class,which inherits from the Order interface.A ConcreteCommand which aides in generating a new BeefPatty Ingredient.
+ * @brief AddBeefBurgerPatty class, which inherits from the Order interface.A ConcreteCommand which aides in generating a new BeefPatty Ingredient.
  */
 class AddBeefBurgerPatty : public Order {
 public:

@@ -10,7 +10,7 @@
 
 #include "Order.hpp"
 /**
- * @brief AddTomatoSauce Class,which inherits from the Order interface.A ConcreteCommand which aides in generating a new TomatoSauce Ingredient.
+ * @brief AddTomatoSauce class, which inherits from the Order interface.A ConcreteCommand which aides in generating a new TomatoSauce Ingredient.
  */
 class AddTomatoSauce:public Order{
 public:

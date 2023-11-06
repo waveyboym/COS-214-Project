@@ -11,7 +11,7 @@
 
 #include "Order.hpp"
 /**
- * @brief AddBBQSauce Class,which inherits from the Order interface.A ConcreteCommand which aides in generating a new BBQSauce Ingredient.
+ * @brief AddBBQSauce class, which inherits from the Order interface.A ConcreteCommand which aides in generating a new BBQSauce Ingredient.
  */
 class AddBBQSauce :public Order {
 public:
