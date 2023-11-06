@@ -11,6 +11,7 @@
 #include "../backend/includes/json.hpp"
 #include "../backend/includes/uuid.h"
 #include "../backend/includes/color.hpp"
+#include "../backend/includes/SimulationInterface.hpp"
 #include "../backend/includes/Restaurant.hpp"
 #include <map>
 #include <mutex>
@@ -24,7 +25,7 @@ using json = nlohmann::json;
 /**
  * @brief Application class that runs the main application
 */
-class Application{
+class Application : public SimulationInterface{
     public:
         /**
          * @brief initialises the application class

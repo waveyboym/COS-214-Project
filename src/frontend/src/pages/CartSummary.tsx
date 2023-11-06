@@ -36,7 +36,7 @@ const CartSummary = () => {
         setSeated(false);
       }
     }
-    else if(json.status === "success" && json.player === "customer" && json.command === "checkout"){
+    else if(json.status === "success" && json.player === "customer" && json.command === "create_order"){
       navigate("/tracking");
     }
     else{

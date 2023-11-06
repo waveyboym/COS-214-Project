@@ -61,6 +61,10 @@ class Customer : public People{
         */
         bool has_completed_meal = false;
         /**
+        * @brief whether or not this customer has started eating their meal
+        */
+        bool has_started_eating_meal = false;
+        /**
         *@brief whether or not this customer has decided what to order 
         */
         bool has_decided = false;

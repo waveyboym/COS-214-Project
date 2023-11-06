@@ -50,12 +50,16 @@ void Customer::setIsSeated(bool set_to){
 bool Customer::startEatingMeal(){
     this->start = std::chrono::system_clock::now();
     this->has_completed_meal = false;
+    this->has_started_eating_meal = true;
     return true;
 }
 
 bool Customer::getHasCompletedMeal(){
     if(this->has_completed_meal){
         return this->has_completed_meal;//true
+    }
+    if(!this->has_started_eating_meal){
+        return false;
     }
     this->current = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = this->current - this->start;

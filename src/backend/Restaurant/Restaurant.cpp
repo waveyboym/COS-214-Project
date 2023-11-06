@@ -46,20 +46,20 @@ Restaurant::Restaurant(){
     this->single_tables.push_back(std::make_shared<SingleTable>(29));
     this->single_tables.push_back(std::make_shared<SingleTable>(30));
 
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(1));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(2));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(3));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(4));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(5));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(6));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(7));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(8));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(9));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(10));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(11));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(12));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(14));
-    this->joined_tables.push_back(std::make_shared<JoinedTable>(15));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(31));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(32));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(33));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(34));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(35));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(36));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(37));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(38));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(39));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(40));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(41));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(42));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(44));
+    this->joined_tables.push_back(std::make_shared<JoinedTable>(45));
 }
 
 Restaurant::~Restaurant(){
@@ -143,7 +143,7 @@ void Restaurant::seatAnyCustomer(int random_number){
         }
         c_i->next();
         ++i;
-        num_seated_customers++;
+        ++num_seated_customers;
     }
 }
 
@@ -158,11 +158,11 @@ void Restaurant::unseatFinishedCustomers(){
         if (curCustomer != nullptr && curCustomer->getHasCompletedMeal())
         {
             this->maitre_d->unseatCustomer(this->single_tables, this->joined_tables, curCustomer, this->waiters);
-            std::cout << color::format_colour::make_colour(color::BLUE) <<"customer with uuid of: " << curCustomer->getUUID() << " has been unseated from the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+            std::cout << color::format_colour::make_colour(color::MAGENTA) <<"customer with uuid of: " << curCustomer->getUUID() << " has been unseated from the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
             this->customers.erase(curCustomer->getUUID());
         }
         c_i->next();
-        num_seated_customers--;
+        --num_seated_customers;
     }
 }
 
@@ -202,7 +202,7 @@ void Restaurant::assignAllFreeWaiters(){
 }
 
 void Restaurant::setAnyCustomerOrder(int random_number){
-    if(random_number == 0){
+    if(num_seated_customers == 0 || random_number == 0){
         return;
     }
 
@@ -298,42 +298,25 @@ std::string Restaurant::FRONTEND_processUpdateCheck(json req_obj) {
     }
 }
 
-//okay so i dont know how to do this, i think its missing a few function calls
 std::string Restaurant::FRONTEND_processCustomerOrder(json req_obj) {
     if (req_obj.find("token") != req_obj.end()) {
-        std::string id = req_obj["token"];
-        if (this->customers.contains(id)) {
-            // Extract the order items from the request
-            if (req_obj.find("order") != req_obj.end()) {
-                json orderItems = req_obj["order"];
-
-                // Process the order items and generate a response
-                std::string response = "Order received: ";
-                bool firstItem = true;
-                for (const auto& item : orderItems) {
-                    if (item.find("name") != item.end()) {
-                        std::string itemName = item["name"];
-                        if (!firstItem) {
-                            response += ", ";
-                        }
-                        response += itemName;
-                        firstItem = false;
-                    }
-                }
- 
-                return "{\"status\":\"success\",\"message\":\"" + response + "\"}";
-            } else {
-                return "{\"status\":\"error\",\"message\":\"Order is missing\"}";
-            }
-        } else {
-            return "{\"status\":\"error\",\"message\":\"Customer not found\"}";
+        std::vector<std::string> orders_items;
+        for (auto& elem : req_obj["order"]){
+            orders_items.push_back(elem["name"]);
         }
-    } else {
-        return "{\"status\":\"error\",\"message\":\"Token is missing\"}";
+        std::string id = req_obj["token"];
+        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"create_order\",\"message\":\"""\"}";
+    }
+    else {
+        return "{\"status\":\"error\",\"message\":\"could not process order\"}";
     }
 }
 
 
+
+std::string Restaurant::processFrontendRequest(std::string req){
+    return "";
+}
 
 std::string Restaurant::FRONTEND_processCustomersEmotion(json req_obj) {
     std::string emotionalState = req_obj["emotional_state"];
