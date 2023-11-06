@@ -25,6 +25,7 @@ class RestaurantIterator{
         *@return void
         */
         virtual void next() = 0;
+
         /** 
         *@brief returns the first element
         *@note returns nullptr if the list is empty
@@ -32,6 +33,7 @@ class RestaurantIterator{
         *@return std::shared_ptr<Collectable>
         */
         virtual std::shared_ptr<Collectable> first() = 0;
+
         /** 
         *@brief returns the last element
         *@note returns nullptr if the list is empty
@@ -39,6 +41,7 @@ class RestaurantIterator{
         *@return std::shared_ptr<Collectable>
         */
         virtual std::shared_ptr<Collectable> last() = 0;
+
         /** 
         *@brief checks if the entire list has been traversed
         *@note returns true if the list is empty
@@ -46,12 +49,14 @@ class RestaurantIterator{
         *@return bool
         */
         virtual bool isDone() = 0;
+
         /** 
         *@brief gets the size of the list
         *@param none
         *@return int
         */
         virtual int size() = 0;
+        
         /** 
         *@brief returns the current item in the iterator list
         *@note returns nullptr if the list is empty

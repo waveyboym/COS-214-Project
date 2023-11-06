@@ -2,14 +2,14 @@
 *@file HeadChef.hpp HeadChef.cpp
 *@class HeadChef
 *@author Jaide
-*@brief a HeadChef object
+*@brief a HeadChef class, responsible for finishing an order
 */
 #ifndef HEAD_CHEF_HPP
 #define HEAD_CHEF_HPP
 #include "AbstractChef.hpp"
 
 /** 
-*@brief a HeadChef object
+*@brief a HeadChef class, responsible for finishing an order
 */
 class HeadChef: public AbstractChef{
     private:
@@ -19,15 +19,18 @@ class HeadChef: public AbstractChef{
         std::shared_ptr<AbstractChef> next;
     
     public:
-
-    std::string type;
         /** 
-        *@brief initialises a Chef
+        *@brief stores the AbstractChef's type
+        */
+        std::string type;
+
+        /** 
+        *@brief initialises a Head Chef
         *@param none
         */
         HeadChef(); 
 
-         /** 
+        /** 
         *@brief handles the creation of a meal
         *@param order the list of orders to be implemented
         *@param customer the customer the order came from

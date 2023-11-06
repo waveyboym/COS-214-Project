@@ -33,20 +33,24 @@ void Waiter::assignTable(std::shared_ptr<Table> set_to){
 }
 
 void Waiter::getUpdate(std::vector<std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>>> new_meals){
-
+    if(this->my_table == nullptr)return;
     std::list<std::shared_ptr<Customer>> my_customers = this->my_table.get()->getAllSeatedCustomers();
 
     for(int i = 0; i < new_meals.size(); i++){
-
         std::shared_ptr<Customer> customer = new_meals.at(i).second;
-        
         for (auto current_my_customer : my_customers) {
             if(current_my_customer == customer){
                 std::cout << color::format_colour::make_colour(color::GREEN) << "Waiter " << this->getUUID() << " delivered Meal to customer " << customer.get()->getUUID() << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+                if(rand() % 2 == 0){
+                    current_my_customer->getGivenABill(std::make_shared<SubBill>());
+                }
+                else{
+                    current_my_customer->getGivenABill(std::make_shared<MainBill>(new_meals.at(i).first, rand() % 10));
+
+                }
                 current_my_customer->startEatingMeal();
             }
         }
-        
     }
 
 }

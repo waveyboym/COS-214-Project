@@ -29,12 +29,14 @@ class People : public Collectable{
 
         //TODO: implement
         virtual bool personAction() = 0;
+
         /** 
         *@brief gets the uuid of this person
         *@param none
         *@return std::string
         */ 
         std::string getUUID();
+        
         /** 
         *@brief sets the uuid of this person
         *@note this uuid should only be set once when this person is created
