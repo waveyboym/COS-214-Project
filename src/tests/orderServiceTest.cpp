@@ -52,8 +52,8 @@ namespace orderServiceTest{
         W2->takeOrder(C1);
         W3->takeOrder(C2);
 
-        K->createMeal(W3->getOrder(), C);
-        K->createMeal(W2->getOrder(), C1);
+        K->createMeal(W3->getOrder().first, C);
+        K->createMeal(W2->getOrder().first, C1);
         // K->createMeal(W3->getOrder(), C2);
 
 

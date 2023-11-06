@@ -106,7 +106,7 @@ class Waiter : public People{
         *@param none
         *@return  std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>>
         */
-        std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>> sendOrder();
+        std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>> getOrder();
 };
 
 #endif

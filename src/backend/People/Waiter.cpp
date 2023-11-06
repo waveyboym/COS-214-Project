@@ -50,7 +50,7 @@ void Waiter::getUpdate(std::vector<std::pair<std::shared_ptr<Meal>, std::shared_
 
 }
 
-std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>> Waiter::sendOrder(){
+std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>> Waiter::getOrder(){
     std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>> temp = this->order.front();
     this->order.erase(this->order.begin());
     return temp;

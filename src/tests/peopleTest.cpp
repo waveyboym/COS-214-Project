@@ -149,6 +149,6 @@ namespace waiterTest{
         C->setOrder();
         W->takeOrder(C);
 
-        ASSERT_NE(W->getOrder().front(), nullptr);
+        ASSERT_NE(W->getOrder().first.front(), nullptr);
     }
 }
