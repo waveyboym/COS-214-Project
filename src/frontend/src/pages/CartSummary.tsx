@@ -18,10 +18,6 @@ const CartSummary = () => {
   const socket: WebSocket | null = useSocket();
   const navigate = useNavigate();
 
-  //const {foodProcessingTime, setFoodProcessingTime } = usefoodProcessingTimeStore((state) => { return { foodProcessingTime: state.foodProcessingTime, setFoodProcessingTime: state.setFoodProcessingTime }; });
-  //const {waiterName, setWaiterName } = useWaiterStore((state) => { return { waiterName: state.waiterName, setWaiterName: state.setWaiterName }; });
-  //const [rating, setRating] = useState(0);
-
 
   socket!.onmessage = function(event){
     //the backend responds with the needed data
@@ -36,7 +32,7 @@ const CartSummary = () => {
         setSeated(false);
       }
     }
-    else if(json.status === "success" && json.player === "customer" && json.command === "checkout"){
+    else if(json.status === "success" && json.player === "customer" && json.command === "create_order"){
       navigate("/tracking");
     }
     else{
@@ -50,13 +46,11 @@ const CartSummary = () => {
 
   const handleCheckout = async () => {
     sendMessage();
-    // delete all items from cart
-    cartItems.forEach((item) => deleteFromCart(item.id));
-    navigate("/");
   };
 
   const sendMessage = function() {
     const json = { token: apikey, player: "customer", command: "create_order", order: cartItems};
+    console.log(json);
     socket!.send(JSON.stringify(json));
   }
 

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 //import pictures
 import { hero_bg } from '../assets';
-import { Footer, Navbar, FoodCard, EmotionalStateTab, TrackingComponent } from '../components';
+import { Footer, Navbar, FoodCard } from '../components';
 import MenuItems from '../content';
 import { AnimatePresence } from "framer-motion";
 import { useApiKeyStore, useSeatedStore } from '../stateStore';
@@ -113,7 +113,7 @@ const Menu: React.FC = () => {
                             <AnimatePresence>
                                 {
                                     filteredItems.map((item) =>
-                                        <FoodCard key={item.key} id={item.key} image={item.image} title={item.title} description={item.description} price={item.price} />
+                                        <FoodCard key={item.key} id={item.key} image={item.image} title={item.title} description={item.description} price={item.price} category={item.category}/>
                                     )
                                 }
                             </AnimatePresence>

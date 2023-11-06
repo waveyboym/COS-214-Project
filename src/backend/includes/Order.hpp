@@ -1,12 +1,8 @@
 /**
- * @file Order.hpp
+ * @file Order.hpp Order.cpp
+ * @class Order
  * @author Lunga
  * @brief Order(Command), Abstract Class. Interface in Command Pattern
- * @version 0.1
- * @date 2023-11-03
- *
- * @copyright Copyright (c) 2023
- *
  */
 #ifndef ORDER_HPP
 #define ORDER_HPP
@@ -16,20 +12,32 @@
 #include "Ingredient.hpp"
 #include "ConcreteBuns.hpp"
 #include "ConcreteIngredients.hpp"
-// #include "Customer.hpp"
-
-
-
+/**
+*@brief Order(Command), Abstract Class. Interface in Command Pattern
+*/
 class Order {
-protected:
-    // std::shared
+    public:
+        /**
+        *@brief std::shared<ptr> meal allows for an Order's associated Meal to be set or specified.
+        */
+        std::shared_ptr<Meal> meal;
 
+        /**
+        *@brief addedToList is boolean which checks whether the Order has already been handled with in the Kitchen class
+        */
+        bool addedToList = false;
 
-public:
-    std::shared_ptr<Meal> meal;
-    bool addedToList = false;
-    virtual std::shared_ptr<Meal> executeOrder(std::shared_ptr<Meal> m) = 0;
-    virtual ~Order();
+        /**
+        *@brief pure virtual implementation of executeOrder(std::share_ptr<Meal>), required by relevant child classes to implement.
+        *@param m 
+        *@return std::shared_ptr<Meal> 
+        */
+        virtual std::shared_ptr<Meal> executeOrder(std::shared_ptr<Meal> m) = 0;
+
+        /**
+        *@brief Destroy the Order object
+        */
+        virtual ~Order();
 };
 
 #endif

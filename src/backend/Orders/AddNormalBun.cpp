@@ -1,3 +1,6 @@
+#ifndef ADD_NORMAL_CPP
+#define ADD_NORMAL_CPP
+
 #include "../includes/AddNormalBun.hpp"
 
 std::shared_ptr<Meal> AddNormalBun::executeOrder(std::shared_ptr<Meal> m) {
@@ -8,3 +11,5 @@ std::shared_ptr<Meal> AddNormalBun::executeOrder(std::shared_ptr<Meal> m) {
         return std::make_shared<PlainBun>();
     }
 }
+
+#endif

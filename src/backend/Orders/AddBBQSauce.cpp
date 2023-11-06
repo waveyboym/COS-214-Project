@@ -1,6 +1,7 @@
-#include "../includes/AddBBQSauce.hpp"
+#ifndef ADD_BBQ_CPP
+#define ADD_BBQ_CPP
 
-AddBBQSauce::AddBBQSauce():Order(){}
+#include "../includes/AddBBQSauce.hpp"
 
 std::shared_ptr<Meal> AddBBQSauce::executeOrder(std::shared_ptr<Meal> m){
     if(addedToList){
@@ -10,3 +11,5 @@ std::shared_ptr<Meal> AddBBQSauce::executeOrder(std::shared_ptr<Meal> m){
         return std::make_shared<BBQSauce>(m);
     }
 }
+
+#endif
