@@ -16,18 +16,13 @@
 #include "Ingredient.hpp"
 #include "ConcreteBuns.hpp"
 #include "ConcreteIngredients.hpp"
-// #include "Customer.hpp"
-
-
 
 class Order {
-protected:
-    // std::shared
-public:
-    std::shared_ptr<Meal> meal;
-    bool addedToList = false;
-    virtual std::shared_ptr<Meal> executeOrder(std::shared_ptr<Meal> m) = 0;
-    virtual ~Order();
+    public:
+        std::shared_ptr<Meal> meal;
+        bool addedToList = false;
+        virtual std::shared_ptr<Meal> executeOrder(std::shared_ptr<Meal> m) = 0;
+        virtual ~Order();
 };
 
 #endif

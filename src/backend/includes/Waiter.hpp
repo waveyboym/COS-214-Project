@@ -33,9 +33,9 @@ class Waiter : public People{
         */
         std::shared_ptr<Table> my_table = nullptr;
         /** 
-        *@brief order for this waiter to fulfill
+        *@brief orders for this waiter to fulfill
         */
-        std::vector<std::shared_ptr<Order>> order;
+        std::vector<std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>>> order;
     public:
         /** 
         *@brief constructor
@@ -84,18 +84,29 @@ class Waiter : public People{
         */ 
         void assignTable(std::shared_ptr<Table> set_to);
         /** 
+        *@brief getAssignedTable
+        *@param none
+        *@return std::shared_ptr<Table>
+        */ 
+        std::shared_ptr<Table> getTable();
+        /** 
         *@brief alerts this waiter to check the kitchen for new food. Given a list of new_meals it will deliver any meals that belong to one of the customers it is serving.
         *@param new_meals the meals that have been recently prepared
         *@return void
         */ 
         void getUpdate(std::vector<std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>>> new_meals);
+        /**
+        *@brief waiter takes customer's order
+        *@param std::shared_ptr<Customer>
+        *@return void 
+        */
         void takeOrder(std::shared_ptr<Customer> customer);
         /**
         *@brief getter for order
         *@param none
-        *@return  std::vector<std::shared_ptr<Order>>
+        *@return  std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>>
         */
-        std::vector<std::shared_ptr<Order>> getOrder();
+        std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>> sendOrder();
 };
 
 #endif

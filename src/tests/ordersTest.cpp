@@ -5,25 +5,27 @@
 
 
 // class AddBBQSauce;
-#include "../backend/Orders/AddBBQSauce.cpp"
-#include "../backend/Orders/AddBeefBurgerPatty.cpp"
-#include "../backend/Orders/AddCaramelizedOnion.cpp"
-#include "../backend/Orders/AddCheese.cpp"
-#include "../backend/Orders/AddChickenBurgerPatty.cpp"
-#include "../backend/Orders/AddColdDrink.cpp"
-#include "../backend/Orders/AddFries.cpp"
-#include "../backend/Orders/AddJuice.cpp"
-#include "../backend/Orders/AddLettuce.cpp"
-#include "../backend/Orders/AddMayo.cpp"
-#include "../backend/Orders/AddNoBun.cpp"
-#include "../backend/Orders/AddNormalBun.cpp"
-#include "../backend/Orders/AddOnion.cpp"
-#include "../backend/Orders/AddPickles.cpp"
-#include "../backend/Orders/AddPineapple.cpp"
-#include "../backend/Orders/AddTomato.cpp"
-#include "../backend/Orders/AddVeggieBurgerPatty.cpp"
-#include "../backend/Orders/AddWater.cpp"
-#include "../backend/Orders/AddWholeWheatBun.cpp"
+#include "../backend/includes/AddBBQSauce.hpp"
+#include "../backend/includes/AddBeefBurgerPatty.hpp"
+#include "../backend/includes/AddCaramelizedOnion.hpp"
+#include "../backend/includes/AddCheese.hpp"
+#include "../backend/includes/AddChickenBurgerPatty.hpp"
+#include "../backend/includes/AddColdDrink.hpp"
+#include "../backend/includes/AddFries.hpp"
+#include "../backend/includes/AddJuice.hpp"
+#include "../backend/includes/AddLettuce.hpp"
+#include "../backend/includes/AddMayo.hpp"
+#include "../backend/includes/AddNoBun.hpp"
+#include "../backend/includes/AddNormalBun.hpp"
+#include "../backend/includes/AddOnion.hpp"
+#include "../backend/includes/AddPickles.hpp"
+#include "../backend/includes/AddPineapple.hpp"
+#include "../backend/includes/AddTomato.hpp"
+#include "../backend/includes/AddVeggieBurgerPatty.hpp"
+#include "../backend/includes/AddWater.hpp"
+#include "../backend/includes/AddWholeWheatBun.hpp"
+#include "../backend/includes/AddTomatoSauce.hpp"
+#include "../backend/includes/AddSalad.hpp"
 
 
 namespace orderTests{
@@ -83,5 +85,25 @@ TEST(Order_Test, EXECUTE_ORDER_BUN)
 
 
     EXPECT_EQ(O->executeOrder(nullptr)->getName(),B1->getName());
+}
+
+// TEST(Order_Test, EXECUTE_ORDER_NOTBUN_NULLPTR) 
+// {
+//     std::shared_ptr<Order> O = std::make_shared<AddWholeWheatBun>();
+//     std::shared_ptr<Meal> m = std::make_shared<BBQSauce>(nullptr);
+// }
+
+TEST(Order_Test, EXECUTE_ORDER_BUN_MORE)
+{
+    std::shared_ptr<Order> O = std::make_shared<AddWholeWheatBun>();
+    std::shared_ptr<Order> O1 = std::make_shared<AddBeefBurgerPatty>();
+
+
+    std::shared_ptr<Meal> B1 = std::make_shared<WholewheatBun>();
+    std::shared_ptr<Meal> B2 = std::make_shared<BeefPatty>(B1);
+
+    std::shared_ptr<Meal> C = O->executeOrder(nullptr);
+
+    EXPECT_EQ(O1->executeOrder(C)->getItemizedList(),B2->getItemizedList());
 }
 }

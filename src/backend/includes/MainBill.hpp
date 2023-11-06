@@ -8,6 +8,8 @@
 #ifndef MAIN_BILL_HPP
 #define MAIN_BILL_HPP
 #include "Bill.hpp"
+#include "Meal.hpp"
+#include "SubBill.hpp"
 #include <string>
 #include <memory>
 #include <vector>
@@ -23,10 +25,16 @@ class MainBill : public Bill{
         std::vector<std::shared_ptr<Bill>> bills;
     public:
         /** 
-        *@brief constructor
+        *@brief default constructor
         *@param none
         */
         MainBill();
+        /** 
+        *@brief parameterised constructor
+        *@param meal meal object
+        *@param split number of sub bills to split it into
+        */
+        MainBill(std::shared_ptr<Meal> meal, int split);
         /** 
         *@brief returns a string representation of the bill
         *@param none
@@ -36,9 +44,9 @@ class MainBill : public Bill{
         /** 
         *@brief returns the bill total
         *@param none
-        *@return int
+        *@return double
         */
-        int getTotal();
+        double getTotal();
         /** 
         *@brief attaches the passed in bill to this bill
         *@param bill bill to attach to this bill

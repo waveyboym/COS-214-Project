@@ -18,7 +18,7 @@ class SubBill : public Bill{
         /** 
         *@brief total amount for this bill
         */
-        int total;
+        double total;
     public:
         /** 
         *@brief constructor
@@ -34,15 +34,15 @@ class SubBill : public Bill{
         /** 
         *@brief returns the bill total
         *@param none
-        *@return int
+        *@return double
         */
-        int getTotal();
+        double getTotal();
         /** 
         *@brief sets bill total
         *@param total bill total to set
         *@return void
         */
-        void setBillTotal(int total_);
+        void setBillTotal(double total_);
 };
 
 #endif
