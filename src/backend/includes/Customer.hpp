@@ -34,6 +34,8 @@
 #include "AddVeggieBurgerPatty.hpp"
 #include "AddWater.hpp"
 #include "AddWholeWheatBun.hpp"
+#include "MainBill.hpp"
+#include "SubBill.hpp"
 
 #include "ConcreteIngredients.hpp"
 #include "ConcreteBuns.hpp"
@@ -88,6 +90,10 @@ class Customer : public People{
         *@brief whether or not this customer is a frontend customer
         */
         bool is_a_frontend_customer = false;
+        /**
+        *@brief a customers bill
+        */
+        std::shared_ptr<Bill> bill;
     public:
         /** 
         *@brief initialises a customer object
@@ -210,6 +216,20 @@ class Customer : public People{
         *@return void 
         */
         bool isAFrontendCustomer();
+
+        /**
+        *@brief gives this customer a bill
+        *@param none
+        *@return void 
+        */
+        void getGivenABill(std::shared_ptr<Bill> pi_bill);
+
+        /**
+        *@brief this customer pays their bill
+        *@param none
+        *@return void 
+        */
+        std::string payBill();
 };
 
 #endif

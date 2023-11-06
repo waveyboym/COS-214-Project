@@ -11,6 +11,8 @@
 #include "Table.hpp"
 #include "Meal.hpp"
 #include "color.hpp"
+#include "MainBill.hpp"
+#include "SubBill.hpp"
 #include <memory>
 #include <string>
 #include <vector>

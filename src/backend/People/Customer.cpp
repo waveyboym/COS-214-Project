@@ -7,6 +7,7 @@ Customer::Customer(){
 Customer::Customer(std::string customeruuid){
     this->currentEmotionalState = std::make_shared<Neutral>();
     this->person_uuid = customeruuid;
+    this->bill = nullptr;
 }
 
 bool Customer::personAction(){
@@ -209,4 +210,17 @@ void Customer::setIsAFrontendCustomer(bool set_to){
 
 bool Customer::isAFrontendCustomer(){
     return this->is_a_frontend_customer;
+}
+
+void Customer::getGivenABill(std::shared_ptr<Bill> pi_bill){
+    this->bill = pi_bill;
+}
+
+std::string Customer::payBill(){
+    if(this->bill != nullptr){
+        return this->bill->toString();
+    }
+    else{
+        return "{null}";
+    }
 }
