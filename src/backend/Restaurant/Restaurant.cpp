@@ -14,6 +14,19 @@ Restaurant::Restaurant(){
     this->waiters["Georgette Rocha"] = std::make_shared<Waiter>("Georgette Rocha");
     this->waiters["Laurence Herman"] = std::make_shared<Waiter>("Laurence Herman");
 
+    //Initialising kitchen
+    std::vector<std::shared_ptr<Waiter>> tempWaiters;
+    tempWaiters.push_back(this->waiters["Dwain Barber"]);
+    tempWaiters.push_back(this->waiters["Meredith Lin"]);
+    tempWaiters.push_back(this->waiters["Gracie Mcpherson"]);
+    tempWaiters.push_back(this->waiters["Carson Welch"]);
+    tempWaiters.push_back(this->waiters["Kristi Cantrell"]);
+    tempWaiters.push_back(this->waiters["Jana Robertson"]);
+    tempWaiters.push_back(this->waiters["Georgette Rocha"]);
+    tempWaiters.push_back(this->waiters["Laurence Herman"]);
+
+    kitchen = std::make_shared<Kitchen>(tempWaiters);
+
     //pre-determined number of tables in the restaurant
     this->single_tables.push_back(std::make_shared<SingleTable>(1));
     this->single_tables.push_back(std::make_shared<SingleTable>(2));
@@ -233,7 +246,7 @@ void Restaurant::waiterTakesOrder(){
     for (auto i = waiters.begin(); i != waiters.end(); i++){
         std::shared_ptr<Waiter> waiter = i->second;
         int num_orders_taken = 0;
-        if(waiter){
+        if(waiter->isAssignedATable()){
 
             std::cout << color::format_colour::make_colour(color::GREEN) << i->first << " is taking the orders at the table with id " << waiter->getAssignedTableID() << color::format_colour::make_colour(color::DEFAULT) << std::endl;
 
@@ -258,6 +271,21 @@ void Restaurant::waiterTakesOrder(){
             std::cout << color::format_colour::make_colour(color::GREEN) << " there were no orders to take at " << i->first  << "'s table" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
         }
     } 
+}
+
+void Restaurant::ordersTakenToKitchen(){
+    std::cout << color::format_colour::make_colour(color::YELLOW) << "waiters are taking orders to the kitchen" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+
+    for (auto i = waiters.begin(); i != waiters.end(); i++){
+        std::shared_ptr<Waiter> waiter = i->second;
+
+        if(waiter->getHasOrders()){
+            std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>> orders = waiter->sendOrder();
+            kitchen->createMeal(orders.first, orders.second);
+            
+            std::cout << color::format_colour::make_colour(color::CYAN) << "Kitchen is preparing order of customer with uuid: " << orders.second->getUUID() << color::format_colour::make_colour(color::DEFAULT) << std::endl;
+        }      
+    }
 }
 
 

@@ -25,6 +25,10 @@ class Waiter : public People{
         */
         bool is_assigned_table = false;
         /** 
+        *@brief whether or not this waiter has orders
+        */
+        bool has_orders = false;
+        /** 
         *@brief the table id that this waiter is assigned to
         */
         int assigned_table_id = -1;
@@ -107,6 +111,12 @@ class Waiter : public People{
         *@return  std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>>
         */
         std::pair<std::vector<std::shared_ptr<Order>>, std::shared_ptr<Customer>> sendOrder();
+        /** 
+        *@brief returns a bool indicating whether this waiter has orders
+        *@param none
+        *@return bool
+        */
+        bool getHasOrders();
 };
 
 #endif
