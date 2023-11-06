@@ -242,7 +242,6 @@ void Restaurant::setAnyCustomerOrder(int random_number){
 void Restaurant::waiterTakesOrder(){
     std::cout << color::format_colour::make_colour(color::YELLOW) << "waiters are taking orders" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
     
-
     for (auto i = waiters.begin(); i != waiters.end(); i++){
         std::shared_ptr<Waiter> waiter = i->second;
         int num_orders_taken = 0;
