@@ -5,7 +5,6 @@ import "../css/tracker.css";
 type TrackingComponentProps = {
     orderStatus: string;
     date: string;
-    waitTime: number;
     checkUpdate: () => void;
     checkMeOut: () => void;
 }
@@ -22,7 +21,6 @@ const TrackingComponent = (props: TrackingComponentProps) => {
                         <div className="d-flex justify-content-between align-items-center">
                         <div className="d-flex flex-column">
                             <span className="lead fw-normal">Order status: {props.orderStatus}</span>
-                            <span className="lead fw-normal">Expected prep time: {props.waitTime}</span>
                             <span className="text-muted small">by Everest on {props.date}</span>
                         </div>
                         <div>

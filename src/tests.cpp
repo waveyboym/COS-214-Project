@@ -22,12 +22,6 @@
 #include "backend/Meal/ConcreteIngredients.cpp"
 #include "backend/Orders/Order.cpp"
 
-#include "backend/Kitchen/Kitchen.cpp"
-#include "backend/Kitchen/AbstractChef.cpp"
-#include "backend/Kitchen/BunChef.cpp"
-#include "backend/Kitchen/Chef.cpp"
-#include "backend/Kitchen/HeadChef.cpp"
-
 #include "backend/Orders/AddBBQSauce.cpp"
 #include "backend/Orders/AddBeefBurgerPatty.cpp"
 #include "backend/Orders/AddCaramelizedOnion.cpp"
@@ -66,6 +60,12 @@
 #include "backend/Iterators/SingleTableIterator.cpp"
 #include "backend/Iterators/CustomerIterator.cpp"
 #include "backend/Iterators/WaiterIterator.cpp"
+
+#include "backend/Kitchen/Kitchen.cpp"
+#include "backend/Kitchen/AbstractChef.cpp"
+#include "backend/Kitchen/BunChef.cpp"
+#include "backend/Kitchen/Chef.cpp"
+#include "backend/Kitchen/HeadChef.cpp"
 
 #include "backend/MaitreD/MaitreD.cpp"
 #include "backend/MaitreD/ConcreteMaitreD.cpp"

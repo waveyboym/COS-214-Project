@@ -1,20 +1,22 @@
 import { useState, useEffect } from 'react';
-import { useApiKeyStore, useSeatedStore } from '../stateStore';
+import { useApiKeyStore, useCartStore, useSeatedStore } from '../stateStore';
 import { hero_bg } from '../assets';
 import { EmotionalStateTab, Navbar, TrackingComponent } from '../components';
 import { useSocket } from '../contexts';
 import PromptModal from './PromptModal';
+import { useNavigate } from 'react-router-dom';
 
 //when this page loads, it will make a socket request to the backend to get details about it's order(like all details)
 const TrackingPage = () => {
   const [orderStatus, setOrderStatus] = useState<string>("not completed");
-  const [waitTime, setwaitTime] = useState(0.0);
   const { seated, setSeated } = useSeatedStore((state) => { return { seated: state.seated, setSeated: state.setSeated }; });
   const { apikey } = useApiKeyStore((state) => { return { apikey: state.apikey }; });
   const [showSplashPrompt, setShowSplashPrompt] = useState(false);
+  const { cleanCart } = useCartStore((state) => { return { cleanCart: state.cleanCart }; });
   
   const [emotionalState, setEmotionalState] = useState('neutral'); // Define and set emotionalState
   const socket: WebSocket | null = useSocket();
+  const navigate = useNavigate();
 
   socket!.onmessage = function(event){
     //the backend responds with the needed data
@@ -33,12 +35,12 @@ const TrackingPage = () => {
       setEmotionalState(json.emotional_state);
     }
     else if(json.status === "success" && json.player === "customer" && json.command === "update_check"){
-      //setwaitTime(json.waitTime);
-      //setOrderStatus(json.orderStatus);
-      console.log(json);
+      setOrderStatus(json.orderStatus);
     }
     else if(json.status === "success" && json.player === "customer" && json.command === "checkout"){
       setSeated(false);
+      cleanCart();
+      navigate("/");
     }
     else{
       console.log(json);
@@ -82,7 +84,7 @@ const TrackingPage = () => {
           <Navbar route={"Tracking"} is_seated={seated} setIsSeated={requestSeat}/>
         </div>
         <h1 style={{textAlign: "center"}}>Order Tracking</h1>
-          <TrackingComponent checkMeOut={checkMeOut} waitTime={waitTime} orderStatus={orderStatus} date={new Date().toString()} checkUpdate={updateMe}/>
+          <TrackingComponent checkMeOut={checkMeOut} orderStatus={orderStatus} date={new Date().toString()} checkUpdate={updateMe}/>
         <div style={{height: "20px"}}/>
           
       <EmotionalStateTab emotionalState={emotionalState} setEmotionalState={setCustomerEmotionalState} />

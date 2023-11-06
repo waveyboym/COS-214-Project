@@ -3,9 +3,9 @@
 #include "../includes/BunChef.hpp"
 #include "../includes/HeadChef.hpp"
 
-Kitchen::Kitchen(std::vector<std::shared_ptr<Waiter>> waiters){
+Kitchen::Kitchen(std::map<std::string, std::shared_ptr<Waiter>>& m_waiters){
     //set waiters
-    this->waiters = waiters;
+    this->waiters = m_waiters;
 
     //assemble chain
     this->chain_of_chefs = std::make_shared<BunChef>();
@@ -27,9 +27,17 @@ std::vector<std::pair<std::shared_ptr<Meal>, std::shared_ptr<Customer>>>  Kitche
 
 
 void Kitchen::notifyWaiters(){
-    for(int i = 0; i < waiters.size(); i++){
-        waiters.at(i).get()->getUpdate(completed_meals);
+    std::shared_ptr<WaiterIterator> w_i = std::make_shared<WaiterIterator>(this->waiters);
+    while(!w_i->isDone())
+    { 
+        std::shared_ptr<Waiter> curWaiter = std::dynamic_pointer_cast<Waiter>(w_i->currentItem());
+        if (curWaiter != nullptr && curWaiter->isAssignedATable())
+        {
+            curWaiter->getUpdate(completed_meals);
+        }
+        w_i->next();
     }
+
     this->completed_meals.clear();
 
     has_completed_meals = false;

@@ -12,6 +12,7 @@ export interface CartState {
     cartItems: CartItem[];
     addToCart: (item: CartItem) => void;
     deleteFromCart: (id: number) => void;
+    cleanCart: () => void;
 }
 
 export interface foodProcessingState {

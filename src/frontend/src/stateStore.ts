@@ -6,6 +6,7 @@ export const useCartStore = create<CartState>()(
             cartItems: [],
             addToCart: (item) => set((state) => ({cartItems: [...state.cartItems, item,],})),
             deleteFromCart: (id) => set((state) => ({cartItems: state.cartItems.filter((item) => item.id !== id),})),
+            cleanCart: () => set((state) => ({cartItems: state.cartItems.splice(0, state.cartItems.length),})),
         })
 )
 

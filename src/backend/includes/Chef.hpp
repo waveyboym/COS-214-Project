@@ -19,15 +19,18 @@ class Chef: public AbstractChef{
         std::shared_ptr<AbstractChef> next;
 
     public:
+        /** 
+        *@brief stores the AbstractChef's type
+        */
+        std::string type;
 
-    std::string type;
         /** 
         *@brief initialises a Chef
         *@param none
         */
         Chef(); 
 
-         /** 
+        /** 
         *@brief handles the creation of a meal
         *@param order the list of orders to be implemented
         *@param customer the customer the order came from

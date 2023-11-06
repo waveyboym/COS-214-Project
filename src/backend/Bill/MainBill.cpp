@@ -12,7 +12,6 @@ MainBill::MainBill(std::shared_ptr<Meal> meal, int split){
         sub->setBillTotal(subtotal);
         attachBill(sub);
     }
-    
 }
 
 std::string MainBill::toString(){
