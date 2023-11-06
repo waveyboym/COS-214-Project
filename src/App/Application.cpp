@@ -49,6 +49,7 @@ bool Application::removeClientFromListAndRestaurant(bool is_a_manager, std::stri
             if(this->connected_managers_table.contains((*it))){
                 this->connected_managers_table.erase((*it));
             }
+            std::cout << color::format_colour::make_colour(color::RED) <<"manager with uuid of: " << (*it) << " has left the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
             return true;
         }
         else{
@@ -59,12 +60,13 @@ bool Application::removeClientFromListAndRestaurant(bool is_a_manager, std::stri
         std::list<std::string>::iterator it = std::find(this->connected_customers.begin(), this->connected_customers.end(), client_uuid);
 
         if(it != this->connected_customers.end()){
-            this->connected_customers.erase(it);
             json req_obj = json::parse(
             "{"
                 "\"token\":\""+ client_uuid +"\""
             "}");
             this->restaurant->FRONTEND_processCustomerRestaurantExit(req_obj);
+            this->connected_customers.erase(it);
+            std::cout << color::format_colour::make_colour(color::RED) <<"customer with uuid of: " << client_uuid << " has left the restaurant" << color::format_colour::make_colour(color::DEFAULT) << std::endl;
             return true;
         }
         else{
@@ -283,7 +285,7 @@ std::string Application::processCustomerRequest(json req_obj)
     else if(req_obj["command"] == "change_emotional_state" && req_obj.contains("emotional_state")){
         return this->restaurant->FRONTEND_processCustomersEmotion(req_obj);
     }
-    else if(req_obj["command"] == "get_food"){
+    else if(req_obj["command"] == "update_check"){
         return this->restaurant->FRONTEND_processUpdateCheck(req_obj);
     }
     else if(req_obj["command"] == "checkout"){

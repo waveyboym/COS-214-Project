@@ -320,7 +320,6 @@ std::string Restaurant::FRONTEND_processUpdateCheck(json req_obj) {
         std::string id = req_obj["token"];
         if (this->customers.contains(id)) {
             // Update the customer's check, dont know how to do this, we are still waiting on backend stuff for this.
-
             return "{\"status\":\"success\",\"message\":\"Update check successful\"}";
         } else {
             return "{\"status\":\"error\",\"message\":\"Customer not found\"}";
@@ -370,10 +369,10 @@ std::string Restaurant::FRONTEND_processCustomersEmotion(json req_obj) {
             else if(emotionalState == "angry"){
                 curCustomer->setEmotionalState(EMOTIONAL_STATE::ANGRY);
             }
-            else if(emotionalState == "slightlyhappy"){
+            else if(emotionalState == "slightly_happy"){
                 curCustomer->setEmotionalState(EMOTIONAL_STATE::SLIGHTLY_HAPPY);
             }
-            else if(emotionalState == "slightlyangry"){
+            else if(emotionalState == "slightly_angry"){
                 curCustomer->setEmotionalState(EMOTIONAL_STATE::SLIGHTLY_ANGRY);
             }
             else if(emotionalState == "neutral"){
@@ -383,7 +382,7 @@ std::string Restaurant::FRONTEND_processCustomersEmotion(json req_obj) {
                 return "{\"status\":\"error\",\"message\":\"no such emotional state exists\"}";
             }
 
-            return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"change_emotional_state\",\"message\":\"" + emotionalState + "\"}";
+            return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"change_emotional_state\",\"emotional_state\":\"" + emotionalState + "\"}";
         }
         c_i->next();
     }

@@ -150,7 +150,7 @@ void Customer::setOrder(){
 
 void Customer::setFrontendOrder(std::vector<std::string> order_list){
     for(auto it = order_list.begin(); it != order_list.end(); ++it){
-        if(*it ==  "burger"){
+        if(*it == "burger"){
             order.push_back(std::make_shared<AddNormalBun>());
             order.push_back(std::make_shared<AddBeefBurgerPatty>());
             order.push_back(std::make_shared<AddCheese>());
@@ -158,23 +158,23 @@ void Customer::setFrontendOrder(std::vector<std::string> order_list){
             order.push_back(std::make_shared<AddLettuce>());
             order.push_back(std::make_shared<AddPickles>());
         }
-        else if(*it ==  "fries"){
+        else if(*it == "fries"){
             order.push_back(std::make_shared<AddFries>());
         }
         else if(*it == "steak"){
             order.push_back(std::make_shared<AddBeefBurgerPatty>());
             order.push_back(std::make_shared<AddBBQSauce>());
         }
-        else if(*it ==  "chicken"){
+        else if(*it == "chicken"){
             order.push_back(std::make_shared<AddChickenBurgerPatty>());
         }
-        else if(*it ==  "lettuce"){
+        else if(*it == "lettuce"){
             order.push_back(std::make_shared<AddLettuce>());
         }
-        else if(*it ==  "tomatoe"){
+        else if(*it == "tomatoe"){
             order.push_back(std::make_shared<AddTomato>());
         }
-        else if(*it ==  "salad"){
+        else if(*it == "salad"){
             order.push_back(std::make_shared<AddLettuce>());
             order.push_back(std::make_shared<AddMayo>());
             order.push_back(std::make_shared<AddOnion>());
@@ -184,6 +184,7 @@ void Customer::setFrontendOrder(std::vector<std::string> order_list){
     }
 
     this->has_decided = true;
+    this->has_ordered = true;
 }
 
 std::vector<std::shared_ptr<Order>> Customer::getOrder() const{
