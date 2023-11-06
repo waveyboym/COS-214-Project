@@ -364,7 +364,7 @@ std::string Restaurant::FRONTEND_processUpdateCheck(json req_obj) {
             //Update the customer's check, dont know how to do this, we are still waiting on backend stuff for this.
             //bro I can't even access the expected meal cooking time :sob
             std::string status_of_food = (this->customers[id]->getHasCompletedMeal() == true ? "completed" : "not completed");
-            return "{\"status\":\"success\",\"command\":\"update_check\",\"orderStatus\":\""+ status_of_food +"\",\"message\":\"Update check successful\"}";
+            return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"update_check\",\"orderStatus\":\""+ status_of_food +"\",\"message\":\"Update check successful\"}";
         } else {
             return "{\"status\":\"error\",\"message\":\"Customer not found\"}";
         }

@@ -293,6 +293,12 @@ std::string Application::processCustomerRequest(json req_obj)
         return this->restaurant->FRONTEND_processUpdateCheck(req_obj);
     }
     else if(req_obj["command"] == "checkout"){
+        std::string id = req_obj["token"];
+        std::list<std::string>::iterator it = std::find(this->connected_customers.begin(), this->connected_customers.end(), id);
+
+        if(it != this->connected_customers.end()){
+            this->connected_customers.erase(it);
+        }
         return this->restaurant->FRONTEND_processCheckOutCustomer(req_obj);
     }
     else{
