@@ -1,6 +1,6 @@
 /**
  * @file Order.hpp Order.cpp
- * @class Order.hpp
+ * @class Order
  * @author Lunga
  * @brief Order(Command), Abstract Class. Interface in Command Pattern
  */

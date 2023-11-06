@@ -1,7 +1,8 @@
 /**
  * @file AddMayo.hpp AddMayo.cpp
- * @class AddMayo.hpp
+ * @class AddMayo
  * @author Lunga
+ * @implements Order
  * @brief AddMayo, a ConcreteCommand of the Command(Order Class)
  */
 #ifndef ADDMAYO_HPP

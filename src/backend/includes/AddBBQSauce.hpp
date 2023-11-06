@@ -1,7 +1,8 @@
 /**
  * @file AddBBQSauce.hpp AddBBQSauce.cpp
- * @class AddBBQSauce.hpp
+ * @class AddBBQSauce
  * @author Lunga
+ * @implements Order
  * @brief AddBBQSauce, a ConcreteCommand of the Command(Order Class)
  */
 

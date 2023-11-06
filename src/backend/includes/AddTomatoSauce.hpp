@@ -1,7 +1,8 @@
 /**
  * @file AddTomatoSauce.hpp, AddTomatoSauce.cpp
- * @class AddTomatoSauce.hpp
+ * @class AddTomatoSauce
  * @author Lunga
+ * @implements Order
  * @brief AddTomatoSauce, a ConcreteCommand of the Command(Order Class)
  */
 #ifndef ADDTOMATOSAUCE_HPP
