@@ -297,18 +297,23 @@ std::string Restaurant::FRONTEND_processUpdateCheck(json req_obj) {
 }
 
 std::string Restaurant::FRONTEND_processCustomerOrder(json req_obj) {
-    if (req_obj.find("token") != req_obj.end()) {
-        std::vector<std::string> orders_items;
-        for (auto& elem : req_obj["order"]){
-            orders_items.push_back(elem["name"]);
+    std::vector<std::string> orders_items;
+    for (auto& elem : req_obj["order"]){
+        if(elem.contains("category")){
+            orders_items.push_back(elem["category"]);
         }
-        std::string id = req_obj["token"];
-        return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"create_order\",\"message\":\"""\"}";
+        else{
+            return "{\"status\":\"error\",\"message\":\"could not process order\"}";
+        }
     }
-    else {
-        return "{\"status\":\"error\",\"message\":\"could not process order\"}";
+    std::string id = req_obj["token"];
+    if(!this->customers.contains(id)){
+        return "{\"status\":\"error\",\"message\":\"this customer id does not exist\"}";
     }
+    this->customers[id]->setFrontendOrder(orders_items);
+    return "{\"status\":\"success\",\"player\":\"customer\",\"command\":\"create_order\",\"message\":\"""\"}";
 }
+
 
 
 

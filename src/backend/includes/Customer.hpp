@@ -169,6 +169,13 @@ class Customer : public People{
         *@return std::shared_ptr<Order>
         */
         std::vector<std::shared_ptr<Order>> getOrder() const;
+
+        /**
+        *@brief set the frontend Customer's order
+        *@param none
+        *@return void 
+        */
+        void setFrontendOrder(std::vector<std::string> order_list);
 };
 
 #endif
