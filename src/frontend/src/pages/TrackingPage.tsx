@@ -1,37 +1,79 @@
-import React, { useState, useEffect } from 'react';
-import { useWaiterStore, usefoodProcessingTimeStore } from '../stateStore';
+import { useState, useEffect } from 'react';
+import { useApiKeyStore, useCartStore, useSeatedStore } from '../stateStore';
 import { hero_bg } from '../assets';
-import { Navbar } from '../components';
+import { EmotionalStateTab, Navbar, TrackingComponent } from '../components';
+import { useSocket } from '../contexts';
+import PromptModal from './PromptModal';
+import { useNavigate } from 'react-router-dom';
 
+//when this page loads, it will make a socket request to the backend to get details about it's order(like all details)
+const TrackingPage = () => {
+  const [orderStatus, setOrderStatus] = useState<string>("not completed");
+  const { seated, setSeated } = useSeatedStore((state) => { return { seated: state.seated, setSeated: state.setSeated }; });
+  const { apikey } = useApiKeyStore((state) => { return { apikey: state.apikey }; });
+  const [showSplashPrompt, setShowSplashPrompt] = useState(false);
+  const { cleanCart } = useCartStore((state) => { return { cleanCart: state.cleanCart }; });
+  
+  const [emotionalState, setEmotionalState] = useState('neutral'); // Define and set emotionalState
+  const socket: WebSocket | null = useSocket();
+  const navigate = useNavigate();
 
-interface TrackingPageProps {
-  orderStatus: string;
-}
+  socket!.onmessage = function(event){
+    //the backend responds with the needed data
+    const json = JSON.parse(event.data);
+    
+    //navigate to the tracking - page here
+    if(json.status === "success" && json.player === "customer" && json.command === "seat_request"){
+      if(json.message === "seated"){
+        setSeated(true);
+      }
+      else{
+        setSeated(false);
+      }
+    }
+    else if(json.status === "success" && json.player === "customer" && json.command === "change_emotional_state"){
+      setEmotionalState(json.emotional_state);
+    }
+    else if(json.status === "success" && json.player === "customer" && json.command === "update_check"){
+      setOrderStatus(json.orderStatus);
+    }
+    else if(json.status === "success" && json.player === "customer" && json.command === "checkout"){
+      setSeated(false);
+      cleanCart();
+      navigate("/");
+    }
+    else{
+      console.log(json);
+    }
+  }
 
-const TrackingPage: React.FC<TrackingPageProps> = ({ orderStatus }) => {
-  const [ratingVal, setRatingVal] = useState<number>(0);
+  const requestSeat = function(setTo: boolean){
+    const json = { token: apikey, player: "customer", command: "seat_request", message: (setTo === true ? "seat" : "unseat")};
+    socket!.send(JSON.stringify(json));
+  }
+  
+  const updateMe = function(){
+    const json = { token: apikey, player: "customer", command: "update_check"};
+    socket!.send(JSON.stringify(json));
+  }
 
-  const {foodProcessingTime, setFoodProcessingTime } = usefoodProcessingTimeStore((state) => { return { foodProcessingTime: state.foodProcessingTime, setFoodProcessingTime: state.setFoodProcessingTime }; });
-  const {waiterName, setWaiterName } = useWaiterStore((state) => { return { waiterName: state.waiterName, setWaiterName: state.setWaiterName }; });
+  const checkMeOut = function(){
+    const json = { token: apikey, player: "customer", command: "checkout"};
+    socket!.send(JSON.stringify(json));
+  }
+
+  const setCustomerEmotionalState = function(newstate: string){
+    const json = { token: apikey, player: "customer", command: "change_emotional_state", emotional_state: newstate};
+    socket!.send(JSON.stringify(json));
+  }
 
   useEffect(() => {
-    if (foodProcessingTime > 0) {
-      const interval = setInterval(() => {
-        if (foodProcessingTime > 0) {
-          setFoodProcessingTime(foodProcessingTime - 1);
-        }
-      }, 1000);
+      const checkUpdate = function(){
+          updateMe();
+      }
+      checkUpdate();
+    }, []);
 
-      return () => clearInterval(interval);
-    }
-  }, [foodProcessingTime]);
-
-  const handleRatingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // Handle rating change logic here
-    const rating = Number(event.target.value);
-    //setRatingVal(rating);
-    // Update the rating in your state or send it to the backend
-  };
 
   return (
     <div className="sub_page">
@@ -39,13 +81,29 @@ const TrackingPage: React.FC<TrackingPageProps> = ({ orderStatus }) => {
           <div className="bg-box">
             <img src={hero_bg} alt="" />
           </div>
-          <Navbar route={"Tracking"} />
+          <Navbar route={"Tracking"} is_seated={seated} setIsSeated={requestSeat}/>
         </div>
-      <div className="col-sm-6 col-lg-4 all fries">
-        <h1>Order Tracking</h1>
+        <h1 style={{textAlign: "center"}}>Order Tracking</h1>
+          <TrackingComponent checkMeOut={checkMeOut} orderStatus={orderStatus} date={new Date().toString()} checkUpdate={updateMe}/>
+        <div style={{height: "20px"}}/>
+          
+      <EmotionalStateTab emotionalState={emotionalState} setEmotionalState={setCustomerEmotionalState} />
+    
+      {showSplashPrompt && (
+        // Render the modal or pop-up
+        <PromptModal onClose={() => setShowSplashPrompt(false)} />
+      )}
+    </div>
+  );
+}
+
+/*
+*
+ * 
+ * <div className="col-sm-6 col-lg-4 all fries">
         {foodProcessingTime > 0 ? (
           <div>
-            <h2>Assigned Waiter: {waiterName}</h2>
+            <h2>Assigned Waiter: {waitTime}</h2>
             <h2>Time Remaining: {foodProcessingTime} seconds</h2>
 
             <h2>Order Status:</h2>
@@ -64,24 +122,21 @@ const TrackingPage: React.FC<TrackingPageProps> = ({ orderStatus }) => {
               </div>
               
             </div>
+            
           </div>
+          
         ) : (
-          <h2>Your order is ready!</h2>
-        )}
+          <div>
+            <h2>Waiter time: {waitTime} seconds</h2>
+            <h2>Order Status: {orderStatus}</h2>
 
-        <div>
-          <h2>Rate Your Experience (1 - 5)</h2>
-          <input
-            type="number"
-            min="1"
-            max="5"
-            value={ratingVal}
-            onChange={handleRatingChange}
-          />
-        </div>
+            {orderStatus === 'Order Delivered' && (
+              <button onClick={handleCheckoutClick}>Proceed to Checkout</button>
+            )}
+          </div>
+        )}
       </div>
-    </div>
-  );
-};
+ */
+
 
 export default TrackingPage;

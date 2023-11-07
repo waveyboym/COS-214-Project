@@ -15,6 +15,7 @@ bool ConcreteMaitreD::unseatCustomer(std::list<std::shared_ptr<SingleTable>>& re
         std::shared_ptr<Table> table = std::dynamic_pointer_cast<Table>(s_t_i->currentItem());
         if(table != nullptr && table->isSeatedHere(customer_to_unseat)){
             table->unseatCustomer(customer_to_unseat);
+            customer_to_unseat->setIsSeated(false);
             if(table->isTableAvailable() && waiters.size() > 0 && waiters.find(table->getAssignedWaiterID()) != waiters.end()){
                 table->setIsAssignedAWaiter(false);
                 waiters[table->getAssignedWaiterID()]->setIsAssignedATable(false);
@@ -48,6 +49,7 @@ bool ConcreteMaitreD::seatCustomer(std::list<std::shared_ptr<SingleTable>>& rest
         std::shared_ptr<Table> table = std::dynamic_pointer_cast<Table>(s_t_i->currentItem());
         if(table != nullptr && table->isTableAvailable()){
             table->seatCustomer(customer_to_seat);
+            customer_to_seat->setIsSeated(true);
             return true;
         }
         s_t_i->next();
@@ -96,9 +98,10 @@ bool ConcreteMaitreD::assignWaiterToTable(std::list<std::shared_ptr<SingleTable>
 
     while(!s_t_i->isDone()){
         std::shared_ptr<Table> table = std::dynamic_pointer_cast<Table>(s_t_i->currentItem());
-        if(table != nullptr && !table->isAssignedAWaiter() && !waiter->isAssignedATable()){
+        if(table != nullptr && !table->isAssignedAWaiter() && !waiter->isAssignedATable() && !table->isTableAvailable()){
             //assign the waiter the table
             waiter->assignID(table->getTableID());
+            waiter->assignTable(table);
             waiter->setIsAssignedATable(true);
             
             table->setWaiterID(waiter->getUUID());
@@ -110,9 +113,10 @@ bool ConcreteMaitreD::assignWaiterToTable(std::list<std::shared_ptr<SingleTable>
 
     while(!j_t_i->isDone()){
         std::shared_ptr<Table> table = std::dynamic_pointer_cast<Table>(j_t_i->currentItem());
-        if(table != nullptr && !table->isAssignedAWaiter() && !waiter->isAssignedATable()){
+        if(table != nullptr && !table->isAssignedAWaiter() && !waiter->isAssignedATable() && !table->isTableAvailable()){
             //assign the waiter the table
             waiter->assignID(table->getTableID());
+            waiter->assignTable(table);
             waiter->setIsAssignedATable(true);
 
             table->setWaiterID(waiter->getUUID());
@@ -123,14 +127,4 @@ bool ConcreteMaitreD::assignWaiterToTable(std::list<std::shared_ptr<SingleTable>
     }
 
     return false;
-}
-
-bool ConcreteMaitreD::reserveTable(std::shared_ptr<Table> T,std::string C_uid){
-    if(T->getReserverUUID() ==""){
-        T->setReserverUUID(C_uid);
-        return true;
-    }
-    else {
-        return false;
-    }
 }
