@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['keep_5fstack_0',['keep_stack',['../classdetail_1_1json__sax__dom__callback__parser.html#a8ac67a5c0011099824f9f71c213c132d',1,'detail::json_sax_dom_callback_parser']]],
-  ['key_5fkeep_5fstack_1',['key_keep_stack',['../classdetail_1_1json__sax__dom__callback__parser.html#a71678f93863289c4c9e6b62e6b562637',1,'detail::json_sax_dom_callback_parser']]],
-  ['kitchen_2',['kitchen',['../classRestaurant.html#ad7d074c9cc91d9f0d41e6d917046dc97',1,'Restaurant']]]
+  ['name_0',['name',['../classMeal.html#a350922f1e75481f3887dea8a32de4a4d',1,'Meal']]],
+  ['next_1',['next',['../classAbstractChef.html#a282524410e8cf4982e0c0adbf344d2ba',1,'AbstractChef::next'],['../classBunChef.html#a7a5cdb93d93699ef094f007ad066736a',1,'BunChef::next'],['../classChef.html#a86e54675bf58d3426f593ec1379f7197',1,'Chef::next'],['../classHeadChef.html#ac89748954150169116ae8a5859e962a9',1,'HeadChef::next']]],
+  ['num_5fseated_5fcustomers_2',['num_seated_customers',['../classRestaurant.html#a23777fdfc301eb665d0b6fd629350917',1,'Restaurant']]]
 ];

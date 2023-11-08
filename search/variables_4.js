@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['empty_5fstr_0',['empty_str',['../classdetail_1_1iteration__proxy__value.html#a5236087d3cfc2d7cefb42629739bc23a',1,'detail::iteration_proxy_value']]],
-  ['error_5fhandler_1',['error_handler',['../classdetail_1_1serializer.html#a79d25c7416dd71a0db8b10988ec360f7',1,'detail::serializer']]],
-  ['error_5fmessage_2',['error_message',['../classdetail_1_1lexer.html#a8187f7263527e07e23e6fae88f1369ee',1,'detail::lexer']]],
-  ['errored_3',['errored',['../classdetail_1_1json__sax__dom__parser.html#a132be8ae1df3f2f2bba3f38cf707c17d',1,'detail::json_sax_dom_parser::errored'],['../classdetail_1_1json__sax__dom__callback__parser.html#a3a08271b55be56a348dfafce4d0fce4e',1,'detail::json_sax_dom_callback_parser::errored']]]
+  ['is_5fa_5ffrontend_5fcustomer_0',['is_a_frontend_customer',['../classCustomer.html#a83fa8339273b7679c06e570d9e4784a3',1,'Customer']]],
+  ['is_5fassigned_5ftable_1',['is_assigned_table',['../classWaiter.html#a53e6a97eb9dcad36c783d794ef85e668',1,'Waiter']]],
+  ['is_5fseated_2',['is_seated',['../classCustomer.html#a0dd3751bee712e384c4fee16c7423cf0',1,'Customer']]]
 ];

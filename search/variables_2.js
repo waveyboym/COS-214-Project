@@ -1,19 +1,14 @@
 var searchData=
 [
-  ['callback_0',['callback',['../classdetail_1_1parser.html#ad8f31cd8002b1c56177afcaa9726a9cf',1,'detail::parser::callback'],['../classdetail_1_1json__sax__dom__callback__parser.html#a1a9900cb7d01f471ce12d2b5754320f8',1,'detail::json_sax_dom_callback_parser::callback']]],
-  ['chain_5fof_5fchefs_1',['chain_of_chefs',['../classKitchen.html#aca9b0d85bbfb991d319ab4ed83756e9e',1,'Kitchen']]],
-  ['chars_5fread_2',['chars_read',['../classdetail_1_1binary__reader.html#a1020433fa639ee6d3766d7f6465d7131',1,'detail::binary_reader']]],
-  ['chars_5fread_5fcurrent_5fline_3',['chars_read_current_line',['../structdetail_1_1position__t.html#a6548d584bd03d1d47bfcd7cf8b1fb0c6',1,'detail::position_t']]],
-  ['chars_5fread_5ftotal_4',['chars_read_total',['../structdetail_1_1position__t.html#ac4d220d61ce61eeffbea40985727a3b0',1,'detail::position_t']]],
-  ['completed_5fmeals_5',['completed_meals',['../classKitchen.html#afa76952c9c0d84b4a006c07410f0b0f4',1,'Kitchen']]],
-  ['connected_5fclients_6',['connected_clients',['../classApplication.html#a73f193fa1af6a32474c5043b6860f920',1,'Application']]],
-  ['connected_5fcustomers_7',['connected_customers',['../classApplication.html#a32a1087b87aa3612eb480470cbc496dd',1,'Application']]],
-  ['connected_5fmanagers_8',['connected_managers',['../classApplication.html#af1de673ece1c27c586c5f1a014066888',1,'Application']]],
-  ['connected_5fmanagers_5ftable_9',['connected_managers_table',['../classApplication.html#ab7be131aaa83e91e1219a05cf14cafb2',1,'Application']]],
-  ['container_10',['container',['../classdetail_1_1iteration__proxy.html#a0ef8ad58f5be05e31f1af50092cf94c8',1,'detail::iteration_proxy']]],
-  ['cost_11',['cost',['../classMeal.html#a3fb5a160681f8ec0651bbcf37662e9fa',1,'Meal']]],
-  ['current_12',['current',['../classBillIterator.html#abcc99101d9e51822b35473fe1c67fb9e',1,'BillIterator::current'],['../classCustomer.html#aca50c52d0ecbd0d599406439edaad903',1,'Customer::current'],['../classCustomerIterator.html#a691ac56ac521e3dc1deca195e5943449',1,'CustomerIterator::current'],['../classJoinedTableIterator.html#ad95acd2f45dc68854d25480c84747e7f',1,'JoinedTableIterator::current'],['../classdetail_1_1lexer.html#a3b20c55a8266c1b4e43b396f00427e61',1,'detail::lexer::current'],['../classdetail_1_1binary__reader.html#a933e3ceca7a616980ae13f3c559c84ba',1,'detail::binary_reader::current'],['../classSingleTableIterator.html#a43b957054072b5705969b2f849645533',1,'SingleTableIterator::current'],['../classWaiterIterator.html#ae22731b3bb42b08b3389722a110d966d',1,'WaiterIterator::current']]],
-  ['currentemotionalstate_13',['currentEmotionalState',['../classCustomer.html#a81faa510046e8371b397ccf5fc0f81b8',1,'Customer']]],
-  ['customer_5flist_14',['customer_list',['../classJoinedTable.html#acdbaf6a4082a7d50d3f174667f36d511',1,'JoinedTable::customer_list'],['../classSingleTable.html#a2ceebe25abb1dc93d94b0227f603a48e',1,'SingleTable::customer_list']]],
-  ['customers_15',['customers',['../classRestaurant.html#a9bc83acdef8ef9658fbde25ce30cb181',1,'Restaurant']]]
+  ['chain_5fof_5fchefs_0',['chain_of_chefs',['../classKitchen.html#aca9b0d85bbfb991d319ab4ed83756e9e',1,'Kitchen']]],
+  ['completed_5fmeals_1',['completed_meals',['../classKitchen.html#afa76952c9c0d84b4a006c07410f0b0f4',1,'Kitchen']]],
+  ['connected_5fclients_2',['connected_clients',['../classApplication.html#a73f193fa1af6a32474c5043b6860f920',1,'Application']]],
+  ['connected_5fcustomers_3',['connected_customers',['../classApplication.html#a32a1087b87aa3612eb480470cbc496dd',1,'Application']]],
+  ['connected_5fmanagers_4',['connected_managers',['../classApplication.html#af1de673ece1c27c586c5f1a014066888',1,'Application']]],
+  ['connected_5fmanagers_5ftable_5',['connected_managers_table',['../classApplication.html#ab7be131aaa83e91e1219a05cf14cafb2',1,'Application']]],
+  ['cost_6',['cost',['../classMeal.html#a3fb5a160681f8ec0651bbcf37662e9fa',1,'Meal']]],
+  ['current_7',['current',['../classCustomer.html#aca50c52d0ecbd0d599406439edaad903',1,'Customer::current'],['../classWaiterIterator.html#ae22731b3bb42b08b3389722a110d966d',1,'WaiterIterator::current'],['../classSingleTableIterator.html#a43b957054072b5705969b2f849645533',1,'SingleTableIterator::current'],['../classJoinedTableIterator.html#ad95acd2f45dc68854d25480c84747e7f',1,'JoinedTableIterator::current'],['../classCustomerIterator.html#a691ac56ac521e3dc1deca195e5943449',1,'CustomerIterator::current'],['../classBillIterator.html#abcc99101d9e51822b35473fe1c67fb9e',1,'BillIterator::current']]],
+  ['currentemotionalstate_8',['currentEmotionalState',['../classCustomer.html#a81faa510046e8371b397ccf5fc0f81b8',1,'Customer']]],
+  ['customer_5flist_9',['customer_list',['../classJoinedTable.html#acdbaf6a4082a7d50d3f174667f36d511',1,'JoinedTable::customer_list'],['../classSingleTable.html#a2ceebe25abb1dc93d94b0227f603a48e',1,'SingleTable::customer_list']]],
+  ['customers_10',['customers',['../classRestaurant.html#a9bc83acdef8ef9658fbde25ce30cb181',1,'Restaurant']]]
 ];

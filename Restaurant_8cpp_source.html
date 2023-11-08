@@ -188,9 +188,9 @@ $(document).ready(function(){initNavTree('Restaurant_8cpp_source.html',''); init
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    std::seed_seq seq(std::begin(seed_data), std::end(seed_data));</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    std::mt19937 generator(seq);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_class" href="classuuids_1_1basic__uuid__random__generator.html">uuids::uuid_random_generator</a> gen{generator};</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    uuids::uuid_random_generator gen{generator};</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_class" href="classuuids_1_1uuid.html">uuids::uuid</a> <span class="keyword">const</span> idUUID = gen();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    uuids::uuid <span class="keyword">const</span> idUUID = gen();</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    std::string <span class="keywordtype">id</span> = uuids::to_string(idUUID);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
@@ -908,8 +908,6 @@ $(document).ready(function(){initNavTree('Restaurant_8cpp_source.html',''); init
 <div class="ttc" id="aclassRestaurant_html_af156f1f8cfc290f3ca9c84a1f3994ed3"><div class="ttname"><a href="classRestaurant.html#af156f1f8cfc290f3ca9c84a1f3994ed3">Restaurant::FRONTEND_processCustomerRequestSeat</a></div><div class="ttdeci">std::string FRONTEND_processCustomerRequestSeat(json req_obj)</div><div class="ttdoc">processes this customers requesting a seat</div><div class="ttdef"><b>Definition</b> Restaurant.cpp:470</div></div>
 <div class="ttc" id="aclassRestaurant_html_af72b2ed0971d325dc5d5dbf91e8462b5"><div class="ttname"><a href="classRestaurant.html#af72b2ed0971d325dc5d5dbf91e8462b5">Restaurant::Restaurant</a></div><div class="ttdeci">Restaurant()</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition</b> Restaurant.cpp:4</div></div>
 <div class="ttc" id="aclasscolor_1_1format__colour_html_aa343e0f94c6d019c410b9152e0b59633"><div class="ttname"><a href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a></div><div class="ttdeci">static std::string make_colour(ColorCode cc)</div><div class="ttdoc">formatting a colour for the command line</div><div class="ttdef"><b>Definition</b> color.cpp:3</div></div>
-<div class="ttc" id="aclassuuids_1_1basic__uuid__random__generator_html"><div class="ttname"><a href="classuuids_1_1basic__uuid__random__generator.html">uuids::basic_uuid_random_generator</a></div><div class="ttdef"><b>Definition</b> uuid.h:740</div></div>
-<div class="ttc" id="aclassuuids_1_1uuid_html"><div class="ttname"><a href="classuuids_1_1uuid.html">uuids::uuid</a></div><div class="ttdef"><b>Definition</b> uuid.h:389</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

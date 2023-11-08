@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['decimal_5fpoint_0',['decimal_point',['../classdetail_1_1serializer.html#a5f01fcbf64cb1e5f36d8853ebcd96412',1,'detail::serializer']]],
-  ['decimal_5fpoint_5fchar_1',['decimal_point_char',['../classdetail_1_1lexer.html#a58b33ff095052c2463255f1e121db74e',1,'detail::lexer']]],
-  ['discarded_2',['discarded',['../classdetail_1_1json__sax__dom__callback__parser.html#ab6586c88a5c4de92098d7682fdfab591',1,'detail::json_sax_dom_callback_parser']]]
+  ['has_5fcompleted_5fmeal_0',['has_completed_meal',['../classCustomer.html#a5921c6229a95b5b0665e6fe9246e3dd6',1,'Customer']]],
+  ['has_5fcompleted_5fmeals_1',['has_completed_meals',['../classKitchen.html#a0836620322de1bee26b53b99652383f0',1,'Kitchen']]],
+  ['has_5fdecided_2',['has_decided',['../classCustomer.html#a628eef3d6d97567a808110057e6efc88',1,'Customer']]],
+  ['has_5fordered_3',['has_ordered',['../classCustomer.html#ac8e260382ed523d282c8420ddffd1a2e',1,'Customer']]],
+  ['has_5forders_4',['has_orders',['../classWaiter.html#a224e0850fed40abd94bb5c5ba2da3319',1,'Waiter']]],
+  ['has_5fstarted_5feating_5fmeal_5',['has_started_eating_meal',['../classCustomer.html#af371412d53d062a046a094a6cb76cbe1',1,'Customer']]]
 ];

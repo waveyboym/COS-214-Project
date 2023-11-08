@@ -41,7 +41,6 @@ var dir_65ce8eb227eb3fbe68a41f36580d8fba =
     [ "Ingredient.hpp", "Ingredient_8hpp.html", "Ingredient_8hpp" ],
     [ "JoinedTable.hpp", "JoinedTable_8hpp.html", "JoinedTable_8hpp" ],
     [ "JoinedTableIterator.hpp", "JoinedTableIterator_8hpp.html", "JoinedTableIterator_8hpp" ],
-    [ "json.hpp", "json_8hpp_source.html", null ],
     [ "Kitchen.hpp", "Kitchen_8hpp.html", "Kitchen_8hpp" ],
     [ "MainBill.hpp", "MainBill_8hpp.html", "MainBill_8hpp" ],
     [ "MaitreD.hpp", "MaitreD_8hpp.html", "MaitreD_8hpp" ],
@@ -58,7 +57,6 @@ var dir_65ce8eb227eb3fbe68a41f36580d8fba =
     [ "SlightlyHappy.hpp", "SlightlyHappy_8hpp.html", "SlightlyHappy_8hpp" ],
     [ "SubBill.hpp", "SubBill_8hpp.html", "SubBill_8hpp" ],
     [ "Table.hpp", "Table_8hpp.html", "Table_8hpp" ],
-    [ "uuid.h", "uuid_8h_source.html", null ],
     [ "Waiter.hpp", "Waiter_8hpp.html", "Waiter_8hpp" ],
     [ "WaiterIterator.hpp", "WaiterIterator_8hpp.html", "WaiterIterator_8hpp" ]
 ];

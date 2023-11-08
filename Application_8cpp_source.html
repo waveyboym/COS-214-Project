@@ -122,9 +122,9 @@ $(document).ready(function(){initNavTree('Application_8cpp_source.html',''); ini
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    std::seed_seq seq(std::begin(seed_data), std::end(seed_data));</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::mt19937 generator(seq);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_class" href="classuuids_1_1basic__uuid__random__generator.html">uuids::uuid_random_generator</a> gen{generator};</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    uuids::uuid_random_generator gen{generator};</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="classuuids_1_1uuid.html">uuids::uuid</a> <span class="keyword">const</span> idUUID = gen();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    uuids::uuid <span class="keyword">const</span> idUUID = gen();</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::string <span class="keywordtype">id</span> = uuids::to_string(idUUID);</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
@@ -502,8 +502,6 @@ $(document).ready(function(){initNavTree('Application_8cpp_source.html',''); ini
 <div class="ttc" id="aclassApplication_html_af1de673ece1c27c586c5f1a014066888"><div class="ttname"><a href="classApplication.html#af1de673ece1c27c586c5f1a014066888">Application::connected_managers</a></div><div class="ttdeci">std::list&lt; std::string &gt; connected_managers</div><div class="ttdoc">this stores the uuid of connected managers</div><div class="ttdef"><b>Definition</b> Application.hpp:92</div></div>
 <div class="ttc" id="aclassRestaurant_html_a0ebcc00074962105477a6714945fb312"><div class="ttname"><a href="classRestaurant.html#a0ebcc00074962105477a6714945fb312">Restaurant::instance</a></div><div class="ttdeci">static std::shared_ptr&lt; Restaurant &gt; instance()</div><div class="ttdoc">gets an instance of this restaurant and returns it as a shared pointer</div><div class="ttdef"><b>Definition</b> Restaurant.cpp:71</div></div>
 <div class="ttc" id="aclasscolor_1_1format__colour_html_aa343e0f94c6d019c410b9152e0b59633"><div class="ttname"><a href="classcolor_1_1format__colour.html#aa343e0f94c6d019c410b9152e0b59633">color::format_colour::make_colour</a></div><div class="ttdeci">static std::string make_colour(ColorCode cc)</div><div class="ttdoc">formatting a colour for the command line</div><div class="ttdef"><b>Definition</b> color.cpp:3</div></div>
-<div class="ttc" id="aclassuuids_1_1basic__uuid__random__generator_html"><div class="ttname"><a href="classuuids_1_1basic__uuid__random__generator.html">uuids::basic_uuid_random_generator</a></div><div class="ttdef"><b>Definition</b> uuid.h:740</div></div>
-<div class="ttc" id="aclassuuids_1_1uuid_html"><div class="ttname"><a href="classuuids_1_1uuid.html">uuids::uuid</a></div><div class="ttdef"><b>Definition</b> uuid.h:389</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
